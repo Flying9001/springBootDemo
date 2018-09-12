@@ -1,10 +1,32 @@
 ##ignore this file##
-**/target
+
+### STS ###
+.apt_generated
 .classpath
+.factorypath
 .project
 .settings
-.idea 
- ##filter databfile、sln file##
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+## all target dir ##
+**/target
+
+##filter databfile、sln file##
 *.iml
 *.mdb  
 *.ldb  
