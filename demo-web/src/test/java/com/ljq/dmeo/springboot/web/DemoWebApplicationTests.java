@@ -1,4 +1,4 @@
-package com.ljq.dmeo.springboot;
+package com.ljq.dmeo.springboot.web;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringbootApplicationTests {
+public class DemoWebApplicationTests {
 
     @Test
     public void contextLoads() {
