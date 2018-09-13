@@ -8,7 +8,7 @@ Project note documentation in the `doc` directory.
 
 Quick start :  
 
-[quick start with intellij idea ](doc/1.quick_start_with_intellij_idea.md )  
+[1.quick start with intellij idea ](doc/1.quick_start_with_intellij_idea.md )  
 
 
 
@@ -18,7 +18,9 @@ Quick start :
 
 快速搭建:  
 
-[quick start with intellij idea ](doc/1.quick_start_with_intellij_idea.md )  
+[1.quick start with intellij idea ](doc/1.quick_start_with_intellij_idea.md )   
+
+[2.springBoot创建maven_web多模块项目](doc/2.springBoot创建maven_web多模块项目.md)  
 
 
 
