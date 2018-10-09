@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljq.demo.springboot.dao.user.UserDao">
+
+    <!-- 用户查询结果 userResultMap-->
+    <resultMap id="userResultMap" type="com.ljq.demo.springboot.entity.UserDO">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="user_passcode" property="userPasscode" jdbcType="VARCHAR"/>
+        <result column="user_email" property="userEmail" jdbcType="VARCHAR"/>
+        <result column="user_insert_time" property="userInsertTime" jdbcType="VARCHAR"/>
+        <result column="user_update_time" property="userUpdateTime" jdbcType="VARCHAR"/>
+        <result column="user_status" property="userStatus" jdbcType="VARCHAR"/>
+        <result column="user_version" property="userVersion" jdbcType="INTEGER"/>
+        <result column="user_del" property="userDel" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 查询所有用户列表 -->
+    <select id="queryList" parameterType="java.util.Map" resultMap="userResultMap">
+        select u.id, u.user_name, u.user_passcode, u.user_email, u.user_insert_time, u.user_update_time, u.user_status,
+            u.user_version, u.user_del
+        from `user` u
+        where u.user_del = 0
+        <choose>
+            <when test="query != null and query.sidx != null and query.sidx.trim() != ''">
+                order by ${query.sidx} ${query.order}
+            </when>
+            <otherwise>
+                order by id desc
+            </otherwise>
+        </choose>
+        <if test="query != null and query.offset != null and query.limit != null">
+            limit #{query.offset}, #{query.limit}
+        </if>
+    </select>
+
+
+
+
+</mapper>

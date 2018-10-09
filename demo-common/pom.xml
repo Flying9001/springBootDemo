@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ljq.demo</groupId>
-    <artifactId>demo-model</artifactId>
+    <artifactId>demo-common</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-    <name>demo-model</name>
+    <name>demo-common</name>
 
     <parent>
         <artifactId>springboot</artifactId>
