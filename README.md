@@ -22,7 +22,7 @@ Quick start :
 
 [2.springBoot创建maven_web多模块项目](doc/2.springBoot创建maven_web多模块项目.md)  
 
-
+[3.springBoot 与 mybatis mysql 整合](doc/3.springBoot与mybatis_mysql整合.md "3.springBoot与mybatis_mysql整合.md")  
 
 
 

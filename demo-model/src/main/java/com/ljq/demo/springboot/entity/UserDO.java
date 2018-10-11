@@ -6,7 +6,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @Description: 用户 DTO
+ * @Description: 用户 DO
  * @Author: junqiang.lu
  * @Date: 2018/9/29
  */
