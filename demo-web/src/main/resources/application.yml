@@ -2,6 +2,17 @@
 server:
   port: 8088
 
+# spring cloud
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
 ## datasource
 spring:
     datasource:
@@ -10,6 +21,12 @@ spring:
       username: root
       password: sasa
       driver-class-name: com.mysql.jdbc.Driver
+    application:
+      name: demo-server
+
+
+
+
 
 ## mybatis
 mybatis:
