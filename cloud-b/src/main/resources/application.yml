@@ -1,0 +1,25 @@
+# spring cloud module B
+
+# spring config
+spring:
+  application:
+    name: cloud-b
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: demo-server
+
+# tomcat server
+server:
+  port: 8092
+
+## spring cloud eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8088/eureka/
+
+
+
+

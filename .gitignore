@@ -1,61 +1,61 @@
 ##ignore this file##
 
 ### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+**.apt_generated
+**.classpath
+**.factorypath
+**.project
+**.settings
+**.springBeans
+**.sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+**.idea
+**.iws
+**.iml
+**.ipr
 
 ### NetBeans ###
-/nbproject/private/
-/build/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+**/nbproject/private/
+**/build/
+**/nbbuild/
+**/dist/
+**/nbdist/
+**/.nb-gradle/
 
 ## all target dir ##
 **/target
 
 ##filter databfile、sln file##
-*.iml
-*.mdb  
-*.ldb  
-*.sln    
+**.iml
+**.mdb
+**.ldb
+**.sln
 ##class file##
-*.com  
-*.class  
-*.dll  
-*.exe  
-*.o  
-*.so  
+**.com
+**.class
+**.dll
+**.exe
+**.o
+**.so
 # compression file
-*.7z  
-*.dmg  
-*.gz  
-*.iso  
-*.jar  
-*.rar  
-*.tar  
-*.zip  
-*.via
-*.tmp
-*.err 
+**.7z
+**.dmg
+**.gz
+**.iso
+**.jar
+**.rar
+**.tar
+**.zip
+**.via
+**.tmp
+**.err
 # OS generated files #  
-.DS_Store  
-.DS_Store?  
-._*  
-.Spotlight-V100  
-.Trashes  
-Icon?  
-ehthumbs.db  
-Thumbs.db
+**.DS_Store
+**.DS_Store?
+**._*
+**.Spotlight-V100
+**.Trashes
+**Icon?
+**ehthumbs.db
+**Thumbs.db
