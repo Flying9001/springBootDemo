@@ -1,4 +1,4 @@
-# spring cloud module A
+# spring cloud module C
 
 # spring config
 spring:
@@ -15,7 +15,7 @@ spring:
 
 # tomcat server
 server:
-  port: 8091
+  port: 8093
 
 ## spring cloud eureka
 eureka:

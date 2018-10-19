@@ -21,5 +21,18 @@
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 	</properties>
 
+	<!--only in those modules that you want to run, but not in the parent pom-->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 
 </project>

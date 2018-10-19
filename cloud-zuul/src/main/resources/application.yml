@@ -4,6 +4,9 @@
 spring:
   application:
     name: cloud-zuul
+  devtools:
+    restart:
+      enabled: false
 
 ## tomcat server
 server:
@@ -16,9 +19,7 @@ eureka:
       defaultZone: http://127.0.0.1:8088/eureka/
 
 ## zuul config
-## ±íÃ÷Ö»Òª·ÃÎÊÒÔ '/api-a/' ¿ªÍ·µÄ¶à²ãÄ¿Â¼¶¼¿ÉÒÔÂ·ÓÉµ½ id Îª 'demo-server' µÄ·şÎñÉÏ
-  zuul:
-   routes:
-     users:
-       path: /api/**
-       serviceId: demo-server
+## è¡¨æ˜åªè¦è®¿é—®ä»¥ '/api-cloud/' å¼€å¤´çš„å¤šå±‚ç›®å½•éƒ½å¯ä»¥è·¯ç”±åˆ° id ä¸º 'cloud-service' çš„æœåŠ¡ä¸Š
+zuul:
+  routes:
+    cloud-service: /api-cloud/**

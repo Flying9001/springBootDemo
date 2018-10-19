@@ -3,7 +3,10 @@
 # spring config
 spring:
   application:
-    name: cloud-b
+    name: cloud-service
+  devtools:
+    restart:
+      enabled: false
   cloud:
     config:
       discovery:

@@ -22,7 +22,7 @@ spring:
       password: sasa
       driver-class-name: com.mysql.jdbc.Driver
     application:
-      name: demo-server
+      name: demo-server  # spring cloud server center ID
 
 
 
