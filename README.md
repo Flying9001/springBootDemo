@@ -26,7 +26,7 @@ Quick start :
 
 [4.基于springBoot2.0创建springCloud2.0项目](doc/4.基于springBoot2.0创建springCloud2.0项目.md "4.基于springBoot2.0创建springCloud2.0项目.md")  
 
-
+[5.springBoot配置多环境.md](doc/5.springBoot配置多环境.md "doc/5.springBoot配置多环境.md")
 
 
 
