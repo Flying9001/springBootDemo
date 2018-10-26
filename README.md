@@ -8,7 +8,7 @@ Project note documentation in the `doc` directory.
 
 Quick start :  
 
-[1.quick start with intellij idea ](doc/1.quick_start_with_intellij_idea.md )  
+[1.quick start with intellij idea----2018-09-07](doc/1.quick_start_with_intellij_idea.md )  
 
 
 
@@ -18,15 +18,17 @@ Quick start :
 
 快速搭建:  
 
-[1.quick start with intellij idea ](doc/1.quick_start_with_intellij_idea.md )   
+[1.quick start with intellij idea----2018-09-07](doc/1.quick_start_with_intellij_idea.md )   
 
-[2.springBoot创建maven_web多模块项目](doc/2.springBoot创建maven_web多模块项目.md)  
+[2.springBoot创建maven_web多模块项目----2018-09-13](doc/2.springBoot创建maven_web多模块项目.md)  
 
-[3.springBoot 与 mybatis mysql 整合](doc/3.springBoot与mybatis_mysql整合.md "3.springBoot与mybatis_mysql整合.md")  
+[3.springBoot 与 mybatis mysql 整合----2018-10-09](doc/3.springBoot与mybatis_mysql整合.md "3.springBoot与mybatis_mysql整合.md")  
 
-[4.基于springBoot2.0创建springCloud2.0项目](doc/4.基于springBoot2.0创建springCloud2.0项目.md "4.基于springBoot2.0创建springCloud2.0项目.md")  
+[4.基于springBoot2.0创建springCloud2.0项目----2018-10-19](doc/4.基于springBoot2.0创建springCloud2.0项目.md "4.基于springBoot2.0创建springCloud2.0项目.md")  
 
-[5.springBoot配置多环境.md](doc/5.springBoot配置多环境.md "doc/5.springBoot配置多环境.md")
+[5.springBoot配置多环境----2018-10-23](doc/5.springBoot配置多环境.md "doc/5.springBoot配置多环境.md")
+
+[6.解决springBoot项目通过war包方式部署到外部服务器tomcat报404异常的问题---2018-10-26](doc/6.解决springBoot项目通过war包方式部署到外部服务器tomcat报404异常的问题.md "doc/6.解决springBoot项目通过war包方式部署到外部服务器tomcat报404异常的问题.md")  
 
 
 
