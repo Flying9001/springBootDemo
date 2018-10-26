@@ -33,11 +33,19 @@
             <artifactId>demo-common</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <!-- 排除内置tomcat容器，导出成war包可以让外部容器运行spring-boot项目-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <!-- provided表明该包只在编译和测试的时候用 -->
+            <scope>provided</scope>
+        </dependency>
 
     </dependencies>
 
     <!--only in those modules that you want to run, but not in the parent pom-->
     <build>
+        <finalName>springbootdemo</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
