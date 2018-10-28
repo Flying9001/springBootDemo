@@ -32,5 +32,7 @@ Quick start :
 
 [7.springBoot读取yml/properties配置文件---2018-10-28](doc/7.springBoot读取yml_properties配置文件.md "doc/7.springBoot读取yml_properties配置文件.md")  
 
+[8.springBoot适配MySQL8.0,spring boot 连接不上 mysql 8.0---2018-10-28](doc/8.springBoot适配MySQL8.0.md "doc/8.springBoot适配MySQL8.0.md")  
+
 
 
