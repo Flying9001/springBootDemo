@@ -30,5 +30,7 @@ Quick start :
 
 [6.解决springBoot项目通过war包方式部署到外部服务器tomcat报404异常的问题---2018-10-26](doc/6.解决springBoot项目通过war包方式部署到外部服务器tomcat报404异常的问题.md "doc/6.解决springBoot项目通过war包方式部署到外部服务器tomcat报404异常的问题.md")  
 
+[7.springBoot读取yml/properties配置文件---2018-10-28](doc/7.springBoot读取yml_properties配置文件.md "doc/7.springBoot读取yml_properties配置文件.md")  
+
 
 
