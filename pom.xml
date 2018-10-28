@@ -33,6 +33,7 @@
         <java.version>1.8</java.version>
         <jackson>2.9.6</jackson>
         <spring.cloud>Finchley.SR1</spring.cloud>
+        <mysql.driver>8.0.13</mysql.driver>
         <druid>1.1.10</druid>
     </properties>
 
@@ -88,6 +89,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.driver}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
