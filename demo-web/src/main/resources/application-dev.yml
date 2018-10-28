@@ -7,3 +7,17 @@ spring:
       &useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=true&allowMultiQueries=true&autoReconnect=true"
     username: root
     password: sasa
+
+# yml demo
+person:
+  name: Tom
+  age: 40
+  parent:
+    mother:
+      name: Lily
+      age: 65
+    father:
+      name: Bob
+      age: 68
+
+
