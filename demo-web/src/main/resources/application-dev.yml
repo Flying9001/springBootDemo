@@ -1,12 +1,25 @@
 ## environment-dev
 
-## datasource
 spring:
+  ## datasource
   datasource:
     url: "jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true\
       &useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=true&allowMultiQueries=true&autoReconnect=true"
     username: root
     password: sasa
+  # redis
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 7749
+    password: demo@apq
+    timeout: 10000ms
+    jedis:
+      pool:
+        max-active: 200
+        max-idle: 500
+        min-idle: 50
+        max-wait: 100s
 
 # yml demo
 person:

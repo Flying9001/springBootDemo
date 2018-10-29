@@ -28,11 +28,6 @@
             <artifactId>demo-service</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.ljq.demo</groupId>
-            <artifactId>demo-common</artifactId>
-            <version>1.0.0</version>
-        </dependency>
         <!-- 排除内置tomcat容器，导出成war包可以让外部容器运行spring-boot项目-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
