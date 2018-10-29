@@ -34,5 +34,9 @@ Quick start :
 
 [8.springBoot适配MySQL8.0,spring boot 连接不上 mysql 8.0---2018-10-28](doc/8.springBoot适配MySQL8.0.md "doc/8.springBoot适配MySQL8.0.md")  
 
+[9.spring Boot 2.0 整合 redis---2018-10-29](doc/9.springBoot2.0整合redis.md "doc/9.springBoot2.0整合redis.md")  
+
+
+
 
 
