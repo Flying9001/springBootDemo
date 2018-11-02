@@ -36,6 +36,8 @@ Quick start :
 
 [9.spring Boot 2.0 整合 redis---2018-10-29](doc/9.springBoot2.0整合redis.md "doc/9.springBoot2.0整合redis.md")  
 
+[10.spring boot 2.0 使用 AOP 打印 controller 层出入参日志---2018-11-02](doc/10.springBoot2.0使用AOP打印controller层出入参日志.md "doc/10.springBoot2.0使用AOP打印controller层出入参日志.md")  
+
 
 
 
