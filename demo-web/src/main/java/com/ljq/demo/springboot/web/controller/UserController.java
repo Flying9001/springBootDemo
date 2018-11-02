@@ -3,10 +3,9 @@ package com.ljq.demo.springboot.web.controller;
 import com.ljq.demo.common.api.ApiResult;
 import com.ljq.demo.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -21,10 +20,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "list")
+    @RequestMapping(value = "list", method = {RequestMethod.POST})
     public ApiResult queryList(@RequestBody Map<String, Object> params){
-        System.out.println("UserController api/user/list");
 
+        return userService.queryList(params);
+    }
+
+    @RequestMapping(value = "list", method = {RequestMethod.GET})
+    public ApiResult queryList(){
+        Map<String, Object> params = new HashMap<>();
         return userService.queryList(params);
     }
 }

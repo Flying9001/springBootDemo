@@ -6,6 +6,8 @@ server:
 
 # spring cloud
 eureka:
+  server:
+    eviction-interval-timer-in-ms: 60000
   instance:
     hostname: 127.0.0.1
   client:
