@@ -38,6 +38,10 @@ Quick start :
 
 [10.spring boot 2.0 使用 AOP 打印 controller 层出入参日志---2018-11-02](doc/10.springBoot2.0使用AOP打印controller层出入参日志.md "doc/10.springBoot2.0使用AOP打印controller层出入参日志.md")  
 
+[11.spring boot 2.0 多模块 maven 依赖管理规范----2018-11-07](doc/11.springBoot2.0多模块maven依赖管理规范.md "doc/11.springBoot2.0多模块maven依赖管理规范.md")  
+
+
+
 
 
 
