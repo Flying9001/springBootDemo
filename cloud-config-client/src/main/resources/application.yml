@@ -1,0 +1,22 @@
+## spring cloud config [client]
+
+# spring config
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: config-client
+
+# refresh cloud config properties
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+## spring cloud eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8088/eureka/

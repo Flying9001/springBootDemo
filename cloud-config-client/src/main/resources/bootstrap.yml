@@ -1,0 +1,19 @@
+# spring cloud config client 启动时的默认服务(cloud config server)端口为 8888
+# 端口配置在application.properties/yml都不行，必须是配置在bootstrap.properties/yml里面，否则还是会取本机的8888端口！！！
+# 官网原话：Bootstrap properties are added with high precedence, so they cannot be overridden by local configuration
+# 参考: https://blog.csdn.net/sinat_38843093/article/details/79961283
+# 参考: https://www.cnblogs.com/BlogNetSpace/p/8469033.html
+
+
+server:
+  port: 8095
+
+# spring cloud config
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      uri: http://127.0.0.1:8094
+      label: master
+      profile: dev
