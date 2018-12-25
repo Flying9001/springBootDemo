@@ -34,6 +34,13 @@ spring:
       max-wait: 60000
       time-between-eviction-runs-millis: 60000
       min-evictable-idle-time-millis: 300000
+  # multipart file
+  servlet:
+    multipart:
+      # single file max size
+      max-file-size: 10mb
+      # multi file max size
+      max-request-size: 100mb
 
 ## mybatis
 mybatis:
