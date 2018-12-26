@@ -1,6 +1,8 @@
 package com.ljq.demo.springboot.web.acpect;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -11,9 +13,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -52,24 +56,14 @@ public class LogAspect {
          */
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
+        String params = getRequestParams(request, joinPoint);
 
-        StringBuilder params = new StringBuilder();
-        ObjectMapper mapper = new ObjectMapper();
-        if ("POST".equalsIgnoreCase(request.getMethod())) {
-            Object[] objects = joinPoint.getArgs();
-            for (Object arg : objects) {
-                params.append(mapper.writeValueAsString(arg));
-            }
-        }
-        if ("GET".equalsIgnoreCase(request.getMethod())) {
-            params.append(request.getQueryString());
-        }
         /**
          * 入参日志
          */
         logger.info("[AOP-LOG-START]\n\trequestMark: {}\n\trequestIP: {}\n\tcontentType:{}\n\trequestUrl: {}\n\t" +
                 "requestMethod: {}\n\trequestParams: {}\n\ttargetClassAndMethod: {}#{}", uuid, request.getRemoteAddr(),
-                request.getHeader("Content-Type"),request.getRequestURL(), request.getMethod(), params.toString(),
+                request.getHeader("Content-Type"),request.getRequestURL(), request.getMethod(), params,
                 method.getDeclaringClass().getName(), method.getName());
         /**
          * 出参日志
@@ -77,6 +71,57 @@ public class LogAspect {
         Object result = joinPoint.proceed();
         logger.info("[AOP-LOG-END]\n\t{}", result);
         return result;
+    }
+
+    /**
+     * 获取请求参数
+     *
+     * @param request
+     * @param joinPoint
+     * @return
+     */
+    private String getRequestParams(HttpServletRequest request, ProceedingJoinPoint joinPoint) throws JsonProcessingException {
+        StringBuilder params = new StringBuilder();
+        if ("GET".equalsIgnoreCase(request.getMethod())) {
+            params.append(request.getQueryString());
+        }
+        if ("POST".equalsIgnoreCase(request.getMethod())) {
+            /**
+             * 获取 request parameter 中的参数
+             */
+            Map<String,String[]> parameterMap = request.getParameterMap();
+            if (parameterMap != null && !parameterMap.isEmpty()) {
+                for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
+                    params.append(entry.getKey() + " = " + entry.getValue()[0] + ";");
+                }
+            }
+            /**
+             * 获取非 request parameter 中的参数
+             */
+            Object[] objects = joinPoint.getArgs();
+            for (Object arg : objects) {
+                String className = arg.getClass().getName().toLowerCase();
+                String contentType = request.getHeader("Content-Type");
+                /**
+                 * 文件参数,上传文件信息
+                 */
+                if (className.contains("MultipartFile".toLowerCase()) || contentType.contains("multipart")) {
+                    MultipartFile multipartFile = (MultipartFile) arg;
+                    params.append("fileSize = " + multipartFile.getSize() + ";");
+                    params.append("fileContentType = " + multipartFile.getSize() + ";");
+                    params.append("fieldName = " + multipartFile.getName() + ";");
+                    params.append("fileOriginalName = " + multipartFile.getOriginalFilename() + ";");
+                } else {
+                    /**
+                     * json 参数
+                     */
+                    ObjectMapper mapper = new ObjectMapper();
+                    mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+                    params.append(mapper.writeValueAsString(arg));
+                }
+            }
+        }
+        return params.toString();
     }
 
 

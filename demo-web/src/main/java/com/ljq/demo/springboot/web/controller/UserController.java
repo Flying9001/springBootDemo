@@ -31,4 +31,11 @@ public class UserController {
         Map<String, Object> params = new HashMap<>();
         return userService.queryList(params);
     }
+
+    @RequestMapping(value = "info/{id}",method = RequestMethod.POST)
+    public ApiResult info(@PathVariable("id") long id, @RequestBody Map<String, Object> params){
+
+        return userService.queryList(params);
+    }
+
 }
