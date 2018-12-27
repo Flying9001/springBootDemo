@@ -26,6 +26,12 @@ public class CommonController {
     @Autowired
     private CommonService commonService;
 
+    /**
+     * 文件上传
+     *
+     * @param file
+     * @return
+     */
     @RequestMapping(value = "upload")
     public ApiResult upload(@RequestParam(value = "file") MultipartFile file){
 
@@ -35,6 +41,12 @@ public class CommonController {
         return ApiResult.success();
     }
 
+    /**
+     * 文件下载
+     *
+     * @param downloadBean
+     * @return
+     */
     @RequestMapping(value = "download", method = {RequestMethod.POST, RequestMethod.GET},
             produces = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> download(DownloadBean downloadBean){

@@ -108,7 +108,7 @@ public class LogAspect {
                 if (className.contains("MultipartFile".toLowerCase()) || contentType.contains("multipart")) {
                     MultipartFile multipartFile = (MultipartFile) arg;
                     params.append("fileSize = " + multipartFile.getSize() + ";");
-                    params.append("fileContentType = " + multipartFile.getSize() + ";");
+                    params.append("fileContentType = " + multipartFile.getContentType() + ";");
                     params.append("fieldName = " + multipartFile.getName() + ";");
                     params.append("fileOriginalName = " + multipartFile.getOriginalFilename() + ";");
                 } else {
