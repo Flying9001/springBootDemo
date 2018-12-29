@@ -1,5 +1,7 @@
 package com.ljq.demo.springboot.web.acpect;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -100,23 +102,29 @@ public class LogAspect {
              */
             Object[] objects = joinPoint.getArgs();
             for (Object arg : objects) {
+                if (arg == null) {
+                    break;
+                }
                 String className = arg.getClass().getName().toLowerCase();
                 String contentType = request.getHeader("Content-Type");
                 /**
                  * 文件参数,上传文件信息
                  */
-                if (className.contains("MultipartFile".toLowerCase()) || contentType.contains("multipart")) {
+                if (className.contains("MultipartFile".toLowerCase())
+                        || (contentType != null && contentType.contains("multipart"))) {
                     MultipartFile multipartFile = (MultipartFile) arg;
                     params.append("fileSize = " + multipartFile.getSize() + ";");
                     params.append("fileContentType = " + multipartFile.getContentType() + ";");
                     params.append("fieldName = " + multipartFile.getName() + ";");
                     params.append("fileOriginalName = " + multipartFile.getOriginalFilename() + ";");
-                } else {
+                }
+                if (contentType != null && contentType.contains("application/json")){
                     /**
                      * json 参数
                      */
                     ObjectMapper mapper = new ObjectMapper();
                     mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+                    mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
                     params.append(mapper.writeValueAsString(arg));
                 }
             }

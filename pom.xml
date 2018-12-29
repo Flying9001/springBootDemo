@@ -41,6 +41,7 @@
         <spring.cloud.starter>2.0.1.RELEASE</spring.cloud.starter>
         <mysql.driver>8.0.13</mysql.driver>
         <druid>1.1.10</druid>
+        <jackson.version>2.9.8</jackson.version>
     </properties>
 
     <dependencyManagement>
