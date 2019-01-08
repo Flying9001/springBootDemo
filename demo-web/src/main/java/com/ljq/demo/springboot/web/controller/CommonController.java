@@ -3,6 +3,8 @@ package com.ljq.demo.springboot.web.controller;
 import com.ljq.demo.common.api.ApiResult;
 import com.ljq.demo.springboot.service.CommonService;
 import com.ljq.demo.springboot.vo.DownloadBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -22,6 +24,8 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("api/demo/common")
 public class CommonController {
+
+    private static final Logger logger = LoggerFactory.getLogger(CommonController.class);
 
     @Autowired
     private CommonService commonService;
@@ -53,6 +57,28 @@ public class CommonController {
 
         try {
             ResponseEntity<?> responseEntity = commonService.download(downloadBean);
+            return responseEntity;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+        return new ResponseEntity<String>("{ \"code\" : \"404\", \"message\" : \"not found\" }",
+                headers, HttpStatus.NOT_FOUND);
+    }
+
+
+    /**
+     * PDF 文件导出
+     * 使用 a 链接即可下载;如果为 ajax/vue,则需要转换为 form 表单格式
+     * eg: http://${apiAddress}/api/demo/common/export?key1=${key}&key2=${key2}
+     */
+    @RequestMapping(value = "/export", method = {RequestMethod.POST, RequestMethod.GET},
+            produces = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<?> export(){
+        try {
+            ResponseEntity<?> responseEntity = commonService.export();
             return responseEntity;
         } catch (Exception e) {
             e.printStackTrace();

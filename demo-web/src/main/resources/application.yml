@@ -52,5 +52,11 @@ logging:
   level:
     com.ljq.demo.springboot.dao: debug
 
+## pdf export config
+pdfExport:
+  fontSimsun: static/font/simsun.ttc
+  employeeKpiFtl: templates/pdf_export_employee_kpi.ftl
+
+
 
 

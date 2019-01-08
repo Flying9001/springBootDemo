@@ -85,6 +85,22 @@
             <version>${glassfish-el.version}</version>
         </dependency>
 
+        <!-- freemarker,生成 html -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+        </dependency>
+        <!-- 渲染 css 样式 -->
+        <dependency>
+            <groupId>org.xhtmlrenderer</groupId>
+            <artifactId>flying-saucer-pdf</artifactId>
+        </dependency>
+        <!-- iText,export pdf -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+        </dependency>
+
 
     </dependencies>
 

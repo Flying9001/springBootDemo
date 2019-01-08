@@ -10,8 +10,8 @@
     <name>demo-web</name>
 
     <parent>
-        <artifactId>springboot</artifactId>
         <groupId>com.ljq.demo</groupId>
+        <artifactId>springboot</artifactId>
         <version>1.0.0</version>
     </parent>
 

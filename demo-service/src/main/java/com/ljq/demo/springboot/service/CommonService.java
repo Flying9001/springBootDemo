@@ -17,4 +17,12 @@ public interface CommonService {
      * @return
      */
     ResponseEntity<?> download(DownloadBean downloadBean) throws Exception;
+
+    /**
+     * PDF 文件导出
+     * @return
+     */
+    ResponseEntity<?> export();
+
+
 }

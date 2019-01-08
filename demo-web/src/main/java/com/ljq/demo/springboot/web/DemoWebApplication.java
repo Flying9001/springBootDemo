@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableEurekaServer
-@ComponentScan(basePackages = {"com.ljq.demo.springboot"})
+@ComponentScan(basePackages = {"com.ljq.demo"})
 @MapperScan("com.ljq.demo.springboot.dao")
 @ServletComponentScan
 public class DemoWebApplication extends SpringBootServletInitializer {
