@@ -37,7 +37,7 @@ public class CommonController {
      * @return
      */
     @RequestMapping(value = "upload")
-    public ApiResult upload(@RequestParam(value = "file") MultipartFile file){
+    public ApiResult upload(@RequestParam(value = "file") MultipartFile file, String uploadKey){
 
         // TODO resolve uploaded file
 

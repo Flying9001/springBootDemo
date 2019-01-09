@@ -110,8 +110,7 @@ public class LogAspect {
                 /**
                  * 文件参数,上传文件信息
                  */
-                if (className.contains("MultipartFile".toLowerCase())
-                        || (contentType != null && contentType.contains("multipart"))) {
+                if (className.contains("MultipartFile".toLowerCase())) {
                     MultipartFile multipartFile = (MultipartFile) arg;
                     params.append("fileSize = " + multipartFile.getSize() + ";");
                     params.append("fileContentType = " + multipartFile.getContentType() + ";");
