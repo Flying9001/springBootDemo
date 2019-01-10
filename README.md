@@ -42,7 +42,9 @@ Quick start :
 
 [12.spring boot 2.0 整合 spring Cloud Config 搭建分布式配置中心---2018-11-08](doc/12.springBoot2.0整合springCloudConfig分布式配置中心.md "doc/12.springBoot2.0整合springCloudConfig分布式配置中心.md")  
 
-[13.springBoot文件下载---2018-12-25](doc/13.springBoot文件下载.md "doc/13.springBoot文件下载.md")  
+[13.springBoot文件下载---2018-12-25](doc/13.springBoot文件下载.md "doc/13.springBoot文件下载.md")    
+
+[14.springBoot+Freemarker+iText渲染HTML导出PDF---2019-01-10](doc/14.springBoot_Freemarker_iText渲染HTML导出PDF.md "doc/14.springBoot_Freemarker_iText渲染HTML导出PDF.md")  
 
 
 

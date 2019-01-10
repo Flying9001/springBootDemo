@@ -34,8 +34,10 @@
             font-size: 12px;
             text-align: left;
         }
-
-
+        td.sign{
+            text-align: left;
+            height: 40px;
+        }
     </style>
 
 </head>
@@ -50,48 +52,48 @@
     </tr>
 
     <tr >
-        <td >
+        <td style="width: 10%;">
             被考核者
         </td>
-        <td class="value">
+        <td class="value" style="width: 10%;">
            <#if employee??>
             <#if employee.name??>
                 ${employee.name}
             </#if>
            </#if>
         </td>
-        <td >
+        <td style="width: 10%;">
             部门
         </td>
-        <td colspan="2" class="value">
+        <td colspan="2" class="value" style="width: 20%;">
              <#if employeeDepart??>
                 <#if employeeDepart.name??>
                     ${employeeDepart.name}
                 </#if>
              </#if>
         </td>
-        <td >
+        <td style="width: 10%;">
             考核者
         </td>
-        <td class="value">
+        <td class="value" style="width: 10%;">
              <#if acceptUser??>
                 <#if acceptUser.name??>
                     ${acceptUser.name}
                 </#if>
              </#if>
         </td>
-        <td >
+        <td style="width: 10%;">
             考核时间
         </td>
-        <td colspan="2" class="value">
+        <td colspan="2" class="value" style="width: 20%;">
              <#if statisticalTime??>
-                ${statisticalTime}
+                 ${statisticalTime}
              </#if>
         </td>
     </tr>
 
     <tr >
-        <td colspan="10" class="title">
+        <td colspan="10">
             第一部分工作目标(权重80%)
         </td>
     </tr>
@@ -198,9 +200,9 @@
         <td colspan="3" class="content">
             实际返工次数/计划返工次数*100%<br/>
             1.完成比≤100%，本项为满分；<br/>
-			2.完成比在100%（不含）-110%（不含），扣10分；<br/>
-			3.完成比在110%（不含）-120%（含），扣15分；<br/>
-			4.完成比在120%（不含）以上的，本项为0分
+            2.完成比在100%（不含）-110%（不含），扣10分；<br/>
+            3.完成比在110%（不含）-120%（含），扣15分；<br/>
+            4.完成比在120%（不含）以上的，本项为0分
         </td>
         <td class="value">
             <#if returnRate??>
@@ -233,7 +235,7 @@
         <td colspan="3" class="content">
             实际上传资料数/要求上传资料数*100%<br/>
             1.完成比100%，本项得满分；<br/>
-			2.完成比＜100%，本项为0分
+            2.完成比＜100%，本项为0分
         </td>
         <td class="value">
             <#if uploadRate??>
@@ -286,70 +288,70 @@
     </tr>
 
     <tr >
-        <td colspan="10" class="title">
+        <td colspan="10">
             第二部分工作态度(权重20%)
         </td>
     </tr>
 
     <tr class="title">
-    	<td colspan="2">
-    		工作态度指标
-    	</td>
-    	<td>
-    		衡量方法
-    	</td>
-    	<td colspan="4">
-    		衡量标准
-    	</td>
-    	<td >
-    		权重
-    	</td>
-    	<td >
-    		自评得分
-    	</td>
-    	<td >
-    		上级评分
-    	</td>
+        <td colspan="2">
+            工作态度指标
+        </td>
+        <td>
+            衡量方法
+        </td>
+        <td colspan="4">
+            衡量标准
+        </td>
+        <td >
+            权重
+        </td>
+        <td >
+            自评得分
+        </td>
+        <td >
+            上级评分
+        </td>
     </tr>
 
     <tr >
-    	<td colspan="2">
-    		责任心
-    	</td>
-    	<td>
-    		上级评价
-    	</td>
-    	<td colspan="4" class="content">
-			1.仅仅能按上级要求完成本职工作（5分）； <br/>
-			2.能够严格按照工作标准完成工作目标对本职工作负责到底，<br/>
-			工作中不推卸责任、不上交矛盾，失误较少（10分）； <br/>
-			3.对待工作不怕繁琐、有耐心，考虑问题与做事细致、周到（15分）； <br/>
-			4.对待工作精益求精，力求一次性做到完美（20分）； <br/>
-			5.对团队成员拥有强烈的责任感，努力帮助团队成员提升工作质量（25分）
-    	</td>
-    	<td >
-    		25%
-    	</td>
-    	<td class="value">
+        <td colspan="2">
+            责任心
+        </td>
+        <td>
+            上级评价
+        </td>
+        <td colspan="4" class="content">
+            1.仅仅能按上级要求完成本职工作（5分）； <br/>
+            2.能够严格按照工作标准完成工作目标对本职工作负责到底，<br/>
+            工作中不推卸责任、不上交矛盾，失误较少（10分）； <br/>
+            3.对待工作不怕繁琐、有耐心，考虑问题与做事细致、周到（15分）； <br/>
+            4.对待工作精益求精，力求一次性做到完美（20分）； <br/>
+            5.对团队成员拥有强烈的责任感，努力帮助团队成员提升工作质量（25分）
+        </td>
+        <td >
+            25%
+        </td>
+        <td class="value">
     		<#if responsibilityScore??>
-                 ${responsibilityScore}
-             </#if>
-    	</td>
-    	<td class="value">
+                ${responsibilityScore}
+            </#if>
+        </td>
+        <td class="value">
     		<#if responsibilitySuperiorScore??>
-                 ${responsibilitySuperiorScore}
-             </#if>
-    	</td>
+                ${responsibilitySuperiorScore}
+            </#if>
+        </td>
     </tr>
 
     <tr >
-    	<td colspan="2">
-    		主动性
-    	</td>
-    	<td>
-    		上级评价
-    	</td>
-    	<td colspan="4" class="content">
+        <td colspan="2">
+            主动性
+        </td>
+        <td>
+            上级评价
+        </td>
+        <td colspan="4" class="content">
             1.按上级安排/ 指示做事，安排什么做什么（5分）<br/>
             2.按自己的职位职责做事，工作任务大多能完成；<br/>
             同时对工作中出现的问题，也能被动反应，予以处理（10分）<br/>
@@ -361,97 +363,97 @@
             能积极主动地协助同事完成职责范围外的其他工作（20分）<br/>
             5.上级只给出一个方向或任务，既能独立地制定计划、组织资源、推进实施、保证完成，<br/>
             支持、鼓励团队成员与周围同事积极主动开展工作，<br/>
-            能营造积极、主动的文化氛围（25）			
-    	</td>
-    	<td >
-    		25%
-    	</td>
-    	<td class="value">
+            能营造积极、主动的文化氛围（25）
+        </td>
+        <td >
+            25%
+        </td>
+        <td class="value">
     		<#if initiativeScore??>
-                 ${initiativeScore}
-             </#if>
-    	</td>
-    	<td class="value">
+                ${initiativeScore}
+            </#if>
+        </td>
+        <td class="value">
     		<#if initiativeSuperiorScore??>
-                 ${initiativeSuperiorScore}
-             </#if>
-    	</td>
+                ${initiativeSuperiorScore}
+            </#if>
+        </td>
     </tr>
 
     <tr >
-    	<td colspan="2">
-    		团队合作
-    	</td>
-    	<td>
-    		上级评价
-    	</td>
-    	<td colspan="4" class="content">
+        <td colspan="2">
+            团队合作
+        </td>
+        <td>
+            上级评价
+        </td>
+        <td colspan="4" class="content">
             1.积极融入团队并乐于接受同事帮助，配合团队完成工作(5分)<br/>
             2.主动给予同事必要的帮助；碰到困难时，善于利用团队的力量解决问题(10分)<br/>
             3.决策前积极发表个人意见，充分参与团队讨论；决策后，个人无论是否有异议，<br/>
             必须从行动上完全予以支持（15分）；<br/>
             4.能够客观认识同事的优缺点，并在工作中充分体现“对事不对人”的原则(20分)<br/>
-            5.能够以积极正面的心态去影响团队，并改善团队表现和氛围（25分）<br/>			
-    	</td>
-    	<td >
-    		25%
-    	</td>
-    	<td class="value">
+            5.能够以积极正面的心态去影响团队，并改善团队表现和氛围（25分）<br/>
+        </td>
+        <td >
+            25%
+        </td>
+        <td class="value">
     		<#if teamCooperationScore??>
-                 ${teamCooperationScore}
-             </#if>
-    	</td>
-    	<td class="value">
+                ${teamCooperationScore}
+            </#if>
+        </td>
+        <td class="value">
     		<#if teamCooperationSuperiorScore??>
-                 ${teamCooperationSuperiorScore}
-             </#if>
-    	</td>
+                ${teamCooperationSuperiorScore}
+            </#if>
+        </td>
     </tr>
     <tr >
-    	<td colspan="2">
-    		保密意识
-    	</td>
-    	<td>
-    		上级评价
-    	</td>
-    	<td colspan="4" class="content">
-			1.对岗位的保密责任有一定的认识（5分）；<br/>
-			2.熟悉公司保密协议，明确职责范围内的保密事项，并采取相应的维护措施(10分)<br/>
-			3.以身作则，自觉、严格遵守保密协议，对保密协议未明确界定的问题能够很好的处理(15分)<br/>
-			4.影响身边的同事，宣传保密意识，随时提醒同事；发现保密协议的缺陷和漏洞<br/>
-			能及时向有关部门报告，并提出完善建议（20分）；<br/>
-			5.获悉他人违反和破坏保密协议时，积极抵制，能够及时向公司有关部门报告，<br/>
-			并分情况采取积极措施以最大限度减少恶性后果，处理得当（25分）
-    	</td>
-    	<td >
-    		25%
-    	</td>
-    	<td class="value">
+        <td colspan="2">
+            保密意识
+        </td>
+        <td>
+            上级评价
+        </td>
+        <td colspan="4" class="content">
+            1.对岗位的保密责任有一定的认识（5分）；<br/>
+            2.熟悉公司保密协议，明确职责范围内的保密事项，并采取相应的维护措施(10分)<br/>
+            3.以身作则，自觉、严格遵守保密协议，对保密协议未明确界定的问题能够很好的处理(15分)<br/>
+            4.影响身边的同事，宣传保密意识，随时提醒同事；发现保密协议的缺陷和漏洞<br/>
+            能及时向有关部门报告，并提出完善建议（20分）；<br/>
+            5.获悉他人违反和破坏保密协议时，积极抵制，能够及时向公司有关部门报告，<br/>
+            并分情况采取积极措施以最大限度减少恶性后果，处理得当（25分）
+        </td>
+        <td >
+            25%
+        </td>
+        <td class="value">
     		<#if secrecyScore??>
-                 ${secrecyScore}
-             </#if>
-    	</td>
-    	<td class="value">
+                ${secrecyScore}
+            </#if>
+        </td>
+        <td class="value">
     		<#if secrecySuperiorScore??>
-                 ${secrecySuperiorScore}
-             </#if>
-    	</td>
+                ${secrecySuperiorScore}
+            </#if>
+        </td>
     </tr>
 
     <tr >
-    	<td colspan="8">
-    		合计
-    	</td>
-    	<td class="value">
+        <td colspan="8">
+            合计
+        </td>
+        <td class="value">
     		<#if totalScore??>
-                 ${totalScore}
-             </#if>
-    	</td>
-    	<td class="value">
+                ${totalScore}
+            </#if>
+        </td>
+        <td class="value">
     		<#if totalSuperiorScore??>
-                 ${totalSuperiorScore}
-             </#if>
-    	</td>
+                ${totalSuperiorScore}
+            </#if>
+        </td>
     </tr>
 
     <tr >
@@ -476,18 +478,39 @@
         </td>
     </tr>
 
-    <tr >
-    	<td colspan="2">
-    		自我总结
-    	</td>
-    	<td colspan="8" class="content value">
+    <tr style="height: 100px;" >
+        <td colspan="2">
+            自我总结
+        </td>
+        <td colspan="8" class="content value">
     		<#if selfSummary??>
-                 ${selfSummary}
+                ${selfSummary}
             </#if>
-    	</td>
+        </td>
+    </tr>
+
+    <tr >
+        <td rowspan="2" colspan="2">
+            考核结果确认
+        </td>
+        <td class="sign" colspan="4">
+            考核者签名:
+        </td>
+        <td class="sign" colspan="4">
+            日期:
+        </td>
+    </tr>
+    <tr>
+        <td class="sign" colspan="4">
+            被考核者签名:
+        </td>
+        <td class="sign" colspan="4">
+            日期:
+        </td>
     </tr>
 
 </table>
+
 
 </body>
 </html>
