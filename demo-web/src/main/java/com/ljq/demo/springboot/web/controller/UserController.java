@@ -1,6 +1,6 @@
 package com.ljq.demo.springboot.web.controller;
 
-import com.ljq.demo.common.api.ApiResult;
+import com.ljq.demo.springboot.common.api.ApiResult;
 import com.ljq.demo.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

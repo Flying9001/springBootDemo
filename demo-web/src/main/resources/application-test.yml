@@ -20,6 +20,12 @@ spring:
         max-idle: 500
         min-idle: 50
         max-wait: 100s
+  # rabbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: rabbitmqadmin
+    password: rootpass100
 
 # yml demo
 person:

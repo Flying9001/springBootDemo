@@ -1,6 +1,6 @@
 package com.ljq.demo.springboot.service;
 
-import com.ljq.demo.common.api.ApiResult;
+import com.ljq.demo.springboot.common.api.ApiResult;
 
 import java.util.Map;
 

@@ -1,8 +1,8 @@
 package com.ljq.demo.springboot.service.impl;
 
-import com.ljq.demo.common.config.PDFExportConfig;
-import com.ljq.demo.common.util.FileUtil;
-import com.ljq.demo.common.util.PDFUtil;
+import com.ljq.demo.springboot.common.config.PDFExportConfig;
+import com.ljq.demo.springboot.common.util.FileUtil;
+import com.ljq.demo.springboot.common.util.PDFUtil;
 import com.ljq.demo.springboot.service.CommonService;
 import com.ljq.demo.springboot.vo.DownloadBean;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -215,6 +215,13 @@
                 <version>${itextpdf.version}</version>
             </dependency>
 
+            <!-- rabbitmq 消息队列 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-amqp</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

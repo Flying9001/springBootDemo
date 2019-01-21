@@ -1,6 +1,6 @@
 package com.ljq.demo.springboot.service.impl;
 
-import com.ljq.demo.common.api.ApiResult;
+import com.ljq.demo.springboot.common.api.ApiResult;
 import com.ljq.demo.springboot.dao.user.UserDao;
 import com.ljq.demo.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
