@@ -36,6 +36,20 @@
         </if>
     </select>
 
+    <!-- 帐号注册校验 S -->
+    <select id="signUpCheck" parameterType="com.ljq.demo.springboot.entity.UserDO" resultType="int">
+        select count(*) counts
+        from `user`
+        where `user_del` = 0
+        <if test="userName != null and '' != userName">
+            and `user_name` = #{userName}
+        </if>
+    </select>
+    <!-- 帐号注册校验 E -->
+
+
+
+
 
 
 

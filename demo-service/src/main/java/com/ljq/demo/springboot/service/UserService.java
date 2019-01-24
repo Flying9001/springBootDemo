@@ -1,6 +1,8 @@
 package com.ljq.demo.springboot.service;
 
 import com.ljq.demo.springboot.common.api.ApiResult;
+import com.ljq.demo.springboot.common.api.ApiResultI18n;
+import com.ljq.demo.springboot.vo.UserSignUpBean;
 
 import java.util.Map;
 
@@ -18,5 +20,13 @@ public interface UserService {
      * @return
      */
     ApiResult queryList(Map<String, Object> map);
+
+    /**
+     * 用户注册
+     *
+     * @param userSignUpBean 用户注册信息
+     * @return
+     */
+    ApiResultI18n signUp(UserSignUpBean userSignUpBean);
 
 }
