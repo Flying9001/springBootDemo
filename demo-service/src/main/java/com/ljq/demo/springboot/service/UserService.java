@@ -27,6 +27,6 @@ public interface UserService {
      * @param userSignUpBean 用户注册信息
      * @return
      */
-    ApiResultI18n signUp(UserSignUpBean userSignUpBean);
+    ApiResultI18n signUp(UserSignUpBean userSignUpBean) throws Exception;
 
 }

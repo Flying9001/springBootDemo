@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public ApiResultI18n signUp(UserSignUpBean userSignUpBean){
+    public ApiResultI18n signUp(UserSignUpBean userSignUpBean) throws Exception{
         /**
          * 参数校验顺序: 基本入参校验 --> 具体参数合法性校验(非数据库层校验) --> 数据库层参数校验
          */
