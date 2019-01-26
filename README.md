@@ -46,6 +46,10 @@ Quick start :
 
 [14.springBoot+Freemarker+iText渲染HTML导出PDF---2019-01-10](doc/14.springBoot_Freemarker_iText渲染HTML导出PDF.md "doc/14.springBoot_Freemarker_iText渲染HTML导出PDF.md")  
 
+[15.SpringBoot 快速整合 RabbitMQ 消息队列框架---2019-01-26](doc/15.spring_boot_rabbitmq.md "doc/15.spring_boot_rabbitmq.md")  
+
+
+
 
 
 
