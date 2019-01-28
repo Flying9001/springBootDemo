@@ -48,6 +48,8 @@ Quick start :
 
 [15.SpringBoot 快速整合 RabbitMQ 消息队列框架---2019-01-26](doc/15.spring_boot_rabbitmq.md "doc/15.spring_boot_rabbitmq.md")  
 
+[16.SpringBoot RESTful 风格 API 多语言国际化i18n解决方案---2019-01-28](doc/16.spring_boot_i18n_multiply_language_restful_api.md "doc/16.spring_boot_i18n_multiply_language_restful_api.md")  
+
 
 
 

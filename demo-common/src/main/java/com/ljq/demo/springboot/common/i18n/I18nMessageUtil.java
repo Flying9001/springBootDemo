@@ -55,7 +55,7 @@ public class I18nMessageUtil {
      *
      * @param language 语言类型,zh_cn: 简体中文, en_us: 英文
      * @param message 配置信息属性名,eg: api.response.code.user.signUp
-     * @param defaultMessage 默认信息,当无法从配置文件中读取到对应的配置信息时返回改信息
+     * @param defaultMessage 默认信息,当无法从配置文件中读取到对应的配置信息时返回该信息
      * @return
      * @throws IOException
      */

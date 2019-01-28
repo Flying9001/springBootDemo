@@ -14,6 +14,8 @@ import javax.validation.constraints.Pattern;
 @Data
 public class UserSignUpBean extends BaseBean {
 
+    private static final long serialVersionUID = 6970430558841356592L;
+
     /**
      * 账号
      */
