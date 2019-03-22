@@ -41,6 +41,10 @@ spring:
       max-file-size: 10mb
       # multi file max size
       max-request-size: 100mb
+  # ehcache 3
+  cache:
+    jcache:
+      config: classpath:ehcache3.xml
 
 ## mybatis
 mybatis:

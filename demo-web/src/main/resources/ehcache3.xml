@@ -1,0 +1,33 @@
+<config
+        xmlns='http://www.ehcache.org/v3'
+        xmlns:jsr107='http://www.ehcache.org/v3/jsr107'>
+
+    <service>
+        <jsr107:defaults>
+            <!-- Cache name -->
+            <jsr107:cache name="userCache" template="heap-cache"/>
+        </jsr107:defaults>
+    </service>
+
+    <!-- Cache template -->
+    <cache-template name="heap-cache">
+        <!-- Cache listener,log cache event,the class is created by yourself -->
+        <listeners>
+            <listener>
+                <class>com.ljq.demo.springboot.common.cache.Ehcache3EventLog</class>
+                <event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+                <event-ordering-mode>UNORDERED</event-ordering-mode>
+                <events-to-fire-on>CREATED</events-to-fire-on>
+                <events-to-fire-on>UPDATED</events-to-fire-on>
+                <events-to-fire-on>EXPIRED</events-to-fire-on>
+                <events-to-fire-on>REMOVED</events-to-fire-on>
+                <events-to-fire-on>EVICTED</events-to-fire-on>
+            </listener>
+        </listeners>
+        <resources>
+            <heap unit="entries">2000</heap>
+            <!-- off-heap,host computer memory,not managed by JVM GC -->
+            <offheap unit="MB">100</offheap>
+        </resources>
+    </cache-template>
+</config>

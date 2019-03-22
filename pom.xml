@@ -82,12 +82,30 @@
                 <version>${springboot.version}</version>
             </dependency>
 
+            <!-- Cache -->
             <!-- redis -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-redis</artifactId>
                 <version>${springboot.version}</version>
             </dependency>
+            <!-- Ehcache -->
+            <dependency>
+                <groupId>org.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>${ehcache3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-cache</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.cache</groupId>
+                <artifactId>cache-api</artifactId>
+                <version>${javax-cache.version}</version>
+            </dependency>
+
 
             <!-- datasource -->
             <dependency>
