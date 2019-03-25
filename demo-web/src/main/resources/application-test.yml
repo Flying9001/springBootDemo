@@ -38,3 +38,7 @@ person:
     father:
       name: Bob
       age: 68
+
+# Swagger config
+swagger:
+  enable: true

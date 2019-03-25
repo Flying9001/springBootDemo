@@ -104,6 +104,7 @@
     <logger name="com.netflix.eureka" level="warn" />
     <logger name="org.hibernate.validator" level="info" />
     <logger name="org.terracotta.offheapstore" level="info" />
+    <logger name="springfox.documentation" level="info" />
 
 
 

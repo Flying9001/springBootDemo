@@ -3,16 +3,16 @@
 spring:
   ## datasource
   datasource:
-    url: "jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true\
+    url: "jdbc:mysql://192.168.100.100:3306/demo?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true\
       &useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=true&allowMultiQueries=true&autoReconnect=true"
     username: root
-    password: sasa
+    password: root
   # redis
   redis:
     database: 1
-    host: 127.0.0.1
+    host: 192.168.100.100
     port: 7749
-    password: demo@apq
+    password: 21cde022-a5da-626e-c8f4-04c99ed3a181
     timeout: 10000ms
     jedis:
       pool:
@@ -38,5 +38,9 @@ person:
     father:
       name: Bob
       age: 68
+
+# Swagger config
+swagger:
+  enable: true
 
 
