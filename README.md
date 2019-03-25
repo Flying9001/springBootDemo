@@ -52,6 +52,8 @@ Quick start :
 
 [17.Spring Boot AOP Service 层参数校验---2019-01-28](doc/17.spring_boot_aop_service_validation.md "doc/17.spring_boot_aop_service_validation.md")  
 
+[18.Spring Boot 2.X 整合集成 Ehcache3 + JSR 107 ---2019-03-24](./doc/18.spring_boot_2_ehcache3_jsr107.md)  
+    
 
 
 
