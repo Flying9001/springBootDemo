@@ -1,5 +1,10 @@
 ## environment-dev
 
+## tomcat server
+server:
+  port: 8848
+
+
 spring:
   ## datasource
   datasource:
@@ -42,5 +47,15 @@ person:
 # Swagger config
 swagger:
   enable: true
+
+## aliyun oss
+## 配置说明参考: com.ljq.demo.springboot.common.config.OSSConfig.class
+oss:
+  endpoint: oss-cn-hangzhou.aliyuncs.com
+  url: https://xxxx.oss-cn-hangzhou.aliyuncs.com/
+  accessKeyId: your_accessKey_id
+  accessKeySecret: your_accessKey_secret
+  bucketName: your_bucket_name
+
 
 

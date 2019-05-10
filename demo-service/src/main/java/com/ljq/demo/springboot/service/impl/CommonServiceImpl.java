@@ -1,7 +1,11 @@
 package com.ljq.demo.springboot.service.impl;
 
+import com.ljq.demo.springboot.common.api.ApiResult;
+import com.ljq.demo.springboot.common.config.OSSConfig;
 import com.ljq.demo.springboot.common.config.PDFExportConfig;
 import com.ljq.demo.springboot.common.util.FileUtil;
+import com.ljq.demo.springboot.common.util.OSSBootUtil;
+import com.ljq.demo.springboot.common.util.OSSSingleUtil;
 import com.ljq.demo.springboot.common.util.PDFUtil;
 import com.ljq.demo.springboot.service.CommonService;
 import com.ljq.demo.springboot.vo.DownloadBean;
@@ -11,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -26,6 +31,8 @@ public class CommonServiceImpl implements CommonService {
 
     @Autowired
     private PDFExportConfig pdfExportConfig;
+    @Autowired
+    private OSSConfig ossConfig;
 
     /**
      * 下载
@@ -118,5 +125,34 @@ public class CommonServiceImpl implements CommonService {
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
         return new ResponseEntity<String>("{ \"code\" : \"404\", \"message\" : \"not found\" }",
                 headers, HttpStatus.NOT_FOUND);
+    }
+
+    /**
+     * 上传文件至阿里云 oss
+     *
+     * @param file
+     * @param uploadKey
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public ApiResult uploadOSS(MultipartFile file, String uploadKey) throws Exception {
+
+        // 低依赖版本 oss 上传工具
+        String fileSuffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf('.'));;
+        String ossFileUrlSingle = null;
+        ossFileUrlSingle = OSSSingleUtil.upload(ossConfig.getEndpoint(), ossConfig.getAccessKeyId(),
+                ossConfig.getAccessKeySecret(), ossConfig.getBucketName(), ossConfig.getUrl(), file.getInputStream(),
+                "upload/demo", fileSuffix);
+
+        // 高依赖版本 oss 上传工具
+        String ossFileUrlBoot = null;
+        ossFileUrlBoot = OSSBootUtil.upload(ossConfig, file, "upload/demo");
+
+        Map<String, Object> resultMap = new HashMap<>(16);
+        resultMap.put("ossFileUrlSingle", ossFileUrlSingle);
+        resultMap.put("ossFileUrlBoot", ossFileUrlBoot);
+
+        return ApiResult.success(resultMap);
     }
 }

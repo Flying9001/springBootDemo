@@ -2,7 +2,6 @@
 
 # tomcat server
 server:
-  port: 8088
   use-forward-headers: true
   tomcat:
     remote-ip-header: x-forwarded-for

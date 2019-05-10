@@ -1,7 +1,9 @@
 package com.ljq.demo.springboot.service;
 
+import com.ljq.demo.springboot.common.api.ApiResult;
 import com.ljq.demo.springboot.vo.DownloadBean;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @Description: 公共业务
@@ -23,6 +25,16 @@ public interface CommonService {
      * @return
      */
     ResponseEntity<?> export();
+
+    /**
+     * 上传文件至阿里云 oss
+     *
+     * @param file
+     * @param uploadKey
+     * @return
+     * @throws Exception
+     */
+    ApiResult uploadOSS(MultipartFile file, String uploadKey) throws Exception;
 
 
 }

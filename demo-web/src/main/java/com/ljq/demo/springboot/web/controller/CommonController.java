@@ -90,6 +90,24 @@ public class CommonController {
                 headers, HttpStatus.NOT_FOUND);
     }
 
+    /**
+     * 上传文件至阿里云 oss
+     *
+     * @param file
+     * @param uploadKey
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/upload/oss", method = {RequestMethod.POST}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> uploadOSS(@RequestParam(value = "file") MultipartFile file, String uploadKey) throws Exception {
+        ApiResult apiResult = commonService.uploadOSS(file, uploadKey);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+        return new ResponseEntity<>(apiResult, headers, HttpStatus.CREATED);
+    }
+
+
 
 
 }

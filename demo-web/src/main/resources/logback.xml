@@ -105,6 +105,7 @@
     <logger name="org.hibernate.validator" level="info" />
     <logger name="org.terracotta.offheapstore" level="info" />
     <logger name="springfox.documentation" level="info" />
+    <logger name="org.apache.http" level="warn" />
 
 
 
