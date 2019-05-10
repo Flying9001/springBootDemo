@@ -6,7 +6,7 @@
     <groupId>com.ljq.demo</groupId>
     <artifactId>demo-web</artifactId>
     <version>1.0.0</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>demo-web</name>
 
     <parent>
