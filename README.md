@@ -55,7 +55,12 @@ Quick start :
 [18.Spring Boot 2.X 整合集成 Ehcache3 + JSR 107 ---2019-03-24](./doc/18.spring_boot_2_ehcache3_jsr107.md)  
 
 [19.Spring Boot 2.X 集成 Swagger 2 ---2019-03-31](./doc/19.spring_boot_2_swagger_2.md)  
-    
+
+[20.SpringBoot 2.X 集成阿里云  OSS  文件上传功能 ---20190513](./doc/20.spring_boot_2_aliyun_oss.md "./doc/20.spring_boot_2_aliyun_oss.md")   
+
+​    
+
+
 
 
 
