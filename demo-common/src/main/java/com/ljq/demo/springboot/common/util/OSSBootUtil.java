@@ -40,7 +40,7 @@ public class OSSBootUtil {
             String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf('.'));
             String fileName = System.currentTimeMillis() + "-" + UUID.randomUUID().toString().substring(0,18) + suffix;
             if (!fileDir.endsWith("/")) {
-                fileDir.concat("/");
+                fileDir = fileDir.concat("/");
             }
             fileUrl = fileUrl.append(fileDir + fileName);
 

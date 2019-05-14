@@ -46,6 +46,9 @@ public class OSSSingleUtil {
             if (!fileSuffix.startsWith(point)) {
                 fileSuffix = point + fileSuffix;
             }
+            if (!fileDir.endsWith("/")) {
+                fileDir = fileDir.concat("/");
+            }
             String ossFileName = System.currentTimeMillis() + "-" + UUID.randomUUID().toString().substring(0,18) + fileSuffix;
             fileUrl = fileUrl.append(fileDir + ossFileName);
             ossClient.putObject(bucketName, fileUrl.toString(), inputStream);
