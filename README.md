@@ -58,6 +58,10 @@ Quick start :
 
 [20.SpringBoot 2.X 集成阿里云  OSS  文件上传功能 ---20190513](./doc/20.spring_boot_2_aliyun_oss.md "./doc/20.spring_boot_2_aliyun_oss.md")   
 
+[21.Spring Boot 2.X 项目使用 Apache HttpClient 发送请求与上传文件(简易使用)---2019-05-16](./doc/21.spring_boot_2_apache_httpclient.md "./doc/21.spring_boot_2_apache_httpclient.md")  
+
+
+
 ​    
 
 
