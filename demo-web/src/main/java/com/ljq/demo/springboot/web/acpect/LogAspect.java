@@ -12,6 +12,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -64,7 +65,7 @@ public class LogAspect {
          * 入参日志
          */
         logger.info("[AOP-LOG-START]\n\trequestMark: {}\n\trequestIP: {}\n\tcontentType:{}\n\trequestUrl: {}\n\t" +
-                "requestMethod: {}\n\trequestParams: {}\n\ttargetClassAndMethod: {}#{}", uuid, request.getRemoteAddr(),
+                "requestMethod: {}\n\trequestParams: {}\n\ttargetClassAndMethod: {}#{}", uuid, getIpAddress(request),
                 request.getHeader("Content-Type"),request.getRequestURL(), request.getMethod(), params,
                 method.getDeclaringClass().getName(), method.getName());
         /**
@@ -84,19 +85,17 @@ public class LogAspect {
      */
     private String getRequestParams(HttpServletRequest request, ProceedingJoinPoint joinPoint) throws JsonProcessingException {
         StringBuilder params = new StringBuilder();
-        if ("GET".equalsIgnoreCase(request.getMethod())) {
-            params.append(request.getQueryString());
-        }
-        if ("POST".equalsIgnoreCase(request.getMethod())) {
-            /**
-             * 获取 request parameter 中的参数
-             */
-            Map<String,String[]> parameterMap = request.getParameterMap();
-            if (parameterMap != null && !parameterMap.isEmpty()) {
-                for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
-                    params.append(entry.getKey() + " = " + entry.getValue()[0] + ";");
-                }
+        /**
+         * 获取 request parameter 中的参数
+         */
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        if (parameterMap != null && !parameterMap.isEmpty()) {
+            for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
+                params.append(entry.getKey() + " = " + entry.getValue()[0] + ";");
             }
+        }
+        if (HttpMethod.POST.name().equalsIgnoreCase(request.getMethod()) ||
+                HttpMethod.PUT.name().equalsIgnoreCase(request.getMethod())) {
             /**
              * 获取非 request parameter 中的参数
              */
@@ -129,6 +128,32 @@ public class LogAspect {
             }
         }
         return params.toString();
+    }
+
+    /**
+     * 获取客户端请求 ip
+     *
+     * @param request
+     * @return
+     */
+    private static String getIpAddress(HttpServletRequest request) {
+        String ip = request.getHeader("x-forwarded-for");
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_CLIENT_IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+        }
+        return ip;
     }
 
 
