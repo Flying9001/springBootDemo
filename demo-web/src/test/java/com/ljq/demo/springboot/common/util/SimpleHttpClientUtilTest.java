@@ -2,6 +2,8 @@ package com.ljq.demo.springboot.common.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.junit.Test;
 
@@ -9,7 +11,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SimpleHttpClientUtilTest {
@@ -51,6 +55,18 @@ public class SimpleHttpClientUtilTest {
         paramsMap.put("zhTest", "德玛西亚");
 
         HttpResponse httpResponse = SimpleHttpClientUtil.doPost(API_HOST, API_PATH_USER_LISTS, paramsMap);
+
+        printHttpResponse(httpResponse);
+
+    }
+
+    @Test
+    public void doPostNameValuePairList() throws IOException {
+        List<NameValuePair> paramsList = new ArrayList<>(16);
+        for (int i = 0; i < 3; i++) {
+            paramsList.add(new BasicNameValuePair("demoPairKey","demoPairValue" + i));
+        }
+        HttpResponse httpResponse = SimpleHttpClientUtil.doPost(API_HOST, API_PATH_USER_LISTS, paramsList);
 
         printHttpResponse(httpResponse);
 

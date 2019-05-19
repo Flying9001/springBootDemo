@@ -2,8 +2,10 @@ package com.ljq.demo.springboot.common.util;
 
 import org.apache.http.Consts;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
@@ -16,6 +18,7 @@ import org.apache.http.protocol.HTTP;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -100,6 +103,25 @@ public class SimpleHttpClientUtil implements Serializable {
         httpPost.setEntity(stringentity);
         httpPost.setConfig(requestConfig);
         httpPost.addHeader(HTTP.CONTENT_TYPE, ContentType.APPLICATION_JSON.toString());
+
+        return httpClient.execute(httpPost);
+    }
+
+    /**
+     * POST 方式请求
+     * (允许一个字段多个值)
+     *
+     * @param host
+     * @param path
+     * @param nameValuePairList
+     * @return
+     */
+    public static HttpResponse doPost(String host, String path, List<NameValuePair> nameValuePairList) throws IOException {
+        initHttpClient();
+        HttpPost httpPost = new HttpPost(host + path);
+        httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairList));
+        httpPost.setHeader(HTTP.CONTENT_TYPE, ContentType.create(ContentType.APPLICATION_FORM_URLENCODED.getMimeType(),
+                Consts.UTF_8).toString());
 
         return httpClient.execute(httpPost);
     }

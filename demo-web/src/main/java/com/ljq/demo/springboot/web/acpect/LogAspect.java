@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.UUID;
 
@@ -91,7 +92,7 @@ public class LogAspect {
         Map<String, String[]> parameterMap = request.getParameterMap();
         if (parameterMap != null && !parameterMap.isEmpty()) {
             for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
-                params.append(entry.getKey() + " = " + entry.getValue()[0] + ";");
+                params.append(entry.getKey() + " = " + Arrays.toString(entry.getValue()) + ";");
             }
         }
         if (HttpMethod.POST.name().equalsIgnoreCase(request.getMethod()) ||
