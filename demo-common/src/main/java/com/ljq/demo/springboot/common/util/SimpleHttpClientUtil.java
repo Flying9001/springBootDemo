@@ -98,7 +98,11 @@ public class SimpleHttpClientUtil implements Serializable {
                 .setConnectionRequestTimeout(10000)
                 .setConnectTimeout(5000)
                 .build();
-        HttpPost httpPost = new HttpPost(host + path);
+        String uri = host;
+        if (path != null && path.length() > 0) {
+            uri += path;
+        }
+        HttpPost httpPost = new HttpPost(uri);
         StringEntity stringentity = new StringEntity(jsonParams, ContentType.APPLICATION_JSON);
         httpPost.setEntity(stringentity);
         httpPost.setConfig(requestConfig);
@@ -118,8 +122,11 @@ public class SimpleHttpClientUtil implements Serializable {
      */
     public static HttpResponse doPost(String host, String path, List<NameValuePair> nameValuePairList) throws IOException {
         initHttpClient();
-        HttpPost httpPost = new HttpPost(host + path);
-        httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairList));
+        String uri = host;
+        if (path != null && path.length() > 0) {
+            uri += path;
+        }
+        HttpPost httpPost = new HttpPost(uri);httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairList));
         httpPost.setHeader(HTTP.CONTENT_TYPE, ContentType.create(ContentType.APPLICATION_FORM_URLENCODED.getMimeType(),
                 Consts.UTF_8).toString());
 
@@ -145,7 +152,11 @@ public class SimpleHttpClientUtil implements Serializable {
                 .setConnectionRequestTimeout(10000)
                 .setConnectTimeout(5000)
                 .build();
-        HttpPost httpPost = new HttpPost(host + path);
+        String uri = host;
+        if (path != null && path.length() > 0) {
+            uri += path;
+        }
+        HttpPost httpPost = new HttpPost(uri);
         MultipartEntityBuilder entityBuilder = MultipartEntityBuilder.create();
         // 解决中文文件名乱码问题
         entityBuilder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
@@ -190,7 +201,11 @@ public class SimpleHttpClientUtil implements Serializable {
      * @return
      */
     private static String getRequestUrl(String host, String path, Map<String, String> paramsMap) {
-        StringBuilder reqUrl = new StringBuilder(host).append(path);
+        String uri = host;
+        if (path != null && path.length() > 0) {
+            uri += path;
+        }
+        StringBuilder reqUrl = new StringBuilder(uri);
         if (paramsMap != null && !paramsMap.isEmpty()) {
             StringBuilder params = new StringBuilder();
             for (Map.Entry<String, String> entry : paramsMap.entrySet()) {
