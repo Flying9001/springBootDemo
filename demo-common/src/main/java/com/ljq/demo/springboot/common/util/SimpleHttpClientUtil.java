@@ -18,6 +18,9 @@ import org.apache.http.protocol.HTTP;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 
@@ -200,7 +203,7 @@ public class SimpleHttpClientUtil implements Serializable {
      * @param paramsMap 请求参数
      * @return
      */
-    private static String getRequestUrl(String host, String path, Map<String, String> paramsMap) {
+    private static String getRequestUrl(String host, String path, Map<String, String> paramsMap) throws UnsupportedEncodingException {
         String uri = host;
         if (path != null && path.length() > 0) {
             uri += path;
@@ -209,7 +212,7 @@ public class SimpleHttpClientUtil implements Serializable {
         if (paramsMap != null && !paramsMap.isEmpty()) {
             StringBuilder params = new StringBuilder();
             for (Map.Entry<String, String> entry : paramsMap.entrySet()) {
-                params.append("&" + entry.getKey() + "=" + entry.getValue());
+                params.append("&" + entry.getKey() + "=" + URLEncoder.encode(entry.getValue(), StandardCharsets.UTF_8.toString()));
             }
             String paramConnector = "?";
             if (!host.contains(paramConnector) && !path.contains(paramConnector)) {
