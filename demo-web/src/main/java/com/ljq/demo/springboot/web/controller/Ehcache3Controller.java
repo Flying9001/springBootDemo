@@ -84,7 +84,7 @@ public class Ehcache3Controller {
 
         ApiResult apiResult = null;
         try {
-            ehcache3Service.cachePut(cacheResultBean, apiResult.success());
+            ehcache3Service.cachePut(cacheResultBean,ApiResult.success());
         } catch (Exception e) {
             if (ParamsCheckException.class.isAssignableFrom(e.getClass())){
                 log.error("参数错误");
@@ -94,7 +94,7 @@ public class Ehcache3Controller {
             return apiResult.failure(ResponseCode.UNKNOWN_ERROR.getMsg());
         }
 
-        return apiResult.success();
+        return apiResult;
     }
 
     /**

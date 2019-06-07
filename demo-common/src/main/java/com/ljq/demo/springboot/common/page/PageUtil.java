@@ -29,7 +29,7 @@ public class PageUtil<T> implements Serializable {
      * 默认每页记录数
      * 每页最小记录数
      */
-    private static final int DEFAULT_PAGE_LIMIT = 5;
+    private static final int DEFAULT_PAGE_LIMIT = 3;
 
     /**
      * 总记录条数

@@ -1,6 +1,6 @@
 package com.ljq.demo.springboot.common.page;
 
-import com.ljq.demo.springboot.common.util.SQLCheckUtil;
+import com.ljq.demo.springboot.common.util.SqlCheckUtil;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -18,24 +18,52 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
     private static final long serialVersionUID = -731879956899505222L;
 
     /**
+     * 默认起始点
+     */
+    private static final int DEFAULT_OFFSET = 0;
+    /**
      * 默认当前页数
      * 最小当前页数
      */
     private static final int DEFAULT_PAGE = 1;
-
     /**
      * 默认每页显示条数
      * 最小每页显示条数
      */
-    private static final int DEFAULT_LIMIT = 5;
+    private static final int DEFAULT_LIMIT = 3;
     /**
      * 最大每页显示条数
      */
     private static final int MAX_LIMIT = 100;
+    /**
+     * 默认排序规则,降序(DESC)
+     */
+    private static final String DEFAULT_DIRECTION = "DESC";
+    /**
+     * 默认排序依据
+     */
+    private static final String DEFAULT_PROPERTIES = "id";
 
-    private int currPage = 1;
-
-    private int pageLimit = 5;
+    /**
+     * 起始点
+     */
+    private int offset = DEFAULT_OFFSET;
+    /**
+     * 当前页
+     */
+    private int currPage = DEFAULT_PAGE;
+    /**
+     * 每页显示条数
+     */
+    private int pageLimit = DEFAULT_LIMIT;
+    /**
+     * 排序规则,升序:ASC;降序:DESC
+     */
+    private String direction = DEFAULT_DIRECTION;
+    /**
+     * 排序依据
+     */
+    private String properties = DEFAULT_PROPERTIES;
 
     private QueryUtil(){}
 
@@ -46,16 +74,20 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
      *     map 中需要包含的分页参数:
      *         currPage: 当前页数
      *         pageLimit: 每页显示条数
-     *         sidx: 排序依据,如按照 "id" 排序,则 map.put("sidx","id")
-     *         order: 排序规则,升序(asc)或者降序(desc),如升序排序,则 map.put("order","desc")
+     *         properties: 排序依据,如按照 "id" 排序,则 map.put("properties","id")
+     *         direction: 排序规则,升序(asc)或者降序(desc),如升序排序,则 map.put("direction","asc")
      * @throws Exception sql 参数不合法
      */
     public QueryUtil(Map<String, Object> queryMap) throws Exception {
-
+        if (queryMap != null && !queryMap.isEmpty()) {
+            this.putAll(queryMap);
+        } else {
+            queryMap = new HashMap<>(16);
+        }
         /**
          * 当前页码参数获取与校验
          */
-        String currPageParam = String.valueOf(queryMap.get("currPage"));
+        String currPageParam = String.valueOf(queryMap.get("currPage") == null ? "" : queryMap.get("currPage"));
         if (currPageParam != null && currPageParam.length() > 0) {
             int currPage = Integer.parseInt(currPageParam);
             this.currPage = currPage < DEFAULT_PAGE ? DEFAULT_PAGE : currPage;
@@ -63,20 +95,35 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
         /**
          * 每页显示条数参数获取与校验
          */
-        String pageLimitParam = String.valueOf(queryMap.get("pageLimit"));
+        String pageLimitParam = String.valueOf(queryMap.get("pageLimit") == null ? "" : queryMap.get("pageLimit"));
         if (pageLimitParam != null && pageLimitParam.length() > 0) {
             int pageLimit = Integer.parseInt(pageLimitParam);
             this.pageLimit = pageLimit < DEFAULT_PAGE ? DEFAULT_LIMIT : pageLimit;
             this.pageLimit = pageLimit > MAX_LIMIT ? MAX_LIMIT : pageLimit;
         }
-        this.put("offset", (this.currPage - 1) * this.pageLimit);
-        this.put("currPage", this.currPage);
-        this.put("pageLimit", this.pageLimit);
+        int offset = (this.currPage - 1) * this.pageLimit;
+        this.offset = offset;
         /**
-         * 排序规则参数获取(防止 sql 注入)
+         * 排序规则,升序:ASC;降序:DESC
          */
-        this.put("sidx", SQLCheckUtil.getSafeSQL(String.valueOf(queryMap.get("sidx"))));
-        this.put("order", SQLCheckUtil.getSafeSQL(String.valueOf(queryMap.get("order"))));
+        String direction = String.valueOf(queryMap.get("direction") == null ? "" : queryMap.get("direction"));
+        if (currPageParam != null && currPageParam.length() > 0) {
+            switch (direction.toUpperCase()) {
+                case "ASC":
+                    this.direction = direction;
+                    break;
+                case "DESC" :
+                    this.direction = direction;
+                    break;
+                default:
+                    break;
+            }
+        }
+        /**
+         * 排序依据参数(防止 sql 注入)
+         */
+        String properties = SqlCheckUtil.getSafeSQL(String.valueOf(queryMap.get("properties") == null ? "" : queryMap.get("properties")));
+        this.properties = properties;
     }
 
 

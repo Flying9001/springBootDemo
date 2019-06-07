@@ -37,16 +37,21 @@
         from `user` u
         where u.user_del = 0
         <choose>
-            <when test="sidx != null and sidx.trim() != ''">
-                order by ${sidx} ${order}
+            <when test="properties != null and direction.trim() != ''">
+                ORDER BY ${properties} ${direction}
             </when>
             <otherwise>
-                order by id desc
+                ORDER BY id DESC
             </otherwise>
         </choose>
-        <if test="offset != null and pageLimit != null">
-            limit #{offset}, #{pageLimit}
-        </if>
+        <choose>
+            <when test="offset != null and pageLimit != null">
+                LIMIT #{offset}, #{pageLimit}
+            </when>
+            <otherwise>
+                LIMIT 0, 5
+            </otherwise>
+        </choose>
     </select>
 
     <!-- 统计用户列表查询条数 -->
@@ -55,11 +60,19 @@
         from `user`
         where `user_del` = 0
         <choose>
-            <when test="sidx != null and sidx.trim() != ''">
-                order by ${sidx} ${order}
+            <when test="properties != null and direction.trim() != ''">
+                ORDER BY ${properties} ${direction}
             </when>
             <otherwise>
-                order by id desc
+                ORDER BY id DESC
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="offset != null and pageLimit != null">
+                LIMIT #{offset}, #{pageLimit}
+            </when>
+            <otherwise>
+                LIMIT 0, 5
             </otherwise>
         </choose>
     </select>

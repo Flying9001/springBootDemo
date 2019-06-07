@@ -7,14 +7,14 @@ import java.util.regex.Pattern;
  * @Author: junqiang.lu
  * @Date: 2018/11/28
  */
-public class SQLCheckUtil {
+public class SqlCheckUtil {
 
     /**
      * sql 最大长度
      */
     private static final int MAX_SQL_LENGTH = 1024 * 1024;
 
-    private SQLCheckUtil(){}
+    private SqlCheckUtil(){}
 
     /**
      * 获取安全 sql 语句(防止 sql 注入)
