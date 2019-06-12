@@ -4,6 +4,10 @@
 /*==============================================================*/
 
 
+drop database if exists `demo`;
+create database `demo` default character set utf8mb4 collate utf8mb4_general_ci;
+use `demo`;
+
 drop table if exists user;
 
 /*==============================================================*/
