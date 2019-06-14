@@ -64,6 +64,10 @@ Quick start :
 
 [23.Spring Boot jar 启动时设置环境参数 --- 2019-06-12](./doc/23.spring_boot_jar_setting_active_profile_at_startup.md "./doc/23.spring_boot_jar_setting_active_profile_at_startup.md")  
 
+[24.Spring Boot 2.X 实现简易定时任务功能 --- 2019-06-14](./doc/24.spring_boot_2_schedule.md "./doc/24.spring_boot_2_schedule.md")  
+
+
+
 ​    
 
 
