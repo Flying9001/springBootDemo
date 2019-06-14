@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ljq.demo</groupId>
-    <artifactId>demo-web</artifactId>
+    <groupId>com.ljq.demo.springboot</groupId>
+    <artifactId>demo-schedule</artifactId>
     <version>1.0.0</version>
-    <packaging>jar</packaging>
-    <name>demo-web</name>
+    <name>demo-schedule</name>
+    <description>springBoot schedule</description>
 
     <parent>
         <groupId>com.ljq.demo</groupId>
@@ -22,20 +22,6 @@
     </properties>
 
     <dependencies>
-        <!-- local model dependency -->
-        <dependency>
-            <groupId>com.ljq.demo</groupId>
-            <artifactId>demo-service</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <!-- 排除内置tomcat容器，导出成war包可以让外部容器运行spring-boot项目-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <!-- provided表明该包只在编译和测试的时候用 -->
-            <scope>provided</scope>
-        </dependency>
-
         <!-- spring boot starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -57,33 +43,24 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- web,mvc -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!-- aop -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
-
         <!-- log,logback -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
 
-        <!-- spring cloud -->
+        <!-- lombok -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
+
+
     </dependencies>
 
     <!--only in those modules that you want to run, but not in the parent pom-->
     <build>
-        <finalName>spring-boot-demo</finalName>
+        <finalName>spring-boot-demo-schedule</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

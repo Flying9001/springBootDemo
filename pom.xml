@@ -28,6 +28,7 @@
         <module>cloud-zuul</module>
         <module>cloud-config-server</module>
         <module>cloud-config-client</module>
+        <module>demo-schedule</module>
     </modules>
 
     <properties>
