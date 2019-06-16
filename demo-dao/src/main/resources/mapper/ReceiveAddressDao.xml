@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ljq.demo.springboot.dao.receiveaddress.ReceiveAddressDao">
+
+	<!-- 收货地址结果集resultMap -->
+    <resultMap type="com.ljq.demo.springboot.entity.ReceiveAddressEntity" id="receiveAddressMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="receiverName" column="receiver_name"/>
+        <result property="telephone" column="telephone"/>
+        <result property="province" column="province"/>
+        <result property="city" column="city"/>
+        <result property="area" column="area"/>
+        <result property="address" column="address"/>
+        <result property="defaultAddress" column="default_address"/>
+        <result property="insertTime" column="insert_time"/>
+        <result property="insertOperatorId" column="insert_operator_id"/>
+        <result property="insertIdentity" column="insert_identity"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateOperatorId" column="update_operator_id"/>
+        <result property="updateIdentity" column="update_identity"/>
+        <result property="versions" column="versions"/>
+        <result property="delSign" column="del_sign"/>
+    </resultMap>
+
+   <!-- 收货地址基础字段 -->
+	<sql id="receive_address_base_field">
+        `id`,
+        `user_id`,
+        `receiver_name`,
+        `telephone`,
+        `province`,
+        `city`,
+        `area`,
+        `address`,
+        `default_address`,
+        `insert_time`,
+        `insert_operator_id`,
+        `insert_identity`,
+        `update_time`,
+        `update_operator_id`,
+        `update_identity`,
+        `versions`,
+        `del_sign`
+	</sql>
+
+    <!-- 保存,创建 -->
+	<insert id="save" parameterType="com.ljq.demo.springboot.entity.ReceiveAddressEntity" useGeneratedKeys="true" keyProperty="id">
+		insert into receive_address
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userId != null"> `user_id`,  </if>
+			<if test="receiverName != null"> `receiver_name`,  </if>
+			<if test="telephone != null"> `telephone`,  </if>
+			<if test="province != null"> `province`,  </if>
+			<if test="city != null"> `city`,  </if>
+			<if test="area != null"> `area`,  </if>
+			<if test="address != null"> `address`,  </if>
+			<if test="defaultAddress != null"> `default_address`,  </if>
+			<if test="insertTime != null"> `insert_time`,  </if>
+			<if test="insertOperatorId != null"> `insert_operator_id`,  </if>
+			<if test="insertIdentity != null"> `insert_identity`,  </if>
+			<if test="updateTime != null"> `update_time`,  </if>
+			<if test="updateOperatorId != null"> `update_operator_id`,  </if>
+			<if test="updateIdentity != null"> `update_identity`,  </if>
+			<if test="versions != null"> `versions`,  </if>
+			<if test="delSign != null"> `del_sign` </if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userId != null">#{userId}, </if>
+			<if test="receiverName != null">#{receiverName}, </if>
+			<if test="telephone != null">#{telephone}, </if>
+			<if test="province != null">#{province}, </if>
+			<if test="city != null">#{city}, </if>
+			<if test="area != null">#{area}, </if>
+			<if test="address != null">#{address}, </if>
+			<if test="defaultAddress != null">#{defaultAddress}, </if>
+			<if test="insertTime != null">#{insertTime}, </if>
+			<if test="insertOperatorId != null">#{insertOperatorId}, </if>
+			<if test="insertIdentity != null">#{insertIdentity}, </if>
+			<if test="updateTime != null">#{updateTime}, </if>
+			<if test="updateOperatorId != null">#{updateOperatorId}, </if>
+			<if test="updateIdentity != null">#{updateIdentity}, </if>
+			<if test="versions != null">#{versions}, </if>
+			<if test="delSign != null">#{delSign}</if>
+		</trim>
+	</insert>
+
+    <!-- 查询详情 -->
+	<select id="queryObject"  parameterType="com.ljq.demo.springboot.entity.ReceiveAddressEntity"
+			resultMap="receiveAddressMap">
+		select * from receive_address where id = #{id}
+	</select>
+
+    <!-- 列表查询 -->
+	<select id="queryList" parameterType="java.util.Map" resultMap="receiveAddressMap">
+		select * from receive_address
+		<choose>
+			<when test="properties != null and direction.trim() != ''">
+				ORDER BY ${properties} ${direction}
+			</when>
+			<otherwise>
+				ORDER BY id DESC
+			</otherwise>
+		</choose>
+		<choose>
+			<when test="offset != null and pageLimit != null">
+				LIMIT #{offset}, #{pageLimit}
+			</when>
+			<otherwise>
+				LIMIT 0, 5
+			</otherwise>
+		</choose>
+	</select>
+
+    <!-- 统计列表查询数量 -->
+ 	<select id="queryCount" parameterType="java.util.Map" resultType="int">
+		select count(*) from receive_address
+	</select>
+
+    <!-- 更新 -->
+	<update id="update" parameterType="com.ljq.demo.springboot.entity.ReceiveAddressEntity">
+		update receive_address 
+		<set>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="receiverName != null">`receiver_name` = #{receiverName}, </if>
+			<if test="telephone != null">`telephone` = #{telephone}, </if>
+			<if test="province != null">`province` = #{province}, </if>
+			<if test="city != null">`city` = #{city}, </if>
+			<if test="area != null">`area` = #{area}, </if>
+			<if test="address != null">`address` = #{address}, </if>
+			<if test="defaultAddress != null">`default_address` = #{defaultAddress}, </if>
+			<if test="insertTime != null">`insert_time` = #{insertTime}, </if>
+			<if test="insertOperatorId != null">`insert_operator_id` = #{insertOperatorId}, </if>
+			<if test="insertIdentity != null">`insert_identity` = #{insertIdentity}, </if>
+			<if test="updateTime != null">`update_time` = #{updateTime}, </if>
+			<if test="updateOperatorId != null">`update_operator_id` = #{updateOperatorId}, </if>
+			<if test="updateIdentity != null">`update_identity` = #{updateIdentity}, </if>
+			<if test="versions != null">`versions` = #{versions}, </if>
+			<if test="delSign != null">`del_sign` = #{delSign}</if>
+		</set>
+		where id = #{id}
+	</update>
+
+    <!-- 删除一条数据 -->
+	<delete id="delete">
+		update receive_address set `del_sign` = '1' where id = #{id}
+	</delete>
+
+    <!-- 批量删除 -->
+	<delete id="deleteBatch">
+		update receive_address set `del_sign` = '1' where id in
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,46 @@
+## spring config
+
+# tomcat server
+server:
+  use-forward-headers: true
+  tomcat:
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
+    port-header: X-Forwarded-Port
+
+## spring config
+spring:
+  # environment: dev|test|pro
+  profiles:
+    active: dev
+  # datasource connect-pool
+  datasource:
+    druid:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      initial-size: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+  # multipart file
+  servlet:
+    multipart:
+      # single file max size
+      max-file-size: 10mb
+      # multi file max size
+      max-request-size: 100mb
+
+## mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ljq.demo.springboot.entity
+
+## mybatis log
+logging:
+  level:
+    com.ljq.demo.springboot.dao: debug
+
+
+
+

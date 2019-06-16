@@ -1,0 +1,21 @@
+## environment-dev
+
+## tomcat server
+server:
+  port: 8848
+
+spring:
+  ## datasource
+  datasource:
+    user:
+      url: "jdbc:mysql://192.168.100.100:3306/demo?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true\
+          &useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=true&allowMultiQueries=true&autoReconnect=true"
+      username: root
+      password: root
+    receiveAddress:
+      url: "jdbc:mysql://192.168.100.100:3306/demo1?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true\
+                &useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=true&allowMultiQueries=true&autoReconnect=true"
+      username: root
+      password: root
+
+

@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 /**
  * @author junqiang.lu
  */
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class},scanBasePackages = {"com.ljq.demo.springboot.schedule"})
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class},scanBasePackages = {"com.ljq.demo.springboot"})
 @EnableScheduling
 public class DemoScheduleApplication {
 
