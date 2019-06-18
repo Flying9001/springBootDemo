@@ -66,6 +66,12 @@ Quick start :
 
 [24.Spring Boot 2.X 实现简易定时任务功能 --- 2019-06-14](./doc/24.spring_boot_2_schedule.md "./doc/24.spring_boot_2_schedule.md")  
 
+[25.Spring Boot 2 整合 Mybatis 多数据源 --- 2019-06-18](./doc/25.spring_boot_2_mybatis_multi_datasource.md "./doc/25.spring_boot_2_mybatis_multi_datasource.md")  
+
+  
+
+
+
 
 
 ​    
