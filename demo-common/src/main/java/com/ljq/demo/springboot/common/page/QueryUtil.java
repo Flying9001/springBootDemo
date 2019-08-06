@@ -3,7 +3,6 @@ package com.ljq.demo.springboot.common.page;
 import com.ljq.demo.springboot.common.util.SqlCheckUtil;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +12,7 @@ import java.util.Map;
  * @Date: 2018/11/28
  */
 @Data
-public class QueryUtil extends HashMap<String, Object> implements Serializable {
+public class QueryUtil extends HashMap<String, Object>{
 
     private static final long serialVersionUID = -731879956899505222L;
 
@@ -74,8 +73,8 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
      *     map 中需要包含的分页参数:
      *         currPage: 当前页数
      *         pageLimit: 每页显示条数
-     *         properties: 排序依据,如按照 "id" 排序,则 map.put("properties","id")
      *         direction: 排序规则,升序(asc)或者降序(desc),如升序排序,则 map.put("direction","asc")
+     *         properties: 排序依据,如按照 "id" 排序,则 map.put("properties","id")
      * @throws Exception sql 参数不合法
      */
     public QueryUtil(Map<String, Object> queryMap) throws Exception {
@@ -87,7 +86,7 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
         /**
          * 当前页码参数获取与校验
          */
-        String currPageParam = String.valueOf(queryMap.get("currPage") == null ? "" : queryMap.get("currPage"));
+        String currPageParam = String.valueOf(queryMap.getOrDefault("currPage",""));
         if (currPageParam != null && currPageParam.length() > 0) {
             int currPage = Integer.parseInt(currPageParam);
             this.currPage = currPage < DEFAULT_PAGE ? DEFAULT_PAGE : currPage;
@@ -95,7 +94,7 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
         /**
          * 每页显示条数参数获取与校验
          */
-        String pageLimitParam = String.valueOf(queryMap.get("pageLimit") == null ? "" : queryMap.get("pageLimit"));
+        String pageLimitParam = String.valueOf(queryMap.getOrDefault("pageLimit",""));
         if (pageLimitParam != null && pageLimitParam.length() > 0) {
             int pageLimit = Integer.parseInt(pageLimitParam);
             this.pageLimit = pageLimit < DEFAULT_PAGE ? DEFAULT_LIMIT : pageLimit;
@@ -106,7 +105,7 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
         /**
          * 排序规则,升序:ASC;降序:DESC
          */
-        String direction = String.valueOf(queryMap.get("direction") == null ? "" : queryMap.get("direction"));
+        String direction = String.valueOf(queryMap.getOrDefault("direction",""));
         if (currPageParam != null && currPageParam.length() > 0) {
             switch (direction.toUpperCase()) {
                 case "ASC":
@@ -122,8 +121,10 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
         /**
          * 排序依据参数(防止 sql 注入)
          */
-        String properties = SqlCheckUtil.getSafeSQL(String.valueOf(queryMap.get("properties") == null ? "" : queryMap.get("properties")));
-        this.properties = properties;
+        String properties = SqlCheckUtil.getSafeSQL(String.valueOf(queryMap.getOrDefault("properties","")));
+        if (properties != null && properties.length() > 0) {
+            this.properties = properties;
+        }
     }
 
 
