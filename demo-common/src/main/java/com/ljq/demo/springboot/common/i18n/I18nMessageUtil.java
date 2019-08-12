@@ -1,6 +1,5 @@
 package com.ljq.demo.springboot.common.i18n;
 
-import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -18,7 +17,6 @@ import java.io.IOException;
 public class I18nMessageUtil {
 
     private static MessageSourceAccessor accessor;
-    private static MessageSource messageSource;
     private static final String PATH_PARENT = "classpath:i18n/";
     private static final String SUFFIX = ".properties";
     private static ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
@@ -46,8 +44,8 @@ public class I18nMessageUtil {
         ReloadableResourceBundleMessageSource reloadableResourceBundleMessageSource = new ReloadableResourceBundleMessageSource();
         reloadableResourceBundleMessageSource.setBasename(baseName);
         reloadableResourceBundleMessageSource.setCacheSeconds(5);
+        reloadableResourceBundleMessageSource.setDefaultEncoding("UTF-8");
         accessor = new MessageSourceAccessor(reloadableResourceBundleMessageSource);
-        messageSource = reloadableResourceBundleMessageSource;
     }
 
     /**
