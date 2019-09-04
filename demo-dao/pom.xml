@@ -3,15 +3,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ljq.demo</groupId>
+    <groupId>com.ljq.demo.springboot</groupId>
     <artifactId>demo-dao</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>demo-dao</name>
 
     <parent>
-        <artifactId>springboot</artifactId>
         <groupId>com.ljq.demo</groupId>
+        <artifactId>springboot</artifactId>
         <version>1.0.0</version>
     </parent>
 
@@ -24,7 +24,7 @@
     <dependencies>
         <!-- local module dependency -->
         <dependency>
-            <groupId>com.ljq.demo</groupId>
+            <groupId>com.ljq.demo.springboot</groupId>
             <artifactId>demo-model</artifactId>
             <version>1.0.0</version>
         </dependency>

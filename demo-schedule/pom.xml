@@ -57,7 +57,7 @@
 
         <!-- DAO local dependency -->
         <dependency>
-            <groupId>com.ljq.demo</groupId>
+            <groupId>com.ljq.demo.springboot</groupId>
             <artifactId>demo-dao</artifactId>
             <version>1.0.0</version>
         </dependency>
