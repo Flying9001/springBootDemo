@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ljq.demo.springboot.rest.dao.RestUserDao">
+
+	<!-- REST示例-用户表结果集resultMap -->
+    <resultMap type="com.ljq.demo.springboot.rest.model.vo.user.RestUserVO" id="restUserMap">
+        <result property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="passcode" column="passcode"/>
+        <result property="email" column="email"/>
+        <result property="userStatus" column="user_status"/>
+        <result property="insertTime" column="insert_time"/>
+        <result property="insertUserId" column="insert_user_id"/>
+        <result property="insertIdentity" column="insert_identity"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateUserId" column="update_user_id"/>
+        <result property="updateIdentity" column="update_identity"/>
+        <result property="versions" column="versions"/>
+        <result property="delSign" column="del_sign"/>
+    </resultMap>
+
+	<!-- REST示例-用户表-列表字段 -->
+	<sql id="rest_user_list_field">
+        `id`,
+        `user_name`,
+        `email`
+	</sql>
+
+   <!-- REST示例-用户表-详情字段 -->
+	<sql id="rest_user_info_field">
+        <include refid="rest_user_list_field" />
+        `passcode`,
+        `user_status`,
+        UNIX_TIMESTAMP(`insert_time`) AS `insert_time`,
+        `insert_user_id`,
+        `insert_identity`,
+        UNIX_TIMESTAMP(`update_time`) AS `update_time`,
+        `update_user_id`,
+        `update_identity`,
+        `versions`,
+        `del_sign`
+	</sql>
+
+    <!-- 保存,创建 -->
+	<insert id="save" parameterType="com.ljq.demo.springboot.rest.model.entity.user.RestUserEntity" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO rest_user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userName != null"> `user_name`,  </if>
+			<if test="passcode != null"> `passcode`,  </if>
+			<if test="email != null"> `email`,  </if>
+			<if test="userStatus != null"> `user_status`,  </if>
+			<if test="1 != null"> `insert_time`,  </if>
+			<if test="insertUserId != null"> `insert_user_id`,  </if>
+			<if test="insertIdentity != null"> `insert_identity`,  </if>
+			<if test="1 != null"> `update_time`,  </if>
+			<if test="updateUserId != null"> `update_user_id`,  </if>
+			<if test="updateIdentity != null"> `update_identity`,  </if>
+			<if test="versions != null"> `versions`,  </if>
+			<if test="delSign != null"> `del_sign` </if>
+		</trim>
+		<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+			<if test="userName != null">#{userName}, </if>
+			<if test="passcode != null">#{passcode}, </if>
+			<if test="email != null">#{email}, </if>
+			<if test="userStatus != null">#{userStatus}, </if>
+			<if test="1 != null">NOW(), </if>
+			<if test="insertUserId != null">#{insertUserId}, </if>
+			<if test="insertIdentity != null">#{insertIdentity}, </if>
+			<if test="1 != null">NOW(), </if>
+			<if test="updateUserId != null">#{updateUserId}, </if>
+			<if test="updateIdentity != null">#{updateIdentity}, </if>
+			<if test="versions != null">#{versions}, </if>
+			<if test="delSign != null">#{delSign}</if>
+		</trim>
+	</insert>
+
+	<!-- 批量保存 S -->
+	<insert id="saveBatch" parameterType="java.util.List" useGeneratedKeys="true">
+		<selectKey resultType="long" keyProperty="id" order="AFTER">
+			SELECT
+			LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO `rest_user`(`user_name`, `passcode`)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator="," >
+			( #{item.userName}, #{item.passcode})
+		</foreach>
+	</insert>
+	<!-- 批量保存 E -->
+
+    <!-- 查询详情 -->
+	<select id="queryObject"  parameterType="com.ljq.demo.springboot.rest.model.entity.user.RestUserEntity"
+			resultMap="restUserMap">
+		SELECT
+        <include refid="rest_user_base_field" />
+        FROM rest_user
+        WHERE id = #{id} AND `del_sign` = 0
+	</select>
+
+    <!-- 列表查询 -->
+	<select id="queryList" parameterType="java.util.Map" resultMap="restUserMap">
+		SELECT
+		<include refid="rest_user_base_field" />
+        FROM rest_user
+        WHERE `del_sign` = 0
+        GROUP BY id
+        ORDER BY
+		<choose>
+			<when test="properties != null and direction.trim() != ''">
+				${properties} ${direction}
+			</when>
+			<otherwise>
+				id DESC
+			</otherwise>
+		</choose>
+		<choose>
+			<when test="offset != null and pageLimit != null">
+				LIMIT #{offset}, #{pageLimit}
+			</when>
+			<otherwise>
+				LIMIT 0, 5
+			</otherwise>
+		</choose>
+	</select>
+
+    <!-- 统计列表查询数量 -->
+ 	<select id="queryCount" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*)
+        FROM rest_user
+        WHERE `del_sign` = 0
+	</select>
+
+    <!-- 更新 -->
+	<update id="update" parameterType="com.ljq.demo.springboot.rest.model.entity.user.RestUserEntity">
+		UPDATE rest_user
+		<set>
+			<if test="userName != null">`user_name` = #{userName}, </if>
+			<if test="passcode != null">`passcode` = #{passcode}, </if>
+			<if test="email != null">`email` = #{email}, </if>
+			<if test="userStatus != null">`user_status` = #{userStatus}, </if>
+			<if test="insertUserId != null">`insert_user_id` = #{insertUserId}, </if>
+			<if test="insertIdentity != null">`insert_identity` = #{insertIdentity}, </if>
+			<if test="1 != null">`update_time` = NOW(), </if>
+			<if test="updateUserId != null">`update_user_id` = #{updateUserId}, </if>
+			<if test="updateIdentity != null">`update_identity` = #{updateIdentity}, </if>
+			<if test="versions != null">`versions` = #{versions}, </if>
+			<if test="delSign != null">`del_sign` = #{delSign}</if>
+		</set>
+		WHERE id = #{id} AND `del_sign` = 0
+	</update>
+
+    <!-- 删除一条数据 -->
+	<delete id="delete">
+		UPDATE rest_user
+        SET `del_sign` = 1
+        WHERE id = #{id} AND `del_sign` = 0
+	</delete>
+
+    <!-- 批量删除 -->
+	<delete id="deleteBatch">
+		UPDATE rest_user
+        SET `del_sign` = 1
+        WHERE id IN
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

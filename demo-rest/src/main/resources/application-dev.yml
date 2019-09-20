@@ -1,0 +1,34 @@
+## environment-dev
+
+## tomcat server
+server:
+  port: 8055
+
+
+spring:
+  ## datasource
+  datasource:
+    url: "jdbc:mysql://192.168.100.100:3306/demo?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true\
+      &useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=true&allowMultiQueries=true&autoReconnect=true"
+    username: root
+    password: root
+  # redis
+  redis:
+    database: 1
+    host: 192.168.100.100
+    port: 7749
+    password: 21cde022-a5da-626e-c8f4-04c99ed3a181
+    timeout: 10000ms
+    jedis:
+      pool:
+        max-active: 200
+        max-idle: 500
+        min-idle: 50
+        max-wait: 100s
+
+# Swagger config
+swagger:
+  enable: true
+
+
+

@@ -29,6 +29,7 @@
         <module>cloud-config-server</module>
         <module>cloud-config-client</module>
         <module>demo-schedule</module>
+        <module>demo-rest</module>
     </modules>
 
     <properties>
@@ -47,6 +48,7 @@
         <itextpdf.version>5.5.13</itextpdf.version>
         <swagger2.version>2.9.2</swagger2.version>
         <aliyun.oss.version>3.4.2</aliyun.oss.version>
+        <hutool.version>4.6.6</hutool.version>
     </properties>
 
     <dependencyManagement>
@@ -238,7 +240,7 @@
                 <version>${springboot.version}</version>
             </dependency>
 
-            <!-- Swagger -->
+            <!-- Swagger 2-->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
@@ -267,6 +269,13 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpmime</artifactId>
                 <version>${httpclient.version}</version>
+            </dependency>
+
+            <!-- hutool,集成java 工具包 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-core</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
 
         </dependencies>
