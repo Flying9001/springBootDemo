@@ -43,7 +43,7 @@
         <spring.cloud.starter>2.0.1.RELEASE</spring.cloud.starter>
         <mysql.driver>8.0.13</mysql.driver>
         <druid>1.1.10</druid>
-        <jackson.version>2.9.8</jackson.version>
+        <jackson.version>2.10.0</jackson.version>
         <flying-saucer-pdf.version>9.1.16</flying-saucer-pdf.version>
         <itextpdf.version>5.5.13</itextpdf.version>
         <swagger2.version>2.9.2</swagger2.version>
