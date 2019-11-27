@@ -74,6 +74,10 @@ Quick start :
 
 [25.Spring Boot 2 整合 Mybatis 多数据源 --- 2019-06-18](./doc/25.spring_boot_2_mybatis_multi_datasource.md "./doc/25.spring_boot_2_mybatis_multi_datasource.md")  
 
+[26.Spring Boot 2.X 集成 Mybatis PageHelper 分页插件完美解决一对多分页查询问题 --- 2019-11-27](./doc/26.spring_boot_2_mybatis_pagehelper.md "./doc/26.spring_boot_2_mybatis_pagehelper.md")  
+
+
+
   
 
 
