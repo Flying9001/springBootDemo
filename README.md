@@ -10,6 +10,12 @@ Quick start :
 
 [1.quick start with intellij idea----2018-09-07](doc/1.quick_start_with_intellij_idea.md )  
 
+​    
+
+由于子项目较多,为避免项目配置杂乱,在创建新项目模块时可参考:    
+
+[项目配置信息](./doc/application-config.md "./doc/application-config.md")  
+
 
 
 该项目仅作为个人学习研究使用    

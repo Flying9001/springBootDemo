@@ -41,14 +41,14 @@
         <mybatis.springboot>1.3.2</mybatis.springboot>
         <spring-cloud.version>Finchley.SR1</spring-cloud.version>
         <spring.cloud.starter>2.0.1.RELEASE</spring.cloud.starter>
-        <mysql.driver>8.0.13</mysql.driver>
-        <druid>1.1.10</druid>
-        <jackson.version>2.10.0</jackson.version>
-        <flying-saucer-pdf.version>9.1.16</flying-saucer-pdf.version>
-        <itextpdf.version>5.5.13</itextpdf.version>
+        <mysql.driver>8.0.18</mysql.driver>
+        <druid>1.1.21</druid>
+        <jackson.version>2.10.1</jackson.version>
+        <flying-saucer-pdf.version>9.1.19</flying-saucer-pdf.version>
+        <itextpdf.version>5.5.13.1</itextpdf.version>
         <swagger2.version>2.9.2</swagger2.version>
-        <aliyun.oss.version>3.4.2</aliyun.oss.version>
-        <hutool.version>4.6.6</hutool.version>
+        <aliyun.oss.version>3.8.0</aliyun.oss.version>
+        <hutool.version>5.0.6</hutool.version>
     </properties>
 
     <dependencyManagement>
@@ -67,8 +67,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-devtools</artifactId>
                 <version>${springboot.version}</version>
-                <optional>true</optional>
-                <scope>true</scope>
+                <scope>runtime</scope>
             </dependency>
 
             <!-- spring junit test -->

@@ -2,7 +2,7 @@
 
 ## tomcat server
 server:
-  port: 8848
+  port: 8088
 
 
 spring:

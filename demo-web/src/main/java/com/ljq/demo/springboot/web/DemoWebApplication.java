@@ -12,6 +12,10 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
+/**
+ * @author Caleb
+ * @date 2018-10-09
+ */
 @SpringBootApplication
 @EnableEurekaServer
 @ComponentScan(basePackages = {"com.ljq.demo"})
