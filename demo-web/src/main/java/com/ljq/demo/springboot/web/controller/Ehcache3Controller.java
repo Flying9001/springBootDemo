@@ -34,19 +34,17 @@ public class Ehcache3Controller {
     @RequestMapping(value = "noCache", method = RequestMethod.POST)
     public ApiResult noCache(@RequestBody NoCacheBean noCacheBean) {
 
-        ApiResult apiResult = null;
         try {
-            apiResult = ehcache3Service.noCache(noCacheBean);
+            return ehcache3Service.noCache(noCacheBean);
         } catch (Exception e) {
             if (ParamsCheckException.class.isAssignableFrom(e.getClass())){
                 log.error("参数错误");
-                return apiResult.failure(ResponseCode.PARAM_ERROR.getCode(), e.getMessage());
+                return ApiResult.failure(e.getMessage());
             }
             log.error("未知异常",e);
-            return apiResult.failure(ResponseCode.UNKNOWN_ERROR.getMsg());
+            return ApiResult.failure(ResponseCode.UNKNOWN_ERROR);
         }
 
-        return apiResult;
     }
 
     /**
@@ -58,19 +56,16 @@ public class Ehcache3Controller {
     @RequestMapping(value = "cacheResult", method = RequestMethod.POST)
     public ApiResult cacheResult(@RequestBody CacheResultBean cacheResultBean) {
 
-        ApiResult apiResult = null;
         try {
-            apiResult = ehcache3Service.cacheResult(cacheResultBean);
+            return ehcache3Service.cacheResult(cacheResultBean);
         } catch (Exception e) {
             if (ParamsCheckException.class.isAssignableFrom(e.getClass())){
                 log.error("参数错误");
-                return apiResult.failure(ResponseCode.PARAM_ERROR.getCode(), e.getMessage());
+                return ApiResult.failure(e.getMessage());
             }
             log.error("未知异常",e);
-            return apiResult.failure(ResponseCode.UNKNOWN_ERROR.getMsg());
+            return ApiResult.failure(ResponseCode.UNKNOWN_ERROR);
         }
-
-        return apiResult;
     }
 
     /**
@@ -82,19 +77,18 @@ public class Ehcache3Controller {
     @RequestMapping(value = "cachePut", method = RequestMethod.POST)
     public ApiResult cachePut(@RequestBody CachePutBean cacheResultBean) {
 
-        ApiResult apiResult = null;
         try {
             ehcache3Service.cachePut(cacheResultBean,ApiResult.success());
         } catch (Exception e) {
             if (ParamsCheckException.class.isAssignableFrom(e.getClass())){
                 log.error("参数错误");
-                return apiResult.failure(ResponseCode.PARAM_ERROR.getCode(), e.getMessage());
+                return ApiResult.failure(e.getMessage());
             }
             log.error("未知异常",e);
-            return apiResult.failure(ResponseCode.UNKNOWN_ERROR.getMsg());
+            return ApiResult.failure(ResponseCode.UNKNOWN_ERROR);
         }
 
-        return apiResult;
+        return ApiResult.success();
     }
 
     /**
@@ -108,17 +102,15 @@ public class Ehcache3Controller {
 
         ApiResult apiResult = null;
         try {
-            apiResult = ehcache3Service.cachePutValidate(cachePutBean);
+            return ehcache3Service.cachePutValidate(cachePutBean);
         } catch (Exception e) {
             if (ParamsCheckException.class.isAssignableFrom(e.getClass())){
                 log.error("参数错误");
-                return apiResult.failure(ResponseCode.PARAM_ERROR.getCode(), e.getMessage());
+                return ApiResult.failure(e.getMessage());
             }
             log.error("未知异常",e);
-            return apiResult.failure(ResponseCode.UNKNOWN_ERROR.getMsg());
+            return ApiResult.failure(ResponseCode.UNKNOWN_ERROR);
         }
-
-        return apiResult;
     }
 
     /**
@@ -130,19 +122,16 @@ public class Ehcache3Controller {
     @RequestMapping(value = "cacheRemove", method = RequestMethod.POST)
     public ApiResult cacheRemove(@RequestBody CacheRemoveBean cacheRemoveBean) {
 
-        ApiResult apiResult = null;
         try {
-            apiResult = ehcache3Service.cacheRemove(cacheRemoveBean);
+            return ehcache3Service.cacheRemove(cacheRemoveBean);
         } catch (Exception e) {
             if (ParamsCheckException.class.isAssignableFrom(e.getClass())){
                 log.error("参数错误");
-                return apiResult.failure(ResponseCode.PARAM_ERROR.getCode(), e.getMessage());
+                return ApiResult.failure(e.getMessage());
             }
             log.error("未知异常",e);
-            return apiResult.failure(ResponseCode.UNKNOWN_ERROR.getMsg());
+            return ApiResult.failure(ResponseCode.UNKNOWN_ERROR);
         }
-
-        return apiResult;
     }
 
     /**
@@ -154,19 +143,16 @@ public class Ehcache3Controller {
     @RequestMapping(value = "cacheRemoveValidate", method = RequestMethod.POST)
     public ApiResult cacheRemoveValidate(@RequestBody CacheRemoveBean cacheRemoveBean) {
 
-        ApiResult apiResult = null;
         try {
-            apiResult = ehcache3Service.cacheRemoveValidate(cacheRemoveBean);
+            return ehcache3Service.cacheRemoveValidate(cacheRemoveBean);
         } catch (Exception e) {
             if (ParamsCheckException.class.isAssignableFrom(e.getClass())){
                 log.error("参数错误");
-                return apiResult.failure(ResponseCode.PARAM_ERROR.getCode(), e.getMessage());
+                return ApiResult.failure(e.getMessage());
             }
             log.error("未知异常",e);
-            return apiResult.failure(ResponseCode.UNKNOWN_ERROR.getMsg());
+            return ApiResult.failure(ResponseCode.UNKNOWN_ERROR);
         }
-
-        return apiResult;
     }
 
     /**
@@ -178,19 +164,16 @@ public class Ehcache3Controller {
     @RequestMapping(value = "cacheRemoveAll", method = RequestMethod.POST)
     public ApiResult cacheRemoveAll(@RequestBody CacheRemoveAllBean cacheRemoveAllBean) {
 
-        ApiResult apiResult = null;
         try {
-            apiResult = ehcache3Service.cacheRemoveAll(cacheRemoveAllBean);
+            return ehcache3Service.cacheRemoveAll(cacheRemoveAllBean);
         } catch (Exception e) {
             if (ParamsCheckException.class.isAssignableFrom(e.getClass())){
                 log.error("参数错误");
-                return apiResult.failure(ResponseCode.PARAM_ERROR.getCode(), e.getMessage());
+                return ApiResult.failure(e.getMessage());
             }
             log.error("未知异常",e);
-            return apiResult.failure(ResponseCode.UNKNOWN_ERROR.getMsg());
+            return ApiResult.failure(ResponseCode.UNKNOWN_ERROR);
         }
-
-        return apiResult;
     }
 
     /**
@@ -202,21 +185,17 @@ public class Ehcache3Controller {
     @RequestMapping(value = "cacheRemoveAllValidate", method = RequestMethod.POST)
     public ApiResult cacheRemoveAllValidate(@RequestBody CacheRemoveAllBean cacheRemoveAllBean) {
 
-        ApiResult apiResult = null;
         try {
-            apiResult = ehcache3Service.cacheRemoveAllValidate(cacheRemoveAllBean);
+           return ehcache3Service.cacheRemoveAllValidate(cacheRemoveAllBean);
         } catch (Exception e) {
             if (ParamsCheckException.class.isAssignableFrom(e.getClass())){
                 log.error("参数错误");
-                return apiResult.failure(ResponseCode.PARAM_ERROR.getCode(), e.getMessage());
+                return ApiResult.failure(e.getMessage());
             }
             log.error("未知异常",e);
-            return apiResult.failure(ResponseCode.UNKNOWN_ERROR.getMsg());
+            return ApiResult.failure(ResponseCode.UNKNOWN_ERROR);
         }
-
-        return apiResult;
     }
-
 
 
 }

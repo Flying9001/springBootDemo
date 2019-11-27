@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ljq.demo.springboot.dao.article.ArticleTagDao">
+
+	<!-- 文章标签表结果集resultMap -->
+    <resultMap type="com.ljq.demo.springboot.entity.ArticleTagEntity" id="articleTagMap">
+        <result property="id" column="id"/>
+        <result property="tagName" column="tag_name"/>
+    </resultMap>
+
+   <!-- 文章标签表-基础字段 -->
+	<sql id="article_tag_base_field">
+        at.`id`,
+        at.`tag_name`
+	</sql>
+
+	<!-- 查询某一篇文章的标签(列表) S -->
+	<select id="queryTagsByArticleId" parameterType="long" resultMap="articleTagMap">
+		SELECT
+		    <include refid="article_tag_base_field" />
+		FROM `article_to_tag` att
+		LEFT JOIN `article_tag` at ON at.id = att.tag_id
+		LEFT JOIN `article` a ON a.id = att.article_id
+		WHERE a.id = #{id}
+	</select>
+	<!-- 查询某一篇文章的标签(列表) E -->
+
+</mapper>

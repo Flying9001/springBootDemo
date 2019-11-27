@@ -138,6 +138,12 @@
             <artifactId>httpmime</artifactId>
         </dependency>
 
+        <!-- hutool,集成java 工具包 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+        </dependency>
+
     </dependencies>
 
 

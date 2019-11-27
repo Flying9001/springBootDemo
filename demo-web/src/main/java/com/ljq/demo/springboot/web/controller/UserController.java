@@ -83,19 +83,17 @@ public class UserController {
      */
     @RequestMapping(value = "signup", method = RequestMethod.POST)
     public ApiResultI18n signUp(@RequestBody UserSignUpBean userSignUpBean){
-        ApiResultI18n apiResultI18n= null;
         try {
-            apiResultI18n = userService.signUp(userSignUpBean);
+            return userService.signUp(userSignUpBean);
         } catch (Exception e) {
             if (ParamsCheckException.class.isAssignableFrom(e.getClass())){
                 logger.error("注册失败,参数错误");
-                return apiResultI18n.failure(ResponseCodeI18n.PARAM_ERROR.getCode(), e.getMessage(),
+                return ApiResultI18n.failure(ResponseCodeI18n.PARAM_ERROR.getCode(), e.getMessage(),
                         userSignUpBean.getLanguage());
             }
             logger.error("注册失败,未知异常",e);
-            return apiResultI18n.failure(ResponseCodeI18n.UNKNOWN_ERROR, userSignUpBean.getLanguage());
+            return ApiResultI18n.failure(ResponseCodeI18n.UNKNOWN_ERROR, userSignUpBean.getLanguage());
         }
-        return apiResultI18n;
     }
 
 }

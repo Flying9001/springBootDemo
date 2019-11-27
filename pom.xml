@@ -49,6 +49,7 @@
         <swagger2.version>2.9.2</swagger2.version>
         <aliyun.oss.version>3.8.0</aliyun.oss.version>
         <hutool.version>5.0.6</hutool.version>
+        <mybatis.pagehelper.version>1.2.12</mybatis.pagehelper.version>
     </properties>
 
     <dependencyManagement>
@@ -275,6 +276,13 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-core</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- mybatis pageHelper -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${mybatis.pagehelper.version}</version>
             </dependency>
 
         </dependencies>

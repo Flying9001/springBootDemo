@@ -44,10 +44,10 @@ public class Swagger2Controller {
         } catch (Exception e) {
             if (ParamsCheckException.class.isAssignableFrom(e.getClass())){
                 log.error("参数错误");
-                return apiResult.failure(ResponseCode.PARAM_ERROR.getCode(), e.getMessage());
+                return apiResult.failure(ResponseCode.PARAM_ERROR);
             }
             log.error("未知异常",e);
-            return apiResult.failure(ResponseCode.UNKNOWN_ERROR.getMsg());
+            return apiResult.failure(ResponseCode.UNKNOWN_ERROR);
         }
 
         return apiResult;
