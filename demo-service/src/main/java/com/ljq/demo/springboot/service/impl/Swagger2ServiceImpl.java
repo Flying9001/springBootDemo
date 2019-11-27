@@ -44,12 +44,12 @@ public class Swagger2ServiceImpl implements Swagger2Service {
         Map<String, Object> map = MapUtil.beanToMap(modelAnnotationBean);
         QueryUtil queryUtil = new QueryUtil(map);
         // 列表查询
-        List<UserDO> userDBList = userDao.queryList(queryUtil);
+        List<UserDO> userDBList = userDao.queryListComplex(queryUtil);
         if (userDBList == null || userDBList.isEmpty()) {
             return ApiResult.success(new PageUtil(null, 0, queryUtil.getPageLimit(), queryUtil.getCurrPage()));
         }
 
-        int total = userDao.queryCount(queryUtil);
+        int total = userDao.countComplex(queryUtil);
         // 分页处理
         PageUtil pageUtil = new PageUtil(userDBList, total, queryUtil.getPageLimit(), queryUtil.getCurrPage());
 

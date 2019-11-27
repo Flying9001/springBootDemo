@@ -32,7 +32,7 @@ public class MultiDataSourceDemoSchedule {
      */
     @Scheduled(fixedDelay = 10 * 1000, initialDelay = 10 * 1000)
     public void userListSchedule() {
-        int userCount = userDao.queryCount(new HashMap<>(16));
+        int userCount = userDao.countComplex(new HashMap<>(16));
         log.debug("userCount: {}", userCount);
         if (userCount > 0) {
             List<UserDO> userDBList = userDao.queryList(null);
@@ -47,7 +47,7 @@ public class MultiDataSourceDemoSchedule {
      */
     @Scheduled(fixedDelay = 10 * 1000, initialDelay = 10 * 1000)
     public void receiveAddressListSchedule() {
-        int receiveAddressCount = receiveAddressDao.queryCount(new HashMap<>(16));
+        int receiveAddressCount = receiveAddressDao.countComplex(new HashMap<>(16));
         log.debug("receiveAddressCount: {}", receiveAddressCount);
         if (receiveAddressCount > 0) {
             List<ReceiveAddressEntity> receiveAddressDBList = receiveAddressDao.queryList(null);

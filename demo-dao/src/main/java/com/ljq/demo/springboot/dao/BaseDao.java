@@ -4,91 +4,113 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Description: 数据操作基础类
+ * @Description: 数据持久层基础类
  * @Author: junqiang.lu
- * @Date: 2018/9/29
+ * @Date: 2019/4/29
  */
 public interface BaseDao<T> {
 
     /**
-     * 单个对象保存,插入
+     * 保存单个对象
+     *
      * @param t
      * @return
      */
     long save(T t);
 
     /**
-     * 复杂参数保存、插入
+     * 保存复杂参数对象
+     *
      * @param map
      * @return
      */
-    long save(Map<String, Object> map);
+    long saveComplex(Map<String, Object> map);
 
     /**
      * 批量保存、插入
+     *
      * @param list
      * @return
      */
-    long saveBatch(List<T> list);
+    <E> long saveBatch(List<E> list);
 
     /**
-     * 更新
+     * 更新对象
+     *
      * @param t
      * @return
      */
     int update(T t);
 
     /**
-     * 更新
+     * 更新复杂对象
+     *
      * @param map 复杂参数
      * @return
      */
-    int update(Map<String, Object> map);
+    int updateComplex(Map<String, Object> map);
 
     /**
      * 删除单个对象
-     * @param id
+     *
+     * @param t
      * @return
      */
-    int delete(Object id);
+    int delete(T t);
 
     /**
-     * 删除(可多个,可单个)
+     * 删除对象(可多个,可单个)
+     *
      * @param map 复杂参数
      * @return
      */
-    int delete(Map<String, Object> map);
+    int deleteComplex(Map<String, Object> map);
 
     /**
      * 批量删除
-     * @param id
+     *
+     * @param list
      * @return
      */
-    int deleteBatch(Object[] id);
+    <E> int deleteBatch(List<E> list);
 
     /**
      * 查询单个对象
-     * @param id
+     *     确定最多只返回一条数据
+     *
+     * @param t
      * @return
      */
-    T queryObject(Object id);
+    T queryObject(T t);
+
+    /**
+     * 查询单个对象
+     *    返回数据条数可能为多条
+     *
+     * @param t
+     * @return
+     */
+    <E> List<E> queryObjectMuitl(T t);
 
     /**
      * 查询列表
+     *
+     * @param t
+     * @return
+     */
+    <E> List<E> queryList(T t);
+
+    /**
+     * 查询列表
+     *
      * @param map 复杂参数
      * @return
      */
-    List<T> queryList(Map<String, Object> map);
+    <E> List<E> queryListComplex(Map<String, Object> map);
 
     /**
      * 查询列表
-     * @param id
-     * @return
-     */
-    List<T> queryList(Object id);
-
-    /**
-     * 查询列表
+     *
      * @param t
      * @return
      */
@@ -96,21 +118,26 @@ public interface BaseDao<T> {
 
     /**
      * 统计查询个数
-     * @param map
-     * @return
-     */
-    int queryCount(Map<String, Object> map);
-
-    /**
-     * 统计查询个数
+     *
      * @param t
      * @return
      */
-    int queryCount(T t);
+    int count(T t);
 
     /**
      * 统计查询个数
+     *
+     * @param map 复杂参数
      * @return
      */
-    int queryCount();
+    int countComplex(Map<String, Object> map);
+
+    /**
+     * 统计查询个数
+     *
+     * @return
+     */
+    int countAll();
+
+
 }

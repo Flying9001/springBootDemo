@@ -31,7 +31,7 @@
 	</sql>
 
     <!-- 查询用户列表 -->
-    <select id="queryList" parameterType="java.util.Map" resultMap="userMap">
+    <select id="queryListComplex" parameterType="java.util.Map" resultMap="userMap">
         select u.id, u.user_name, u.user_passcode, u.user_email, u.user_insert_time, u.user_update_time, u.user_status,
             u.user_version, u.user_del
         from `user` u
@@ -55,7 +55,7 @@
     </select>
 
     <!-- 统计用户列表查询条数 -->
-    <select id="queryCount" parameterType="java.util.Map" resultType="int" >
+    <select id="countComplex" parameterType="java.util.Map" resultType="int" >
         select count(*) counts
         from `user`
         where `user_del` = 0

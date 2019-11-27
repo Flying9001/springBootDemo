@@ -56,8 +56,8 @@ public class SimpleHttpClientUtil implements Serializable {
                 .build();
         HttpGet httpGet = new HttpGet(getRequestUrl(host, path, paramsMap));
         httpGet.setConfig(requestConfig);
-        httpGet.setHeader(HTTP.CONTENT_TYPE,ContentType.create(ContentType.APPLICATION_FORM_URLENCODED
-                .getMimeType(),Consts.UTF_8).toString());
+        httpGet.setHeader(HTTP.CONTENT_TYPE, ContentType.create(ContentType.APPLICATION_FORM_URLENCODED
+                .getMimeType(), Consts.UTF_8).toString());
 
         return httpClient.execute(httpGet);
     }
@@ -80,8 +80,8 @@ public class SimpleHttpClientUtil implements Serializable {
                 .build();
         HttpPost httpPost = new HttpPost(getRequestUrl(host, path, paramsMap));
         httpPost.setConfig(requestConfig);
-        httpPost.setHeader(HTTP.CONTENT_TYPE,ContentType.create(ContentType.APPLICATION_FORM_URLENCODED
-                .getMimeType(),Consts.UTF_8).toString());
+        httpPost.setHeader(HTTP.CONTENT_TYPE, ContentType.create(ContentType.APPLICATION_FORM_URLENCODED
+                .getMimeType(), Consts.UTF_8).toString());
 
         return httpClient.execute(httpPost);
     }
@@ -129,7 +129,8 @@ public class SimpleHttpClientUtil implements Serializable {
         if (path != null && path.length() > 0) {
             uri += path;
         }
-        HttpPost httpPost = new HttpPost(uri);httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairList));
+        HttpPost httpPost = new HttpPost(uri);
+        httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairList,Consts.UTF_8));
         httpPost.setHeader(HTTP.CONTENT_TYPE, ContentType.create(ContentType.APPLICATION_FORM_URLENCODED.getMimeType(),
                 Consts.UTF_8).toString());
 
@@ -215,7 +216,7 @@ public class SimpleHttpClientUtil implements Serializable {
                 params.append("&" + entry.getKey() + "=" + URLEncoder.encode(entry.getValue(), StandardCharsets.UTF_8.toString()));
             }
             String paramConnector = "?";
-            if (!host.contains(paramConnector) && !path.contains(paramConnector)) {
+            if (!uri.contains(paramConnector)) {
                 reqUrl.append(paramConnector);
                 reqUrl.append(params.toString().substring(1));
             } else {

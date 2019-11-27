@@ -93,7 +93,7 @@
 	</select>
 
     <!-- 列表查询 -->
-	<select id="queryList" parameterType="java.util.Map" resultMap="receiveAddressMap">
+	<select id="queryListComplex" parameterType="java.util.Map" resultMap="receiveAddressMap">
 		select * from receive_address
 		<choose>
 			<when test="properties != null and direction.trim() != ''">
@@ -114,7 +114,7 @@
 	</select>
 
     <!-- 统计列表查询数量 -->
- 	<select id="queryCount" parameterType="java.util.Map" resultType="int">
+ 	<select id="countComplex" parameterType="java.util.Map" resultType="int">
 		select count(*) from receive_address
 	</select>
 

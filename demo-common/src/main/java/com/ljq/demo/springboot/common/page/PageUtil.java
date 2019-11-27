@@ -3,6 +3,7 @@ package com.ljq.demo.springboot.common.page;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -87,6 +88,9 @@ public class PageUtil<T> implements Serializable {
         }
 
         this.list = list;
+        if (list == null) {
+            this.list = Collections.emptyList();
+        }
     }
 
 
