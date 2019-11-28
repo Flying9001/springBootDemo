@@ -2,6 +2,7 @@ package com.ljq.demo.springboot.web.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.ljq.demo.springboot.common.api.ApiResult;
+import com.ljq.demo.springboot.common.page.PageUtil;
 import com.ljq.demo.springboot.entity.ArticleEntity;
 import com.ljq.demo.springboot.service.ArticleService;
 import com.ljq.demo.springboot.vo.article.ArticleListParam;
@@ -50,6 +51,58 @@ public class ArticleController {
         headers.setContentType(MediaType.APPLICATION_JSON);
         return new ResponseEntity<>(apiResult, headers, HttpStatus.OK);
     }
+
+    /**
+     * 查询列表-对比测试-2
+     *
+     * @param articleListParam
+     * @return
+     */
+    @RequestMapping(value = "/list/2", method = RequestMethod.GET, produces = {"application/json"})
+    @ApiOperation(value = "文章表查询列表-对比测试-2",  notes = "文章表查询列表-对比测试-2")
+    @ResponseBody
+    public ResponseEntity<ApiResult<PageUtil<ArticleEntity>>> list2(ArticleListParam articleListParam) throws Exception {
+        ApiResult apiResult = articleService.list2(articleListParam);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(apiResult, headers, HttpStatus.OK);
+    }
+
+    /**
+     * 查询列表-对比测试-3
+     *
+     * @param articleListParam
+     * @return
+     */
+    @RequestMapping(value = "/list/3", method = RequestMethod.GET, produces = {"application/json"})
+    @ApiOperation(value = "文章表查询列表-对比测试-3",  notes = "文章表查询列表-对比测试-3")
+    @ResponseBody
+    public ResponseEntity<ApiResult<PageUtil<ArticleEntity>>> list3(ArticleListParam articleListParam) throws Exception {
+        ApiResult apiResult = articleService.list3(articleListParam);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(apiResult, headers, HttpStatus.OK);
+    }
+
+    /**
+     * 查询列表-对比测试-4
+     *
+     * @param articleListParam
+     * @return
+     */
+    @RequestMapping(value = "/list/4", method = RequestMethod.GET, produces = {"application/json"})
+    @ApiOperation(value = "文章表查询列表-对比测试-4",  notes = "文章表查询列表-对比测试-4")
+    @ResponseBody
+    public ResponseEntity<ApiResult<PageUtil<ArticleEntity>>> list4(ArticleListParam articleListParam) throws Exception {
+        ApiResult apiResult = articleService.list4(articleListParam);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(apiResult, headers, HttpStatus.OK);
+    }
+
 
 
 }

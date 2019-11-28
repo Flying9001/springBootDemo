@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.ljq.demo.springboot.common.api.ApiResult;
+import com.ljq.demo.springboot.common.page.PageUtil;
 import com.ljq.demo.springboot.common.page.QueryUtil;
 import com.ljq.demo.springboot.dao.article.ArticleDao;
 import com.ljq.demo.springboot.entity.ArticleEntity;
@@ -13,6 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * 文章表业务层具体实现类
@@ -45,6 +48,73 @@ public class ArticleServiceImpl implements ArticleService {
 		long end = System.currentTimeMillis();
 		log.info("查询耗时: {}", (end - start));
 		return ApiResult.success(pageInfo);
+	}
+
+	/**
+	 * 查询列表-对比测试-2
+	 *
+	 * @param articleListParam
+	 * @return
+	 * @throws Exception
+	 */
+	@Override
+	public ApiResult list2(ArticleListParam articleListParam) throws Exception {
+		long start = System.currentTimeMillis();
+		QueryUtil queryMap = new QueryUtil(BeanUtil.beanToMap(articleListParam, false, true));
+		PageInfo<ArticleEntity> pageInfo = PageHelper.startPage(articleListParam.getCurrPage(), articleListParam.getPageLimit())
+				.setOrderBy(articleListParam.getProperties() + " " + articleListParam.getDirection())
+				.doSelectPageInfo(() -> articleDao.queryListPage2(queryMap));
+		long end = System.currentTimeMillis();
+		log.info("查询耗时: {}", (end - start));
+		return ApiResult.success(pageInfo);
+	}
+
+	/**
+	 * 查询列表-对比测试-3
+	 *
+	 * @param articleListParam
+	 * @return
+	 * @throws Exception
+	 */
+	@Override
+	public ApiResult list3(ArticleListParam articleListParam) throws Exception {
+		long start = System.currentTimeMillis();
+		QueryUtil queryMap = new QueryUtil(BeanUtil.beanToMap(articleListParam, false, true));
+		int countTotal = articleDao.countComplex(queryMap);
+		PageUtil pageUtil;
+		if (countTotal > 0) {
+			List<ArticleEntity> entityList = articleDao.queryListComplex(queryMap);
+			pageUtil = new PageUtil(entityList,countTotal, queryMap.getPageLimit(), queryMap.getCurrPage());
+		} else {
+			pageUtil = new PageUtil(null, countTotal, queryMap.getPageLimit(), queryMap.getCurrPage());
+		}
+		long end = System.currentTimeMillis();
+		log.info("查询耗时: {}", (end - start));
+		return ApiResult.success(pageUtil);
+	}
+
+	/**
+	 * 查询列表-对比测试-4
+	 *
+	 * @param articleListParam
+	 * @return
+	 * @throws Exception
+	 */
+	@Override
+	public ApiResult list4(ArticleListParam articleListParam) throws Exception {
+		long start = System.currentTimeMillis();
+		QueryUtil queryMap = new QueryUtil(BeanUtil.beanToMap(articleListParam, false, true));
+		int countTotal = articleDao.countComplex4(queryMap);
+		PageUtil pageUtil;
+		if (countTotal > 0) {
+			List<ArticleEntity> entityList = articleDao.queryListComplex4(queryMap);
+			pageUtil = new PageUtil(entityList,countTotal, queryMap.getPageLimit(), queryMap.getCurrPage());
+		} else {
+			pageUtil = new PageUtil(null, countTotal, queryMap.getPageLimit(), queryMap.getCurrPage());
+		}
+		long end = System.currentTimeMillis();
+		log.info("查询耗时: {}", (end - start));
+		return ApiResult.success(pageUtil);
 	}
 
 	

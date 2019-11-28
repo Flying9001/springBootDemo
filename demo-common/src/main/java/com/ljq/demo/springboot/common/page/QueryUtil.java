@@ -3,6 +3,7 @@ package com.ljq.demo.springboot.common.page;
 import com.ljq.demo.springboot.common.util.SqlCheckUtil;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,9 +13,9 @@ import java.util.Map;
  * @Date: 2018/11/28
  */
 @Data
-public class QueryUtil extends HashMap<String, Object>{
+public class QueryUtil extends HashMap<String, Object> implements Serializable {
 
-    private static final long serialVersionUID = -731879956899505222L;
+    private static final long serialVersionUID = -2496264573068256845L;
 
     /**
      * 默认起始点

@@ -15,6 +15,17 @@
 		</collection>
     </resultMap>
 
+	<!-- 文章表结果集resultMap 2-->
+	<resultMap type="com.ljq.demo.springboot.entity.ArticleEntity" id="articleMap2">
+		<result property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<collection property="tagList" javaType="java.util.List" ofType="com.ljq.demo.springboot.entity.ArticleTagEntity" >
+			<id property="id" column="at_id" />
+			<result property="tagName" column="at_tag_name" />
+		</collection>
+	</resultMap>
+
    <!-- 文章表-基础字段 -->
 	<sql id="article_base_field">
         a.`id`,
@@ -46,6 +57,138 @@
 		</if>
 		GROUP BY a.id
 	</select>
+
+	<!-- 列表查询-2 -->
+	<select id="queryListPage2" parameterType="java.util.Map" resultMap="articleMap">
+		SELECT
+		<include refid="article_base_field" />
+		FROM article a
+		LEFT JOIN `article_to_tag` att ON att.article_id = a.id
+		WHERE 1 = 1
+		<if test="title != null and '' != title">
+			AND a.title LIKE CONCAT(CONCAT("%", #{title}), "%")
+		</if>
+		GROUP BY a.id
+	</select>
+
+	<!-- 列表查询-3 -->
+	<select id="queryListComplex" parameterType="java.util.Map" resultMap="articleMap2">
+		SELECT
+		<include refid="article_list_field" />
+		FROM (
+		SELECT item_a.*
+		FROM `article` item_a
+		LEFT JOIN `article_to_tag` item_att ON item_att.article_id = item_a.id
+		LEFT JOIN `article_tag` item_at ON item_at.id = item_att.tag_id
+		<if test="title != null and '' != title">
+			AND item_a.title LIKE CONCAT(CONCAT("%", #{title}), "%")
+		</if>
+		<if test="articleTag != null and '' != articleTag">
+			AND item_at.tag_name LIKE CONCAT(CONCAT("%", #{articleTag}), "%")
+		</if>
+		GROUP BY item_a.id
+		ORDER BY
+		<choose>
+			<when test="properties != null and direction.trim() != ''">
+				item_a.${properties} ${direction}
+			</when>
+			<otherwise>
+				item_a.id DESC
+			</otherwise>
+		</choose>
+		<choose>
+			<when test="offset != null and pageLimit != null">
+				LIMIT #{offset}, #{pageLimit}
+			</when>
+			<otherwise>
+				LIMIT 0, 5
+			</otherwise>
+		</choose>
+		) a
+		LEFT JOIN `article_to_tag` att ON att.article_id = a.id
+		LEFT JOIN `article_tag` at ON at.id = att.tag_id
+		GROUP BY a.id,at.id
+		ORDER BY
+		<choose>
+			<when test="properties != null and direction.trim() != ''">
+				a.${properties} ${direction}
+			</when>
+			<otherwise>
+				a.id DESC
+			</otherwise>
+		</choose>
+	</select>
+
+	<!-- 统计列表查询数量-3 -->
+	<select id="countComplex" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(DISTINCT(a.id))
+		FROM article a
+		LEFT JOIN `article_to_tag` att ON att.article_id = a.id
+		LEFT JOIN `article_tag` at ON at.id = att.tag_id
+		WHERE 1 = 1
+		<if test="title != null and '' != title">
+			AND a.title LIKE CONCAT(CONCAT("%", #{title}), "%")
+		</if>
+		<if test="articleTag != null and '' != articleTag">
+			AND at.tag_name LIKE CONCAT(CONCAT("%", #{articleTag}), "%")
+		</if>
+	</select>
+
+	<!-- 统计查询数量-4 S -->
+	<select id="countComplex4" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(DISTINCT(a.id))
+		FROM article a
+		WHERE 1 = 1
+		<if test="title != null and '' != title">
+			AND a.title LIKE CONCAT(CONCAT("%", #{title}), "%")
+		</if>
+	</select>
+	<!-- 统计查询数量-4 E -->
+
+	<!-- 查询列表-4 S -->
+	<select id="queryListComplex4" parameterType="java.util.Map" resultMap="articleMap2">
+		SELECT
+		    <include refid="article_list_field" />
+		FROM (
+		SELECT item_a.*
+		FROM `article` item_a
+		<if test="title != null and '' != title">
+			AND item_a.title LIKE CONCAT(CONCAT("%", #{title}), "%")
+		</if>
+		ORDER BY
+		<choose>
+			<when test="properties != null and direction.trim() != ''">
+				item_a.${properties} ${direction}
+			</when>
+			<otherwise>
+				item_a.id DESC
+			</otherwise>
+		</choose>
+		<choose>
+			<when test="offset != null and pageLimit != null">
+				LIMIT #{offset}, #{pageLimit}
+			</when>
+			<otherwise>
+				LIMIT 0, 5
+			</otherwise>
+		</choose>
+		) a
+		LEFT JOIN `article_to_tag` att ON att.article_id = a.id
+		LEFT JOIN `article_tag` at ON at.id = att.tag_id
+		GROUP BY a.id,at.id
+		ORDER BY
+		<choose>
+			<when test="properties != null and direction.trim() != ''">
+				a.${properties} ${direction}
+			</when>
+			<otherwise>
+				a.id DESC
+			</otherwise>
+		</choose>
+	</select>
+	<!-- 查询列表-4 E -->
+
+
 
 
 

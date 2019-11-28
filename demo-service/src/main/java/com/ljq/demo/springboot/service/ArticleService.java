@@ -20,5 +20,32 @@ public interface ArticleService {
      */
 	ApiResult list(ArticleListParam articleListParam) throws Exception;
 
+	/**
+	 * 查询列表-对比测试-2
+	 *
+	 * @param articleListParam
+	 * @return
+	 * @throws Exception
+	 */
+	ApiResult list2(ArticleListParam articleListParam) throws Exception;
+
+	/**
+	 * 查询列表-对比测试-3
+	 *
+	 * @param articleListParam
+	 * @return
+	 * @throws Exception
+	 */
+	ApiResult list3(ArticleListParam articleListParam) throws Exception;
+
+	/**
+	 * 查询列表-对比测试-4
+	 *
+	 * @param articleListParam
+	 * @return
+	 * @throws Exception
+	 */
+	ApiResult list4(ArticleListParam articleListParam) throws Exception;
+
 
 }
