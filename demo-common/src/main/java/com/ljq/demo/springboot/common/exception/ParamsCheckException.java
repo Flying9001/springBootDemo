@@ -1,5 +1,6 @@
 package com.ljq.demo.springboot.common.exception;
 
+import com.ljq.demo.springboot.common.api.ResponseCode;
 import com.ljq.demo.springboot.common.api.ResponseCodeI18n;
 import lombok.Data;
 
@@ -34,6 +35,11 @@ public class ParamsCheckException extends Exception{
 
     public ParamsCheckException(String message){
         this.message = message;
+    }
+
+    public ParamsCheckException(ResponseCode responseCode){
+        this.code = responseCode.getCode();
+        this.message = responseCode.getMsg();
     }
 
     public ParamsCheckException(ResponseCodeI18n responseCodeI18n){

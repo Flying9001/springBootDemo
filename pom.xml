@@ -29,7 +29,6 @@
         <module>cloud-config-server</module>
         <module>cloud-config-client</module>
         <module>demo-schedule</module>
-        <module>demo-rest</module>
     </modules>
 
     <properties>

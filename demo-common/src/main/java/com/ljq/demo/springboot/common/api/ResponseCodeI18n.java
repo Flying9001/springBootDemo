@@ -12,10 +12,15 @@ import lombok.ToString;
 @ToString
 public enum  ResponseCodeI18n {
 
+    /**
+     * 成功与失败
+     */
     SUCCESS(1000, "api.response.code.success"),
     FAIL(-1, "api.response.code.fail"),
 
-    // 公共参数
+    /**
+     * 公共参数
+     */
     PARAM_ERROR(1001, "api.response.code.paramError"),
     LANGUAGE_TYPE_ERROR(1002, "api.response.code.languageTypeError"),
 
@@ -33,10 +38,14 @@ public enum  ResponseCodeI18n {
 
     UNKNOWN_ERROR(-1000,"api.response.code.unknownError");
 
-    // 返回码
+    /**
+     * 返回码
+     */
     private int code;
 
-    // 返回信息
+    /**
+     * 返回信息
+     */
     private String msg;
 
     private ResponseCodeI18n(int code, String msg) {

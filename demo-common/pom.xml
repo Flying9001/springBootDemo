@@ -144,6 +144,18 @@
             <artifactId>hutool-core</artifactId>
         </dependency>
 
+        <!-- Servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+
+        <!-- web-mvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+
     </dependencies>
 
 

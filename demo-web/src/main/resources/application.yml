@@ -49,6 +49,11 @@ spring:
   cache:
     jcache:
       config: classpath:ehcache3.xml
+  ## 异常处理
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
 
 ## mybatis
 mybatis:
