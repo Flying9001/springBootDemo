@@ -20,9 +20,4 @@
 | cloud-config-server | 8094                | Tomcat   | SpringCloud 项目,依赖主项目,分布式配置服务端          |
 | cloud-config-client | 8095                | Tomcat   | SpringCloud 项目,依赖主项目,分布式配置客户端          |
 | demo-schedule       | 8848                | Tomcat   | 普通SpringBoot项目,不依赖主项目,定时任务              |
-| demo-rest           | 8055                | Tomcat   | 普通SpringBoot项目,不依赖主项目,REST 风格模板         |
-|                     | 7749                | Redis    |                                                       |
-|                     | 3306                | MySQL    |                                                       |
-|                     |                     |          |                                                       |
-|                     |                     |          |                                                       |
 
