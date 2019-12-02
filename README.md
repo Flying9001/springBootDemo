@@ -76,7 +76,11 @@ Quick start :
 
 [26.Spring Boot 2.X 集成 Mybatis PageHelper 分页插件完美解决一对多分页查询问题 --- 2019-11-27](./doc/26.spring_boot_2_mybatis_pagehelper.md "./doc/26.spring_boot_2_mybatis_pagehelper.md")  
 
-[27.mysql 分页查询性能对比与优化 --- 2019-11-28](./doc/27.mysql_pagination_query_comparison_.md "./doc/27.mysql_pagination_query_comparison_.md")  
+[27.mysql 分页查询性能对比与优化 --- 2019-11-28](./doc/27.mysql_pagination_query_comparison.md "./doc/27.mysql_pagination_query_comparison.md")  
+
+[28.Spring Boot 2.X REST 风格全局异常处理(包括 404 not found) --- 2019-12-02](./doc/28.spring_boot_2_global_exception_handler.md "./doc/28.spring_boot_2_global_exception_handler.md")  
+
+
 
 
 
