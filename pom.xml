@@ -49,6 +49,7 @@
         <aliyun.oss.version>3.8.0</aliyun.oss.version>
         <hutool.version>5.0.6</hutool.version>
         <mybatis.pagehelper.version>1.2.12</mybatis.pagehelper.version>
+        <auth.jwt.version>3.8.3</auth.jwt.version>
     </properties>
 
     <dependencyManagement>
@@ -282,6 +283,13 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${mybatis.pagehelper.version}</version>
+            </dependency>
+
+            <!-- JWT -->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${auth.jwt.version}</version>
             </dependency>
 
         </dependencies>

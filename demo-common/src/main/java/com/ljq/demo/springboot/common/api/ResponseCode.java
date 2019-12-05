@@ -58,6 +58,8 @@ public enum ResponseCode {
     ADMIN_ROLE_NULL(2022,"员工角色为空"),
     PERMISSION_EXIST(2023,"权限已经存在"),
     PERMISSION_NOT_EXIST(2024,"权限不存在"),
+    USER_TOKEN_ERROR(2025, "用户登录信息已失效"),
+    USER_TOKEN_NULL_ERROR(2026, "用户登录凭证不能为空"),
 
 
     /**
