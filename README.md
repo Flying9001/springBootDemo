@@ -80,6 +80,8 @@ Quick start :
 
 [28.Spring Boot 2.X REST 风格全局异常处理(包括 404 not found) --- 2019-12-02](./doc/28.spring_boot_2_global_exception_handler.md "./doc/28.spring_boot_2_global_exception_handler.md")  
 
+[29 Spring Boot REST 风格 API 接口 JWT Token 认证 1.0 --- 2019-12-07](./doc/29.spring_boot_2_rest_api_jwt_token_filter_1.md "./doc/29.spring_boot_2_rest_api_jwt_token_filter_1.md")  
+
 
 
 
