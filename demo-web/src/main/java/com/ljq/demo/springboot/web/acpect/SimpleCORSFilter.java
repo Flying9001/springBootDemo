@@ -28,6 +28,20 @@ public class SimpleCORSFilter implements Filter {
      * 不需要 Token 校验的接口
      */
     private final static String[] NO_TOKEN_API_PATHS ={
+            "/**/favicon.ico",
+            "/swagger-ui.html",
+            "/webjars/**",
+            "/webjars/springfox-swagger-ui/springfox.css",
+            "/webjars/springfox-swagger-ui/springfox.js",
+            "/webjars/springfox-swagger-ui/swagger-ui-bundle.js",
+            "/webjars/springfox-swagger-ui/swagger-ui.css",
+            "/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js",
+            "/swagger-resources/configuration/ui",
+            "/swagger-resources/configuration/security",
+            "/swagger-resources",
+            "/v2/api-docs",
+            "/",
+            "/csrf",
             "/api/rest/user/save",
             "/api/rest/user/info"
     };
