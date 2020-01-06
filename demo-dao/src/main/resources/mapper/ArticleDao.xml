@@ -80,6 +80,7 @@
 		FROM `article` item_a
 		LEFT JOIN `article_to_tag` item_att ON item_att.article_id = item_a.id
 		LEFT JOIN `article_tag` item_at ON item_at.id = item_att.tag_id
+		WHERE 1 = 1
 		<if test="title != null and '' != title">
 			AND item_a.title LIKE CONCAT(CONCAT("%", #{title}), "%")
 		</if>
@@ -107,7 +108,6 @@
 		) a
 		LEFT JOIN `article_to_tag` att ON att.article_id = a.id
 		LEFT JOIN `article_tag` at ON at.id = att.tag_id
-		GROUP BY a.id,at.id
 		ORDER BY
 		<choose>
 			<when test="properties != null and direction.trim() != ''">
@@ -152,6 +152,7 @@
 		FROM (
 		SELECT item_a.*
 		FROM `article` item_a
+		WHERE 1 = 1
 		<if test="title != null and '' != title">
 			AND item_a.title LIKE CONCAT(CONCAT("%", #{title}), "%")
 		</if>

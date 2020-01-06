@@ -1,7 +1,9 @@
 package com.ljq.demo.springboot.common.page;
 
 import com.ljq.demo.springboot.common.util.SqlCheckUtil;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -12,7 +14,9 @@ import java.util.Map;
  * @Author: junqiang.lu
  * @Date: 2018/11/28
  */
-@Data
+@Getter
+@ToString
+@NoArgsConstructor
 public class QueryUtil extends HashMap<String, Object> implements Serializable {
 
     private static final long serialVersionUID = -2496264573068256845L;
@@ -48,24 +52,27 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
      * 起始点
      */
     private int offset = DEFAULT_OFFSET;
+    private static final String OFFSET_FILED = "offset";
     /**
      * 当前页
      */
     private int currPage = DEFAULT_PAGE;
+    private static final String CURR_PAGE_FILED = "currPage";
     /**
      * 每页显示条数
      */
     private int pageLimit = DEFAULT_LIMIT;
+    private static final String PAGE_LIMIT_FILED = "pageLimit";
     /**
      * 排序规则,升序:ASC;降序:DESC
      */
     private String direction = DEFAULT_DIRECTION;
+    private static final String DIRECTION_FILED = "direction";
     /**
      * 排序依据
      */
     private String properties = DEFAULT_PROPERTIES;
-
-    private QueryUtil(){}
+    private static final String PROPERTIES_FILED = "properties";
 
     /**
      * 有参构造方法
@@ -87,7 +94,7 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
         /**
          * 当前页码参数获取与校验
          */
-        String currPageParam = String.valueOf(queryMap.getOrDefault("currPage",""));
+        String currPageParam = String.valueOf(queryMap.getOrDefault(CURR_PAGE_FILED,""));
         if (currPageParam != null && currPageParam.length() > 0) {
             int currPage = Integer.parseInt(currPageParam);
             this.currPage = currPage < DEFAULT_PAGE ? DEFAULT_PAGE : currPage;
@@ -95,7 +102,7 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
         /**
          * 每页显示条数参数获取与校验
          */
-        String pageLimitParam = String.valueOf(queryMap.getOrDefault("pageLimit",""));
+        String pageLimitParam = String.valueOf(queryMap.getOrDefault(PAGE_LIMIT_FILED,""));
         if (pageLimitParam != null && pageLimitParam.length() > 0) {
             int pageLimit = Integer.parseInt(pageLimitParam);
             this.pageLimit = pageLimit < DEFAULT_PAGE ? DEFAULT_LIMIT : pageLimit;
@@ -106,7 +113,7 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
         /**
          * 排序规则,升序:ASC;降序:DESC
          */
-        String direction = String.valueOf(queryMap.getOrDefault("direction",""));
+        String direction = String.valueOf(queryMap.getOrDefault(DIRECTION_FILED,""));
         if (currPageParam != null && currPageParam.length() > 0) {
             switch (direction.toUpperCase()) {
                 case "ASC":
@@ -122,11 +129,40 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
         /**
          * 排序依据参数(防止 sql 注入)
          */
-        String properties = SqlCheckUtil.getSafeSQL(String.valueOf(queryMap.getOrDefault("properties","")));
+        String properties = SqlCheckUtil.getSafeSQL(String.valueOf(queryMap.getOrDefault(PROPERTIES_FILED,"")));
         if (properties != null && properties.length() > 0) {
             this.properties = properties;
         }
+        this.put(CURR_PAGE_FILED, this.currPage);
+        this.put(PAGE_LIMIT_FILED, this.pageLimit);
+        this.put(OFFSET_FILED, this.offset);
+        this.put(DIRECTION_FILED, this.direction);
+        this.put(PROPERTIES_FILED, this.properties);
+
     }
 
+    public void setOffset(int offset) {
+        this.offset = offset;
+        this.put(OFFSET_FILED, this.offset);
+    }
 
+    public void setCurrPage(int currPage) {
+        this.currPage = currPage;
+        this.put(CURR_PAGE_FILED, this.currPage);
+    }
+
+    public void setPageLimit(int pageLimit) {
+        this.pageLimit = pageLimit;
+        this.put(PAGE_LIMIT_FILED, this.pageLimit);
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
+        this.put(DIRECTION_FILED, this.direction);
+    }
+
+    public void setProperties(String properties) {
+        this.properties = properties;
+        this.put(PROPERTIES_FILED, this.properties);
+    }
 }

@@ -93,7 +93,7 @@
 	<select id="queryObject"  parameterType="com.ljq.demo.springboot.entity.RestUserEntity"
 			resultMap="restUserMap">
 		SELECT
-        <include refid="rest_user_base_field" />
+        <include refid="rest_user_info_field" />
         FROM rest_user
         WHERE id = #{id} AND `del_sign` = 0
 	</select>
@@ -101,7 +101,7 @@
     <!-- 列表查询 -->
 	<select id="queryList" parameterType="java.util.Map" resultMap="restUserMap">
 		SELECT
-		<include refid="rest_user_base_field" />
+		<include refid="rest_user_list_field" />
         FROM rest_user
         WHERE `del_sign` = 0
         GROUP BY id
