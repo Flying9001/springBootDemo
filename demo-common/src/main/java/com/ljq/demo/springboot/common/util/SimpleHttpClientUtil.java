@@ -45,10 +45,12 @@ public class SimpleHttpClientUtil implements Serializable {
      * @param host 请求地址
      * @param path 接口路径
      * @param paramsMap 请求参数
+     * @param headersMap 请求头参数
      * @return
      * @throws IOException
      */
-    public static HttpResponse doGet(String host, String path, Map<String, String> paramsMap) throws IOException {
+    public static HttpResponse doGet(String host, String path, Map<String, String> paramsMap,
+                                     Map<String, String> headersMap) throws IOException {
         initHttpClient();
         RequestConfig requestConfig = RequestConfig.custom()
                 .setConnectionRequestTimeout(10000)
@@ -58,7 +60,11 @@ public class SimpleHttpClientUtil implements Serializable {
         httpGet.setConfig(requestConfig);
         httpGet.setHeader(HTTP.CONTENT_TYPE, ContentType.create(ContentType.APPLICATION_FORM_URLENCODED
                 .getMimeType(), Consts.UTF_8).toString());
-
+        if (headersMap != null && !headersMap.isEmpty()) {
+            for (Map.Entry<String, String> entry : headersMap.entrySet()) {
+                httpGet.addHeader(entry.getKey(), entry.getValue());
+            }
+        }
         return httpClient.execute(httpGet);
     }
 
@@ -69,10 +75,12 @@ public class SimpleHttpClientUtil implements Serializable {
      * @param host 请求地址
      * @param path 接口路径
      * @param paramsMap 请求参数
+     * @param headersMap 请求头参数
      * @return
      * @throws IOException
      */
-    public static HttpResponse doPost(String host, String path, Map<String, String> paramsMap) throws IOException {
+    public static HttpResponse doPost(String host, String path, Map<String, String> paramsMap,
+                                      Map<String, String> headersMap) throws IOException {
         initHttpClient();
         RequestConfig requestConfig = RequestConfig.custom()
                 .setConnectionRequestTimeout(10000)
@@ -82,7 +90,11 @@ public class SimpleHttpClientUtil implements Serializable {
         httpPost.setConfig(requestConfig);
         httpPost.setHeader(HTTP.CONTENT_TYPE, ContentType.create(ContentType.APPLICATION_FORM_URLENCODED
                 .getMimeType(), Consts.UTF_8).toString());
-
+        if (headersMap != null && !headersMap.isEmpty()) {
+            for (Map.Entry<String, String> entry : headersMap.entrySet()) {
+                httpPost.addHeader(entry.getKey(), entry.getValue());
+            }
+        }
         return httpClient.execute(httpPost);
     }
 
@@ -93,9 +105,11 @@ public class SimpleHttpClientUtil implements Serializable {
      * @param host 请求地址
      * @param path 接口路径
      * @param jsonParams 请求参数(json 字符串)
+     * @param headersMap 请求头参数
      * @return
      */
-    public static HttpResponse doPost(String host, String path, String jsonParams) throws IOException {
+    public static HttpResponse doPost(String host, String path, String jsonParams, Map<String, String> headersMap)
+            throws IOException {
         initHttpClient();
         RequestConfig requestConfig = RequestConfig.custom()
                 .setConnectionRequestTimeout(10000)
@@ -110,7 +124,11 @@ public class SimpleHttpClientUtil implements Serializable {
         httpPost.setEntity(stringentity);
         httpPost.setConfig(requestConfig);
         httpPost.addHeader(HTTP.CONTENT_TYPE, ContentType.APPLICATION_JSON.toString());
-
+        if (headersMap != null && !headersMap.isEmpty()) {
+            for (Map.Entry<String, String> entry : headersMap.entrySet()) {
+                httpPost.addHeader(entry.getKey(), entry.getValue());
+            }
+        }
         return httpClient.execute(httpPost);
     }
 
@@ -118,12 +136,14 @@ public class SimpleHttpClientUtil implements Serializable {
      * POST 方式请求
      * (允许一个字段多个值)
      *
-     * @param host
-     * @param path
-     * @param nameValuePairList
+     * @param host 请求地址
+     * @param path 接口路径
+     * @param nameValuePairList 参数列表
+     * @param headersMap 请求头参数
      * @return
      */
-    public static HttpResponse doPost(String host, String path, List<NameValuePair> nameValuePairList) throws IOException {
+    public static HttpResponse doPost(String host, String path, List<NameValuePair> nameValuePairList,
+                                      Map<String, String> headersMap) throws IOException {
         initHttpClient();
         String uri = host;
         if (path != null && path.length() > 0) {
@@ -133,7 +153,11 @@ public class SimpleHttpClientUtil implements Serializable {
         httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairList,Consts.UTF_8));
         httpPost.setHeader(HTTP.CONTENT_TYPE, ContentType.create(ContentType.APPLICATION_FORM_URLENCODED.getMimeType(),
                 Consts.UTF_8).toString());
-
+        if (headersMap != null && !headersMap.isEmpty()) {
+            for (Map.Entry<String, String> entry : headersMap.entrySet()) {
+                httpPost.addHeader(entry.getKey(), entry.getValue());
+            }
+        }
         return httpClient.execute(httpPost);
     }
 
@@ -147,10 +171,12 @@ public class SimpleHttpClientUtil implements Serializable {
      * @param fileInputStream 待上传文件流
      * @param name 文件对应字段名
      * @param fileOriginalName 原始文件名
+     * @param headersMap 请求头参数
      * @return
      */
     public static HttpResponse doPost(String host, String path, Map<String, String> paramsMap,
-                                      InputStream fileInputStream, String name, String fileOriginalName) throws IOException {
+                                      InputStream fileInputStream, String name, String fileOriginalName,
+                                      Map<String, String> headersMap) throws IOException {
         initHttpClient();
         RequestConfig requestConfig = RequestConfig.custom()
                 .setConnectionRequestTimeout(10000)
@@ -174,11 +200,13 @@ public class SimpleHttpClientUtil implements Serializable {
         }
         httpPost.setEntity(entityBuilder.build());
         httpPost.setConfig(requestConfig);
-
+        if (headersMap != null && !headersMap.isEmpty()) {
+            for (Map.Entry<String, String> entry : headersMap.entrySet()) {
+                httpPost.addHeader(entry.getKey(), entry.getValue());
+            }
+        }
         return httpClient.execute(httpPost);
     }
-
-
 
     /**
      * 初始化 httpClient

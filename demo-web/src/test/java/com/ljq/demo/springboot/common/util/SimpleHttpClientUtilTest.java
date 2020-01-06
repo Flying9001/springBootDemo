@@ -31,7 +31,7 @@ public class SimpleHttpClientUtilTest {
         paramsMap.put("demoMapKey", "demoMapValue");
         paramsMap.put("zhTest", "德玛西亚");
 
-        HttpResponse httpResponse = SimpleHttpClientUtil.doGet(API_HOST, API_PATH_USER_LIST + paramsStr, paramsMap);
+        HttpResponse httpResponse = SimpleHttpClientUtil.doGet(API_HOST, API_PATH_USER_LIST + paramsStr, paramsMap, null);
 
         printHttpResponse(httpResponse);
     }
@@ -42,7 +42,7 @@ public class SimpleHttpClientUtilTest {
         paramsMap.put("demoMapKey", "demoMapValue");
         paramsMap.put("zhTest", "德玛西亚");
 
-        HttpResponse httpResponse = SimpleHttpClientUtil.doPost(API_HOST, API_PATH_USER_LIST, new ObjectMapper().writeValueAsString(paramsMap));
+        HttpResponse httpResponse = SimpleHttpClientUtil.doPost(API_HOST, API_PATH_USER_LIST, new ObjectMapper().writeValueAsString(paramsMap), null);
 
         printHttpResponse(httpResponse);
 
@@ -54,7 +54,7 @@ public class SimpleHttpClientUtilTest {
         paramsMap.put("demoMapKey", "demoMapValue");
         paramsMap.put("zhTest", "德玛西亚");
 
-        HttpResponse httpResponse = SimpleHttpClientUtil.doPost(API_HOST, API_PATH_USER_LISTS, paramsMap);
+        HttpResponse httpResponse = SimpleHttpClientUtil.doPost(API_HOST, API_PATH_USER_LISTS, paramsMap, null);
 
         printHttpResponse(httpResponse);
 
@@ -66,7 +66,7 @@ public class SimpleHttpClientUtilTest {
         for (int i = 0; i < 3; i++) {
             paramsList.add(new BasicNameValuePair("demoPairKey","demoPairValue" + i));
         }
-        HttpResponse httpResponse = SimpleHttpClientUtil.doPost(API_HOST, API_PATH_USER_LISTS, paramsList);
+        HttpResponse httpResponse = SimpleHttpClientUtil.doPost(API_HOST, API_PATH_USER_LISTS, paramsList, null);
 
         printHttpResponse(httpResponse);
 
@@ -82,7 +82,7 @@ public class SimpleHttpClientUtilTest {
         String fileOriginalName = "阿里巴巴Java开发手册（详尽版）.pdf";
 
         HttpResponse httpResponse = SimpleHttpClientUtil.doPost(API_HOST, API_PATH_COMMON_UPLOAD, paramsMap,
-                Files.newInputStream(path),name, fileOriginalName);
+                Files.newInputStream(path),name, fileOriginalName, null);
 
         printHttpResponse(httpResponse);
 
