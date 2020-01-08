@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.apache.commons.lang.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -50,30 +51,22 @@ public class LogAspect {
      */
     @Around(value = "controllerPointcut()")
     public Object controllerLogAround(ProceedingJoinPoint joinPoint) throws Throwable {
-        /**
-         * 获取 request 中包含的请求参数
-         */
+        // 获取 request 中包含的请求参数
         String uuid = UUID.randomUUID().toString();
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        /**
-         * 获取切点请求参数(class,method)
-         */
+        // 获取切点请求参数(class,method)
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
         String params = getRequestParams(request, joinPoint);
-
-        /**
-         * 入参日志
-         */
+        // 入参日志
         logger.info("[AOP-LOG-START]\n\trequestMark: {}\n\trequestIP: {}\n\tcontentType:{}\n\trequestUrl: {}\n\t" +
                 "requestMethod: {}\n\trequestParams: {}\n\ttargetClassAndMethod: {}#{}", uuid, getIpAddress(request),
                 request.getHeader("Content-Type"),request.getRequestURL(), request.getMethod(), params,
                 method.getDeclaringClass().getName(), method.getName());
-        /**
-         * 出参日志
-         */
+        // 出参日志
         Object result = joinPoint.proceed();
-        logger.info("[AOP-LOG-END]\n\t{}", result);
+        logger.info("[AOP-LOG-END]\n\trequestMark: {}\n\trequestUrl: {}\n\tresponse: {}",
+                uuid, request.getRequestURL(), result);
         return result;
     }
 
@@ -86,9 +79,7 @@ public class LogAspect {
      */
     private String getRequestParams(HttpServletRequest request, ProceedingJoinPoint joinPoint) throws JsonProcessingException {
         StringBuilder params = new StringBuilder();
-        /**
-         * 获取 request parameter 中的参数
-         */
+        // 获取 request parameter 中的参数
         Map<String, String[]> parameterMap = request.getParameterMap();
         if (parameterMap != null && !parameterMap.isEmpty()) {
             for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
@@ -97,9 +88,7 @@ public class LogAspect {
         }
         if (HttpMethod.POST.name().equalsIgnoreCase(request.getMethod()) ||
                 HttpMethod.PUT.name().equalsIgnoreCase(request.getMethod())) {
-            /**
-             * 获取非 request parameter 中的参数
-             */
+            // 获取非 request parameter 中的参数
             Object[] objects = joinPoint.getArgs();
             for (Object arg : objects) {
                 if (arg == null) {
@@ -107,9 +96,7 @@ public class LogAspect {
                 }
                 String className = arg.getClass().getName().toLowerCase();
                 String contentType = request.getHeader("Content-Type");
-                /**
-                 * 文件参数,上传文件信息
-                 */
+                // 文件参数,上传文件信息
                 if (className.contains("MultipartFile".toLowerCase())) {
                     MultipartFile multipartFile = (MultipartFile) arg;
                     params.append("fileSize = " + multipartFile.getSize() + ";");
@@ -118,9 +105,7 @@ public class LogAspect {
                     params.append("fileOriginalName = " + multipartFile.getOriginalFilename() + ";");
                 }
                 if (contentType != null && contentType.contains("application/json")){
-                    /**
-                     * json 参数
-                     */
+                    // json 参数
                     ObjectMapper mapper = new ObjectMapper();
                     mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
                     mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
@@ -138,23 +123,37 @@ public class LogAspect {
      * @return
      */
     private static String getIpAddress(HttpServletRequest request) {
-        String ip = request.getHeader("x-forwarded-for");
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("Proxy-Client-IP");
+        String xip = request.getHeader("X-Real-IP");
+        String xFor = request.getHeader("X-Forwarded-For");
+        if(StringUtils.isNotEmpty(xFor) && !"unKnown".equalsIgnoreCase(xFor)){
+            //多次反向代理后会有多个ip值，第一个ip才是真实ip
+            int index = xFor.indexOf(",");
+            if(index != -1){
+                return xFor.substring(0,index);
+            }else{
+                return xFor;
+            }
         }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("WL-Proxy-Client-IP");
+        xFor = xip;
+        if(StringUtils.isNotEmpty(xFor) && !"unKnown".equalsIgnoreCase(xFor)){
+            return xFor;
         }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("HTTP_CLIENT_IP");
+        if (StringUtils.isBlank(xFor) || "unknown".equalsIgnoreCase(xFor)) {
+            xFor = request.getHeader("Proxy-Client-IP");
         }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+        if (StringUtils.isBlank(xFor) || "unknown".equalsIgnoreCase(xFor)) {
+            xFor = request.getHeader("WL-Proxy-Client-IP");
         }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getRemoteAddr();
+        if (StringUtils.isBlank(xFor) || "unknown".equalsIgnoreCase(xFor)) {
+            xFor = request.getHeader("HTTP_CLIENT_IP");
         }
-        return ip;
+        if (StringUtils.isBlank(xFor) || "unknown".equalsIgnoreCase(xFor)) {
+            xFor = request.getHeader("HTTP_X_FORWARDED_FOR");
+        }
+        if (StringUtils.isBlank(xFor) || "unknown".equalsIgnoreCase(xFor)) {
+            xFor = request.getRemoteAddr();
+        }
+        return xFor;
     }
 
 
