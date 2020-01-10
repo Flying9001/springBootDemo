@@ -84,6 +84,8 @@ Quick start :
 
 [30 Spring Boot 2(Spring 5.0+) HandlerInterceptor 拦截器简单示例 --- 2019-12-17](./doc/30.spring_boot_2_interceptor_2.md "./doc/30.spring_boot_2_interceptor_2.md")  
 
+[31 Spring Boot 项目使用 HandlerInterceptor拦截器 以及 @ControllerAdvice实现日志记录 --- 2020-01-10](./doc/31.spring_boot_2_interceptor_log.md "./doc/31.spring_boot_2_interceptor_log.md")  
+
 
 
   
