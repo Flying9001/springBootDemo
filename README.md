@@ -86,6 +86,8 @@ Quick start :
 
 [31 Spring Boot 项目使用 HandlerInterceptor拦截器 以及 @ControllerAdvice实现日志记录 --- 2020-01-10](./doc/31.spring_boot_2_interceptor_log.md "./doc/31.spring_boot_2_interceptor_log.md")  
 
+[32 优化 spring boot 2.0 使用 AOP 记录 Controller 层出入参日志 --- 2020-01-14](./doc/32.spring_boot_2_log_controller_params_with_aop_2.md "./doc/32.spring_boot_2_log_controller_params_with_aop_2.md")  
+
 
 
   
