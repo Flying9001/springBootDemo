@@ -1,5 +1,6 @@
 package com.ljq.demo.springboot.web.controller;
 
+import com.ljq.demo.springboot.common.annotation.LogConfig;
 import com.ljq.demo.springboot.common.api.ApiResult;
 import com.ljq.demo.springboot.common.api.ApiResultI18n;
 import com.ljq.demo.springboot.common.api.ResponseCodeI18n;
@@ -34,6 +35,7 @@ public class UserController {
      * @param params
      * @return
      */
+    @LogConfig()
     @RequestMapping(value = "list", method = {RequestMethod.POST})
     public ApiResult queryList(@RequestBody Map<String, Object> params){
 
@@ -46,6 +48,7 @@ public class UserController {
      * @param params
      * @return
      */
+    @LogConfig(ignoreInput = true)
     @RequestMapping(value = "lists", method = {RequestMethod.POST})
     public ApiResult queryLists(Map<String, Object> params){
 
@@ -56,6 +59,7 @@ public class UserController {
      * 列表查询, get 请求
      * @return
      */
+    @LogConfig(ignoreOutput = true)
     @RequestMapping(value = "list", method = {RequestMethod.GET})
     public ApiResult queryList(){
         Map<String, Object> params = new HashMap<>();
@@ -69,6 +73,7 @@ public class UserController {
      * @param params
      * @return
      */
+    @LogConfig(ignoreInput = true, ignoreOutput = true)
     @RequestMapping(value = "info/{id}",method = RequestMethod.POST)
     public ApiResult info(@PathVariable("id") long id, @RequestBody Map<String, Object> params){
 

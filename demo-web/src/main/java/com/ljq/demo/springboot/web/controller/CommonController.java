@@ -57,6 +57,7 @@ public class CommonController {
 
         try {
             ResponseEntity<?> responseEntity = commonService.download(downloadBean);
+            logger.debug("{}",responseEntity.getHeaders());
             return responseEntity;
         } catch (Exception e) {
             e.printStackTrace();

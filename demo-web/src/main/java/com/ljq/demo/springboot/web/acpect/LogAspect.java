@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.ljq.demo.springboot.common.annotation.LogConfig;
 import org.apache.commons.lang.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -23,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -57,16 +59,34 @@ public class LogAspect {
         // 获取切点请求参数(class,method)
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
+        LogConfig logConfig = method.getAnnotation(LogConfig.class);
         String params = getRequestParams(request, joinPoint);
-        // 入参日志
-        logger.info("[AOP-LOG-START]\n\trequestMark: {}\n\trequestIP: {}\n\tcontentType:{}\n\trequestUrl: {}\n\t" +
-                "requestMethod: {}\n\trequestParams: {}\n\ttargetClassAndMethod: {}#{}", uuid, getIpAddress(request),
-                request.getHeader("Content-Type"),request.getRequestURL(), request.getMethod(), params,
-                method.getDeclaringClass().getName(), method.getName());
-        // 出参日志
+        if (Objects.isNull(logConfig)) {
+            // 入参日志
+            logger.info("[AOP-LOG-START]\n\trequestMark: {}\n\trequestIP: {}\n\tcontentType:{}\n\trequestUrl: {}\n\t" +
+                            "requestMethod: {}\n\trequestParams: {}\n\ttargetClassAndMethod: {}#{}", uuid, getIpAddress(request),
+                    request.getHeader("Content-Type"), request.getRequestURL(), request.getMethod(), params,
+                    method.getDeclaringClass().getName(), method.getName());
+            // 出参日志
+            Object result = joinPoint.proceed();
+            logger.info("[AOP-LOG-END]\n\trequestMark: {}\n\trequestUrl: {}\n\tresponse: {}",
+                    uuid, request.getRequestURL(), result);
+            return result;
+        }
+        if (!logConfig.ignoreInput()) {
+            // 入参日志
+            logger.info("[AOP-LOG-START]\n\trequestMark: {}\n\trequestIP: {}\n\tcontentType:{}\n\trequestUrl: {}\n\t" +
+                            "requestMethod: {}\n\trequestParams: {}\n\ttargetClassAndMethod: {}#{}", uuid, getIpAddress(request),
+                    request.getHeader("Content-Type"), request.getRequestURL(), request.getMethod(), params,
+                    method.getDeclaringClass().getName(), method.getName());
+        }
         Object result = joinPoint.proceed();
-        logger.info("[AOP-LOG-END]\n\trequestMark: {}\n\trequestUrl: {}\n\tresponse: {}",
-                uuid, request.getRequestURL(), result);
+        if (!logConfig.ignoreOutput()) {
+            // 出参日志
+            logger.info("[AOP-LOG-END]\n\trequestMark: {}\n\trequestUrl: {}\n\tresponse: {}",
+                    uuid, request.getRequestURL(), result);
+            return result;
+        }
         return result;
     }
 
