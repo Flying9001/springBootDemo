@@ -88,6 +88,10 @@ Quick start :
 
 [32 优化 spring boot 2.0 使用 AOP 记录 Controller 层出入参日志 --- 2020-01-14](./doc/32.spring_boot_2_log_controller_params_with_aop_2.md "./doc/32.spring_boot_2_log_controller_params_with_aop_2.md")  
 
+[33 Spring Boot 2.2 集成 Spring Cloud Zookeeper - 分布式服务注册中心 --- 2020-02-23](./doc/33.spring_boot_2.2_cloud_zookeeper_provider.md "./doc/33.spring_boot_2.2_cloud_zookeeper_provider.md")  
+
+
+
 
 
   
