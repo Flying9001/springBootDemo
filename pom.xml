@@ -40,7 +40,7 @@
         <springboot.version>2.0.6.RELEASE</springboot.version>
         <mybatis.springboot>1.3.2</mybatis.springboot>
         <spring-cloud.version>Finchley.SR1</spring-cloud.version>
-        <spring.cloud.starter>2.0.1.RELEASE</spring.cloud.starter>
+        <spring.cloud.starter>2.2.1.RELEASE</spring.cloud.starter>
         <mysql.driver>8.0.18</mysql.driver>
         <druid>1.1.21</druid>
         <jackson.version>2.10.1</jackson.version>
