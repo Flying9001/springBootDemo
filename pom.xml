@@ -29,6 +29,7 @@
         <module>cloud-config-server</module>
         <module>cloud-config-client</module>
         <module>demo-schedule</module>
+        <module>cloud-zookeeper-provider</module>
     </modules>
 
     <properties>
