@@ -30,6 +30,7 @@
         <module>cloud-config-client</module>
         <module>demo-schedule</module>
         <module>cloud-zookeeper-provider</module>
+        <module>cloud-zookeeper-ribbon</module>
     </modules>
 
     <properties>

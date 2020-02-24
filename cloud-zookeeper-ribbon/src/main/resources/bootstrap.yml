@@ -1,0 +1,8 @@
+## Application bootstrap config
+
+
+## spring config
+spring:
+  cloud:
+    zookeeper:
+      connect-string: 172.16.140.10:2181
