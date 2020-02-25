@@ -92,6 +92,10 @@ Quick start :
 
 [34 Spring Boot 2.2 集成 Spring Cloud Zookeeper - Ribbon 分布式服务消费者 --- 2020-02-25](./doc/34.spring_boot_2.2_cloud_zookeeper_consumer_ribbon.md "./doc/34.spring_boot_2.2_cloud_zookeeper_consumer_ribbon.md")  
 
+[35 Spring Boot 2.2 集成 Spring Cloud Zookeeper - Feign 分布式服务消费者 --- 2020-02-25](./doc/35.spring_cloud_2.2_cloud_zookeeper_consumer_feign.md "./doc/35.spring_cloud_2.2_cloud_zookeeper_consumer_feign.md")  
+
+  
+
 
 
 
