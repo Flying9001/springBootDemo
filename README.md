@@ -90,6 +90,8 @@ Quick start :
 
 [33 Spring Boot 2.2 集成 Spring Cloud Zookeeper - 分布式服务注册中心 --- 2020-02-23](./doc/33.spring_boot_2.2_cloud_zookeeper_provider.md "./doc/33.spring_boot_2.2_cloud_zookeeper_provider.md")  
 
+[34 Spring Boot 2.2 集成 Spring Cloud Zookeeper - Ribbon 分布式服务消费者 --- 2020-02-25](./doc/33.spring_boot_2.2_cloud_zookeeper_provider.md "./doc/33.spring_boot_2.2_cloud_zookeeper_provider.md")  
+
 
 
 
