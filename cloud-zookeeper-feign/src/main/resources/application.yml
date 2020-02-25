@@ -1,0 +1,10 @@
+## Application config
+
+## Server
+server:
+  port: 8102
+
+## Spring config
+spring:
+  application:
+    name: cloud-zookeeper-feign
