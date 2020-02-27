@@ -1,0 +1,27 @@
+## Application bootstrap config
+
+
+## spring config
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: cloud-zookeeper-config-client
+  cloud:
+    zookeeper:
+      connect-string: 172.16.140.10:2181
+      ## 将当前应用注册到 Zookeeper 中,其默认值为 true,由于配置了 'spring.cloud.config' 属性,因此需要手动设置为 true
+      discovery:
+        register: true
+    config:
+      ## 指定配置中心文件的{profile}
+      profile: dev
+      ## 指定配置中心文件的{label}
+      label: master
+      discovery:
+        ## 发现 Cloud Config 服务
+        enabled: true
+        ## 指定配置服务的服务 id
+        service-id: cloud-zookeeper-config-server
+
+

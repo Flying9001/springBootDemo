@@ -32,6 +32,8 @@
         <module>cloud-zookeeper-provider</module>
         <module>cloud-zookeeper-ribbon</module>
         <module>cloud-zookeeper-feign</module>
+        <module>cloud-zookeeper-config-server</module>
+        <module>cloud-zookeeper-config-client</module>
     </modules>
 
     <properties>

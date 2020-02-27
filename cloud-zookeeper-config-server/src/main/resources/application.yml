@@ -1,0 +1,10 @@
+## Application config
+
+## Server
+server:
+  port: 8103
+
+## Spring config
+spring:
+  application:
+    name: cloud-zookeeper-config-server

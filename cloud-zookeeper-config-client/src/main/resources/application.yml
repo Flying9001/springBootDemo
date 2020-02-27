@@ -1,0 +1,7 @@
+## Application config
+
+## Server
+server:
+  port: 8104
+
+

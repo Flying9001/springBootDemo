@@ -1,0 +1,18 @@
+## Application bootstrap config
+
+
+## spring config
+spring:
+  cloud:
+    zookeeper:
+      connect-string: 172.16.140.10:2181
+    config:
+      server:
+        git:
+          uri: https://gitee.com/flying9001/springCloudConfigDemo
+          search-paths: config
+          username:
+          password:
+          default-label: master
+
+
