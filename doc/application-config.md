@@ -25,7 +25,7 @@
 | cloud-zookeeper-feign         | 8102                | Tomcat   | SpringCloud Zookeeper 子项目，不依赖主项目，通过 Feign 方式(内置 Ribbon) 调用 Spring Cloud Zookeeper 服务 |
 | cloud-zookeeper-config-server | 8103                | Tomcat   | SpringCloud Zookeeper 子项目，不依赖主项目，Spring Cloud Zookeeper Config 分布式配置中心服务端 |
 | cloud-zookeeper-config-client | 8104                | Tomcat   | SpringCloud Zookeeper 子项目，不依赖主项目，Spring Cloud Zookeeper Config 分布式配置中心客户端 |
-|                               |                     |          |                                                              |
+| demo-websocket                | 8200                | Tomcat   | SpringBoot websocket 项目,不依赖主项目                       |
 |                               |                     |          |                                                              |
 |                               |                     |          |                                                              |
 
