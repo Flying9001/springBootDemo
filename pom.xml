@@ -35,6 +35,7 @@
         <module>cloud-zookeeper-config-server</module>
         <module>cloud-zookeeper-config-client</module>
         <module>demo-websocket</module>
+        <module>demo-websocket-spring</module>
     </modules>
 
     <properties>
