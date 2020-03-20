@@ -33,7 +33,7 @@ public class SocketAuthHandler extends TextWebSocketHandler {
         Object token = session.getAttributes().get(TOKEN_FIELD);
         if (Objects.nonNull(token)) {
             // 用户连接成功,缓存用户会话
-            log.debug("用户[ {} ]创建连接");
+            log.debug("用户[ {} ]创建连接", token);
             SocketSessionManager.add(String.valueOf(token), session);
         } else {
             throw new RuntimeException("用户登录已失效");
@@ -66,7 +66,7 @@ public class SocketAuthHandler extends TextWebSocketHandler {
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
         Object token = session.getAttributes().get(TOKEN_FIELD);
         if (Objects.nonNull(token)) {
-            log.debug("用户 [{}] 断开连接");
+            log.debug("用户 [{}] 断开连接", token);
             SocketSessionManager.remove(String.valueOf(token));
         }
     }
