@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+    <!-- 配置 ProcessEngineConfiguration  -->
+    <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+        <!-- 配置数据库连接 -->
+        <property name="jdbcDriver" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/demo_activiti?useUnicode=true&amp;characterEncoding=utf8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=GMT%2b8&amp;useSSL=true&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;nullCatalogMeansCurrent=true"></property>
+        <property name="jdbcUsername" value="root"></property>
+        <property name="jdbcPassword" value="root"></property>
+
+        <!-- 配置创建表策略 :没有表时，自动创建 -->
+        <property name="databaseSchemaUpdate" value="true"></property>
+
+    </bean>
+
+</beans>

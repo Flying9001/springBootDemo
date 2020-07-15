@@ -36,6 +36,7 @@
         <module>cloud-zookeeper-config-client</module>
         <module>demo-websocket</module>
         <module>demo-websocket-spring</module>
+        <module>activiti-workflow</module>
     </modules>
 
     <properties>

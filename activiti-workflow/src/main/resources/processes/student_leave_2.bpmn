@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="student_leave_2" name="student_leave_2" isExecutable="true">
+    <startEvent id="startEvent1" name="开始"></startEvent>
+    <userTask id="sid-486A7692-35E4-476A-94EF-3566C01B8F39" name="学生申请" activiti:assignee="${student}">
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://activiti.com/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <userTask id="sid-23DCF2CD-D1E0-4B66-9853-352B2E505782" name="班主任审批" activiti:assignee="${teacher}">
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://activiti.com/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <endEvent id="sid-52FDCD77-D54C-4340-B624-93B92D941E77" name="结束"></endEvent>
+    <sequenceFlow id="sid-96C3385F-899C-4149-B695-CEF25F5213CB" sourceRef="startEvent1" targetRef="sid-486A7692-35E4-476A-94EF-3566C01B8F39"></sequenceFlow>
+    <sequenceFlow id="sid-5602EE93-61DC-4326-80A6-C76661889900" name="提交申请" sourceRef="sid-486A7692-35E4-476A-94EF-3566C01B8F39" targetRef="sid-23DCF2CD-D1E0-4B66-9853-352B2E505782"></sequenceFlow>
+    <sequenceFlow id="sid-EABF7DE5-1A32-4EFF-9627-9B5AB70D5E8A" name="同意" sourceRef="sid-23DCF2CD-D1E0-4B66-9853-352B2E505782" targetRef="sid-52FDCD77-D54C-4340-B624-93B92D941E77"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_student_leave_2">
+    <bpmndi:BPMNPlane bpmnElement="student_leave_2" id="BPMNPlane_student_leave_2">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="135.0" y="162.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-486A7692-35E4-476A-94EF-3566C01B8F39" id="BPMNShape_sid-486A7692-35E4-476A-94EF-3566C01B8F39">
+        <omgdc:Bounds height="80.0" width="100.0" x="220.0" y="137.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-23DCF2CD-D1E0-4B66-9853-352B2E505782" id="BPMNShape_sid-23DCF2CD-D1E0-4B66-9853-352B2E505782">
+        <omgdc:Bounds height="80.0" width="100.0" x="405.0" y="137.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-52FDCD77-D54C-4340-B624-93B92D941E77" id="BPMNShape_sid-52FDCD77-D54C-4340-B624-93B92D941E77">
+        <omgdc:Bounds height="28.0" width="28.0" x="585.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-96C3385F-899C-4149-B695-CEF25F5213CB" id="BPMNEdge_sid-96C3385F-899C-4149-B695-CEF25F5213CB">
+        <omgdi:waypoint x="165.0" y="177.0"></omgdi:waypoint>
+        <omgdi:waypoint x="220.0" y="177.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-5602EE93-61DC-4326-80A6-C76661889900" id="BPMNEdge_sid-5602EE93-61DC-4326-80A6-C76661889900">
+        <omgdi:waypoint x="320.0" y="177.0"></omgdi:waypoint>
+        <omgdi:waypoint x="405.0" y="177.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-EABF7DE5-1A32-4EFF-9627-9B5AB70D5E8A" id="BPMNEdge_sid-EABF7DE5-1A32-4EFF-9627-9B5AB70D5E8A">
+        <omgdi:waypoint x="505.0" y="177.0"></omgdi:waypoint>
+        <omgdi:waypoint x="585.0" y="177.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

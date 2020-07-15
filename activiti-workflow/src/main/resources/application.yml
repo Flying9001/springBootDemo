@@ -1,0 +1,31 @@
+## config
+
+## server
+server:
+  port: 8400
+
+## spring config
+spring:
+  activiti:
+    check-process-definitions: false
+    database-schema-update: true
+    process-definition-location-prefix: classpath:/
+  datasource:
+    url: "jdbc:mysql://127.0.0.1:3306/demo_activiti?useUnicode=true&characterEncoding=utf8\
+      &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
+      &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true\
+      &nullCatalogMeansCurrent=true"
+    username: root
+    password: "root"
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+## mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ljq.demo.springboot.activiti.model.entity
+
+## mybatis log
+logging:
+  level:
+    com.ljq.demo.springboot.activiti.dao: debug

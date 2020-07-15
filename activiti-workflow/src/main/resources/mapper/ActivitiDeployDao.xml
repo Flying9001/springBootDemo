@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ljq.demo.springboot.activiti.dao.ActivitiDeployDao">
+
+    <!-- 校验流程是否部署过 -->
+	<select id="checkDeployed" parameterType="java.lang.String" resultType="int" >
+		SELECT COUNT(*)
+		FROM `ACT_GE_BYTEARRAY`
+		WHERE `name_` = #{processFile}
+	</select>
+</mapper>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ljq.demo.springboot.activiti.dao.LeaveInfoDao">
+
+	<!-- 请假信息结果集resultMap -->
+    <resultMap type="com.ljq.demo.springboot.activiti.model.entity.LeaveInfoEntity" id="leaveInfoMap">
+        <result property="id" column="id"/>
+        <result property="studentName" column="student_name"/>
+        <result property="studentId" column="student_id"/>
+        <result property="leaveReason" column="leave_reason"/>
+        <result property="leaveDuration" column="leave_duration"/>
+    </resultMap>
+
+   <!-- 请假信息-基础字段 -->
+	<sql id="leave_info_base_field">
+        `id`,
+        `student_name`,
+        `student_id`,
+        `leave_reason`,
+        `leave_duration`
+	</sql>
+
+	<!-- 保存,创建 -->
+	<insert id="save" parameterType="com.ljq.demo.springboot.activiti.model.entity.LeaveInfoEntity">
+		INSERT INTO leave_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null"> `id`,  </if>
+			<if test="studentName != null"> `student_name`,  </if>
+			<if test="studentId != null"> `student_id`,  </if>
+			<if test="leaveReason != null"> `leave_reason`,  </if>
+			<if test="leaveDuration != null"> `leave_duration` </if>
+		</trim>
+		<trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+			<if test="id != null">#{id}, </if>
+			<if test="studentName != null">#{studentName}, </if>
+			<if test="studentId != null">#{studentId}, </if>
+			<if test="leaveReason != null">#{leaveReason}, </if>
+			<if test="leaveDuration != null">#{leaveDuration} </if>
+		</trim>
+	</insert>
+
+	<!-- 查询详情 -->
+	<select id="queryObject" resultMap="leaveInfoMap">
+		SELECT
+		<include refid="leave_info_base_field" />
+		FROM leave_info
+		WHERE id = #{id} LIMIT 1
+	</select>
+
+    <!-- 列表查询 -->
+	<select id="queryList" parameterType="java.util.Map" resultMap="leaveInfoMap">
+		SELECT
+		<include refid="leave_info_base_field" />
+        FROM leave_info
+        WHERE 1 = 1
+        ORDER BY
+		<choose>
+			<when test="properties != null and properties != 'null' and direction.trim() != ''">
+				${properties} ${direction}
+			</when>
+			<otherwise>
+				NULL ASC
+			</otherwise>
+		</choose>
+		<choose>
+			<when test="offset != null and pageSize != null">
+				LIMIT #{offset}, #{pageSize}
+			</when>
+			<otherwise>
+				LIMIT 0, 5
+			</otherwise>
+		</choose>
+	</select>
+
+    <!-- 统计列表查询数量 -->
+ 	<select id="queryCount" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*)
+        FROM leave_info
+        WHERE 1 = 1
+	</select>
+
+	<!-- 删除一条数据 -->
+	<delete id="delete" parameterType="com.ljq.demo.springboot.activiti.model.entity.LeaveInfoEntity">
+		DELETE  FROM `leave_info`
+        WHERE id = #{id}
+	</delete>
+
+	<!-- 批量删除 -->
+	<delete id="deleteBatch">
+		DELETE FROM `leave_info`
+        WHERE id IN
+		<foreach item="item" collection="list" open="(" separator="," close=")">
+			#{item.id}
+		</foreach>
+	</delete>
+
+</mapper>
