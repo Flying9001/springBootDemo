@@ -1,6 +1,6 @@
 package com.ljq.demo.springboot.web.acpect;
 
-import com.ljq.demo.springboot.common.log.LogService;
+import com.ljq.demo.springboot.baseweb.log.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;

@@ -34,11 +34,11 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
      * 默认每页显示条数
      * 最小每页显示条数
      */
-    private static final int DEFAULT_LIMIT = 3;
+    private static final int DEFAULT_PAGE_SIZE = 3;
     /**
      * 最大每页显示条数
      */
-    private static final int MAX_LIMIT = 100;
+    private static final int MAX_PAGE_SIZE = 100;
     /**
      * 默认排序规则,降序(DESC)
      */
@@ -56,13 +56,13 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
     /**
      * 当前页
      */
-    private int currPage = DEFAULT_PAGE;
-    private static final String CURR_PAGE_FILED = "currPage";
+    private int currentPage = DEFAULT_PAGE;
+    private static final String CURRENT_PAGE_FILED = "currentPage";
     /**
      * 每页显示条数
      */
-    private int pageLimit = DEFAULT_LIMIT;
-    private static final String PAGE_LIMIT_FILED = "pageLimit";
+    private int pageSize = DEFAULT_PAGE_SIZE;
+    private static final String PAGE_SIZE_FILED = "pageSize";
     /**
      * 排序规则,升序:ASC;降序:DESC
      */
@@ -79,8 +79,8 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
      *
      * @param queryMap 包含分页查询参数的 map 集合
      *     map 中需要包含的分页参数:
-     *         currPage: 当前页数
-     *         pageLimit: 每页显示条数
+     *         currentPage: 当前页数
+     *         pageSize: 每页显示条数
      *         direction: 排序规则,升序(asc)或者降序(desc),如升序排序,则 map.put("direction","asc")
      *         properties: 排序依据,如按照 "id" 排序,则 map.put("properties","id")
      * @throws Exception sql 参数不合法
@@ -94,21 +94,21 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
         /**
          * 当前页码参数获取与校验
          */
-        String currPageParam = String.valueOf(queryMap.getOrDefault(CURR_PAGE_FILED,""));
+        String currPageParam = String.valueOf(queryMap.getOrDefault(CURRENT_PAGE_FILED,""));
         if (currPageParam != null && currPageParam.length() > 0) {
             int currPage = Integer.parseInt(currPageParam);
-            this.currPage = currPage < DEFAULT_PAGE ? DEFAULT_PAGE : currPage;
+            this.currentPage = currPage < DEFAULT_PAGE ? DEFAULT_PAGE : currPage;
         }
         /**
          * 每页显示条数参数获取与校验
          */
-        String pageLimitParam = String.valueOf(queryMap.getOrDefault(PAGE_LIMIT_FILED,""));
+        String pageLimitParam = String.valueOf(queryMap.getOrDefault(PAGE_SIZE_FILED,""));
         if (pageLimitParam != null && pageLimitParam.length() > 0) {
             int pageLimit = Integer.parseInt(pageLimitParam);
-            this.pageLimit = pageLimit < DEFAULT_PAGE ? DEFAULT_LIMIT : pageLimit;
-            this.pageLimit = pageLimit > MAX_LIMIT ? MAX_LIMIT : pageLimit;
+            this.pageSize = pageLimit < DEFAULT_PAGE ? DEFAULT_PAGE_SIZE : pageLimit;
+            this.pageSize = pageLimit > MAX_PAGE_SIZE ? MAX_PAGE_SIZE : pageLimit;
         }
-        int offset = (this.currPage - 1) * this.pageLimit;
+        int offset = (this.currentPage - 1) * this.pageSize;
         this.offset = offset;
         /**
          * 排序规则,升序:ASC;降序:DESC
@@ -117,8 +117,6 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
         if (currPageParam != null && currPageParam.length() > 0) {
             switch (direction.toUpperCase()) {
                 case "ASC":
-                    this.direction = direction;
-                    break;
                 case "DESC" :
                     this.direction = direction;
                     break;
@@ -133,8 +131,8 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
         if (properties != null && properties.length() > 0) {
             this.properties = properties;
         }
-        this.put(CURR_PAGE_FILED, this.currPage);
-        this.put(PAGE_LIMIT_FILED, this.pageLimit);
+        this.put(CURRENT_PAGE_FILED, this.currentPage);
+        this.put(PAGE_SIZE_FILED, this.pageSize);
         this.put(OFFSET_FILED, this.offset);
         this.put(DIRECTION_FILED, this.direction);
         this.put(PROPERTIES_FILED, this.properties);
@@ -146,14 +144,14 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
         this.put(OFFSET_FILED, this.offset);
     }
 
-    public void setCurrPage(int currPage) {
-        this.currPage = currPage;
-        this.put(CURR_PAGE_FILED, this.currPage);
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
+        this.put(CURRENT_PAGE_FILED, this.currentPage);
     }
 
-    public void setPageLimit(int pageLimit) {
-        this.pageLimit = pageLimit;
-        this.put(PAGE_LIMIT_FILED, this.pageLimit);
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+        this.put(PAGE_SIZE_FILED, this.pageSize);
     }
 
     public void setDirection(String direction) {

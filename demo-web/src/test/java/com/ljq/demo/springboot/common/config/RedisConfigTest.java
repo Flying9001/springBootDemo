@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {com.ljq.demo.springboot.common.config.RedisConfig.class})
+@SpringBootTest(classes = {com.ljq.demo.springboot.baseweb.config.RedisConfig.class})
 @ComponentScan(basePackages = {"com.ljq.demo.springboot"})
 @MapperScan("com.ljq.demo.springboot.dao")
 public class RedisConfigTest {

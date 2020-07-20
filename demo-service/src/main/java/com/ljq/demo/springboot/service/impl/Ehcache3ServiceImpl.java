@@ -1,11 +1,11 @@
 package com.ljq.demo.springboot.service.impl;
 
-import com.ljq.demo.springboot.common.api.ApiResult;
-import com.ljq.demo.springboot.common.api.ResponseCode;
-import com.ljq.demo.springboot.common.exception.ParamsCheckException;
+import cn.hutool.core.bean.BeanUtil;
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
+import com.ljq.demo.springboot.baseweb.api.ResponseCode;
+import com.ljq.demo.springboot.baseweb.exception.ParamsCheckException;
 import com.ljq.demo.springboot.common.page.PageUtil;
 import com.ljq.demo.springboot.common.page.QueryUtil;
-import com.ljq.demo.springboot.common.util.MapUtil;
 import com.ljq.demo.springboot.dao.user.UserDao;
 import com.ljq.demo.springboot.entity.UserDO;
 import com.ljq.demo.springboot.service.Ehcache3Service;
@@ -71,17 +71,17 @@ public class Ehcache3ServiceImpl implements Ehcache3Service {
         /**
          * 获取参数
          */
-        Map<String, Object> map = MapUtil.beanToMap(cacheResultBean);
+        Map<String, Object> map = BeanUtil.beanToMap(cacheResultBean);
         QueryUtil queryUtil = new QueryUtil(map);
         // 列表查询
         List<UserDO> userDBList = userDao.queryListComplex(queryUtil);
         if (userDBList == null || userDBList.isEmpty()) {
-            return ApiResult.success(new PageUtil(null, 0, queryUtil.getPageLimit(), queryUtil.getCurrPage()));
+            return ApiResult.success(new PageUtil(null, 0, queryUtil.getPageSize(), queryUtil.getCurrentPage()));
         }
 
         int total = userDao.countComplex(queryUtil);
         // 分页处理
-        PageUtil pageUtil = new PageUtil(userDBList, total, queryUtil.getPageLimit(), queryUtil.getCurrPage());
+        PageUtil pageUtil = new PageUtil(userDBList, total, queryUtil.getPageSize(), queryUtil.getCurrentPage());
 
         return ApiResult.success(pageUtil);
     }
@@ -188,17 +188,17 @@ public class Ehcache3ServiceImpl implements Ehcache3Service {
         /**
          * 获取参数
          */
-        Map<String, Object> map = MapUtil.beanToMap(cacheRemoveAllBean);
+        Map<String, Object> map = BeanUtil.beanToMap(cacheRemoveAllBean);
         QueryUtil queryUtil = new QueryUtil(map);
         // 列表查询
         List<UserDO> userDBList = userDao.queryListComplex(queryUtil);
         if (userDBList == null || userDBList.isEmpty()) {
-            return ApiResult.success(new PageUtil(null, 0, queryUtil.getPageLimit(), queryUtil.getCurrPage()));
+            return ApiResult.success(new PageUtil(null, 0, queryUtil.getPageSize(), queryUtil.getCurrentPage()));
         }
 
         int total = userDao.countComplex(queryUtil);
         // 分页处理
-        PageUtil pageUtil = new PageUtil(userDBList, total, queryUtil.getPageLimit(), queryUtil.getCurrPage());
+        PageUtil pageUtil = new PageUtil(userDBList, total, queryUtil.getPageSize(), queryUtil.getCurrentPage());
 
         return ApiResult.success(pageUtil);
     }
@@ -216,17 +216,17 @@ public class Ehcache3ServiceImpl implements Ehcache3Service {
         /**
          * 获取参数
          */
-        Map<String, Object> map = MapUtil.beanToMap(cacheRemoveAllBean);
+        Map<String, Object> map = BeanUtil.beanToMap(cacheRemoveAllBean);
         QueryUtil queryUtil = new QueryUtil(map);
         // 列表查询
         List<UserDO> userDBList = userDao.queryListComplex(queryUtil);
         if (userDBList == null || userDBList.isEmpty()) {
-            return ApiResult.success(new PageUtil(null, 0, queryUtil.getPageLimit(), queryUtil.getCurrPage()));
+            return ApiResult.success(new PageUtil(null, 0, queryUtil.getPageSize(), queryUtil.getCurrentPage()));
         }
 
         int total = userDao.countComplex(queryUtil);
         // 分页处理
-        PageUtil pageUtil = new PageUtil(userDBList, total, queryUtil.getPageLimit(), queryUtil.getCurrPage());
+        PageUtil pageUtil = new PageUtil(userDBList, total, queryUtil.getPageSize(), queryUtil.getCurrentPage());
 
         return ApiResult.success(pageUtil);
     }

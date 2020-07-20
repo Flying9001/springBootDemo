@@ -1,8 +1,8 @@
 package com.ljq.demo.springboot.web.controller;
 
-import com.ljq.demo.springboot.common.api.ApiResult;
-import com.ljq.demo.springboot.common.api.ResponseCode;
-import com.ljq.demo.springboot.common.exception.ParamsCheckException;
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
+import com.ljq.demo.springboot.baseweb.api.ResponseCode;
+import com.ljq.demo.springboot.baseweb.exception.ParamsCheckException;
 import com.ljq.demo.springboot.service.Ehcache3Service;
 import com.ljq.demo.springboot.vo.ehcache3.*;
 import lombok.extern.slf4j.Slf4j;

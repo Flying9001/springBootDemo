@@ -1,7 +1,7 @@
 package com.ljq.demo.springboot.service;
 
-import com.ljq.demo.springboot.common.api.ApiResult;
-import com.ljq.demo.springboot.common.api.ApiResultI18n;
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
+import com.ljq.demo.springboot.baseweb.api.ApiResultI18n;
 import com.ljq.demo.springboot.vo.UserSignUpBean;
 
 import java.util.Map;

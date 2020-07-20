@@ -2,11 +2,10 @@ package com.ljq.demo.springboot.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
-import com.ljq.demo.springboot.common.api.ApiResult;
-import com.ljq.demo.springboot.common.api.ResponseCode;
-import com.ljq.demo.springboot.common.exception.ParamsCheckException;
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
+import com.ljq.demo.springboot.baseweb.api.ResponseCode;
+import com.ljq.demo.springboot.baseweb.exception.ParamsCheckException;
 import com.ljq.demo.springboot.common.page.QueryUtil;
-import com.ljq.demo.springboot.common.util.MapUtil;
 import com.ljq.demo.springboot.dao.restuser.RestUserDao;
 import com.ljq.demo.springboot.entity.RestUserEntity;
 import com.ljq.demo.springboot.service.RestUserService;
@@ -87,7 +86,7 @@ public class RestUserServiceImpl implements RestUserService {
 	@Override
 	public ApiResult list(RestUserListParam restUserListParam) throws Exception {
 		// 请求参数获取
-		Map<String, Object> map = MapUtil.beanToMap(restUserListParam);
+		Map<String, Object> map = BeanUtil.beanToMap(restUserListParam);
 		QueryUtil queryUtil = new QueryUtil(map);
 			RestUserEntity restUserParam = new RestUserEntity();
 		BeanUtil.copyProperties(restUserListParam, restUserParam,CopyOptions.create()

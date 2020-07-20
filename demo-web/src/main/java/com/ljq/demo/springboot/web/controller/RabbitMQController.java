@@ -1,7 +1,7 @@
 package com.ljq.demo.springboot.web.controller;
 
-import com.ljq.demo.springboot.common.api.ApiResult;
-import com.ljq.demo.springboot.common.rabbitmq.RabbitMQSender;
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
+import com.ljq.demo.springboot.baseweb.rabbitmq.RabbitMQSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

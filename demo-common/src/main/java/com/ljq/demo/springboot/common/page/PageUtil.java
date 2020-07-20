@@ -39,7 +39,7 @@ public class PageUtil<T> implements Serializable {
     /**
      * 每页记录数
      */
-    private int pageLimit;
+    private int pageSize;
     /**
      * 总页数
      */
@@ -47,7 +47,7 @@ public class PageUtil<T> implements Serializable {
     /**
      * 当前页数
      */
-    private int currPage;
+    private int currentPage;
     /**
      * 列表数据
      */
@@ -61,30 +61,30 @@ public class PageUtil<T> implements Serializable {
      *
      * @param list 列表数据
      * @param totalCount 总记录条数
-     * @param pageLimit 每页记录数
-     * @param currPage 当前页数
+     * @param pageSize 每页记录数
+     * @param currentPage 当前页数
      */
-    public PageUtil(List<T> list, int totalCount, int pageLimit, int currPage){
+    public PageUtil(List<T> list, int totalCount, int pageSize, int currentPage){
         if (totalCount < DEFAULT_TOTAL_COUNT) {
             totalCount = DEFAULT_TOTAL_COUNT;
         }
         this.totalCount = totalCount;
 
-        if (pageLimit < DEFAULT_PAGE_LIMIT) {
-            pageLimit = DEFAULT_PAGE_LIMIT;
+        if (pageSize < DEFAULT_PAGE_LIMIT) {
+            pageSize = DEFAULT_PAGE_LIMIT;
         }
-        this.pageLimit = pageLimit;
+        this.pageSize = pageSize;
 
-        if (currPage < DEFAULT_CURR_PAGE) {
-            currPage = DEFAULT_CURR_PAGE;
+        if (currentPage < DEFAULT_CURR_PAGE) {
+            currentPage = DEFAULT_CURR_PAGE;
         }
-        this.currPage = currPage;
+        this.currentPage = currentPage;
 
-        int remainder = totalCount % pageLimit;
+        int remainder = totalCount % pageSize;
         if (remainder > 0) {
-            this.totalPage = (totalCount / pageLimit + 1);
+            this.totalPage = (totalCount / pageSize + 1);
         } else {
-            this.totalPage = (totalCount / pageLimit);
+            this.totalPage = (totalCount / pageSize);
         }
 
         this.list = list;

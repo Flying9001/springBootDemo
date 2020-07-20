@@ -1,9 +1,9 @@
 package com.ljq.demo.springboot.web.acpect;
 
 import com.ljq.demo.springboot.BaseBean;
+import com.ljq.demo.springboot.baseweb.exception.ParamsCheckException;
+import com.ljq.demo.springboot.baseweb.validate.BeanValidateUtil;
 import com.ljq.demo.springboot.common.annotation.ParamsCheck;
-import com.ljq.demo.springboot.common.exception.ParamsCheckException;
-import com.ljq.demo.springboot.common.validate.BeanValidateUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

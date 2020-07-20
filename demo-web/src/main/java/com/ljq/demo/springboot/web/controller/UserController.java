@@ -1,10 +1,10 @@
 package com.ljq.demo.springboot.web.controller;
 
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
+import com.ljq.demo.springboot.baseweb.api.ApiResultI18n;
+import com.ljq.demo.springboot.baseweb.api.ResponseCodeI18n;
+import com.ljq.demo.springboot.baseweb.exception.ParamsCheckException;
 import com.ljq.demo.springboot.common.annotation.LogConfig;
-import com.ljq.demo.springboot.common.api.ApiResult;
-import com.ljq.demo.springboot.common.api.ApiResultI18n;
-import com.ljq.demo.springboot.common.api.ResponseCodeI18n;
-import com.ljq.demo.springboot.common.exception.ParamsCheckException;
 import com.ljq.demo.springboot.service.UserService;
 import com.ljq.demo.springboot.vo.UserSignUpBean;
 import org.slf4j.Logger;

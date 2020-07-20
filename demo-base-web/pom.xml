@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ljq.demo.springboot</groupId>
+    <artifactId>demo-base-web</artifactId>
+    <version>1.0.0</version>
+    <name>demo-base-web</name>
+    <packaging>jar</packaging>
+    <description>base web module</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <springboot.version>2.0.6.RELEASE</springboot.version>
+        <lombok.version>1.18.12</lombok.version>
+        <swagger2.version>2.9.2</swagger2.version>
+        <spring-data-redis.version>2.0.11.RELEASE</spring-data-redis.version>
+        <lettuce.version>5.0.5.RELEASE</lettuce.version>
+        <ehcache3.version>3.5.3</ehcache3.version>
+        <springframework.version>5.0.10.RELEASE</springframework.version>
+        <javax.cache.version>1.1.0</javax.cache.version>
+        <spring-rabbit.version>2.0.8.RELEASE</spring-rabbit.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <aliyun.oss.version>3.8.0</aliyun.oss.version>
+        <hibernate-validator.version>6.0.13.Final</hibernate-validator.version>
+        <freemarker.version>2.3.28</freemarker.version>
+        <flying-saucer-pdf.version>9.1.19</flying-saucer-pdf.version>
+        <itextpdf.version>5.5.13.1</itextpdf.version>
+        <commons-lang3.version>3.10</commons-lang3.version>
+        <jackson.version>2.10.1</jackson.version>
+    </properties>
+
+    <dependencies>
+        <!-- SpringBoot validation -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
+
+        <!-- SpringBoot web-mvc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
+
+        <!-- SpringBoot Cache -->
+        <!-- redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
+        <!-- Ehcache -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>${ehcache3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-api</artifactId>
+            <version>${javax.cache.version}</version>
+        </dependency>
+
+        <!-- SpringBoot rabbitmq -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
+
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
+        <!-- Swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger2.version}</version>
+        </dependency>
+
+        <!-- Servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet-api.version}</version>
+        </dependency>
+
+        <!-- aliYun oss -->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>${aliyun.oss.version}</version>
+        </dependency>
+
+        <!-- freemarker,生成 html -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
+        </dependency>
+        <!-- 渲染 css 样式 -->
+        <dependency>
+            <groupId>org.xhtmlrenderer</groupId>
+            <artifactId>flying-saucer-pdf</artifactId>
+            <version>${flying-saucer-pdf.version}</version>
+        </dependency>
+        <!-- iText,export pdf -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>${itextpdf.version}</version>
+        </dependency>
+
+        <!-- Apache commons lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+        <!-- JSON,jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>demo-base-web</finalName>
+    </build>
+
+</project>

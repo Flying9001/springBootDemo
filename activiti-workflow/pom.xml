@@ -111,11 +111,24 @@
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
         </dependency>
+        <!-- local dependency -->
+        <dependency>
+            <groupId>com.ljq.demo.springboot</groupId>
+            <artifactId>demo-base-web</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ljq.demo.springboot</groupId>
+            <artifactId>demo-common</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
 
 
     </dependencies>
 
     <build>
+        <finalName>activiti-workflow</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

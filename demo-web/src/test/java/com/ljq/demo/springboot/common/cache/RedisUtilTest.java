@@ -1,5 +1,6 @@
 package com.ljq.demo.springboot.common.cache;
 
+import com.ljq.demo.springboot.baseweb.cache.RedisUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
@@ -13,8 +14,8 @@ import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {com.ljq.demo.springboot.common.cache.RedisUtil.class,
-        com.ljq.demo.springboot.common.config.RedisConfig.class})
+@SpringBootTest(classes = {com.ljq.demo.springboot.baseweb.cache.RedisUtil.class,
+        com.ljq.demo.springboot.baseweb.config.RedisConfig.class})
 @ComponentScan(basePackages = {"com.ljq.demo.springboot"})
 @MapperScan("com.ljq.demo.springboot.dao")
 public class RedisUtilTest {

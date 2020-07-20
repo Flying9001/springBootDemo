@@ -1,6 +1,6 @@
 package com.ljq.demo.springboot.service;
 
-import com.ljq.demo.springboot.common.api.ApiResult;
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
 import com.ljq.demo.springboot.vo.DownloadBean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,7 +1,7 @@
 package com.ljq.demo.springboot.activiti.service;
 
-import com.ljq.demo.springboot.activiti.common.api.ApiResult;
 import com.ljq.demo.springboot.activiti.model.param.*;
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
 
 /**
  * 请假信息业务层接口

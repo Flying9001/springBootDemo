@@ -1,12 +1,12 @@
 package com.ljq.demo.springboot.service.impl;
 
-import com.ljq.demo.springboot.common.api.ApiResult;
-import com.ljq.demo.springboot.common.config.OSSConfig;
-import com.ljq.demo.springboot.common.config.PDFExportConfig;
-import com.ljq.demo.springboot.common.util.FileUtil;
-import com.ljq.demo.springboot.common.util.OSSBootUtil;
-import com.ljq.demo.springboot.common.util.OSSSingleUtil;
-import com.ljq.demo.springboot.common.util.PDFUtil;
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
+import com.ljq.demo.springboot.baseweb.config.OSSConfig;
+import com.ljq.demo.springboot.baseweb.config.PDFExportConfig;
+import com.ljq.demo.springboot.baseweb.util.OSSBootUtil;
+import com.ljq.demo.springboot.baseweb.util.OSSSingleUtil;
+import com.ljq.demo.springboot.baseweb.util.PDFUtil;
+import com.ljq.demo.springboot.baseweb.util.ResourceFileUtil;
 import com.ljq.demo.springboot.service.CommonService;
 import com.ljq.demo.springboot.vo.DownloadBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +62,7 @@ public class CommonServiceImpl implements CommonService {
             case "url":
                 downloadBean.setFileName("https://upload-images.jianshu.io/upload_images/4412479-6895144ef53d208c.jpg?" +
                         "imageMogr2/auto-orient/strip%7CimageView2/2/w/1240");
-                byte[] fileBytes = FileUtil.getBytesFromURLFile(downloadBean.getFileName());
+                byte[] fileBytes = ResourceFileUtil.getBytesFromURLFile(downloadBean.getFileName());
                 if (fileBytes != null && fileBytes.length > 0) {
                     headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
                     headers.setContentDispositionFormData("attachment", "DEMO" + System.currentTimeMillis() + ".jpg");
@@ -71,7 +71,7 @@ public class CommonServiceImpl implements CommonService {
                 break;
             case "resource":
                 downloadBean.setFileName("static/README.pdf");
-                byte[] resourceBytes = FileUtil.getBytesFromResource(downloadBean.getFileName());
+                byte[] resourceBytes = ResourceFileUtil.getBytesFromResource(downloadBean.getFileName());
                 if (resourceBytes != null && resourceBytes.length > 0) {
                     headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
                     headers.setContentDispositionFormData("attachment", "DEMO" + System.currentTimeMillis() + ".pdf");
@@ -80,7 +80,7 @@ public class CommonServiceImpl implements CommonService {
                 break;
             case "local" :
                 downloadBean.setFileName("E:\\software\\tools\\AdbeRdr11_zh_CN11.exe");
-                byte[] fileByteArray = FileUtil.getByteFromFileWithNIO(downloadBean.getFileName());
+                byte[] fileByteArray = ResourceFileUtil.getByteFromFileWithNIO(downloadBean.getFileName());
                 if (fileByteArray != null &&fileByteArray.length > 0) {
                     headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
                     headers.setContentDispositionFormData("attachment", "DEMO" + System.currentTimeMillis() + ".exe");

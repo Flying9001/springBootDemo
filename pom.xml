@@ -22,6 +22,7 @@
         <module>demo-dao</module>
         <module>demo-model</module>
         <module>demo-common</module>
+        <module>demo-base-web</module>
         <module>cloud-client-a</module>
         <module>cloud-client-b</module>
         <module>cloud-client-c</module>

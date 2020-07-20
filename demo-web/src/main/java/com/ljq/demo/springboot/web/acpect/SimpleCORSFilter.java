@@ -1,8 +1,8 @@
 package com.ljq.demo.springboot.web.acpect;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ljq.demo.springboot.common.api.ApiResult;
-import com.ljq.demo.springboot.common.api.ResponseCode;
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
+import com.ljq.demo.springboot.baseweb.api.ResponseCode;
 import com.ljq.demo.springboot.common.constant.TokenConst;
 import com.ljq.demo.springboot.common.util.JwtUtil;
 import lombok.extern.slf4j.Slf4j;

@@ -14,7 +14,7 @@
         <!-- Cache listener,log cache event,the class is created by yourself -->
         <listeners>
             <listener>
-                <class>com.ljq.demo.springboot.common.cache.Ehcache3EventLog</class>
+                <class>com.ljq.demo.springboot.baseweb.cache.Ehcache3EventLog</class>
                 <event-firing-mode>ASYNCHRONOUS</event-firing-mode>
                 <event-ordering-mode>UNORDERED</event-ordering-mode>
                 <events-to-fire-on>CREATED</events-to-fire-on>

@@ -1,8 +1,9 @@
 package com.ljq.demo.springboot.service.impl;
 
-import com.ljq.demo.springboot.common.api.ApiResult;
-import com.ljq.demo.springboot.common.api.ApiResultI18n;
-import com.ljq.demo.springboot.common.api.ResponseCodeI18n;
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
+import com.ljq.demo.springboot.baseweb.api.ApiResultI18n;
+import com.ljq.demo.springboot.baseweb.api.ResponseCodeI18n;
+import com.ljq.demo.springboot.baseweb.cache.RedisUtil;
 import com.ljq.demo.springboot.dao.user.UserDao;
 import com.ljq.demo.springboot.entity.UserDO;
 import com.ljq.demo.springboot.service.UserService;
@@ -11,6 +12,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,6 +25,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private RedisUtil redisUtil;
 
     /**
      * 列表查询
@@ -34,6 +38,8 @@ public class UserServiceImpl implements UserService {
     public ApiResult queryList(Map<String, Object> map) {
 
         // TODO 分页数据处理
+        List<Object> list = userDao.queryListComplex(map);
+        redisUtil.set("userList", list, 60L);
 
         return ApiResult.success(userDao.queryListComplex(map));
     }

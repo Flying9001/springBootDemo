@@ -1,7 +1,7 @@
 package com.ljq.demo.springboot.web.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.ljq.demo.springboot.common.api.ApiResult;
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
 import com.ljq.demo.springboot.common.page.PageUtil;
 import com.ljq.demo.springboot.entity.ArticleEntity;
 import com.ljq.demo.springboot.service.ArticleService;

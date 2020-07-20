@@ -1,6 +1,6 @@
 package com.ljq.demo.springboot.web.controller;
 
-import com.ljq.demo.springboot.common.api.ApiResult;
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
 import com.ljq.demo.springboot.service.CommonService;
 import com.ljq.demo.springboot.vo.DownloadBean;
 import org.slf4j.Logger;

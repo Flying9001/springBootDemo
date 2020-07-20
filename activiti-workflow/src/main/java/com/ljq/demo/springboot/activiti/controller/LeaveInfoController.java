@@ -1,8 +1,8 @@
 package com.ljq.demo.springboot.activiti.controller;
 
-import com.ljq.demo.springboot.activiti.common.api.ApiResult;
 import com.ljq.demo.springboot.activiti.model.param.*;
 import com.ljq.demo.springboot.activiti.service.LeaveInfoService;
+import com.ljq.demo.springboot.baseweb.api.ApiResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
