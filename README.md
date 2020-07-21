@@ -158,6 +158,10 @@ Quick start :
 
 ###  5 SpringBoot 集成 Activiti 工作流  
 
+[5.1 Activiti 入门教程(官方示例) --- 2020-07-21](./doc/40.activiti_official_demo.md "./doc/40.activiti_official_demo.md")  
+
+[5.2 Activiti 初始化启动失败提示 ACT_GE_PROPERTY 表不存在 --- 2020-07-21](./doc/41.activiti_init_error_table_not_exist.md "./doc/41.activiti_init_error_table_not_exist.md")  
+
 
 
 
