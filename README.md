@@ -170,6 +170,10 @@ Quick start :
 
 [5.6 基于 Spring Boot 2.x 使用 Activiti 创建一个简易的请假流程 --- 2020-07-27](./doc/45.spring_boot_2.3_activiti_6_form.md "./doc/45.spring_boot_2.3_activiti_6_form.md")  
 
+[5.7 Activiti 常用词释义](./doc/46.activiti_common_words_notes.md "./doc/46.activiti_common_words_notes.md")  
+
+
+
 
 
 
