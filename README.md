@@ -168,6 +168,10 @@ Quick start :
 
 [5.5 Activiti 核心 API 在 Spring Boot 2.x 中的简易使用教程 --- 2020-7-23](./doc/44.spring_boot_2.3.activiti_6_simple_usage.md "./doc/44.spring_boot_2.3.activiti_6_simple_usage.md")  
 
+[5.6 基于 Spring Boot 2.x 使用 Activiti 创建一个简易的请假流程 --- 2020-07-27](./doc/45.spring_boot_2.3_activiti_6_form.md "./doc/45.spring_boot_2.3_activiti_6_form.md")  
+
+
+
 
 
 
