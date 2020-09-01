@@ -102,6 +102,12 @@ Quick start :
 
 [3.8.1 Spring Boot 2.X 实现简易定时任务功能 --- 2019-06-14](./doc/24.spring_boot_2_schedule.md "./doc/24.spring_boot_2_schedule.md")  
 
+​    
+
+#### 3.9 Mybatis Plus  
+
+[3.9.1 SpringBoot 2.3 集成 Mybatis Plus 3.4 --- 2020-09-01](./doc/47.spring_boot_2.3_mybatis_plus_3.4.md "./doc/47.spring_boot_2.3_mybatis_plus_3.4.md")  
+
 
 
 #### 3.X 其他常见问题  

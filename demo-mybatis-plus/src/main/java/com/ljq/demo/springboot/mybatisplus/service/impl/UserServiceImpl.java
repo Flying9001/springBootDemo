@@ -80,7 +80,7 @@ public class UserServiceImpl implements UserService {
 		LambdaQueryWrapper<UserEntity> userWrapper = new LambdaQueryWrapper<>();
 		userWrapper.like(Objects.nonNull(userListParam.getUserName()), UserEntity::getUserName,
 				userListParam.getUserName());
-		IPage<UserEntity> page = new Page<>(1,10);
+		IPage<UserEntity> page = new Page<>(userListParam.getCurrentPage(),userListParam.getPageSize());
 		userWrapper.orderBy(true, userListParam.isAscFlag(), UserEntity::getId);
 		page = userDao.selectPage(page, userWrapper);
 
