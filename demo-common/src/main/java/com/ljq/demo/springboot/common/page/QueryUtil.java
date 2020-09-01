@@ -2,7 +2,6 @@ package com.ljq.demo.springboot.common.page;
 
 import com.ljq.demo.springboot.common.util.SqlCheckUtil;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
@@ -16,7 +15,6 @@ import java.util.Map;
  */
 @Getter
 @ToString
-@NoArgsConstructor
 public class QueryUtil extends HashMap<String, Object> implements Serializable {
 
     private static final long serialVersionUID = -2496264573068256845L;
@@ -73,6 +71,11 @@ public class QueryUtil extends HashMap<String, Object> implements Serializable {
      */
     private String properties = DEFAULT_PROPERTIES;
     private static final String PROPERTIES_FILED = "properties";
+
+    /**
+     * 无参构造方法
+     */
+    private QueryUtil(){}
 
     /**
      * 有参构造方法

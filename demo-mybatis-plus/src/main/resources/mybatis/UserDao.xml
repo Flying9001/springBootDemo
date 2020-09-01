@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ljq.demo.springboot.mybatisplus.dao.UserDao">
+
+	<!-- 用户表结果集resultMap -->
+    <resultMap type="com.ljq.demo.springboot.mybatisplus.model.entity.UserEntity" id="userMap">
+        <result property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="userPasscode" column="user_passcode"/>
+        <result property="userEmail" column="user_email"/>
+        <result property="userInsertTime" column="user_insert_time"/>
+        <result property="userUpdateTime" column="user_update_time"/>
+        <result property="userStatus" column="user_status"/>
+        <result property="userVersion" column="user_version"/>
+        <result property="userDel" column="user_del"/>
+    </resultMap>
+
+   <!-- 用户表-基础字段 -->
+	<sql id="user_base_field">
+        `id`,
+        `user_name`,
+        `user_passcode`,
+        `user_email`,
+        `user_insert_time`,
+        `user_update_time`,
+        `user_status`,
+        `user_version`,
+        `user_del`
+	</sql>
+
+</mapper>

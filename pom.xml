@@ -38,6 +38,7 @@
         <module>demo-websocket</module>
         <module>demo-websocket-spring</module>
         <module>activiti-workflow</module>
+        <module>demo-mybatis-plus</module>
     </modules>
 
     <properties>
