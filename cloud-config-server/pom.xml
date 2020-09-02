@@ -20,7 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <spring-cloud.version>2.0.1.RELEASE</spring-cloud.version>
+        <spring-cloud.version>2.2.5.RELEASE</spring-cloud.version>
 
     </properties>
 
