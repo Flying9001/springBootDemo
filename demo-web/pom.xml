@@ -10,15 +10,20 @@
     <name>demo-web</name>
 
     <parent>
-        <groupId>com.ljq.demo</groupId>
-        <artifactId>springboot</artifactId>
-        <version>1.0.0</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.6.RELEASE</version>
+        <relativePath/>
     </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <springboot.version>2.0.6.RELEASE</springboot.version>
+        <spring-cloud.version>2.0.1.RELEASE</spring-cloud.version>
+        <mysql.version>8.0.21</mysql.version>
+
     </properties>
 
     <dependencies>
@@ -26,11 +31,6 @@
         <dependency>
             <groupId>com.ljq.demo.springboot</groupId>
             <artifactId>demo-service</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ljq.demo.springboot</groupId>
-            <artifactId>demo-base-web</artifactId>
             <version>1.0.0</version>
         </dependency>
         <!-- 排除内置tomcat容器，导出成war包可以让外部容器运行spring-boot项目-->
@@ -83,6 +83,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <version>${spring-cloud.version}</version>
         </dependency>
     </dependencies>
 
