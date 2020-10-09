@@ -1,8 +1,13 @@
 package com.ljq.demo.springboot.web.controller;
 
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.SftpException;
 import com.ljq.demo.springboot.baseweb.api.ApiResult;
+import com.ljq.demo.springboot.baseweb.exception.ParamsCheckException;
+import com.ljq.demo.springboot.common.annotation.ParamsCheck;
 import com.ljq.demo.springboot.service.CommonService;
 import com.ljq.demo.springboot.vo.DownloadBean;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +15,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 /**
  * @Description: 公共模块控制中心
@@ -106,6 +110,40 @@ public class CommonController {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
         return new ResponseEntity<>(apiResult, headers, HttpStatus.CREATED);
+    }
+
+    /**
+     * 通过 sftp 上传附件至固定服务器
+     *
+     * @param file 文件
+     * @param dir 文件夹名称
+     * @return
+     * @throws ParamsCheckException
+     */
+    @PostMapping(value = "/upload/sftp", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "文件上传", notes = "文件上传")
+    public ResponseEntity<ApiResult> uploadSftp(@RequestParam("file") MultipartFile file,
+                                            String dir) throws ParamsCheckException {
+        ApiResult apiResult = commonService.uploadSftp(file, dir);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(apiResult, headers, HttpStatus.OK);
+    }
+
+    /**
+     * 通过 sftp 下载文件
+     *
+     * @param filePath 文件路径
+     * @return
+     * @throws JSchException
+     * @throws SftpException
+     * @throws IOException
+     */
+    @ParamsCheck(ignore = true)
+    @GetMapping(value = "/download/sftp", produces = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseEntity<byte[]> downloadSftp(String filePath) throws JSchException, SftpException, IOException {
+        ResponseEntity<byte[]> responseEntity = commonService.downloadSftp(filePath);
+        return responseEntity;
     }
 
 

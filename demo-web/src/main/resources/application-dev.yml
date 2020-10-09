@@ -57,5 +57,13 @@ oss:
   accessKeySecret: your_accessKey_secret
   bucketName: your_bucket_name
 
+## sftp 附件上传配置
+uploadSftp:
+  host: 172.16.140.10
+  port: 22
+  username: root
+  password: root
+  path: /home/ljq/upload
+
 
 
