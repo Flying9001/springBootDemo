@@ -90,6 +90,8 @@ Quick start :
 
 [3.6.2 SpringBoot 2.X 集成阿里云  OSS  文件上传功能 ---20190513](./doc/20.spring_boot_2_aliyun_oss.md "./doc/20.spring_boot_2_aliyun_oss.md")   
 
+[3.6.3 Spring Boot 集成 SFTP 文件上传和下载功能 --- 2020-10-09](./doc/48.spring_boot_sftp_file_upload_and_download.md)  
+
 
 
 #### 3.7 消息队列  
