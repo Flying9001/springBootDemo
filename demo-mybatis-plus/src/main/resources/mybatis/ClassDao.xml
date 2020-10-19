@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ljq.demo.springboot.mybatisplus.dao.ClassDao">
+
+	<!-- 班级结果集resultMap -->
+    <resultMap type="com.ljq.demo.springboot.mybatisplus.model.entity.ClassEntity" id="classMap">
+        <id property="id" column="ID" />
+        <result property="headTeacherId" column="HEAD_TEACHER_ID"/>
+        <result property="name" column="NAME"/>
+        <association property="headTeacher" javaType="com.ljq.demo.springboot.mybatisplus.model.entity.TeacherEntity">
+            <id property="id" column="HT_ID" />
+            <result property="name" column="HT_NAME" />
+        </association>
+        <collection property="teacherList" javaType="java.util.List" ofType="com.ljq.demo.springboot.mybatisplus.model.entity.TeacherEntity">
+            <id property="id" column="T_ID" />
+            <result property="name" column="T_NAME" />
+        </collection>
+    </resultMap>
+
+   <!-- 班级-基础字段 -->
+	<sql id="class_base_field">
+        c.ID,
+        c.`HEAD_TEACHER_ID`,
+        c.`NAME`
+	</sql>
+
+    <!-- 班级-列表字段 -->
+    <sql id="class_list_field">
+        <include refid="class_base_field" />
+        ,
+        ht.ID AS HT_ID,
+        ht.NAME AS HT_NAME
+	</sql>
+
+    <!-- 班级-详情字段 -->
+    <sql id="class_info_field">
+        <include refid="class_list_field" />
+        ,
+        t.ID AS T_ID,
+        t.NAME AS T_NAME
+    </sql>
+
+    <!-- 保存,创建 -->
+    <insert id="save" parameterType="com.ljq.demo.springboot.mybatisplus.model.entity.ClassEntity" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `class`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="headTeacherId != null"> `HEAD_TEACHER_ID`,  </if>
+            <if test="name != null"> `NAME` </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="headTeacherId != null">#{headTeacherId}, </if>
+            <if test="name != null">#{name}</if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入班级教师 S -->
+    <insert id="saveClassTeacherBatch" parameterType="java.util.List" useGeneratedKeys="true">
+        <selectKey resultType="long" keyProperty="id" order="AFTER">
+            SELECT
+            LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO `class_teacher`(`CLASS_ID`, `TEACHER_ID`)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator="," >
+            ( #{item.classId}, #{item.teacherId})
+        </foreach>
+    </insert>
+    <!-- 批量插入班级教师 E -->
+
+    <!-- 查询详情 -->
+    <select id="queryOne" parameterType="java.lang.Long" resultMap="classMap">
+        SELECT
+        <include refid="class_info_field" />
+        FROM `class` AS c
+        LEFT JOIN `teacher` AS ht ON ht.ID = c.HEAD_TEACHER_ID
+        LEFT JOIN `class_teacher` AS ct ON ct.CLASS_ID = c.ID
+        LEFT JOIN `teacher` AS t ON t.ID = ct.TEACHER_ID
+        WHERE c.ID = #{id}
+    </select>
+
+    <!-- 统计列表查询数量 -->
+    <select id="queryCount" parameterType="java.util.Map" resultType="int">
+        SELECT count(DISTINCT(c.ID))
+        FROM `class` AS c
+        WHERE 1 = 1
+        <if test="name != null and '' != name" >
+            AND c.NAME LIKE CONCAT(CONCAT('%',#{name}), '%')
+        </if>
+    </select>
+
+    <!-- 列表查询 -->
+    <select id="queryList" parameterType="java.util.Map" resultMap="classMap">
+        SELECT
+        <include refid="class_list_field" />
+        FROM `class` c
+        LEFT JOIN `teacher` AS ht ON ht.ID = c.HEAD_TEACHER_ID
+        WHERE 1 = 1
+        <if test="name != null and '' != name" >
+            AND c.NAME LIKE CONCAT(CONCAT('%',#{name}), '%')
+        </if>
+        ORDER BY
+        <choose>
+            <when test="properties != null and direction.trim() != ''">
+                c.${properties} ${direction}
+            </when>
+            <otherwise>
+                c.id DESC
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="offset != null and pageSize != null">
+                LIMIT #{offset}, #{pageSize}
+            </when>
+            <otherwise>
+                LIMIT 0, 5
+            </otherwise>
+        </choose>
+    </select>
+
+    <!-- 列表查询(支持一对多分页) S -->
+    <select id="queryList2" parameterType="java.util.Map" resultMap="classMap">
+        SELECT
+        <include refid="class_info_field" />
+        FROM (
+            SELECT *
+            FROM `class`
+            WHERE 1 = 1
+            <if test="name != null and '' != name" >
+                AND `NAME` LIKE CONCAT(CONCAT('%',#{name}), '%')
+            </if>
+            ORDER BY
+            <choose>
+                <when test="properties != null and direction.trim() != ''">
+                    ${properties} ${direction}
+                </when>
+                <otherwise>
+                    `ID` DESC
+                </otherwise>
+            </choose>
+            <choose>
+                <when test="offset != null and pageSize != null">
+                    LIMIT #{offset}, #{pageSize}
+                </when>
+                <otherwise>
+                    LIMIT 0, 5
+                </otherwise>
+            </choose>
+        ) c
+        LEFT JOIN `teacher` AS ht ON ht.ID = c.HEAD_TEACHER_ID
+        LEFT JOIN `class_teacher` AS ct ON ct.CLASS_ID = c.ID
+        LEFT JOIN `teacher` AS t ON t.ID = ct.TEACHER_ID
+        ORDER BY
+        <choose>
+            <when test="properties != null and direction.trim() != ''">
+                c.${properties} ${direction}
+            </when>
+            <otherwise>
+                c.ID DESC
+            </otherwise>
+        </choose>
+    </select>
+    <!-- 列表查询(支持一对多分页) E -->
+
+    <!-- 分页查询 S -->
+    <select id="queryPage" resultMap="classMap" >
+        SELECT
+        <include refid="class_list_field" />
+        FROM `class` c
+        LEFT JOIN `teacher` AS ht ON ht.ID = c.HEAD_TEACHER_ID
+        WHERE 1 = 1
+        <if test="map.name != null and '' != map.name" >
+            AND c.NAME LIKE CONCAT(CONCAT('%',#{map.name}), '%')
+        </if>
+        ORDER BY
+        <choose>
+            <when test="map.properties != null and map.direction.trim() != ''">
+                c.${map.properties} ${map.direction}
+            </when>
+            <otherwise>
+                c.id DESC
+            </otherwise>
+        </choose>
+    </select>
+    <!-- 分页查询 E -->
+
+    <!-- 分页查询2 S -->
+    <select id="queryPage2" resultMap="classMap" >
+        SELECT
+        <include refid="class_info_field" />
+        FROM `class` c
+        LEFT JOIN `teacher` AS ht ON ht.ID = c.HEAD_TEACHER_ID
+        LEFT JOIN `class_teacher` AS ct ON ct.CLASS_ID = c.ID
+        LEFT JOIN `teacher` AS t ON t.ID = ct.TEACHER_ID
+        WHERE 1 = 1
+        <if test="map.name != null and '' != map.name" >
+            AND c.NAME LIKE CONCAT(CONCAT('%',#{map.name}), '%')
+        </if>
+        ORDER BY
+        <choose>
+            <when test="map.properties != null and map.direction.trim() != ''">
+                c.${map.properties} ${map.direction}
+            </when>
+            <otherwise>
+                c.id DESC
+            </otherwise>
+        </choose>
+    </select>
+    <!-- 分页查询2 E -->
+
+    <!-- 更新 -->
+    <update id="updateOne" parameterType="com.ljq.demo.springboot.mybatisplus.model.entity.ClassEntity">
+        UPDATE `class`
+        <set>
+            <if test="headTeacherId != null">`HEAD_TEACHER_ID` = #{headTeacherId}, </if>
+            <if test="name != null">`NAME` = #{name}</if>
+        </set>
+        WHERE ID = #{id}
+    </update>
+
+    <!-- 删除一条数据 -->
+    <delete id="deleteOne">
+        DELETE FROM `class`
+        WHERE `ID` = #{id}
+    </delete>
+
+    <!-- 批量删除 -->
+    <delete id="deleteBatch">
+        DELETE FROM `class` WHERE `ID` IN
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
