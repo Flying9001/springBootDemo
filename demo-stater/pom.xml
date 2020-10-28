@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ljq.demo.springboot</groupId>
+    <artifactId>demo-stater</artifactId>
+    <version>1.0.0</version>
+    <name>demo-stater</name>
+    <packaging>jar</packaging>
+    <description>spring boot stater demo</description>
+
+    <properties>
+        <springboot.version>2.3.4.RELEASE</springboot.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>demo-stater</finalName>
+    </build>
+
+</project>

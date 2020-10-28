@@ -1,0 +1,10 @@
+## config
+
+## server
+server:
+  port: 8500
+
+## 自定义 stater
+hello-stater:
+  name: stater-demo-123
+

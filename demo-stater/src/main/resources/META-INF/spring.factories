@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.ljq.demo.springboot.stater.config.HelloAutoConfiguration

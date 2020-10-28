@@ -32,6 +32,8 @@
         <module>demo-websocket-spring</module>
         <module>activiti-workflow</module>
         <module>demo-mybatis-plus</module>
+        <module>demo-stater</module>
+        <module>demo-stater-usage</module>
     </modules>
 
     <properties>
