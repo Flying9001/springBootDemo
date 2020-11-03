@@ -136,6 +136,10 @@ Quick start :
 
 [3.x.10 Spring Boot jar 启动时设置环境参数 --- 2019-06-12](./doc/23.spring_boot_jar_setting_active_profile_at_startup.md "./doc/23.spring_boot_jar_setting_active_profile_at_startup.md")  
 
+[3.x.11 自定义 Spring Boot Stater --- 2020-11-03](./doc/50.spring_boot_stater_customed.md "./doc/50.spring_boot_stater_customed.md")  
+
+
+
 
 
 ###  4 Spring Cloud 分布式服务  

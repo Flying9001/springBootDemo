@@ -29,5 +29,5 @@
 | demo-websocket-spring         | 8201                | Tomcat   | SpringBoot websocket 项目,不依赖主项目                       |
 | activiti-workflow             | 8400                | Tomcat   | SpringBoot 项目,Activiti 工作流,不依赖主项目                 |
 | demo-mybatis-plus             | 8450                | Tomcat   | SpringBoot 项目,Mybatis Plus 入门教程,不依赖主项目           |
-|                               |                     |          |                                                              |
+| demo-stater-usage             | 8500                | Tomcat   | SpringBoot 项目，不依赖主项目                                |
 
