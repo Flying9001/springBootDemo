@@ -35,7 +35,7 @@ public class MultiDataSourceDemoSchedule {
         int userCount = userDao.countComplex(new HashMap<>(16));
         log.debug("userCount: {}", userCount);
         if (userCount > 0) {
-            List<UserDO> userDBList = userDao.queryList(null);
+            List<UserDO> userDBList = userDao.queryListComplex(null);
             userDBList.stream().forEach(userDO -> {
                 log.debug("{}", userDO);
             });
@@ -50,7 +50,7 @@ public class MultiDataSourceDemoSchedule {
         int receiveAddressCount = receiveAddressDao.countComplex(new HashMap<>(16));
         log.debug("receiveAddressCount: {}", receiveAddressCount);
         if (receiveAddressCount > 0) {
-            List<ReceiveAddressEntity> receiveAddressDBList = receiveAddressDao.queryList(null);
+            List<ReceiveAddressEntity> receiveAddressDBList = receiveAddressDao.queryListComplex(null);
             receiveAddressDBList.stream().forEach(receiveAddressEntity -> {
                 log.debug("{}", receiveAddressEntity);
             });

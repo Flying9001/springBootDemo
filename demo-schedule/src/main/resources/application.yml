@@ -1,13 +1,5 @@
 ## spring config
 
-# tomcat server
-server:
-  use-forward-headers: true
-  tomcat:
-    remote-ip-header: x-forwarded-for
-    protocol-header: x-forwarded-proto
-    port-header: X-Forwarded-Port
-
 ## spring config
 spring:
   # environment: dev|test|pro
@@ -27,9 +19,19 @@ spring:
   servlet:
     multipart:
       # single file max size
-      max-file-size: 10mb
+      max-file-size: 10240000
       # multi file max size
-      max-request-size: 100mb
+      max-request-size: 10240000
+  # schedule
+  task:
+    scheduling:
+      thread-name-prefix: demo-schedule-
+      pool:
+        size: 10
+      shutdown:
+        await-termination: true
+        await-termination-period: 60
+
 
 ## mybatis
 mybatis:

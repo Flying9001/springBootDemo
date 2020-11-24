@@ -1,0 +1,24 @@
+## config
+
+## server
+server:
+  port: 8550
+
+## spring config
+spring:
+  quartz:
+    scheduler-name: userSchedule
+    job-store-type: memory
+    auto-startup: true
+    startup-delay: 1s
+    wait-for-jobs-to-complete-on-shutdown: true
+    overwrite-existing-jobs: false
+    properties:
+      org:
+        quartz:
+          threadPool:
+            threadCount: 25
+            threadPriority: 5
+            class: org.quartz.simpl.SimpleThreadPool
+
+

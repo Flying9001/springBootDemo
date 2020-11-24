@@ -1,13 +1,13 @@
-package com.ljq.demo.springboot.schedule;
+package com.ljq.demo.springboot.quartz.group;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class DemoScheduleApplicationTests {
+class DemoScheduleQuartzGroupApplicationTests {
 
     @Test
-    public void contextLoads() {
+    void contextLoads() {
     }
 
 }

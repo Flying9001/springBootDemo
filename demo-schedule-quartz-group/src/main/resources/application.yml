@@ -1,0 +1,50 @@
+## config
+
+## server
+server:
+  port: 8551
+
+## spring config
+spring:
+  datasource:
+    user:
+      url: "jdbc:mysql://172.16.140.10:3306/demo?useUnicode=true&characterEncoding=utf8\
+            &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
+            &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true\
+            &nullCatalogMeansCurrent=true"
+      username: root
+      password: "Qwert12345!"
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+    quartz:
+      url: "jdbc:mysql://172.16.140.10:3306/schedule_quartz?useUnicode=true&characterEncoding=utf8\
+            &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
+            &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true\
+            &nullCatalogMeansCurrent=true"
+      username: root
+      password: "Qwert12345!"
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  quartz:
+    scheduler-name: userSchedule
+    job-store-type: jdbc
+    auto-startup: true
+    startup-delay: 1s
+    wait-for-jobs-to-complete-on-shutdown: true
+    overwrite-existing-jobs: false
+    jdbc:
+      initialize-schema: never
+    properties:
+      org:
+        quartz:
+          jobStore:
+            dataSource: quartzDataSource
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            isClustered: true
+            clusterCheckinInterval: 1000
+            useProperties: false
+          threadPool:
+            threadCount: 25
+            threadPriority: 5
+            class: org.quartz.simpl.SimpleThreadPool

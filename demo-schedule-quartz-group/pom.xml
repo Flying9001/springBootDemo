@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.ljq.demo.springboot</groupId>
-    <artifactId>demo-schedule</artifactId>
-    <version>1.0.0</version>
-    <name>demo-schedule</name>
-    <description>springBoot schedule</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -15,6 +9,13 @@
         <version>2.4.0</version>
         <relativePath/>
     </parent>
+
+    <groupId>com.ljq.demo.springboot</groupId>
+    <artifactId>demo-schedule-quartz-group</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>demo-schedule-quartz-group</name>
+    <description>Quartz 定时任务集群模式</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -25,63 +26,47 @@
     </properties>
 
     <dependencies>
-        <!-- spring boot starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
             <version>${springboot.version}</version>
         </dependency>
 
-        <!-- devtools,hot deploy -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <version>${springboot.version}</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
             <optional>true</optional>
-            <scope>true</scope>
         </dependency>
-
-        <!-- spring junit test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <version>${springboot.version}</version>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
-
-        <!-- log,logback -->
+        <!-- Quartz 定时任务 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- jdbc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
             <version>${springboot.version}</version>
         </dependency>
 
-        <!-- lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-        <!-- DAO local dependency -->
-        <dependency>
-            <groupId>com.ljq.demo.springboot</groupId>
-            <artifactId>demo-dao</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-
-
     </dependencies>
 
-    <!--only in those modules that you want to run, but not in the parent pom-->
+
     <build>
-        <finalName>spring-boot-demo-schedule</finalName>
+        <finalName>demo-schedule-quartz-group</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -8,14 +8,14 @@ spring:
   ## datasource
   datasource:
     user:
-      url: "jdbc:mysql://192.168.100.100:3306/demo?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true\
-          &useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=true&allowMultiQueries=true&autoReconnect=true"
+      url: "jdbc:mysql://172.16.140.10:3306/demo?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true\
+          &useLegacyDatetimeCode=false&serverTimezone=GMT%2b8&useSSL=true&allowMultiQueries=true&autoReconnect=true"
       username: root
-      password: root
+      password: "Qwert12345!"
     receiveAddress:
-      url: "jdbc:mysql://192.168.100.100:3306/demo1?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true\
-                &useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=true&allowMultiQueries=true&autoReconnect=true"
+      url: "jdbc:mysql://172.16.140.10:3306/demo1?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true\
+                &useLegacyDatetimeCode=false&serverTimezone=GMT%2b8&useSSL=true&allowMultiQueries=true&autoReconnect=true"
       username: root
-      password: root
+      password: "Qwert12345!"
 
 

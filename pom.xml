@@ -34,6 +34,8 @@
         <module>demo-mybatis-plus</module>
         <module>demo-stater</module>
         <module>demo-stater-usage</module>
+        <module>demo-schedule-quartz</module>
+        <module>demo-schedule-quartz-group</module>
     </modules>
 
     <properties>
