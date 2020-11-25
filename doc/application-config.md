@@ -30,4 +30,7 @@
 | activiti-workflow             | 8400                | Tomcat   | SpringBoot 项目,Activiti 工作流,不依赖主项目                 |
 | demo-mybatis-plus             | 8450                | Tomcat   | SpringBoot 项目,Mybatis Plus 入门教程,不依赖主项目           |
 | demo-stater-usage             | 8500                | Tomcat   | SpringBoot 项目，不依赖主项目                                |
+| demo-schedule-quartz          | 8550                | Tomcat   | SpringBoot 项目，Quart 定时任务单机模式，不依赖主项目        |
+| demo-schedule-quartz-group    | 8551                | Tomcat   | SpringBoot 项目，Quartz 定时任务集群模式，不依赖主项目       |
+|                               | 8552                | Tomcat   |                                                              |
 

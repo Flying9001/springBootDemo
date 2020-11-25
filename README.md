@@ -104,6 +104,10 @@ Quick start :
 
 [3.8.1 Spring Boot 2.X 实现简易定时任务功能 --- 2019-06-14](./doc/24.spring_boot_2_schedule.md "./doc/24.spring_boot_2_schedule.md")  
 
+[3.8.2 Spring Boot 2.4 集成定时任务 Quartz 单机模式以及集群模式 --- 2020-11-25](./doc/51.spring_boot_2.4_quartz_single_and_group.md "./doc/51.spring_boot_2.4_quartz_single_and_group.md")  
+
+
+
 ​    
 
 #### 3.9 Mybatis Plus  
