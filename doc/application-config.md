@@ -33,4 +33,10 @@
 | demo-schedule-quartz          | 8550                | Tomcat   | SpringBoot 项目，Quart 定时任务单机模式，不依赖主项目        |
 | demo-schedule-quartz-group    | 8551                | Tomcat   | SpringBoot 项目，Quartz 定时任务集群模式，不依赖主项目       |
 |                               | 8552                | Tomcat   |                                                              |
+| demo-schedule-xxl-job         | 6560                | Tomcat   | SpringBoot 项目，xxl-job 定时任务调度中心，不依赖主项目，不在此仓库中 |
+|                               | 8561                | Tomcat   | SpringBoot 项目，xxl-job 定时任务执行器,不依赖主项目         |
+|                               | 8562                | Tomcat   | xxl-job 定时任务执行器                                       |
+|                               | 8566                | xxl-job  | xxl-job 定时任务执行器，执行器与调度中心通讯端口             |
+|                               | 8567                | xxl-job  | xxl-job 定时任务执行器，执行器与调度中心通讯端口             |
+|                               |                     |          |                                                              |
 

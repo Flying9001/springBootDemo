@@ -106,7 +106,7 @@ Quick start :
 
 [3.8.2 Spring Boot 2.4 集成定时任务 Quartz 单机模式以及集群模式 --- 2020-11-25](./doc/51.spring_boot_2.4_quartz_single_and_group.md "./doc/51.spring_boot_2.4_quartz_single_and_group.md")  
 
-
+[3.8.3 Spring Boot 2.4 集成 xxl-job 分布式定时任务 --- 2020-11-29](./doc/52.spring_boot_2.4_xxl_job_2.2.md "./doc/52.spring_boot_2.4_xxl_job_2.2.md")  
 
 ​    
 
