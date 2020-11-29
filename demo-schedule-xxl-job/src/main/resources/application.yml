@@ -1,0 +1,17 @@
+## config
+server:
+  port: 8561
+
+## xxl-job
+xxl:
+  job:
+    admin:
+      address: "http://127.0.0.1:8560/xxl-job-admin"
+    executor:
+      appName: demo-schedule-xxl-job
+      ip:
+      port: 8566
+      logPath: /Users/ljq/logs/xxlJob
+      logRetentionDays: 30
+    accessToken: spring-boot-demo123
+

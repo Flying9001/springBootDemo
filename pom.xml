@@ -36,6 +36,7 @@
         <module>demo-stater-usage</module>
         <module>demo-schedule-quartz</module>
         <module>demo-schedule-quartz-group</module>
+        <module>demo-schedule-xxl-job</module>
     </modules>
 
     <properties>

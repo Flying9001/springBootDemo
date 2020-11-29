@@ -2,7 +2,7 @@
 
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <!-- 属性定义 -->
-    <property name="LOG_HOME" value="../../logs/demo-schedule-quartz" />
+    <property name="LOG_HOME" value="../../logs/demo-schedule-xxl-job" />
     <property name="appName" value="springboot" />
     <property name="maxHistory" value="90" />
     <property name="CONSOLE_LOG_PATTERN"
@@ -110,7 +110,8 @@
     <logger name="org.terracotta.offheapstore" level="info" />
     <logger name="springfox.documentation" level="info" />
     <logger name="org.apache.http" level="warn" />
-
+    <logger name="com.zaxxer.hikari" level="info" />
+    <logger name="com.xxl.job.core" level="info" />
 
 
     <!-- 根日志,所有日志appender都必须包含在root/logger中,否则不会起作用 -->
