@@ -71,6 +71,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.ljq.demo.springboot.quartz.group.DemoScheduleQuartzGroupApplication</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -1,0 +1,26 @@
+## config
+
+## server
+server:
+  port: 8606
+
+## spring
+spring:
+  application:
+    name: cloud-alibaba-sentinel-dashboard
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.16.140.10:8688
+    sentinel:
+      transport:
+        dashboard: 172.16.140.10:8666
+        port: 8719
+
+## endpoint
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+

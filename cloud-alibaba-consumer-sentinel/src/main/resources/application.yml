@@ -1,0 +1,32 @@
+## config
+
+## server
+server:
+  port: 8608
+
+## spring
+spring:
+  application:
+    name: cloud-alibaba-consumer-sentinel
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.16.140.10:8688
+    sentinel:
+      transport:
+        dashboard: 172.16.140.10:8666
+        port: 8720
+
+
+## feign
+feign:
+  sentinel:
+    enabled: true
+
+## endpoint
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+

@@ -37,6 +37,14 @@
         <module>demo-schedule-quartz</module>
         <module>demo-schedule-quartz-group</module>
         <module>demo-schedule-xxl-job</module>
+        <module>cloud-alibaba-server-provider</module>
+        <module>cloud-alibaba-server-consumer</module>
+        <module>cloud-alibaba-server-consumer-feign</module>
+        <module>cloud-alibaba-sentinel-dashboard</module>
+        <module>cloud-alibaba-consumer-sentinel</module>
+        <module>cloud-alibaba-gateway</module>
+        <module>cloud-alibaba-gateway-filter</module>
+        <module>cloud-alibaba-config</module>
     </modules>
 
     <properties>

@@ -1,0 +1,32 @@
+## config
+
+## server
+server:
+  port: 8610
+
+## spring
+spring:
+  application:
+    name: cloud-alibaba-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.16.140.10:8688
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+
+## endpoint
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+## log
+#logging:
+#  level:
+#    org.springframework.cloud.gateway: debug
+

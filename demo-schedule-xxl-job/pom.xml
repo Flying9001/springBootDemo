@@ -69,6 +69,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.ljq.demo.springboot.xxljob.DemoScheduleXxlJobApplication</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

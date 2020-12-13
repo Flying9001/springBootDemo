@@ -1,0 +1,23 @@
+## config
+
+## server
+server:
+  port: 8604
+
+## spring
+spring:
+  application:
+    name: cloud-alibaba-server-consumer-feign
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.16.140.10:8688
+
+## endpoint
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
