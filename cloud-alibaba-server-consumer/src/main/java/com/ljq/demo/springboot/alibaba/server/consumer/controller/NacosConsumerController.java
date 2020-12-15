@@ -20,6 +20,7 @@ public class NacosConsumerController {
 
     @Autowired
     private NacosConsumerService consumerService;
+
     @GetMapping(value = "/hello", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<String> sayHello(HelloParam helloParam) {
         String result = consumerService.hello(helloParam);
