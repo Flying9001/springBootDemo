@@ -180,6 +180,10 @@ Quick start :
 
 [4.3.3 Spring Cloud Alibaba 2.2 服务消费者(Ribbon) --- 2020-12-15](./doc/55.spring_boot_2.3_cloud_alibaba_2.2_ribbon.md "./doc/55.spring_boot_2.3_cloud_alibaba_2.2_ribbon.md")  
 
+[4.3.4 Spring Cloud Alibaba 2.2 服务消费者(Feign)  --- 2020-12-15](./doc/56.spring_boot_2.3_cloud_alibaba_2.2_server_consumer_feign.md "./doc/56.spring_boot_2.3_cloud_alibaba_2.2_server_consumer_feign.md")  
+
+
+
 
 
 

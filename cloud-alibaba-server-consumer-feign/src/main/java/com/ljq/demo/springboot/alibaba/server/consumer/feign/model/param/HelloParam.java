@@ -12,6 +12,8 @@ import java.io.Serializable;
 @Data
 public class HelloParam implements Serializable {
 
+    private static final long serialVersionUID = 1344487871793431452L;
+
     /**
      * 用户名
      */
