@@ -25,7 +25,6 @@
         <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
         <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
         <spring-cloud-gateway.version>2.2.5.RELEASE</spring-cloud-gateway.version>
-        <spring-cloud-openfeign.version>2.2.5.RELEASE</spring-cloud-openfeign.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
     </properties>
 
@@ -36,12 +35,12 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>${spring-cloud-alibaba.version}</version>
         </dependency>
-        <!-- cloud gateway -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-            <version>${spring-cloud-gateway.version}</version>
-        </dependency>
+            <!-- cloud gateway -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${spring-cloud-gateway.version}</version>
+            </dependency>
         <!-- test,junit -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
