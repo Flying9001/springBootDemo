@@ -26,7 +26,6 @@
         <lombok.version>1.18.16</lombok.version>
         <spring-cloud-gateway.version>2.2.5.RELEASE</spring-cloud-gateway.version>
         <spring-cloud-openfeign.version>2.2.5.RELEASE</spring-cloud-openfeign.version>
-        <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <servlet-api.version>4.0.1</servlet-api.version>
     </properties>
 
