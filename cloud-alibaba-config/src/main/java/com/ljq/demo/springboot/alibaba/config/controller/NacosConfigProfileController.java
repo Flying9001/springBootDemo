@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class NacosConfigProfileController {
 
     /**
-     * 用户手机号
+     * 当前环境
      */
     @Value("${currentProfile: default}")
     private String currentProfile;

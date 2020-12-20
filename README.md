@@ -192,6 +192,10 @@ Quick start :
 
 [4.3.9 Spring Cloud Alibaba 集成网关 Gateway 全局过滤功能 --- 2020-12-18](./doc/61.spring_boot_2.3_cloud_alibaba_2.2_gateway_filter.md "./doc/61.spring_boot_2.3_cloud_alibaba_2.2_gateway_filter.md")  
 
+[4.3.10 Spring Cloud Alibaba Nacos 分布式配置中心 --- 2020-12-20](./doc/62.spring_boot_2.3_cloud_alibaba_2.2_config.md "./doc/62.spring_boot_2.3_cloud_alibaba_2.2_config.md")  
+
+
+
 
 
 
