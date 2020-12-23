@@ -80,6 +80,22 @@ public class ClassController {
     }
 
     /**
+     * 查询班级集合
+     *
+     * @param collectionParam
+     * @return
+     */
+    @GetMapping(value = "/collection", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "查询班级集合",  notes = "查询班级集合")
+    public ResponseEntity<ApiResult> collection(@Validated ClassCollectionParam collectionParam) {
+        ApiResult apiResult = classService.collection(collectionParam);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(apiResult, headers, HttpStatus.OK);
+    }
+
+    /**
      * 查询列表
      *
      * @param classListParam

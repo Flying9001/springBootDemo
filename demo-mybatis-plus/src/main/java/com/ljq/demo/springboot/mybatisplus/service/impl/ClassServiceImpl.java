@@ -2,8 +2,10 @@ package com.ljq.demo.springboot.mybatisplus.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
+import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.enums.SqlKeyword;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -22,10 +24,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * 班级业务层具体实现类
@@ -106,6 +105,26 @@ public class ClassServiceImpl implements ClassService {
 	}
 
 	/**
+	 * 查询班级集合
+	 *
+	 * @param collectionParam
+	 * @return
+	 */
+	@Override
+	public ApiResult collection(ClassCollectionParam collectionParam) {
+		LambdaQueryWrapper<ClassEntity> queryWrapper = new QueryWrapper<ClassEntity>().lambda();
+		/// or 用法
+//		Arrays.asList(collectionParam.getIds()).stream().forEach(id -> {
+//			queryWrapper.or(clazz -> clazz.eq(ClassEntity::getId,id));
+//		});
+
+		// in 用法(推荐)
+		queryWrapper.in(ClassEntity::getId, collectionParam.getIds());
+		List<ClassEntity> classDBList = classDao.selectList(queryWrapper);
+		return ApiResult.success(classDBList);
+	}
+
+	/**
 	 * 查询列表
 	 *
 	 * @param classListParam
@@ -117,6 +136,8 @@ public class ClassServiceImpl implements ClassService {
 		IPage page = new Page(classListParam.getCurrentPage(), classListParam.getPageSize());
 		LambdaQueryWrapper<ClassEntity> queryWrapper = new LambdaQueryWrapper<>();
 		queryWrapper.like(StrUtil.isNotBlank(classListParam.getName()), ClassEntity::getName, classListParam.getName())
+				.notIn(ArrayUtil.isNotEmpty(classListParam.getExcludeIds()), ClassEntity::getId,
+						classListParam.getExcludeIds())
 				.orderBy(true, classListParam.getDirection().equalsIgnoreCase(SqlKeyword.ASC.name()),
 						ClassEntity::getId);
 		page = classDao.selectPage(page, queryWrapper);

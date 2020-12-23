@@ -38,6 +38,14 @@ public interface ClassService {
 	ApiResult info(ClassInfoParam classInfoParam);
 
 	/**
+	 * 查询班级集合
+	 *
+	 * @param collectionParam
+	 * @return
+	 */
+	ApiResult collection(ClassCollectionParam collectionParam);
+
+	/**
      * 查询列表
      *
      * @param classListParam

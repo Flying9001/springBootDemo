@@ -45,6 +45,11 @@ public class ClassListParam implements Serializable {
     @ApiModelProperty(value = "每页显示条数,每页至少展示 3 条结果,最多为 100 条", required = true, example = "5")
     private Integer pageSize;
     /**
+     * 不包含的 id
+     */
+    @ApiModelProperty(value = "不包含的id,查询结果中不包含这些记录", name = "excludeIds")
+    private Long[] excludeIds;
+    /**
      * 排序依据,如依据 "id" 排序
      */
     @NotNull(message = "排序依据不能为空")
