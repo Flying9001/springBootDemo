@@ -87,16 +87,6 @@ public interface ClassDao extends BaseMapper<ClassEntity> {
     IPage<ClassEntity> queryPage2(@Param("page") IPage<?> page, @Param("map") Map<String, Object> queryMap);
 
     /**
-     * 分页查询3
-     * 条件过滤
-     *
-     * @param page
-     * @param queryMap
-     * @return
-     */
-    IPage<ClassEntity> queryPage3(@Param("page") IPage<?> page, @Param("map") Map<String, Object> queryMap);
-
-    /**
      * 更新单条
      *
      * @param classEntity

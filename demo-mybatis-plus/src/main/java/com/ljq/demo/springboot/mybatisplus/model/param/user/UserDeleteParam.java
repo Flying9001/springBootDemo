@@ -1,4 +1,4 @@
-package com.ljq.demo.springboot.mybatisplus.model.param;
+package com.ljq.demo.springboot.mybatisplus.model.param.user;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -15,8 +15,8 @@ import java.io.Serializable;
  * @date 2020-08-31 14:09:53
  */
 @Data
-@ApiModel(value = "用户表查询详情(单条)", description = "用户表查询详情(单条)")
-public class UserInfoParam implements Serializable {
+@ApiModel(value = "用户表删除(单条)", description = "用户表删除(单条)")
+public class UserDeleteParam implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

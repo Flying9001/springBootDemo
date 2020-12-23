@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ljq.demo.springboot.mybatisplus.common.api.ApiResult;
 import com.ljq.demo.springboot.mybatisplus.dao.UserDao;
 import com.ljq.demo.springboot.mybatisplus.model.entity.UserEntity;
-import com.ljq.demo.springboot.mybatisplus.model.param.*;
+import com.ljq.demo.springboot.mybatisplus.model.param.user.*;
 import com.ljq.demo.springboot.mybatisplus.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

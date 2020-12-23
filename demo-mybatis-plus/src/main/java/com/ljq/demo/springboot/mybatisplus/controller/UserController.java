@@ -1,7 +1,7 @@
 package com.ljq.demo.springboot.mybatisplus.controller;
 
 import com.ljq.demo.springboot.mybatisplus.common.api.ApiResult;
-import com.ljq.demo.springboot.mybatisplus.model.param.*;
+import com.ljq.demo.springboot.mybatisplus.model.param.user.*;
 import com.ljq.demo.springboot.mybatisplus.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

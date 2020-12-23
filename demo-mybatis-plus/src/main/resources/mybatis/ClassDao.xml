@@ -238,36 +238,6 @@
     </select>
     <!-- 分页查询2 E -->
 
-    <!-- 分页查询2 S -->
-    <select id="queryPage3" resultMap="classMap" >
-        SELECT
-        <include refid="class_info_field" />
-        FROM `class` c
-        LEFT JOIN `teacher` AS ht ON ht.ID = c.HEAD_TEACHER_ID
-        LEFT JOIN `class_teacher` AS ct ON ct.CLASS_ID = c.ID
-        LEFT JOIN `teacher` AS t ON t.ID = ct.TEACHER_ID
-        WHERE 1 = 1
-        <if test="map.name != null and '' != map.name" >
-            AND c.NAME LIKE CONCAT(CONCAT('%',#{map.name}), '%')
-        </if>
-        <if test="map.excludeIds != null" >
-            AND c.id NOT IN
-            <foreach collection="map.excludeIds" item="item" index="index" open="(" separator="," close=")" >
-                #{item}
-            </foreach>
-        </if>
-        ORDER BY
-        <choose>
-            <when test="map.properties != null and map.direction.trim() != ''">
-                c.${map.properties} ${map.direction}
-            </when>
-            <otherwise>
-                c.id DESC
-            </otherwise>
-        </choose>
-    </select>
-    <!-- 分页查询2 E -->
-
     <!-- 更新 -->
     <update id="updateOne" parameterType="com.ljq.demo.springboot.mybatisplus.model.entity.ClassEntity">
         UPDATE `class`

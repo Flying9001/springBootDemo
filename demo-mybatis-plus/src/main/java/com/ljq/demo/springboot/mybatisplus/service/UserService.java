@@ -1,7 +1,7 @@
 package com.ljq.demo.springboot.mybatisplus.service;
 
 import com.ljq.demo.springboot.mybatisplus.common.api.ApiResult;
-import com.ljq.demo.springboot.mybatisplus.model.param.*;
+import com.ljq.demo.springboot.mybatisplus.model.param.user.*;
 
 /**
  * 用户表业务层接口

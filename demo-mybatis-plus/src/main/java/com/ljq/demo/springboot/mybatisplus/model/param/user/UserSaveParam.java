@@ -1,4 +1,4 @@
-package com.ljq.demo.springboot.mybatisplus.model.param;
+package com.ljq.demo.springboot.mybatisplus.model.param.user;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
