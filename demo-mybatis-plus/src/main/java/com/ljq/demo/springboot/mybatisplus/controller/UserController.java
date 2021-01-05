@@ -11,6 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -36,7 +37,7 @@ public class UserController {
      */
     @PostMapping(value = "/add", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "用户表保存(单条)",  notes = "用户表保存(单条)")
-    public ResponseEntity<?> save(@RequestBody UserSaveParam userSaveParam) throws Exception{
+    public ResponseEntity<?> save(@Validated @RequestBody UserSaveParam userSaveParam) throws Exception{
         ApiResult apiResult = userService.save(userSaveParam);
 
         HttpHeaders headers = new HttpHeaders();
@@ -52,7 +53,7 @@ public class UserController {
      */
     @GetMapping(value = "/info", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "用户表查询详情(单条)",  notes = "用户表查询详情(单条)")
-    public ResponseEntity<?> info(UserInfoParam userInfoParam) throws Exception {
+    public ResponseEntity<?> info(@Validated UserInfoParam userInfoParam) throws Exception {
         ApiResult apiResult = userService.info(userInfoParam);
 
         HttpHeaders headers = new HttpHeaders();
@@ -68,7 +69,7 @@ public class UserController {
      */
     @GetMapping(value = "/list", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "用户表查询列表",  notes = "用户表查询列表")
-    public ResponseEntity<?> list(UserListParam userListParam) throws Exception {
+    public ResponseEntity<?> list(@Validated UserListParam userListParam) throws Exception {
         ApiResult apiResult = userService.list(userListParam);
 
         HttpHeaders headers = new HttpHeaders();
@@ -84,7 +85,7 @@ public class UserController {
      */
     @PutMapping(value = "/update", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "用户表修改(单条)",  notes = "用户表修改(单条)")
-    public ResponseEntity<?> update(@RequestBody UserUpdateParam userUpdateParam) throws Exception {
+    public ResponseEntity<?> update(@Validated @RequestBody UserUpdateParam userUpdateParam) throws Exception {
         ApiResult apiResult = userService.update(userUpdateParam);
 
         HttpHeaders headers = new HttpHeaders();
@@ -100,7 +101,7 @@ public class UserController {
      */
     @DeleteMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "用户表删除(单条)",  notes = "用户表删除(单条)")
-    public ResponseEntity<?> delete(@RequestBody UserDeleteParam userDeleteParam) throws Exception {
+    public ResponseEntity<?> delete(@Validated @RequestBody UserDeleteParam userDeleteParam) throws Exception {
         ApiResult apiResult = userService.delete(userDeleteParam);
 
         HttpHeaders headers = new HttpHeaders();

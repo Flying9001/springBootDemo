@@ -87,7 +87,7 @@
         <if test="name != null and '' != name" >
             AND c.NAME LIKE CONCAT(CONCAT('%',#{name}), '%')
         </if>
-        <if test="excludeIds != null" >
+        <if test="excludeIds != null and excludeIds.length &gt; 0" >
             AND c.id NOT IN
             <foreach collection="excludeIds" item="item" index="index" open="(" separator="," close=")" >
                 #{item}
@@ -105,7 +105,7 @@
         <if test="name != null and '' != name" >
             AND c.NAME LIKE CONCAT(CONCAT('%',#{name}), '%')
         </if>
-        <if test="excludeIds != null" >
+        <if test="excludeIds != null and excludeIds.length &gt; 0" >
             AND c.id NOT IN
             <foreach collection="excludeIds" item="item" index="index" open="(" separator="," close=")" >
                 #{item}
@@ -141,13 +141,13 @@
             <if test="name != null and '' != name" >
                 AND `NAME` LIKE CONCAT(CONCAT('%',#{name}), '%')
             </if>
-            <if test="excludeIds != null" >
+            <if test="excludeIds != null and excludeIds.length &gt; 0" >
                 AND `id` NOT IN
                 <foreach collection="excludeIds" item="item" index="index" open="(" separator="," close=")" >
                     #{item}
                 </foreach>
             </if>
-        ORDER BY
+            ORDER BY
             <choose>
                 <when test="properties != null and direction.trim() != ''">
                     ${properties} ${direction}
@@ -190,7 +190,7 @@
         <if test="map.name != null and '' != map.name" >
             AND c.NAME LIKE CONCAT(CONCAT('%',#{map.name}), '%')
         </if>
-        <if test="map.excludeIds != null" >
+        <if test="map.excludeIds != null and map.excludeIds.length &gt; 0" >
             AND c.id NOT IN
             <foreach collection="map.excludeIds" item="item" index="index" open="(" separator="," close=")" >
                 #{item}
@@ -220,7 +220,7 @@
         <if test="map.name != null and '' != map.name" >
             AND c.NAME LIKE CONCAT(CONCAT('%',#{map.name}), '%')
         </if>
-        <if test="map.excludeIds != null" >
+        <if test="map.excludeIds != null and map.excludeIds.length &gt; 0" >
             AND c.id NOT IN
             <foreach collection="map.excludeIds" item="item" index="index" open="(" separator="," close=")" >
                 #{item}

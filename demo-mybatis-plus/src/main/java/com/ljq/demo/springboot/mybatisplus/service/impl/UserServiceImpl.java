@@ -2,6 +2,7 @@ package com.ljq.demo.springboot.mybatisplus.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -78,10 +79,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public ApiResult list(UserListParam userListParam) throws Exception {
 		LambdaQueryWrapper<UserEntity> userWrapper = new LambdaQueryWrapper<>();
-		userWrapper.like(Objects.nonNull(userListParam.getUserName()), UserEntity::getUserName,
+		userWrapper.like(StrUtil.isNotBlank(userListParam.getUserName()), UserEntity::getUserName,
 				userListParam.getUserName());
 		IPage<UserEntity> page = new Page<>(userListParam.getCurrentPage(),userListParam.getPageSize());
-		userWrapper.orderBy(true, userListParam.isAscFlag(), UserEntity::getId);
+		userWrapper.orderBy(true, Objects.isNull(userListParam.getAscFlag()) ? false : userListParam.getAscFlag(),
+				UserEntity::getId);
 		page = userDao.selectPage(page, userWrapper);
 
 		return ApiResult.success(page);
