@@ -1,0 +1,21 @@
+## config
+
+server:
+  port: 8650
+
+## spring config
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: rout
+      password: routSa213
+      database: admin
+      host: 172.16.140.10
+      port: 27017
+
+## log
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: debug
+    org.springframework.data.couchbase.repository.query : debug
