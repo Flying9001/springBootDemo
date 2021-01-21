@@ -116,6 +116,12 @@ Quick start :
 
 [3.9.2 在 Spring Boot 项目中充分利用 Mybatis Mapper 文件 --- 2020-10-23](./doc/49.spring_boot_mybatis_mapper_full_usage.md "./doc/49.spring_boot_mybatis_mapper_full_usage.md")  
 
+​    
+
+#### 3.10 MongoDB  
+
+[3.10.1 Spring Boot 2.4 集成 MongoDB 实现基本 CRUD --- 2021-01-21](./doc/63.spring_boot_2.4_mongodb.md "./doc/63.spring_boot_2.4_mongodb.md")  
+
 
 
 #### 3.X 其他常见问题  

@@ -47,5 +47,5 @@
 | cloud-alibaba-gateway               | 8010                | Tomcat   | Spring Cloud Alibaba 子项目，不依赖主项目，Gateway 网关      |
 | cloud-alibaba-gateway-filter        | 8612                | Tomcat   | Spring Cloud Alibaba 子项目，不依赖主项目，Gateway 网关拦截功能 |
 | cloud-alibaba-config                | 8614                | Tomcat   | Spring Cloud Alibaba 子项目，不依赖主项目，Nacos 分布式配置示例 |
-|                                     |                     |          |                                                              |
+| demo-mongodb                        | 8650                | Tomcat   | SpringBoot 项目，SpringBoot 集成 MongoDB，不依赖主项目       |
 
