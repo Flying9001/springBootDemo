@@ -45,6 +45,7 @@
         <module>cloud-alibaba-gateway</module>
         <module>cloud-alibaba-gateway-filter</module>
         <module>cloud-alibaba-config</module>
+        <module>demo-swagger3</module>
     </modules>
 
     <properties>
