@@ -1,5 +1,6 @@
 package com.ljq.demo.springboot.web.controller;
 
+import cn.hutool.core.date.DateUtil;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
 import com.ljq.demo.springboot.baseweb.api.ApiResult;
@@ -8,6 +9,7 @@ import com.ljq.demo.springboot.common.annotation.ParamsCheck;
 import com.ljq.demo.springboot.service.CommonService;
 import com.ljq.demo.springboot.vo.DownloadBean;
 import io.swagger.annotations.ApiOperation;
+import net.sf.jasperreports.engine.JRException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * @Description: 公共模块控制中心
@@ -81,7 +85,7 @@ public class CommonController {
      */
     @RequestMapping(value = "/export", method = {RequestMethod.POST, RequestMethod.GET},
             produces = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> export(){
+    public ResponseEntity<?> exportPdf(){
         try {
             ResponseEntity<?> responseEntity = commonService.export();
             return responseEntity;
@@ -93,6 +97,24 @@ public class CommonController {
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
         return new ResponseEntity<String>("{ \"code\" : \"404\", \"message\" : \"not found\" }",
                 headers, HttpStatus.NOT_FOUND);
+    }
+
+    /**
+     * PDF 导出 2
+     * 基于 Jasper iReport
+     *
+     * @return
+     * @throws FileNotFoundException
+     * @throws JRException
+     */
+    @GetMapping(value = "/export/pdf/2", produces = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @ApiOperation(value = "PDF 导出2(基于Jasper iReport)", notes = "PDF 导出2(基于Jasper iReport)")
+    public ResponseEntity<byte[]> exportPdf2() throws FileNotFoundException, JRException {
+        String fileName = "contract" + DateUtil.format(new Date(), "yyyy-MM-dd") + ".pdf";
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentDispositionFormData("attachment", fileName);
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        return new ResponseEntity<>(commonService.exportPdf2(), headers, HttpStatus.OK);
     }
 
     /**

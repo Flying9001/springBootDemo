@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contract_none" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c1eeec34-e340-4152-82d1-741104a1b4bd">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="contractCode" class="java.lang.String">
+		<parameterDescription><![CDATA[合同编号]]></parameterDescription>
+	</parameter>
+	<parameter name="contractName" class="java.lang.String">
+		<parameterDescription><![CDATA[合同名称]]></parameterDescription>
+	</parameter>
+	<parameter name="contractOriginalCode" class="java.lang.String">
+		<parameterDescription><![CDATA[合同原始编号]]></parameterDescription>
+	</parameter>
+	<parameter name="originalCcyTaxIncludedAmt" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[合同原币金额]]></parameterDescription>
+	</parameter>
+	<parameter name="localCcyTaxIncludedAmt" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[合同本币金额]]></parameterDescription>
+	</parameter>
+	<parameter name="contractType" class="java.lang.String">
+		<parameterDescription><![CDATA[合同类型]]></parameterDescription>
+	</parameter>
+	<parameter name="contractDetailType" class="java.lang.String">
+		<parameterDescription><![CDATA[合同明细类型]]></parameterDescription>
+	</parameter>
+	<parameter name="supplierName" class="java.lang.String">
+		<parameterDescription><![CDATA[供应商名称]]></parameterDescription>
+	</parameter>
+	<parameter name="operatorName" class="java.lang.String">
+		<parameterDescription><![CDATA[经办人名称]]></parameterDescription>
+	</parameter>
+	<parameter name="operatorOrgName" class="java.lang.String">
+		<parameterDescription><![CDATA[经办机构名称]]></parameterDescription>
+	</parameter>
+	<parameter name="operatorDeptName" class="java.lang.String">
+		<parameterDescription><![CDATA[经办部门名称]]></parameterDescription>
+	</parameter>
+	<parameter name="effectiveDate" class="java.util.Date">
+		<parameterDescription><![CDATA[合同生效日期]]></parameterDescription>
+	</parameter>
+	<parameter name="expiredDate" class="java.util.Date">
+		<parameterDescription><![CDATA[合同到期日]]></parameterDescription>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="150" y="0" width="100" height="100" uuid="bf0eca6a-bbe2-4428-9c12-bb5188fd1a28">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文宋体" size="16"/>
+				</textElement>
+				<text><![CDATA[合同名称：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="250" y="0" width="300" height="100" uuid="a1cda531-2fbe-45b0-9712-3eabb6d9e27f">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文宋体" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{contractName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="150" height="100" uuid="8473a83f-ab29-487b-970c-934e474335ef">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<image>
+				<reportElement x="5" y="5" width="145" height="95" uuid="f46728b5-d7ab-42a4-acf9-27918b0cdfcf">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
+ new com.google.zxing.qrcode.QRCodeWriter().encode(
+   $P{contractCode},
+ com.google.zxing.BarcodeFormat.QR_CODE, 300, 300))]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="464" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="0" width="195" height="50" uuid="105c1af1-a467-476b-bb55-d922f5430cf1">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{contractCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="275" height="50" uuid="2d6d679e-0c9f-4441-89b1-7967ab7921a1">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[合同编号：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="0" width="275" height="50" uuid="d0d70e61-450b-4f07-b4ec-6fa32e324c5f">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[原始合同编号：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="375" y="0" width="175" height="50" uuid="6237f581-8f82-4a96-a8d8-e6bde73365ed">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{contractOriginalCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="50" width="275" height="50" uuid="c0dde391-626a-4a4d-a30e-9c6a96471094">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[合同原币金额: ]]></text>
+			</staticText>
+			<textField pattern="#,###.000000">
+				<reportElement x="100" y="50" width="175" height="50" uuid="31dffff6-2b8c-495d-a4ba-4f0dedcb5a2e">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{originalCcyTaxIncludedAmt}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="275" y="50" width="275" height="50" uuid="e58f269c-3bf0-4909-bf43-10c416490ef4">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[合同本币金额: ]]></text>
+			</staticText>
+			<textField pattern="#,###.000000">
+				<reportElement x="375" y="50" width="175" height="50" uuid="75671f56-f645-4d3b-9c23-a22aa9db24ac">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{localCcyTaxIncludedAmt}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="100" width="275" height="50" uuid="78effebc-f57c-4f42-8d9e-7e135bff5823">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[合同类型: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="100" width="195" height="50" uuid="53bc851c-2240-4725-9f59-9b338b3ad673">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{contractType}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="275" y="100" width="275" height="50" uuid="b39bc59f-95ad-4710-a489-ee733633821a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[合同明细类型: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="100" width="175" height="50" uuid="c2934c57-e873-45b9-826e-4cb710371329">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{contractDetailType}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="150" width="275" height="50" uuid="9819c616-bdaa-4a3e-a6ba-9a4b32d83504">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[供应商: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="75" y="150" width="200" height="50" uuid="a19b1811-472a-4a13-88c4-0a1de911be63">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{supplierName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="275" y="150" width="275" height="50" uuid="ec87b19f-5c46-4cc0-a905-db71866a8bcb">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[经办人: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="150" width="190" height="50" uuid="51924948-0620-4640-83f1-2dccde027ce7">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{operatorName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="200" width="275" height="50" uuid="be7ce37b-e71c-4672-81ca-1107c7c63aa3">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[经办机构: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="200" width="195" height="50" uuid="0ec536ab-e009-4f1b-a53d-b5e6cf4a7517">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{operatorOrgName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="275" y="200" width="275" height="50" uuid="ddfd21bf-8765-47ac-9b9f-1df0723d4a6e">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[经办部门: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="200" width="170" height="50" uuid="c9fd0aeb-4107-4e50-98b6-ceeb92dd1f9e">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{operatorDeptName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="250" width="275" height="50" uuid="7a44b93c-dbf8-4b89-84b1-17526e7a42fd">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[合同生效日: ]]></text>
+			</staticText>
+			<textField pattern="yyyy-MM-dd">
+				<reportElement x="100" y="250" width="175" height="50" uuid="6e66816d-8d93-4384-8e67-b4e706cd32af">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{effectiveDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="275" y="250" width="275" height="50" uuid="bbeb9256-f69e-4e23-9ea2-7e50336f3953">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<text><![CDATA[合同到期日: ]]></text>
+			</staticText>
+			<textField pattern="yyyy-MM-dd">
+				<reportElement x="380" y="250" width="170" height="50" uuid="b7733675-2d10-4bfb-ac51-7b4674b7bde0">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="华文宋体" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{expiredDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

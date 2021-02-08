@@ -25,6 +25,9 @@
         <lombok.version>1.18.12</lombok.version>
         <hibernate.version>6.0.13.Final</hibernate.version>
         <jsch.version>0.1.55</jsch.version>
+        <jasper-report.version>6.16.0</jasper-report.version>
+        <itext.version>2.1.7</itext.version>
+        <google.zxing.version>3.4.1</google.zxing.version>
     </properties>
 
     <dependencies>
@@ -79,6 +82,40 @@
             <groupId>com.jcraft</groupId>
             <artifactId>jsch</artifactId>
             <version>${jsch.version}</version>
+        </dependency>
+        <!-- jasper report -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>${jasper-report.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.lowagie</groupId>
+                    <artifactId>itext</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.lowagie</groupId>
+            <artifactId>itext</artifactId>
+            <version>${itext.version}</version>
+        </dependency>
+        <!-- jasper font extension -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-fonts</artifactId>
+            <version>${jasper-report.version}</version>
+        </dependency>
+        <!-- 二维码 -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>${google.zxing.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>${google.zxing.version}</version>
         </dependency>
 
 

@@ -8,14 +8,14 @@ server:
 spring:
   ## datasource
   datasource:
-    url: "jdbc:mysql://192.168.100.100:3306/demo?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true\
+    url: "jdbc:mysql://172.16.140.10:3306/demo?useUnicode=true&characterEncoding=utf8&useJDBCCompliantTimezoneShift=true\
       &useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=true&allowMultiQueries=true&autoReconnect=true"
     username: root
-    password: root
+    password: Qwert12345!
   # redis
   redis:
     database: 1
-    host: 192.168.100.100
+    host: 172.16.140.10
     port: 7749
     password: 21cde022-a5da-626e-c8f4-04c99ed3a181
     timeout: 10000ms
@@ -27,7 +27,7 @@ spring:
         max-wait: 100s
   # rabbitmq
   rabbitmq:
-    host: 192.168.100.100
+    host: 172.16.140.10
     port: 5672
     username: rabbitmqadmin
     password: rootpass100

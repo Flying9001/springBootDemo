@@ -5,9 +5,11 @@ import com.jcraft.jsch.SftpException;
 import com.ljq.demo.springboot.baseweb.api.ApiResult;
 import com.ljq.demo.springboot.baseweb.exception.ParamsCheckException;
 import com.ljq.demo.springboot.vo.DownloadBean;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -30,6 +32,13 @@ public interface CommonService {
      * @return
      */
     ResponseEntity<?> export();
+
+    /**
+     * PDF 文件导出 2
+     *
+     * @return
+     */
+    byte[] exportPdf2() throws FileNotFoundException, JRException;
 
     /**
      * 上传文件至阿里云 oss

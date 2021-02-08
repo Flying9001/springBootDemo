@@ -15,10 +15,13 @@ import com.ljq.demo.springboot.baseweb.util.OSSBootUtil;
 import com.ljq.demo.springboot.baseweb.util.OSSSingleUtil;
 import com.ljq.demo.springboot.baseweb.util.PDFUtil;
 import com.ljq.demo.springboot.baseweb.util.ResourceFileUtil;
+import com.ljq.demo.springboot.common.util.JasperPdfUtil;
 import com.ljq.demo.springboot.common.util.SftpUtil;
+import com.ljq.demo.springboot.entity.ContractEntity;
 import com.ljq.demo.springboot.service.CommonService;
 import com.ljq.demo.springboot.vo.DownloadBean;
 import lombok.extern.slf4j.Slf4j;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -27,7 +30,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -140,6 +145,31 @@ public class CommonServiceImpl implements CommonService {
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
         return new ResponseEntity<String>("{ \"code\" : \"404\", \"message\" : \"not found\" }",
                 headers, HttpStatus.NOT_FOUND);
+    }
+    /**
+     * PDF 文件导出 2
+     *
+     * @return
+     */
+    @Override
+    public byte[] exportPdf2() throws FileNotFoundException, JRException {
+        String templatePath = "contract.jrxml";
+        ContractEntity contract = new ContractEntity();
+        contract.setContractCode("CON11123445567778888");
+        contract.setContractName("马尔代夫海景房转让合同");
+        contract.setContractOriginalCode("ORI555444333222111");
+        contract.setOriginalCcyTaxIncludedAmt(new BigDecimal(123456789.12345666666)
+                .setScale(6,BigDecimal.ROUND_DOWN));
+        contract.setLocalCcyTaxIncludedAmt(new BigDecimal(987654321.123456));
+        contract.setContractType("租赁合同");
+        contract.setContractDetailType("房屋租赁合同");
+        contract.setSupplierName("太平洋租房股份有限公司");
+        contract.setOperatorName("德玛西亚");
+        contract.setOperatorOrgName("稀里糊涂银行总行");
+        contract.setOperatorDeptName("马尔代夫总行财务部");
+        contract.setEffectiveDate(new Date());
+        contract.setExpiredDate(new Date());
+        return JasperPdfUtil.exportPdfFromXml(templatePath, BeanUtil.beanToMap(contract));
     }
 
     /**
