@@ -126,31 +126,37 @@ Quick start :
 
 [3.10.1 Spring Boot 2.4 集成 MongoDB 实现基本 CRUD --- 2021-01-21](./doc/63.spring_boot_2.4_mongodb.md "./doc/63.spring_boot_2.4_mongodb.md")  
 
+​    
+
+#### 3.11 PDF 导出  
+
+[3.11.1 springBoot+Freemarker+iText渲染HTML导出PDF---2019-01-10](doc/14.springBoot_Freemarker_iText渲染HTML导出PDF.md "doc/14.springBoot_Freemarker_iText渲染HTML导出PDF.md")  
+
+[3.11.2 Spring Boot 2.4 集成 Jasper Report 导出 PDF --- 2021-02-10](./doc/65.spring_boot_2.4_jasper_report.md "./doc/65.spring_boot_2.4_jasper_report.md")  
+
 
 
 #### 3.X 其他常见问题  
 
-[3.x.1 springBoot+Freemarker+iText渲染HTML导出PDF---2019-01-10](doc/14.springBoot_Freemarker_iText渲染HTML导出PDF.md "doc/14.springBoot_Freemarker_iText渲染HTML导出PDF.md")  
+[3.x.1 Spring Boot 2 整合 Mybatis 多数据源 --- 2019-06-18](./doc/25.spring_boot_2_mybatis_multi_datasource.md "./doc/25.spring_boot_2_mybatis_multi_datasource.md")  
 
-[3.x.2 Spring Boot 2 整合 Mybatis 多数据源 --- 2019-06-18](./doc/25.spring_boot_2_mybatis_multi_datasource.md "./doc/25.spring_boot_2_mybatis_multi_datasource.md")  
+[3.x.2 Spring Boot 2.X 集成 Mybatis PageHelper 分页插件完美解决一对多分页查询问题 --- 2019-11-27](./doc/26.spring_boot_2_mybatis_pagehelper.md "./doc/26.spring_boot_2_mybatis_pagehelper.md")  
 
-[3.x.3 Spring Boot 2.X 集成 Mybatis PageHelper 分页插件完美解决一对多分页查询问题 --- 2019-11-27](./doc/26.spring_boot_2_mybatis_pagehelper.md "./doc/26.spring_boot_2_mybatis_pagehelper.md")  
+[3.x.3 mysql 分页查询性能对比与优化 --- 2019-11-28](./doc/27.mysql_pagination_query_comparison.md "./doc/27.mysql_pagination_query_comparison.md")  
 
-[3.x.4 mysql 分页查询性能对比与优化 --- 2019-11-28](./doc/27.mysql_pagination_query_comparison.md "./doc/27.mysql_pagination_query_comparison.md")  
+[3.x.4 springBoot配置多环境----2018-10-23](doc/5.springBoot配置多环境.md "doc/5.springBoot配置多环境.md")  
 
-[3.x.5 springBoot配置多环境----2018-10-23](doc/5.springBoot配置多环境.md "doc/5.springBoot配置多环境.md")  
+[3.x.5 解决springBoot项目通过war包方式部署到外部服务器tomcat报404异常的问题---2018-10-26](doc/6.解决springBoot项目通过war包方式部署到外部服务器tomcat报404异常的问题.md "doc/6.解决springBoot项目通过war包方式部署到外部服务器tomcat报404异常的问题.md")  
 
-[3.x.6 解决springBoot项目通过war包方式部署到外部服务器tomcat报404异常的问题---2018-10-26](doc/6.解决springBoot项目通过war包方式部署到外部服务器tomcat报404异常的问题.md "doc/6.解决springBoot项目通过war包方式部署到外部服务器tomcat报404异常的问题.md")  
+[3.x.6 springBoot读取yml/properties配置文件---2018-10-28](doc/7.springBoot读取yml_properties配置文件.md "doc/7.springBoot读取yml_properties配置文件.md")  
 
-[3.x.7 springBoot读取yml/properties配置文件---2018-10-28](doc/7.springBoot读取yml_properties配置文件.md "doc/7.springBoot读取yml_properties配置文件.md")  
+[3.x.7 springBoot适配MySQL8.0,spring boot 连接不上 mysql 8.0---2018-10-28](doc/8.springBoot适配MySQL8.0.md "doc/8.springBoot适配MySQL8.0.md")  
 
-[3.x.8 springBoot适配MySQL8.0,spring boot 连接不上 mysql 8.0---2018-10-28](doc/8.springBoot适配MySQL8.0.md "doc/8.springBoot适配MySQL8.0.md")  
+[3.x.8 spring boot 2.0 多模块 maven 依赖管理规范----2018-11-07](doc/11.springBoot2.0多模块maven依赖管理规范.md "doc/11.springBoot2.0多模块maven依赖管理规范.md")  
 
-[3.x.9 spring boot 2.0 多模块 maven 依赖管理规范----2018-11-07](doc/11.springBoot2.0多模块maven依赖管理规范.md "doc/11.springBoot2.0多模块maven依赖管理规范.md")  
+[3.x.9 Spring Boot jar 启动时设置环境参数 --- 2019-06-12](./doc/23.spring_boot_jar_setting_active_profile_at_startup.md "./doc/23.spring_boot_jar_setting_active_profile_at_startup.md")  
 
-[3.x.10 Spring Boot jar 启动时设置环境参数 --- 2019-06-12](./doc/23.spring_boot_jar_setting_active_profile_at_startup.md "./doc/23.spring_boot_jar_setting_active_profile_at_startup.md")  
-
-[3.x.11 自定义 Spring Boot Stater --- 2020-11-03](./doc/50.spring_boot_stater_customed.md "./doc/50.spring_boot_stater_customed.md")  
+[3.x.10 自定义 Spring Boot Stater --- 2020-11-03](./doc/50.spring_boot_stater_customed.md "./doc/50.spring_boot_stater_customed.md")  
 
 
 
