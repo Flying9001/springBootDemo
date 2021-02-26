@@ -1,0 +1,6 @@
+## config
+
+## server
+server:
+  port: 8700
+
