@@ -49,4 +49,5 @@
 | cloud-alibaba-config                | 8614                | Tomcat   | Spring Cloud Alibaba 子项目，不依赖主项目，Nacos 分布式配置示例 |
 | demo-mongodb                        | 8650                | Tomcat   | SpringBoot 项目，SpringBoot 集成 MongoDB，不依赖主项目       |
 | demo-sagger3                        | 8680                | Tomcat   | SpringBoot 项目，SpringBoot 集成 Swagger3，不依赖主项目      |
+| demo-maven-assembly                 | 8700                | Tomcat   | SpringBoot 项目，SpringBoot 使用 assembly 插件打包，<br />不依赖主项目 |
 

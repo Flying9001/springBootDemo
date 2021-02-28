@@ -158,6 +158,8 @@ Quick start :
 
 [3.x.10 自定义 Spring Boot Stater --- 2020-11-03](./doc/50.spring_boot_stater_customed.md "./doc/50.spring_boot_stater_customed.md")  
 
+[3.x.11 Spring Boot 使用 Maven assembly 插件打包 --- 2021-02-28](./doc/66.spring_boot_2.4_maven_assembly_plugin.md "./doc/66.spring_boot_2.4_maven_assembly_plugin.md")  
+
 
 
 
