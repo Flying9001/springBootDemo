@@ -25,3 +25,34 @@ message ClassInfo {
   int32 number = 3;
 
 }
+
+// 学生选修课
+message ElectiveCourse {
+
+  // 学生 id
+  int64 stuId = 1;
+  // 课程名称
+  repeated string courseName = 2;
+
+}
+
+// 学生班级信息
+message StudentClass {
+
+  // id
+  int64 id = 1;
+  // 学生信息
+  Student student = 2;
+  // 班级信息
+  ClassInfo classInfo = 3;
+
+}
+
+// 性别
+message StudentSex {
+  enum Sex{
+    MAN = 0;
+    WOMEN = 1;
+  }
+  Sex sex = 2;
+}

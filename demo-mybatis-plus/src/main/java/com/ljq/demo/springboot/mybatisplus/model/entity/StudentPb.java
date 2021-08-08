@@ -1504,6 +1504,2495 @@ public final class StudentPb {
 
   }
 
+  public interface ElectiveCourseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ElectiveCourse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 学生 id
+     * </pre>
+     *
+     * <code>int64 stuId = 1;</code>
+     * @return The stuId.
+     */
+    long getStuId();
+
+    /**
+     * <pre>
+     * 课程名称
+     * </pre>
+     *
+     * <code>repeated string courseName = 2;</code>
+     * @return A list containing the courseName.
+     */
+    java.util.List<java.lang.String>
+        getCourseNameList();
+    /**
+     * <pre>
+     * 课程名称
+     * </pre>
+     *
+     * <code>repeated string courseName = 2;</code>
+     * @return The count of courseName.
+     */
+    int getCourseNameCount();
+    /**
+     * <pre>
+     * 课程名称
+     * </pre>
+     *
+     * <code>repeated string courseName = 2;</code>
+     * @param index The index of the element to return.
+     * @return The courseName at the given index.
+     */
+    java.lang.String getCourseName(int index);
+    /**
+     * <pre>
+     * 课程名称
+     * </pre>
+     *
+     * <code>repeated string courseName = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the courseName at the given index.
+     */
+    com.google.protobuf.ByteString
+        getCourseNameBytes(int index);
+  }
+  /**
+   * <pre>
+   * 学生选修课
+   * </pre>
+   *
+   * Protobuf type {@code ElectiveCourse}
+   */
+  public static final class ElectiveCourse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ElectiveCourse)
+      ElectiveCourseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ElectiveCourse.newBuilder() to construct.
+    private ElectiveCourse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ElectiveCourse() {
+      courseName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ElectiveCourse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ElectiveCourse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              stuId_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                courseName_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              courseName_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          courseName_ = courseName_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_ElectiveCourse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_ElectiveCourse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.class, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.Builder.class);
+    }
+
+    public static final int STUID_FIELD_NUMBER = 1;
+    private long stuId_;
+    /**
+     * <pre>
+     * 学生 id
+     * </pre>
+     *
+     * <code>int64 stuId = 1;</code>
+     * @return The stuId.
+     */
+    @java.lang.Override
+    public long getStuId() {
+      return stuId_;
+    }
+
+    public static final int COURSENAME_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList courseName_;
+    /**
+     * <pre>
+     * 课程名称
+     * </pre>
+     *
+     * <code>repeated string courseName = 2;</code>
+     * @return A list containing the courseName.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getCourseNameList() {
+      return courseName_;
+    }
+    /**
+     * <pre>
+     * 课程名称
+     * </pre>
+     *
+     * <code>repeated string courseName = 2;</code>
+     * @return The count of courseName.
+     */
+    public int getCourseNameCount() {
+      return courseName_.size();
+    }
+    /**
+     * <pre>
+     * 课程名称
+     * </pre>
+     *
+     * <code>repeated string courseName = 2;</code>
+     * @param index The index of the element to return.
+     * @return The courseName at the given index.
+     */
+    public java.lang.String getCourseName(int index) {
+      return courseName_.get(index);
+    }
+    /**
+     * <pre>
+     * 课程名称
+     * </pre>
+     *
+     * <code>repeated string courseName = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the courseName at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getCourseNameBytes(int index) {
+      return courseName_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (stuId_ != 0L) {
+        output.writeInt64(1, stuId_);
+      }
+      for (int i = 0; i < courseName_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, courseName_.getRaw(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (stuId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, stuId_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < courseName_.size(); i++) {
+          dataSize += computeStringSizeNoTag(courseName_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getCourseNameList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse)) {
+        return super.equals(obj);
+      }
+      com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse other = (com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse) obj;
+
+      if (getStuId()
+          != other.getStuId()) return false;
+      if (!getCourseNameList()
+          .equals(other.getCourseNameList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + STUID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStuId());
+      if (getCourseNameCount() > 0) {
+        hash = (37 * hash) + COURSENAME_FIELD_NUMBER;
+        hash = (53 * hash) + getCourseNameList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 学生选修课
+     * </pre>
+     *
+     * Protobuf type {@code ElectiveCourse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ElectiveCourse)
+        com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_ElectiveCourse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_ElectiveCourse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.class, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.Builder.class);
+      }
+
+      // Construct using com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        stuId_ = 0L;
+
+        courseName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_ElectiveCourse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse getDefaultInstanceForType() {
+        return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse build() {
+        com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse buildPartial() {
+        com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse result = new com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse(this);
+        int from_bitField0_ = bitField0_;
+        result.stuId_ = stuId_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          courseName_ = courseName_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.courseName_ = courseName_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse) {
+          return mergeFrom((com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse other) {
+        if (other == com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.getDefaultInstance()) return this;
+        if (other.getStuId() != 0L) {
+          setStuId(other.getStuId());
+        }
+        if (!other.courseName_.isEmpty()) {
+          if (courseName_.isEmpty()) {
+            courseName_ = other.courseName_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureCourseNameIsMutable();
+            courseName_.addAll(other.courseName_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long stuId_ ;
+      /**
+       * <pre>
+       * 学生 id
+       * </pre>
+       *
+       * <code>int64 stuId = 1;</code>
+       * @return The stuId.
+       */
+      @java.lang.Override
+      public long getStuId() {
+        return stuId_;
+      }
+      /**
+       * <pre>
+       * 学生 id
+       * </pre>
+       *
+       * <code>int64 stuId = 1;</code>
+       * @param value The stuId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStuId(long value) {
+        
+        stuId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 学生 id
+       * </pre>
+       *
+       * <code>int64 stuId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStuId() {
+        
+        stuId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList courseName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureCourseNameIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          courseName_ = new com.google.protobuf.LazyStringArrayList(courseName_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <pre>
+       * 课程名称
+       * </pre>
+       *
+       * <code>repeated string courseName = 2;</code>
+       * @return A list containing the courseName.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getCourseNameList() {
+        return courseName_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * 课程名称
+       * </pre>
+       *
+       * <code>repeated string courseName = 2;</code>
+       * @return The count of courseName.
+       */
+      public int getCourseNameCount() {
+        return courseName_.size();
+      }
+      /**
+       * <pre>
+       * 课程名称
+       * </pre>
+       *
+       * <code>repeated string courseName = 2;</code>
+       * @param index The index of the element to return.
+       * @return The courseName at the given index.
+       */
+      public java.lang.String getCourseName(int index) {
+        return courseName_.get(index);
+      }
+      /**
+       * <pre>
+       * 课程名称
+       * </pre>
+       *
+       * <code>repeated string courseName = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the courseName at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getCourseNameBytes(int index) {
+        return courseName_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * 课程名称
+       * </pre>
+       *
+       * <code>repeated string courseName = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The courseName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCourseName(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCourseNameIsMutable();
+        courseName_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 课程名称
+       * </pre>
+       *
+       * <code>repeated string courseName = 2;</code>
+       * @param value The courseName to add.
+       * @return This builder for chaining.
+       */
+      public Builder addCourseName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCourseNameIsMutable();
+        courseName_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 课程名称
+       * </pre>
+       *
+       * <code>repeated string courseName = 2;</code>
+       * @param values The courseName to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllCourseName(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureCourseNameIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, courseName_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 课程名称
+       * </pre>
+       *
+       * <code>repeated string courseName = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCourseName() {
+        courseName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 课程名称
+       * </pre>
+       *
+       * <code>repeated string courseName = 2;</code>
+       * @param value The bytes of the courseName to add.
+       * @return This builder for chaining.
+       */
+      public Builder addCourseNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureCourseNameIsMutable();
+        courseName_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ElectiveCourse)
+    }
+
+    // @@protoc_insertion_point(class_scope:ElectiveCourse)
+    private static final com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse();
+    }
+
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ElectiveCourse>
+        PARSER = new com.google.protobuf.AbstractParser<ElectiveCourse>() {
+      @java.lang.Override
+      public ElectiveCourse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ElectiveCourse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ElectiveCourse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ElectiveCourse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface StudentClassOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:StudentClass)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * id
+     * </pre>
+     *
+     * <code>int64 id = 1;</code>
+     * @return The id.
+     */
+    long getId();
+
+    /**
+     * <pre>
+     * 学生信息
+     * </pre>
+     *
+     * <code>.Student student = 2;</code>
+     * @return Whether the student field is set.
+     */
+    boolean hasStudent();
+    /**
+     * <pre>
+     * 学生信息
+     * </pre>
+     *
+     * <code>.Student student = 2;</code>
+     * @return The student.
+     */
+    com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student getStudent();
+    /**
+     * <pre>
+     * 学生信息
+     * </pre>
+     *
+     * <code>.Student student = 2;</code>
+     */
+    com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentOrBuilder getStudentOrBuilder();
+
+    /**
+     * <pre>
+     * 班级信息
+     * </pre>
+     *
+     * <code>.ClassInfo classInfo = 3;</code>
+     * @return Whether the classInfo field is set.
+     */
+    boolean hasClassInfo();
+    /**
+     * <pre>
+     * 班级信息
+     * </pre>
+     *
+     * <code>.ClassInfo classInfo = 3;</code>
+     * @return The classInfo.
+     */
+    com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo getClassInfo();
+    /**
+     * <pre>
+     * 班级信息
+     * </pre>
+     *
+     * <code>.ClassInfo classInfo = 3;</code>
+     */
+    com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfoOrBuilder getClassInfoOrBuilder();
+  }
+  /**
+   * <pre>
+   * 学生班级信息
+   * </pre>
+   *
+   * Protobuf type {@code StudentClass}
+   */
+  public static final class StudentClass extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:StudentClass)
+      StudentClassOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use StudentClass.newBuilder() to construct.
+    private StudentClass(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private StudentClass() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new StudentClass();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private StudentClass(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              id_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student.Builder subBuilder = null;
+              if (student_ != null) {
+                subBuilder = student_.toBuilder();
+              }
+              student_ = input.readMessage(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(student_);
+                student_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo.Builder subBuilder = null;
+              if (classInfo_ != null) {
+                subBuilder = classInfo_.toBuilder();
+              }
+              classInfo_ = input.readMessage(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(classInfo_);
+                classInfo_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_StudentClass_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_StudentClass_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass.class, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <pre>
+     * id
+     * </pre>
+     *
+     * <code>int64 id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public long getId() {
+      return id_;
+    }
+
+    public static final int STUDENT_FIELD_NUMBER = 2;
+    private com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student student_;
+    /**
+     * <pre>
+     * 学生信息
+     * </pre>
+     *
+     * <code>.Student student = 2;</code>
+     * @return Whether the student field is set.
+     */
+    @java.lang.Override
+    public boolean hasStudent() {
+      return student_ != null;
+    }
+    /**
+     * <pre>
+     * 学生信息
+     * </pre>
+     *
+     * <code>.Student student = 2;</code>
+     * @return The student.
+     */
+    @java.lang.Override
+    public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student getStudent() {
+      return student_ == null ? com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student.getDefaultInstance() : student_;
+    }
+    /**
+     * <pre>
+     * 学生信息
+     * </pre>
+     *
+     * <code>.Student student = 2;</code>
+     */
+    @java.lang.Override
+    public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentOrBuilder getStudentOrBuilder() {
+      return getStudent();
+    }
+
+    public static final int CLASSINFO_FIELD_NUMBER = 3;
+    private com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo classInfo_;
+    /**
+     * <pre>
+     * 班级信息
+     * </pre>
+     *
+     * <code>.ClassInfo classInfo = 3;</code>
+     * @return Whether the classInfo field is set.
+     */
+    @java.lang.Override
+    public boolean hasClassInfo() {
+      return classInfo_ != null;
+    }
+    /**
+     * <pre>
+     * 班级信息
+     * </pre>
+     *
+     * <code>.ClassInfo classInfo = 3;</code>
+     * @return The classInfo.
+     */
+    @java.lang.Override
+    public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo getClassInfo() {
+      return classInfo_ == null ? com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo.getDefaultInstance() : classInfo_;
+    }
+    /**
+     * <pre>
+     * 班级信息
+     * </pre>
+     *
+     * <code>.ClassInfo classInfo = 3;</code>
+     */
+    @java.lang.Override
+    public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfoOrBuilder getClassInfoOrBuilder() {
+      return getClassInfo();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
+      }
+      if (student_ != null) {
+        output.writeMessage(2, getStudent());
+      }
+      if (classInfo_ != null) {
+        output.writeMessage(3, getClassInfo());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
+      }
+      if (student_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getStudent());
+      }
+      if (classInfo_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getClassInfo());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass)) {
+        return super.equals(obj);
+      }
+      com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass other = (com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass) obj;
+
+      if (getId()
+          != other.getId()) return false;
+      if (hasStudent() != other.hasStudent()) return false;
+      if (hasStudent()) {
+        if (!getStudent()
+            .equals(other.getStudent())) return false;
+      }
+      if (hasClassInfo() != other.hasClassInfo()) return false;
+      if (hasClassInfo()) {
+        if (!getClassInfo()
+            .equals(other.getClassInfo())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
+      if (hasStudent()) {
+        hash = (37 * hash) + STUDENT_FIELD_NUMBER;
+        hash = (53 * hash) + getStudent().hashCode();
+      }
+      if (hasClassInfo()) {
+        hash = (37 * hash) + CLASSINFO_FIELD_NUMBER;
+        hash = (53 * hash) + getClassInfo().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 学生班级信息
+     * </pre>
+     *
+     * Protobuf type {@code StudentClass}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:StudentClass)
+        com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClassOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_StudentClass_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_StudentClass_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass.class, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass.Builder.class);
+      }
+
+      // Construct using com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0L;
+
+        if (studentBuilder_ == null) {
+          student_ = null;
+        } else {
+          student_ = null;
+          studentBuilder_ = null;
+        }
+        if (classInfoBuilder_ == null) {
+          classInfo_ = null;
+        } else {
+          classInfo_ = null;
+          classInfoBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_StudentClass_descriptor;
+      }
+
+      @java.lang.Override
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass getDefaultInstanceForType() {
+        return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass build() {
+        com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass buildPartial() {
+        com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass result = new com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass(this);
+        result.id_ = id_;
+        if (studentBuilder_ == null) {
+          result.student_ = student_;
+        } else {
+          result.student_ = studentBuilder_.build();
+        }
+        if (classInfoBuilder_ == null) {
+          result.classInfo_ = classInfo_;
+        } else {
+          result.classInfo_ = classInfoBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass) {
+          return mergeFrom((com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass other) {
+        if (other == com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass.getDefaultInstance()) return this;
+        if (other.getId() != 0L) {
+          setId(other.getId());
+        }
+        if (other.hasStudent()) {
+          mergeStudent(other.getStudent());
+        }
+        if (other.hasClassInfo()) {
+          mergeClassInfo(other.getClassInfo());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long id_ ;
+      /**
+       * <pre>
+       * id
+       * </pre>
+       *
+       * <code>int64 id = 1;</code>
+       * @return The id.
+       */
+      @java.lang.Override
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <pre>
+       * id
+       * </pre>
+       *
+       * <code>int64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(long value) {
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * id
+       * </pre>
+       *
+       * <code>int64 id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student student_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student.Builder, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentOrBuilder> studentBuilder_;
+      /**
+       * <pre>
+       * 学生信息
+       * </pre>
+       *
+       * <code>.Student student = 2;</code>
+       * @return Whether the student field is set.
+       */
+      public boolean hasStudent() {
+        return studentBuilder_ != null || student_ != null;
+      }
+      /**
+       * <pre>
+       * 学生信息
+       * </pre>
+       *
+       * <code>.Student student = 2;</code>
+       * @return The student.
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student getStudent() {
+        if (studentBuilder_ == null) {
+          return student_ == null ? com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student.getDefaultInstance() : student_;
+        } else {
+          return studentBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * 学生信息
+       * </pre>
+       *
+       * <code>.Student student = 2;</code>
+       */
+      public Builder setStudent(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student value) {
+        if (studentBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          student_ = value;
+          onChanged();
+        } else {
+          studentBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 学生信息
+       * </pre>
+       *
+       * <code>.Student student = 2;</code>
+       */
+      public Builder setStudent(
+          com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student.Builder builderForValue) {
+        if (studentBuilder_ == null) {
+          student_ = builderForValue.build();
+          onChanged();
+        } else {
+          studentBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 学生信息
+       * </pre>
+       *
+       * <code>.Student student = 2;</code>
+       */
+      public Builder mergeStudent(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student value) {
+        if (studentBuilder_ == null) {
+          if (student_ != null) {
+            student_ =
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student.newBuilder(student_).mergeFrom(value).buildPartial();
+          } else {
+            student_ = value;
+          }
+          onChanged();
+        } else {
+          studentBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 学生信息
+       * </pre>
+       *
+       * <code>.Student student = 2;</code>
+       */
+      public Builder clearStudent() {
+        if (studentBuilder_ == null) {
+          student_ = null;
+          onChanged();
+        } else {
+          student_ = null;
+          studentBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 学生信息
+       * </pre>
+       *
+       * <code>.Student student = 2;</code>
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student.Builder getStudentBuilder() {
+        
+        onChanged();
+        return getStudentFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * 学生信息
+       * </pre>
+       *
+       * <code>.Student student = 2;</code>
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentOrBuilder getStudentOrBuilder() {
+        if (studentBuilder_ != null) {
+          return studentBuilder_.getMessageOrBuilder();
+        } else {
+          return student_ == null ?
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student.getDefaultInstance() : student_;
+        }
+      }
+      /**
+       * <pre>
+       * 学生信息
+       * </pre>
+       *
+       * <code>.Student student = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student.Builder, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentOrBuilder> 
+          getStudentFieldBuilder() {
+        if (studentBuilder_ == null) {
+          studentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Student.Builder, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentOrBuilder>(
+                  getStudent(),
+                  getParentForChildren(),
+                  isClean());
+          student_ = null;
+        }
+        return studentBuilder_;
+      }
+
+      private com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo classInfo_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo.Builder, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfoOrBuilder> classInfoBuilder_;
+      /**
+       * <pre>
+       * 班级信息
+       * </pre>
+       *
+       * <code>.ClassInfo classInfo = 3;</code>
+       * @return Whether the classInfo field is set.
+       */
+      public boolean hasClassInfo() {
+        return classInfoBuilder_ != null || classInfo_ != null;
+      }
+      /**
+       * <pre>
+       * 班级信息
+       * </pre>
+       *
+       * <code>.ClassInfo classInfo = 3;</code>
+       * @return The classInfo.
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo getClassInfo() {
+        if (classInfoBuilder_ == null) {
+          return classInfo_ == null ? com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo.getDefaultInstance() : classInfo_;
+        } else {
+          return classInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * 班级信息
+       * </pre>
+       *
+       * <code>.ClassInfo classInfo = 3;</code>
+       */
+      public Builder setClassInfo(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo value) {
+        if (classInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          classInfo_ = value;
+          onChanged();
+        } else {
+          classInfoBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 班级信息
+       * </pre>
+       *
+       * <code>.ClassInfo classInfo = 3;</code>
+       */
+      public Builder setClassInfo(
+          com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo.Builder builderForValue) {
+        if (classInfoBuilder_ == null) {
+          classInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          classInfoBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 班级信息
+       * </pre>
+       *
+       * <code>.ClassInfo classInfo = 3;</code>
+       */
+      public Builder mergeClassInfo(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo value) {
+        if (classInfoBuilder_ == null) {
+          if (classInfo_ != null) {
+            classInfo_ =
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo.newBuilder(classInfo_).mergeFrom(value).buildPartial();
+          } else {
+            classInfo_ = value;
+          }
+          onChanged();
+        } else {
+          classInfoBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 班级信息
+       * </pre>
+       *
+       * <code>.ClassInfo classInfo = 3;</code>
+       */
+      public Builder clearClassInfo() {
+        if (classInfoBuilder_ == null) {
+          classInfo_ = null;
+          onChanged();
+        } else {
+          classInfo_ = null;
+          classInfoBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 班级信息
+       * </pre>
+       *
+       * <code>.ClassInfo classInfo = 3;</code>
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo.Builder getClassInfoBuilder() {
+        
+        onChanged();
+        return getClassInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * 班级信息
+       * </pre>
+       *
+       * <code>.ClassInfo classInfo = 3;</code>
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfoOrBuilder getClassInfoOrBuilder() {
+        if (classInfoBuilder_ != null) {
+          return classInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return classInfo_ == null ?
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo.getDefaultInstance() : classInfo_;
+        }
+      }
+      /**
+       * <pre>
+       * 班级信息
+       * </pre>
+       *
+       * <code>.ClassInfo classInfo = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo.Builder, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfoOrBuilder> 
+          getClassInfoFieldBuilder() {
+        if (classInfoBuilder_ == null) {
+          classInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfo.Builder, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ClassInfoOrBuilder>(
+                  getClassInfo(),
+                  getParentForChildren(),
+                  isClean());
+          classInfo_ = null;
+        }
+        return classInfoBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:StudentClass)
+    }
+
+    // @@protoc_insertion_point(class_scope:StudentClass)
+    private static final com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass();
+    }
+
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<StudentClass>
+        PARSER = new com.google.protobuf.AbstractParser<StudentClass>() {
+      @java.lang.Override
+      public StudentClass parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new StudentClass(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<StudentClass> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StudentClass> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentClass getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface StudentSexOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:StudentSex)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.StudentSex.Sex sex = 2;</code>
+     * @return The enum numeric value on the wire for sex.
+     */
+    int getSexValue();
+    /**
+     * <code>.StudentSex.Sex sex = 2;</code>
+     * @return The sex.
+     */
+    com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Sex getSex();
+  }
+  /**
+   * <pre>
+   * 性别
+   * </pre>
+   *
+   * Protobuf type {@code StudentSex}
+   */
+  public static final class StudentSex extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:StudentSex)
+      StudentSexOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use StudentSex.newBuilder() to construct.
+    private StudentSex(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private StudentSex() {
+      sex_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new StudentSex();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private StudentSex(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+              int rawValue = input.readEnum();
+
+              sex_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_StudentSex_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_StudentSex_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.class, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code StudentSex.Sex}
+     */
+    public enum Sex
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>MAN = 0;</code>
+       */
+      MAN(0),
+      /**
+       * <code>WOMEN = 1;</code>
+       */
+      WOMEN(1),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>MAN = 0;</code>
+       */
+      public static final int MAN_VALUE = 0;
+      /**
+       * <code>WOMEN = 1;</code>
+       */
+      public static final int WOMEN_VALUE = 1;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Sex valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Sex forNumber(int value) {
+        switch (value) {
+          case 0: return MAN;
+          case 1: return WOMEN;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Sex>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Sex> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Sex>() {
+              public Sex findValueByNumber(int number) {
+                return Sex.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Sex[] VALUES = values();
+
+      public static Sex valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Sex(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:StudentSex.Sex)
+    }
+
+    public static final int SEX_FIELD_NUMBER = 2;
+    private int sex_;
+    /**
+     * <code>.StudentSex.Sex sex = 2;</code>
+     * @return The enum numeric value on the wire for sex.
+     */
+    @java.lang.Override public int getSexValue() {
+      return sex_;
+    }
+    /**
+     * <code>.StudentSex.Sex sex = 2;</code>
+     * @return The sex.
+     */
+    @java.lang.Override public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Sex getSex() {
+      @SuppressWarnings("deprecation")
+      com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Sex result = com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Sex.valueOf(sex_);
+      return result == null ? com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Sex.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (sex_ != com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Sex.MAN.getNumber()) {
+        output.writeEnum(2, sex_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (sex_ != com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Sex.MAN.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, sex_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex)) {
+        return super.equals(obj);
+      }
+      com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex other = (com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex) obj;
+
+      if (sex_ != other.sex_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SEX_FIELD_NUMBER;
+      hash = (53 * hash) + sex_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 性别
+     * </pre>
+     *
+     * Protobuf type {@code StudentSex}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:StudentSex)
+        com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSexOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_StudentSex_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_StudentSex_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.class, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Builder.class);
+      }
+
+      // Construct using com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        sex_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.internal_static_StudentSex_descriptor;
+      }
+
+      @java.lang.Override
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex getDefaultInstanceForType() {
+        return com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex build() {
+        com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex buildPartial() {
+        com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex result = new com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex(this);
+        result.sex_ = sex_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex) {
+          return mergeFrom((com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex other) {
+        if (other == com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.getDefaultInstance()) return this;
+        if (other.sex_ != 0) {
+          setSexValue(other.getSexValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int sex_ = 0;
+      /**
+       * <code>.StudentSex.Sex sex = 2;</code>
+       * @return The enum numeric value on the wire for sex.
+       */
+      @java.lang.Override public int getSexValue() {
+        return sex_;
+      }
+      /**
+       * <code>.StudentSex.Sex sex = 2;</code>
+       * @param value The enum numeric value on the wire for sex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSexValue(int value) {
+        
+        sex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StudentSex.Sex sex = 2;</code>
+       * @return The sex.
+       */
+      @java.lang.Override
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Sex getSex() {
+        @SuppressWarnings("deprecation")
+        com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Sex result = com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Sex.valueOf(sex_);
+        return result == null ? com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Sex.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.StudentSex.Sex sex = 2;</code>
+       * @param value The sex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSex(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex.Sex value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        sex_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.StudentSex.Sex sex = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSex() {
+        
+        sex_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:StudentSex)
+    }
+
+    // @@protoc_insertion_point(class_scope:StudentSex)
+    private static final com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex();
+    }
+
+    public static com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<StudentSex>
+        PARSER = new com.google.protobuf.AbstractParser<StudentSex>() {
+      @java.lang.Override
+      public StudentSex parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new StudentSex(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<StudentSex> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StudentSex> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentSex getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Student_descriptor;
   private static final 
@@ -1514,6 +4003,21 @@ public final class StudentPb {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ClassInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ElectiveCourse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ElectiveCourse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_StudentClass_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_StudentClass_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_StudentSex_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_StudentSex_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1526,8 +4030,14 @@ public final class StudentPb {
       "\n\rStudent.proto\"6\n\007Student\022\n\n\002id\030\001 \001(\003\022\014" +
       "\n\004name\030\002 \001(\t\022\021\n\tbirthDate\030\003 \001(\005\"6\n\tClass" +
       "Info\022\n\n\002id\030\001 \001(\003\022\r\n\005grade\030\002 \001(\005\022\016\n\006numbe" +
-      "r\030\003 \001(\005B=\n0com.ljq.demo.springboot.mybat" +
-      "isplus.model.entityB\tStudentPbb\006proto3"
+      "r\030\003 \001(\005\"3\n\016ElectiveCourse\022\r\n\005stuId\030\001 \001(\003" +
+      "\022\022\n\ncourseName\030\002 \003(\t\"T\n\014StudentClass\022\n\n\002" +
+      "id\030\001 \001(\003\022\031\n\007student\030\002 \001(\0132\010.Student\022\035\n\tc" +
+      "lassInfo\030\003 \001(\0132\n.ClassInfo\"E\n\nStudentSex" +
+      "\022\034\n\003sex\030\002 \001(\0162\017.StudentSex.Sex\"\031\n\003Sex\022\007\n" +
+      "\003MAN\020\000\022\t\n\005WOMEN\020\001B=\n0com.ljq.demo.spring" +
+      "boot.mybatisplus.model.entityB\tStudentPb" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1545,6 +4055,24 @@ public final class StudentPb {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ClassInfo_descriptor,
         new java.lang.String[] { "Id", "Grade", "Number", });
+    internal_static_ElectiveCourse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_ElectiveCourse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ElectiveCourse_descriptor,
+        new java.lang.String[] { "StuId", "CourseName", });
+    internal_static_StudentClass_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_StudentClass_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_StudentClass_descriptor,
+        new java.lang.String[] { "Id", "Student", "ClassInfo", });
+    internal_static_StudentSex_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_StudentSex_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_StudentSex_descriptor,
+        new java.lang.String[] { "Sex", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
