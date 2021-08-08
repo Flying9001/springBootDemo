@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_package = "com.ljq.demo.springboot.mybatisplus.model.entity";
+option java_outer_classname = "StudentPb";
+
+// 学生信息
+message Student {
+
+  // id
+  int64 id = 1;
+  // 姓名
+  string name = 2;
+  // 出生日期(时间戳)
+  int32 birthDate = 3;
+}
+
+// 班级信息
+message ClassInfo {
+
+  // id
+  int64 id = 1;
+  // 年级
+  int32 grade = 2;
+  // 班级编号
+  int32 number = 3;
+
+}
