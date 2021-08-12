@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+option optimize_for = CODE_SIZE;
 option java_package = "com.ljq.demo.springboot.mybatisplus.model.entity";
 option java_outer_classname = "StudentPb";
 

@@ -119,7 +119,7 @@
                 <artifactId>protobuf-maven-plugin</artifactId>
                 <version>0.6.1</version>
                 <configuration>
-                    <protoSourceRoot>${basedir}/src/main/java/com/ljq/demo/springboot/mybatisplus/model/protobuf</protoSourceRoot>
+                    <protoSourceRoot>${basedir}/src/main/java</protoSourceRoot>
                     <outputDirectory>${basedir}/src/main/java</outputDirectory>
                     <protocArtifact>
                         com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}
