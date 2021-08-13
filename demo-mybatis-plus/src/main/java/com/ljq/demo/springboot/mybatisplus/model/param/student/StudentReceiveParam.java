@@ -20,7 +20,7 @@ public class StudentReceiveParam implements Serializable {
     /**
      * id
      */
-    @ApiModelProperty(value = "id", required = true)
+    @ApiModelProperty(value = "id", required = true, example = "1")
     private Long id;
     /**
      * 姓名
@@ -30,7 +30,7 @@ public class StudentReceiveParam implements Serializable {
     /**
      * 出生日期(时间戳,精确到秒)
      */
-    @ApiModelProperty(value = "出生日期(时间戳,精确到秒)", required = true)
+    @ApiModelProperty(value = "出生日期(时间戳,精确到秒)", required = true, example = "1")
     private Integer birthDate;
 
 
