@@ -140,6 +140,10 @@ Quick start :
 
 [3.12.1 Spring boot 2.5 集成 Google protocol buffer --- 2021-08-13](./doc/68.spring_boot_2.5_google_protocol_buf_simple.md "./doc/68.spring_boot_2.5_google_protocol_buf_simple.md")  
 
+[3.12.2 Protubuf 定义复杂格式的 message --- 2021-08-18](./doc/69.spring_boot_2.5_google_protobuf_complex.md "./doc/69.spring_boot_2.5_google_protobuf_complex.md")  
+
+[3.12.3 Google protobuf 与 Java POJO bean 相互转换 --- 2021-08-18](./doc/70.spring_boot_2.5_google_protobuf_pojobean.md "./doc/70.spring_boot_2.5_google_protobuf_pojobean.md")  
+
 
 
 
