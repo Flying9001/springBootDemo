@@ -13,7 +13,7 @@
     <groupId>com.ljq.demo.springboot</groupId>
     <artifactId>demo-stater-useage</artifactId>
     <version>1.0.0</version>
-    <name>demo-stater-useage</name>
+    <name>demo-stater-usage</name>
     <description>spring boot stater usage</description>
 
     <properties>

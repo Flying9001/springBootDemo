@@ -44,7 +44,7 @@ public class StudentController {
         // protocol buffer 反序列化
         StudentPb.Student student = StudentPb.Student.parseFrom(studentBytes);
         // 读取属性
-        log.info("Student info,id: {}, name: {}, birthDate: {}", student.getId(), student.getName(),
+        log.info("Student info,id: {}, name: {}, birth_date: {}", student.getId(), student.getName(),
                 student.getBirthDate());
         /**
          * 业务处理

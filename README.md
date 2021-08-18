@@ -134,6 +134,14 @@ Quick start :
 
 [3.11.2 Spring Boot 2.4 集成 Jasper Report 导出 PDF --- 2021-02-10](./doc/65.spring_boot_2.4_jasper_report.md "./doc/65.spring_boot_2.4_jasper_report.md")  
 
+​    
+
+#### 3.12 Protobuf  
+
+[3.12.1 Spring boot 2.5 集成 Google protocol buffer --- 2021-08-13](./doc/68.spring_boot_2.5_google_protocol_buf_simple.md "./doc/68.spring_boot_2.5_google_protocol_buf_simple.md")  
+
+
+
 
 
 #### 3.X 其他常见问题  

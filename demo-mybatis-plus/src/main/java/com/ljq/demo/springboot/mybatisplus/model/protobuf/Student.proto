@@ -12,7 +12,7 @@ message Student {
   // 姓名
   string name = 2;
   // 出生日期(时间戳)
-  int32 birthDate = 3;
+  int32 birth_date = 3;
 }
 
 // 班级信息
@@ -31,9 +31,9 @@ message ClassInfo {
 message ElectiveCourse {
 
   // 学生 id
-  int64 stuId = 1;
+  int64 stu_id = 1;
   // 课程名称
-  repeated string courseName = 2;
+  repeated string course_names = 2;
 
 }
 
@@ -45,7 +45,7 @@ message StudentClass {
   // 学生信息
   Student student = 2;
   // 班级信息
-  ClassInfo classInfo = 3;
+  ClassInfo class_info = 3;
 
 }
 
@@ -56,4 +56,12 @@ message StudentSex {
     WOMEN = 1;
   }
   Sex sex = 2;
+}
+
+// 教师信息
+message Teacher {
+  // id
+  uint64 id = 1;
+  // 姓名
+  string name = 2;
 }

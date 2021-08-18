@@ -2,7 +2,10 @@ package com.ljq.demo.springboot.mybatisplus.model.param.student;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -12,6 +15,9 @@ import java.io.Serializable;
  * @Date: 2021/8/7
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @ApiModel(value = "接收学生信息(pb)", description = "查询学生信息")
 public class StudentReceiveParam implements Serializable {
 

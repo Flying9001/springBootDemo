@@ -23,7 +23,7 @@ public final class TreePb {
      * 树木品种
      * </pre>
      *
-     * <code>string treeType = 2;</code>
+     * <code>string tree_type = 2;</code>
      * @return The treeType.
      */
     java.lang.String getTreeType();
@@ -32,7 +32,7 @@ public final class TreePb {
      * 树木品种
      * </pre>
      *
-     * <code>string treeType = 2;</code>
+     * <code>string tree_type = 2;</code>
      * @return The bytes for treeType.
      */
     com.google.protobuf.ByteString
@@ -43,7 +43,7 @@ public final class TreePb {
      * 植树时间
      * </pre>
      *
-     * <code>uint32 plantDate = 3;</code>
+     * <code>uint32 plant_date = 3;</code>
      * @return The plantDate.
      */
     int getPlantDate();
@@ -74,6 +74,77 @@ public final class TreePb {
      * <code>.Student student = 4;</code>
      */
     com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentOrBuilder getStudentOrBuilder();
+
+    /**
+     * <pre>
+     * 学生选修课
+     * </pre>
+     *
+     * <code>.ElectiveCourse elective_course = 5;</code>
+     * @return Whether the electiveCourse field is set.
+     */
+    boolean hasElectiveCourse();
+    /**
+     * <pre>
+     * 学生选修课
+     * </pre>
+     *
+     * <code>.ElectiveCourse elective_course = 5;</code>
+     * @return The electiveCourse.
+     */
+    com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse getElectiveCourse();
+    /**
+     * <pre>
+     * 学生选修课
+     * </pre>
+     *
+     * <code>.ElectiveCourse elective_course = 5;</code>
+     */
+    com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourseOrBuilder getElectiveCourseOrBuilder();
+
+    /**
+     * <pre>
+     * 教师
+     * </pre>
+     *
+     * <code>repeated .Teacher teachers = 6;</code>
+     */
+    java.util.List<com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher> 
+        getTeachersList();
+    /**
+     * <pre>
+     * 教师
+     * </pre>
+     *
+     * <code>repeated .Teacher teachers = 6;</code>
+     */
+    com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher getTeachers(int index);
+    /**
+     * <pre>
+     * 教师
+     * </pre>
+     *
+     * <code>repeated .Teacher teachers = 6;</code>
+     */
+    int getTeachersCount();
+    /**
+     * <pre>
+     * 教师
+     * </pre>
+     *
+     * <code>repeated .Teacher teachers = 6;</code>
+     */
+    java.util.List<? extends com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.TeacherOrBuilder> 
+        getTeachersOrBuilderList();
+    /**
+     * <pre>
+     * 教师
+     * </pre>
+     *
+     * <code>repeated .Teacher teachers = 6;</code>
+     */
+    com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.TeacherOrBuilder getTeachersOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -93,6 +164,7 @@ public final class TreePb {
     }
     private Tree() {
       treeType_ = "";
+      teachers_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -120,14 +192,14 @@ public final class TreePb {
               com.ljq.demo.springboot.mybatisplus.model.entity.TreePb.Tree.class, com.ljq.demo.springboot.mybatisplus.model.entity.TreePb.Tree.Builder.class);
     }
 
-    public static final int TREETYPE_FIELD_NUMBER = 2;
+    public static final int TREE_TYPE_FIELD_NUMBER = 2;
     private volatile java.lang.Object treeType_;
     /**
      * <pre>
      * 树木品种
      * </pre>
      *
-     * <code>string treeType = 2;</code>
+     * <code>string tree_type = 2;</code>
      * @return The treeType.
      */
     @java.lang.Override
@@ -148,7 +220,7 @@ public final class TreePb {
      * 树木品种
      * </pre>
      *
-     * <code>string treeType = 2;</code>
+     * <code>string tree_type = 2;</code>
      * @return The bytes for treeType.
      */
     @java.lang.Override
@@ -166,14 +238,14 @@ public final class TreePb {
       }
     }
 
-    public static final int PLANTDATE_FIELD_NUMBER = 3;
+    public static final int PLANT_DATE_FIELD_NUMBER = 3;
     private int plantDate_;
     /**
      * <pre>
      * 植树时间
      * </pre>
      *
-     * <code>uint32 plantDate = 3;</code>
+     * <code>uint32 plant_date = 3;</code>
      * @return The plantDate.
      */
     @java.lang.Override
@@ -217,6 +289,104 @@ public final class TreePb {
     @java.lang.Override
     public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.StudentOrBuilder getStudentOrBuilder() {
       return getStudent();
+    }
+
+    public static final int ELECTIVE_COURSE_FIELD_NUMBER = 5;
+    private com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse electiveCourse_;
+    /**
+     * <pre>
+     * 学生选修课
+     * </pre>
+     *
+     * <code>.ElectiveCourse elective_course = 5;</code>
+     * @return Whether the electiveCourse field is set.
+     */
+    @java.lang.Override
+    public boolean hasElectiveCourse() {
+      return electiveCourse_ != null;
+    }
+    /**
+     * <pre>
+     * 学生选修课
+     * </pre>
+     *
+     * <code>.ElectiveCourse elective_course = 5;</code>
+     * @return The electiveCourse.
+     */
+    @java.lang.Override
+    public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse getElectiveCourse() {
+      return electiveCourse_ == null ? com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.getDefaultInstance() : electiveCourse_;
+    }
+    /**
+     * <pre>
+     * 学生选修课
+     * </pre>
+     *
+     * <code>.ElectiveCourse elective_course = 5;</code>
+     */
+    @java.lang.Override
+    public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourseOrBuilder getElectiveCourseOrBuilder() {
+      return getElectiveCourse();
+    }
+
+    public static final int TEACHERS_FIELD_NUMBER = 6;
+    private java.util.List<com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher> teachers_;
+    /**
+     * <pre>
+     * 教师
+     * </pre>
+     *
+     * <code>repeated .Teacher teachers = 6;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher> getTeachersList() {
+      return teachers_;
+    }
+    /**
+     * <pre>
+     * 教师
+     * </pre>
+     *
+     * <code>repeated .Teacher teachers = 6;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.TeacherOrBuilder> 
+        getTeachersOrBuilderList() {
+      return teachers_;
+    }
+    /**
+     * <pre>
+     * 教师
+     * </pre>
+     *
+     * <code>repeated .Teacher teachers = 6;</code>
+     */
+    @java.lang.Override
+    public int getTeachersCount() {
+      return teachers_.size();
+    }
+    /**
+     * <pre>
+     * 教师
+     * </pre>
+     *
+     * <code>repeated .Teacher teachers = 6;</code>
+     */
+    @java.lang.Override
+    public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher getTeachers(int index) {
+      return teachers_.get(index);
+    }
+    /**
+     * <pre>
+     * 教师
+     * </pre>
+     *
+     * <code>repeated .Teacher teachers = 6;</code>
+     */
+    @java.lang.Override
+    public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.TeacherOrBuilder getTeachersOrBuilder(
+        int index) {
+      return teachers_.get(index);
     }
 
     public static com.ljq.demo.springboot.mybatisplus.model.entity.TreePb.Tree parseFrom(
@@ -346,6 +516,7 @@ public final class TreePb {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getTeachersFieldBuilder();
         }
       }
       @java.lang.Override
@@ -360,6 +531,18 @@ public final class TreePb {
         } else {
           student_ = null;
           studentBuilder_ = null;
+        }
+        if (electiveCourseBuilder_ == null) {
+          electiveCourse_ = null;
+        } else {
+          electiveCourse_ = null;
+          electiveCourseBuilder_ = null;
+        }
+        if (teachersBuilder_ == null) {
+          teachers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          teachersBuilder_.clear();
         }
         return this;
       }
@@ -387,12 +570,27 @@ public final class TreePb {
       @java.lang.Override
       public com.ljq.demo.springboot.mybatisplus.model.entity.TreePb.Tree buildPartial() {
         com.ljq.demo.springboot.mybatisplus.model.entity.TreePb.Tree result = new com.ljq.demo.springboot.mybatisplus.model.entity.TreePb.Tree(this);
+        int from_bitField0_ = bitField0_;
         result.treeType_ = treeType_;
         result.plantDate_ = plantDate_;
         if (studentBuilder_ == null) {
           result.student_ = student_;
         } else {
           result.student_ = studentBuilder_.build();
+        }
+        if (electiveCourseBuilder_ == null) {
+          result.electiveCourse_ = electiveCourse_;
+        } else {
+          result.electiveCourse_ = electiveCourseBuilder_.build();
+        }
+        if (teachersBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            teachers_ = java.util.Collections.unmodifiableList(teachers_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.teachers_ = teachers_;
+        } else {
+          result.teachers_ = teachersBuilder_.build();
         }
         onBuilt();
         return result;
@@ -430,6 +628,7 @@ public final class TreePb {
           java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
+      private int bitField0_;
 
       private java.lang.Object treeType_ = "";
       /**
@@ -437,7 +636,7 @@ public final class TreePb {
        * 树木品种
        * </pre>
        *
-       * <code>string treeType = 2;</code>
+       * <code>string tree_type = 2;</code>
        * @return The treeType.
        */
       public java.lang.String getTreeType() {
@@ -457,7 +656,7 @@ public final class TreePb {
        * 树木品种
        * </pre>
        *
-       * <code>string treeType = 2;</code>
+       * <code>string tree_type = 2;</code>
        * @return The bytes for treeType.
        */
       public com.google.protobuf.ByteString
@@ -478,7 +677,7 @@ public final class TreePb {
        * 树木品种
        * </pre>
        *
-       * <code>string treeType = 2;</code>
+       * <code>string tree_type = 2;</code>
        * @param value The treeType to set.
        * @return This builder for chaining.
        */
@@ -497,7 +696,7 @@ public final class TreePb {
        * 树木品种
        * </pre>
        *
-       * <code>string treeType = 2;</code>
+       * <code>string tree_type = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearTreeType() {
@@ -511,7 +710,7 @@ public final class TreePb {
        * 树木品种
        * </pre>
        *
-       * <code>string treeType = 2;</code>
+       * <code>string tree_type = 2;</code>
        * @param value The bytes for treeType to set.
        * @return This builder for chaining.
        */
@@ -533,7 +732,7 @@ public final class TreePb {
        * 植树时间
        * </pre>
        *
-       * <code>uint32 plantDate = 3;</code>
+       * <code>uint32 plant_date = 3;</code>
        * @return The plantDate.
        */
       @java.lang.Override
@@ -545,7 +744,7 @@ public final class TreePb {
        * 植树时间
        * </pre>
        *
-       * <code>uint32 plantDate = 3;</code>
+       * <code>uint32 plant_date = 3;</code>
        * @param value The plantDate to set.
        * @return This builder for chaining.
        */
@@ -560,7 +759,7 @@ public final class TreePb {
        * 植树时间
        * </pre>
        *
-       * <code>uint32 plantDate = 3;</code>
+       * <code>uint32 plant_date = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearPlantDate() {
@@ -724,6 +923,473 @@ public final class TreePb {
         }
         return studentBuilder_;
       }
+
+      private com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse electiveCourse_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.Builder, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourseOrBuilder> electiveCourseBuilder_;
+      /**
+       * <pre>
+       * 学生选修课
+       * </pre>
+       *
+       * <code>.ElectiveCourse elective_course = 5;</code>
+       * @return Whether the electiveCourse field is set.
+       */
+      public boolean hasElectiveCourse() {
+        return electiveCourseBuilder_ != null || electiveCourse_ != null;
+      }
+      /**
+       * <pre>
+       * 学生选修课
+       * </pre>
+       *
+       * <code>.ElectiveCourse elective_course = 5;</code>
+       * @return The electiveCourse.
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse getElectiveCourse() {
+        if (electiveCourseBuilder_ == null) {
+          return electiveCourse_ == null ? com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.getDefaultInstance() : electiveCourse_;
+        } else {
+          return electiveCourseBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * 学生选修课
+       * </pre>
+       *
+       * <code>.ElectiveCourse elective_course = 5;</code>
+       */
+      public Builder setElectiveCourse(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse value) {
+        if (electiveCourseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          electiveCourse_ = value;
+          onChanged();
+        } else {
+          electiveCourseBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 学生选修课
+       * </pre>
+       *
+       * <code>.ElectiveCourse elective_course = 5;</code>
+       */
+      public Builder setElectiveCourse(
+          com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.Builder builderForValue) {
+        if (electiveCourseBuilder_ == null) {
+          electiveCourse_ = builderForValue.build();
+          onChanged();
+        } else {
+          electiveCourseBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 学生选修课
+       * </pre>
+       *
+       * <code>.ElectiveCourse elective_course = 5;</code>
+       */
+      public Builder mergeElectiveCourse(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse value) {
+        if (electiveCourseBuilder_ == null) {
+          if (electiveCourse_ != null) {
+            electiveCourse_ =
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.newBuilder(electiveCourse_).mergeFrom(value).buildPartial();
+          } else {
+            electiveCourse_ = value;
+          }
+          onChanged();
+        } else {
+          electiveCourseBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 学生选修课
+       * </pre>
+       *
+       * <code>.ElectiveCourse elective_course = 5;</code>
+       */
+      public Builder clearElectiveCourse() {
+        if (electiveCourseBuilder_ == null) {
+          electiveCourse_ = null;
+          onChanged();
+        } else {
+          electiveCourse_ = null;
+          electiveCourseBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * 学生选修课
+       * </pre>
+       *
+       * <code>.ElectiveCourse elective_course = 5;</code>
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.Builder getElectiveCourseBuilder() {
+        
+        onChanged();
+        return getElectiveCourseFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * 学生选修课
+       * </pre>
+       *
+       * <code>.ElectiveCourse elective_course = 5;</code>
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourseOrBuilder getElectiveCourseOrBuilder() {
+        if (electiveCourseBuilder_ != null) {
+          return electiveCourseBuilder_.getMessageOrBuilder();
+        } else {
+          return electiveCourse_ == null ?
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.getDefaultInstance() : electiveCourse_;
+        }
+      }
+      /**
+       * <pre>
+       * 学生选修课
+       * </pre>
+       *
+       * <code>.ElectiveCourse elective_course = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.Builder, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourseOrBuilder> 
+          getElectiveCourseFieldBuilder() {
+        if (electiveCourseBuilder_ == null) {
+          electiveCourseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourse.Builder, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.ElectiveCourseOrBuilder>(
+                  getElectiveCourse(),
+                  getParentForChildren(),
+                  isClean());
+          electiveCourse_ = null;
+        }
+        return electiveCourseBuilder_;
+      }
+
+      private java.util.List<com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher> teachers_ =
+        java.util.Collections.emptyList();
+      private void ensureTeachersIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          teachers_ = new java.util.ArrayList<com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher>(teachers_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher.Builder, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.TeacherOrBuilder> teachersBuilder_;
+
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public java.util.List<com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher> getTeachersList() {
+        if (teachersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(teachers_);
+        } else {
+          return teachersBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public int getTeachersCount() {
+        if (teachersBuilder_ == null) {
+          return teachers_.size();
+        } else {
+          return teachersBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher getTeachers(int index) {
+        if (teachersBuilder_ == null) {
+          return teachers_.get(index);
+        } else {
+          return teachersBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public Builder setTeachers(
+          int index, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher value) {
+        if (teachersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTeachersIsMutable();
+          teachers_.set(index, value);
+          onChanged();
+        } else {
+          teachersBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public Builder setTeachers(
+          int index, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher.Builder builderForValue) {
+        if (teachersBuilder_ == null) {
+          ensureTeachersIsMutable();
+          teachers_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          teachersBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public Builder addTeachers(com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher value) {
+        if (teachersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTeachersIsMutable();
+          teachers_.add(value);
+          onChanged();
+        } else {
+          teachersBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public Builder addTeachers(
+          int index, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher value) {
+        if (teachersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTeachersIsMutable();
+          teachers_.add(index, value);
+          onChanged();
+        } else {
+          teachersBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public Builder addTeachers(
+          com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher.Builder builderForValue) {
+        if (teachersBuilder_ == null) {
+          ensureTeachersIsMutable();
+          teachers_.add(builderForValue.build());
+          onChanged();
+        } else {
+          teachersBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public Builder addTeachers(
+          int index, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher.Builder builderForValue) {
+        if (teachersBuilder_ == null) {
+          ensureTeachersIsMutable();
+          teachers_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          teachersBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public Builder addAllTeachers(
+          java.lang.Iterable<? extends com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher> values) {
+        if (teachersBuilder_ == null) {
+          ensureTeachersIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, teachers_);
+          onChanged();
+        } else {
+          teachersBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public Builder clearTeachers() {
+        if (teachersBuilder_ == null) {
+          teachers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          teachersBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public Builder removeTeachers(int index) {
+        if (teachersBuilder_ == null) {
+          ensureTeachersIsMutable();
+          teachers_.remove(index);
+          onChanged();
+        } else {
+          teachersBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher.Builder getTeachersBuilder(
+          int index) {
+        return getTeachersFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.TeacherOrBuilder getTeachersOrBuilder(
+          int index) {
+        if (teachersBuilder_ == null) {
+          return teachers_.get(index);  } else {
+          return teachersBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public java.util.List<? extends com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.TeacherOrBuilder> 
+           getTeachersOrBuilderList() {
+        if (teachersBuilder_ != null) {
+          return teachersBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(teachers_);
+        }
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher.Builder addTeachersBuilder() {
+        return getTeachersFieldBuilder().addBuilder(
+            com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher.Builder addTeachersBuilder(
+          int index) {
+        return getTeachersFieldBuilder().addBuilder(
+            index, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 教师
+       * </pre>
+       *
+       * <code>repeated .Teacher teachers = 6;</code>
+       */
+      public java.util.List<com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher.Builder> 
+           getTeachersBuilderList() {
+        return getTeachersFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher.Builder, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.TeacherOrBuilder> 
+          getTeachersFieldBuilder() {
+        if (teachersBuilder_ == null) {
+          teachersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.Teacher.Builder, com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.TeacherOrBuilder>(
+                  teachers_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          teachers_ = null;
+        }
+        return teachersBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -804,10 +1470,12 @@ public final class TreePb {
       "\n=com/ljq/demo/springboot/mybatisplus/mo" +
       "del/protobuf/Tree.proto\032@com/ljq/demo/sp" +
       "ringboot/mybatisplus/model/protobuf/Stud" +
-      "ent.proto\"F\n\004Tree\022\020\n\010treeType\030\002 \001(\t\022\021\n\tp" +
-      "lantDate\030\003 \001(\r\022\031\n\007student\030\004 \001(\0132\010.Studen" +
-      "tB<\n0com.ljq.demo.springboot.mybatisplus" +
-      ".model.entityB\006TreePbH\002b\006proto3"
+      "ent.proto\"\216\001\n\004Tree\022\021\n\ttree_type\030\002 \001(\t\022\022\n" +
+      "\nplant_date\030\003 \001(\r\022\031\n\007student\030\004 \001(\0132\010.Stu" +
+      "dent\022(\n\017elective_course\030\005 \001(\0132\017.Elective" +
+      "Course\022\032\n\010teachers\030\006 \003(\0132\010.TeacherB<\n0co" +
+      "m.ljq.demo.springboot.mybatisplus.model." +
+      "entityB\006TreePbH\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -819,7 +1487,7 @@ public final class TreePb {
     internal_static_Tree_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Tree_descriptor,
-        new java.lang.String[] { "TreeType", "PlantDate", "Student", });
+        new java.lang.String[] { "TreeType", "PlantDate", "Student", "ElectiveCourse", "Teachers", });
     com.ljq.demo.springboot.mybatisplus.model.entity.StudentPb.getDescriptor();
   }
 

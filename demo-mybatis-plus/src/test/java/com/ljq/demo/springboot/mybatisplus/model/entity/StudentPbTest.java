@@ -28,18 +28,18 @@ public class StudentPbTest {
         // 测试结果:
 //        id: 111
 //        name: "\345\274\240\344\270\211"
-//        birthDate: 1628233076
+//        birth_date: 1628233076
 
         // 测试结论: 字符串的 toString 为编码
 
         // 取值
         System.out.println("id: " + student.getId());
         System.out.println("name: " + student.getName());
-        System.out.println("birthDate: " + student.getBirthDate());
+        System.out.println("birth_date: " + student.getBirthDate());
         // 测试结果:
 //        id: 111
 //        name: 张三
-//        birthDate: 1628233076
+//        birth_date: 1628233076
 
         // 测试结论: 逐个属性取值不存在编码问题
 
@@ -48,7 +48,7 @@ public class StudentPbTest {
         BeanUtil.copyProperties(student, receiveParam, CopyOptions.create().ignoreError().ignoreNullValue());
         System.out.println(receiveParam);
         // 测试结果:
-//        StudentReceiveParam(id=null, name=null, birthDate=null)
+//        StudentReceiveParam(id=null, name=null, birth_date=null)
 
         // 测试结论: Protobuf 生成的 java 类无法使用 beanUtil 进行属性复制
     }
@@ -75,7 +75,7 @@ public class StudentPbTest {
         // 取值
         System.out.println("id: " + readStudent.getId());
         System.out.println("name: " + readStudent.getName());
-        System.out.println("birthDate: " + readStudent.getBirthDate());
+        System.out.println("birth_date: " + readStudent.getBirthDate());
     }
 
     /**
@@ -86,13 +86,13 @@ public class StudentPbTest {
         // 赋值
         StudentPb.ElectiveCourse electiveCourse = StudentPb.ElectiveCourse.newBuilder()
                 .setStuId(6L)
-                .addCourseName("物理")
-                .addCourseName("化学")
-                .addCourseName("生物")
+                .addCourseNames("物理")
+                .addCourseNames("化学")
+                .addCourseNames("生物")
                 .build();
         // 取值
         System.out.println("Student id: " + electiveCourse.getStuId());
-        List<String> courseNameList = electiveCourse.getCourseNameList();
+        List<String> courseNameList = electiveCourse.getCourseNamesList();
         System.out.println("elective course: ");
         courseNameList.stream().forEach(s -> System.out.println(s));
 
@@ -120,7 +120,7 @@ public class StudentPbTest {
         // 学生信息
         System.out.println("student id: " + studentClass.getStudent().getId());
         System.out.println("student name: " + studentClass.getStudent().getName());
-        System.out.println("student birthDate: " + studentClass.getStudent().getBirthDate());
+        System.out.println("student birth_date: " + studentClass.getStudent().getBirthDate());
         // 班级信息
         System.out.println("class id: " + studentClass.getClassInfo().getId());
         System.out.println("class grade: " + studentClass.getClassInfo().getGrade());

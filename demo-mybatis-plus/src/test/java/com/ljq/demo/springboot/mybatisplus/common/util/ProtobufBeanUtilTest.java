@@ -34,7 +34,7 @@ public class ProtobufBeanUtilTest {
         // 打印
         System.out.println("id: " + studentBuilder.getId());
         System.out.println("name: " + studentBuilder.getName());
-        System.out.println("birthDate: " + studentBuilder.getBirthDate());
+        System.out.println("birth_date: " + studentBuilder.getBirthDate());
     }
 
     /**
