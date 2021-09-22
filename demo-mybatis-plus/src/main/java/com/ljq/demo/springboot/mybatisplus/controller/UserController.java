@@ -1,6 +1,7 @@
 package com.ljq.demo.springboot.mybatisplus.controller;
 
 import com.ljq.demo.springboot.mybatisplus.common.api.ApiResult;
+import com.ljq.demo.springboot.mybatisplus.model.entity.UserEntity;
 import com.ljq.demo.springboot.mybatisplus.model.param.user.*;
 import com.ljq.demo.springboot.mybatisplus.service.UserService;
 import io.swagger.annotations.Api;
@@ -53,7 +54,7 @@ public class UserController {
      */
     @GetMapping(value = "/info", produces = {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value = "用户表查询详情(单条)",  notes = "用户表查询详情(单条)")
-    public ResponseEntity<?> info(@Validated UserInfoParam userInfoParam) throws Exception {
+    public ResponseEntity<ApiResult<UserEntity>> info(@Validated UserInfoParam userInfoParam) throws Exception {
         ApiResult apiResult = userService.info(userInfoParam);
 
         HttpHeaders headers = new HttpHeaders();
