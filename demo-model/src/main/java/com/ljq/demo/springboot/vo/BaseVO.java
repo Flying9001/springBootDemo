@@ -27,8 +27,8 @@ public class BaseVO implements Serializable {
      * 添加人用户 id
      * */
     @JsonIgnore
-    @ApiModelProperty(value = "添加人用户 id", name = "insertUserId")
-    private Long insertUserId;
+    @ApiModelProperty(value = "添加人用户 id", name = "insertOperatorId")
+    private Long insertOperatorId;
     /**
      * 添加人身份标识,0:前台用户;1:后台用户(默认)
      * */
@@ -44,8 +44,8 @@ public class BaseVO implements Serializable {
      * 修改人用户 id
      * */
     @JsonIgnore
-    @ApiModelProperty(value = "修改人用户 id", name = "updateUserId")
-    private Long updateUserId;
+    @ApiModelProperty(value = "修改人用户 id", name = "updateOperatorId")
+    private Long updateOperatorId;
     /**
      * 修改人身份标识;0:前台用户;1:后台用户(默认)
      * */

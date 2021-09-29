@@ -11,12 +11,16 @@ import com.ljq.demo.springboot.entity.RestUserEntity;
 import com.ljq.demo.springboot.service.RestUserService;
 import com.ljq.demo.springboot.vo.restuser.*;
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 /**
  * REST示例-用户表业务层具体实现类
@@ -31,6 +35,8 @@ public class RestUserServiceImpl implements RestUserService {
 
 	@Autowired
 	private RestUserDao restUserDao;
+	@Autowired
+	private RedissonClient redissonClient;
 
 	/**
 	 * 保存(单条)
@@ -136,6 +142,46 @@ public class RestUserServiceImpl implements RestUserService {
 
 		// 更新对象
 
+		return ApiResult.success();
+	}
+
+	/**
+	 * 分布式锁测试
+	 *
+	 * @return
+	 */
+	@Override
+	public ApiResult distributedLock() {
+		RestUserEntity restUser = new RestUserEntity();
+		restUser.setUserName("张三");
+		restUser.setEmail("tomcat@163.com");
+		restUser.setId(1L);
+		restUser.setUserStatus(1);
+		restUser.setPasscode("123456");
+		String lockKey = "REDIS_LOCK_KEY_DEMO";
+		RLock lock = redissonClient.getLock(lockKey);
+		boolean tryLock = false;
+		try {
+			tryLock = lock.tryLock(30L, 180L, TimeUnit.SECONDS);
+			if (tryLock) {
+				RestUserEntity restUserDB = restUserDao.queryObject(restUser);
+				log.info("获取到锁了,线程名称: {}, 线程 id: {}", Thread.currentThread().getName(),
+						Thread.currentThread().getId());
+				if (Objects.isNull(restUserDB)) {
+					restUserDao.save(restUser);
+				} else {
+					BeanUtil.copyProperties(restUser, restUserDB, CopyOptions.create().ignoreNullValue());
+					restUserDao.update(restUserDB);
+				}
+			}
+		} catch (InterruptedException e) {
+			log.error("线程阻塞", e);
+		} finally {
+			if (lock.isLocked()) {
+				log.info("线程主动释放锁");
+				lock.unlock();
+			}
+		}
 		return ApiResult.success();
 	}
 	

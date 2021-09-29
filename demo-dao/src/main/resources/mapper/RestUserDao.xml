@@ -4,17 +4,17 @@
 <mapper namespace="com.ljq.demo.springboot.dao.restuser.RestUserDao">
 
 	<!-- REST示例-用户表结果集resultMap -->
-    <resultMap type="com.ljq.demo.springboot.vo.restuser.RestUserVO" id="restUserMap">
+    <resultMap type="com.ljq.demo.springboot.entity.RestUserEntity" id="restUserMap">
         <result property="id" column="id"/>
         <result property="userName" column="user_name"/>
         <result property="passcode" column="passcode"/>
         <result property="email" column="email"/>
         <result property="userStatus" column="user_status"/>
         <result property="insertTime" column="insert_time"/>
-        <result property="insertUserId" column="insert_user_id"/>
+        <result property="insertOperatorId" column="insert_operator_id"/>
         <result property="insertIdentity" column="insert_identity"/>
         <result property="updateTime" column="update_time"/>
-        <result property="updateUserId" column="update_user_id"/>
+        <result property="updateOperatorId" column="update_operator_id"/>
         <result property="updateIdentity" column="update_identity"/>
         <result property="versions" column="versions"/>
         <result property="delSign" column="del_sign"/>
@@ -33,10 +33,10 @@
         `passcode`,
         `user_status`,
         UNIX_TIMESTAMP(`insert_time`) AS `insert_time`,
-        `insert_user_id`,
+        `insert_operator_id`,
         `insert_identity`,
         UNIX_TIMESTAMP(`update_time`) AS `update_time`,
-        `update_user_id`,
+        `update_operator_id`,
         `update_identity`,
         `versions`,
         `del_sign`
@@ -51,10 +51,10 @@
 			<if test="email != null"> `email`,  </if>
 			<if test="userStatus != null"> `user_status`,  </if>
 			<if test="1 != null"> `insert_time`,  </if>
-			<if test="insertUserId != null"> `insert_user_id`,  </if>
+			<if test="insertOperatorId != null"> `insert_operator_id`,  </if>
 			<if test="insertIdentity != null"> `insert_identity`,  </if>
 			<if test="1 != null"> `update_time`,  </if>
-			<if test="updateUserId != null"> `update_user_id`,  </if>
+			<if test="updateOperatorId != null"> `update_operator_id`,  </if>
 			<if test="updateIdentity != null"> `update_identity`,  </if>
 			<if test="versions != null"> `versions`,  </if>
 			<if test="delSign != null"> `del_sign` </if>
@@ -65,10 +65,10 @@
 			<if test="email != null">#{email}, </if>
 			<if test="userStatus != null">#{userStatus}, </if>
 			<if test="1 != null">NOW(), </if>
-			<if test="insertUserId != null">#{insertUserId}, </if>
+			<if test="insertOperatorId != null">#{insertOperatorId}, </if>
 			<if test="insertIdentity != null">#{insertIdentity}, </if>
 			<if test="1 != null">NOW(), </if>
-			<if test="updateUserId != null">#{updateUserId}, </if>
+			<if test="updateOperatorId != null">#{updateOperatorId}, </if>
 			<if test="updateIdentity != null">#{updateIdentity}, </if>
 			<if test="versions != null">#{versions}, </if>
 			<if test="delSign != null">#{delSign}</if>
@@ -139,10 +139,10 @@
 			<if test="passcode != null">`passcode` = #{passcode}, </if>
 			<if test="email != null">`email` = #{email}, </if>
 			<if test="userStatus != null">`user_status` = #{userStatus}, </if>
-			<if test="insertUserId != null">`insert_user_id` = #{insertUserId}, </if>
+			<if test="insertOperatorId != null">`insert_operator_id` = #{insertOperatorId}, </if>
 			<if test="insertIdentity != null">`insert_identity` = #{insertIdentity}, </if>
 			<if test="1 != null">`update_time` = NOW(), </if>
-			<if test="updateUserId != null">`update_user_id` = #{updateUserId}, </if>
+			<if test="updateOperatorId != null">`update_operator_id` = #{updateOperatorId}, </if>
 			<if test="updateIdentity != null">`update_identity` = #{updateIdentity}, </if>
 			<if test="versions != null">`versions` = #{versions}, </if>
 			<if test="delSign != null">`del_sign` = #{delSign}</if>

@@ -56,5 +56,12 @@ public interface RestUserService {
      */
 	ApiResult delete(RestUserDeleteParam restUserDeleteParam) throws Exception;
 
+	/**
+	 * 分布式锁测试
+	 *
+	 * @return
+	 */
+	ApiResult distributedLock();
+
 
 }

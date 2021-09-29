@@ -65,3 +65,13 @@ uploadSftp:
   password: root
   path: /home/ljq/upload
 
+## Redisson 分布式锁配置
+redisson:
+  address: redis://172.16.140.10:7749
+  database: 9
+  password: 21cde022-a5da-626e-c8f4-04c99ed3a181
+  connectionMinimumIdleSize: 24
+  connectionPoolSize: 64
+  connectionTimeout: 10000
+  timeout: 3000
+

@@ -136,6 +136,21 @@ public class RestUserController {
         return new ResponseEntity<>(apiResult, headers, HttpStatus.NO_CONTENT);
     }
 
+    /**
+     * 分布式锁测试
+     *
+     * @return
+     */
+    @RequestMapping(value = "/lock", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value = "分布式锁测试",  notes = "分布式锁测试")
+    @ResponseBody
+    public ResponseEntity<ApiResult<RestUserVO>> lock() {
+        ApiResult apiResult = restUserService.distributedLock();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+        return new ResponseEntity<>(apiResult, headers, HttpStatus.CREATED);
+    }
+
 
 
 
