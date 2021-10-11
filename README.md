@@ -102,6 +102,8 @@ Quick start :
 
 [3.7.1 SpringBoot 快速整合 RabbitMQ 消息队列框架---2019-01-26](doc/15.spring_boot_rabbitmq.md "doc/15.spring_boot_rabbitmq.md")  
 
+[3.7.2 SpringBoot 集成 RabbitMQ 常用交换机 --- 2021-10-11](./doc/73.spring_boot_rabbitmq_exchange.md "./doc/73.spring_boot_rabbitmq_exchange.md")  
+
 
 
 #### 3.8 定时任务  
