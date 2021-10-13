@@ -98,6 +98,22 @@ public class RabbitMQSender {
         rabbitTemplate.convertAndSend(RabbitMQConfig.FANOUT_EXCHANGE_NAME_DEMO, "", message);
     }
 
+    /**
+     * 使用直连交换机发送延时消息
+     * 交换机类型: {@link org.springframework.amqp.core.DirectExchange}
+     * 交换机名称: {@link RabbitMQConfig#DIRECT_EXCHANGE_ROUT_KEY_DELAY_CART}
+     * @param message
+     */
+    public void sendDirectDelayCart(String message) {
+        logger.info("exchangeName = {}, queue sender outing key = {}, message = {}",
+                RabbitMQConfig.DIRECT_EXCHANGE_NAME_DELAY_CART, RabbitMQConfig.QUEUE_SENDER_ROUTING_KEY_DELAY_CART,
+                message);
+        rabbitTemplate.convertAndSend(RabbitMQConfig.DIRECT_EXCHANGE_NAME_DELAY_CART,
+                RabbitMQConfig.QUEUE_SENDER_ROUTING_KEY_DELAY_CART, message, message1 -> {
+                    message1.getMessageProperties().setDelay(RabbitMQConfig.QUEUE_DELAY_TIME_CART);
+                    return message1;
+                });
+    }
 
 
 }

@@ -39,6 +39,18 @@ public class RabbitMQReceiver {
         logger.info("Received queueName = {}, message = {}",RabbitMQConfig.QUEUE_NAME_API, message);
     }
 
+    /**
+     * 消息接收
+     *
+     * @param message
+     */
+    @RabbitHandler
+    @RabbitListener(queues = {RabbitMQConfig.QUEUE_NAME_DELAY_CART})
+    public void receiveDelayCart(String message) {
+        logger.info("Received queueName = {}, message = {}",RabbitMQConfig.QUEUE_NAME_DELAY_CART, message);
+    }
+
+
 
 
 

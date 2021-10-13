@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @Description: tabbitmq 配置信息
  * @Author: junqiang.lu
@@ -18,6 +21,7 @@ public class RabbitMQConfig {
      */
     public static final String QUEUE_NAME_DEMO = "rabbitmq_spring_boot_demo";
     public static final String QUEUE_NAME_API = "rabbitmq_api";
+    public static final String QUEUE_NAME_DELAY_CART = "rabbitmq_delay_cart";
 
     /**
      * 交换机名称
@@ -26,6 +30,7 @@ public class RabbitMQConfig {
     public static final String TOPIC_EXCHANGE_NAME_DEMO = "rabbitmq_topic_exchange_demo";
     public static final String TOPIC_EXCHANGE_NAME_API = "rabbitmq_topic_exchange_api";
     public static final String FANOUT_EXCHANGE_NAME_DEMO = "rabbitmq_fanout_exchange_demo";
+    public static final String DIRECT_EXCHANGE_NAME_DELAY_CART = "rabbitmq_direct_exchange_delay_cart";
 
     /**
      * 交换机代理的路由键
@@ -33,6 +38,7 @@ public class RabbitMQConfig {
     public static final String DIRECT_EXCHANGE_ROUT_KEY_DEMO = "rabbitmq.spring.boot.demo";
     public static final String TOPIC_EXCHANGE_ROUT_KEY_DEMO = "rabbitmq.spring.boot.#";
     public static final String TOPIC_EXCHANGE_ROUT_KEY_API = "rabbitmq.api.#";
+    public static final String DIRECT_EXCHANGE_ROUT_KEY_DELAY_CART = "rabbitmq.spring.boot.cart";
 
     /**
      * 生产者发送路由键
@@ -40,6 +46,13 @@ public class RabbitMQConfig {
     public static final String QUEUE_SENDER_ROUTING_KEY_DEMO = "rabbitmq.spring.boot.demo";
     public static final String QUEUE_SENDER_ROUTING_KEY_DEMO_2 = "rabbitmq.spring.boot.demo.2";
     public static final String QUEUE_SENDER_ROUTING_KEY_API_USER = "rabbitmq.api.user";
+    public static final String QUEUE_SENDER_ROUTING_KEY_DELAY_CART = "rabbitmq.spring.boot.cart";
+
+    /**
+     * 延时时长(单位:毫秒)
+     */
+    public static final int QUEUE_DELAY_TIME_CART = 30000;
+
 
     /**
      * 定义队列(demo)
@@ -59,6 +72,16 @@ public class RabbitMQConfig {
     @Bean("queueApi")
     public Queue queueApi(){
         return new Queue(QUEUE_NAME_API);
+    }
+
+    /**
+     * 定义延时队列(cart)
+     *
+     * @return
+     */
+    @Bean("queueDelayCart")
+    public Queue queueDelayCart() {
+        return new Queue(QUEUE_NAME_DELAY_CART, true, false, true);
     }
 
     /**
@@ -99,6 +122,19 @@ public class RabbitMQConfig {
     @Bean("fanoutExchangeDemo")
     public FanoutExchange fanoutExchangeDemo() {
        return new FanoutExchange(FANOUT_EXCHANGE_NAME_DEMO, false, true);
+    }
+
+    /**
+     * 定义延时交换机(cart)
+     * @return
+     */
+    @Bean("delayExchangeCart")
+    public CustomExchange delayExchangeCart() {
+        Map<String, Object> args = new HashMap<>(16);
+        args.put("x-delayed-type", "direct");
+        CustomExchange exchange = new CustomExchange(DIRECT_EXCHANGE_NAME_DELAY_CART,"x-delayed-message",
+                false, true, args);
+        return exchange;
     }
 
     /**
@@ -163,6 +199,19 @@ public class RabbitMQConfig {
     public Binding bingingFanoutExchangeApi(@Qualifier("queueApi") Queue queue,
                                              @Qualifier("fanoutExchangeDemo") FanoutExchange fanoutExchange) {
         return BindingBuilder.bind(queue).to(fanoutExchange);
+    }
+
+    /**
+     * 绑定延时交换机与队列(cart)
+     *
+     * @param queue
+     * @param customExchange
+     * @return
+     */
+    @Bean
+    public Binding bindingDirectExchangeDelayCart(@Qualifier("queueDelayCart") Queue queue,
+                                                  @Qualifier("delayExchangeCart") CustomExchange customExchange) {
+        return BindingBuilder.bind(queue).to(customExchange).with(DIRECT_EXCHANGE_ROUT_KEY_DELAY_CART).noargs();
     }
 
 

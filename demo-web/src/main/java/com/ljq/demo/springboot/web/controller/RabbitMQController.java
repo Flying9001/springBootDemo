@@ -35,6 +35,7 @@ public class RabbitMQController {
 
     /**
      * 发送测试-交换机
+     *
      * @return
      */
     @GetMapping(value = "/send/exchange")
@@ -48,6 +49,17 @@ public class RabbitMQController {
         return ApiResult.success();
     }
 
+    /**
+     * 发送测试-延时队列
+     *
+     * @return
+     */
+    @GetMapping(value = "/send/delay")
+    public ApiResult sendDelay(){
+        rabbitMQSender.sendDirectDelayCart("send direct delay cart");
+
+        return ApiResult.success();
+    }
 
 
 }
