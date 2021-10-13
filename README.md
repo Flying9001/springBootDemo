@@ -104,6 +104,8 @@ Quick start :
 
 [3.7.2 SpringBoot 集成 RabbitMQ 常用交换机 --- 2021-10-11](./doc/73.spring_boot_rabbitmq_exchange.md "./doc/73.spring_boot_rabbitmq_exchange.md")  
 
+[3.7.3 Springboot 2.X 集成 RabbitMQ 实现延时消息队列功能 --- 2021-10-13](./doc/74.spring_boot_2_rabbitmq_delayed_message.md "./doc/74.spring_boot_2_rabbitmq_delayed_message.md")  
+
 
 
 #### 3.8 定时任务  
