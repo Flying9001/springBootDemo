@@ -35,6 +35,7 @@
         <commons-lang3.version>3.10</commons-lang3.version>
         <jackson.version>2.10.1</jackson.version>
         <redisson.version>3.16.3</redisson.version>
+        <hutool.version>5.3.9</hutool.version>
     </properties>
 
     <dependencies>
@@ -163,6 +164,13 @@
             <artifactId>redisson</artifactId>
             <version>${redisson.version}</version>
         </dependency>
+        <!-- hutool,集成java 工具包 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+
 
     </dependencies>
 
