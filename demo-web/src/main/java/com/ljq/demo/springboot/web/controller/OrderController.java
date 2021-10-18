@@ -4,6 +4,7 @@ import com.ljq.demo.springboot.baseweb.api.ApiResult;
 import com.ljq.demo.springboot.baseweb.util.RedisDelayQueueUtil;
 import com.ljq.demo.springboot.vo.order.OrderDelayCreateParam;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -37,6 +38,7 @@ public class OrderController {
      * @return
      */
     @PostMapping(value = "/delay")
+    @ApiOperation(value = "创建延时订单", notes = "创建延时订单")
     public ResponseEntity<ApiResult<Void>> createDelayOrder(@RequestBody @Validated OrderDelayCreateParam
                                                                         orderDelayCreateParam) {
         redisDelayQueueUtil.setOrderDelayTask(orderDelayCreateParam, RedisDelayQueueUtil.QUEUE_DELAY_TIME_ORDER);

@@ -106,6 +106,8 @@ Quick start :
 
 [3.7.3 Springboot 2.X 集成 RabbitMQ 实现延时消息队列功能 --- 2021-10-13](./doc/74.spring_boot_2_rabbitmq_delayed_message.md "./doc/74.spring_boot_2_rabbitmq_delayed_message.md")  
 
+[3.7.4 SpringBoot 2.X 基于 Redis 实现延时消息队列功能 --- 2021-10-18](./doc/75.spring_boot_2_redis_delayed_message_queue.md "./doc/75.spring_boot_2_redis_delayed_message_queue.md")  
+
 
 
 #### 3.8 定时任务  
