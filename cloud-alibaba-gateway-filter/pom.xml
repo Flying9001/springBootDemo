@@ -27,6 +27,10 @@
         <spring-cloud-gateway.version>2.2.5.RELEASE</spring-cloud-gateway.version>
         <spring-cloud-openfeign.version>2.2.5.RELEASE</spring-cloud-openfeign.version>
         <servlet-api.version>4.0.1</servlet-api.version>
+        <hutool.version>5.7.8</hutool.version>
+        <mysql.version>8.0.27</mysql.version>
+        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+
     </properties>
 
     <dependencies>
@@ -48,18 +52,32 @@
             <artifactId>spring-cloud-starter-gateway</artifactId>
             <version>${spring-cloud-gateway.version}</version>
         </dependency>
+        <!-- hutool -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- Mybatis Plus(include Mybatis) -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+
+
         <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
-        </dependency>
-        <!-- servlet -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet-api.version}</version>
-            <scope>provided</scope>
         </dependency>
         <!-- test,junit -->
         <dependency>

@@ -11,10 +11,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 @SpringBootApplication(scanBasePackages = {"com.ljq.demo.springboot.*"})
 @MapperScan(basePackages = {"com.ljq.demo.springboot.alibaba.gateway.filter.dao"})
-public class CloudAlibabaGatewayFilterApplication {
+public class CloudAlibabaGatewayFilter2Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(CloudAlibabaGatewayFilterApplication.class, args);
+        System.setProperty("server.port", "8613");
+        SpringApplication.run(CloudAlibabaGatewayFilter2Application.class, args);
     }
 
 }

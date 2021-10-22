@@ -39,6 +39,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
      */
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        log.info("requestPath: {}",exchange.getRequest().getPath());
         List<String> tokenList = exchange.getRequest().getHeaders().get(TOKEN_KEY);
         log.info("token: {}", tokenList);
         if (CollectionUtils.isEmpty(tokenList) || tokenList.get(0).trim().isEmpty()) {
