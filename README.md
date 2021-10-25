@@ -236,6 +236,8 @@ Quick start :
 
 [4.3.10 Spring Cloud Alibaba Nacos 分布式配置中心 --- 2020-12-20](./doc/62.spring_boot_2.3_cloud_alibaba_2.2_config.md "./doc/62.spring_boot_2.3_cloud_alibaba_2.2_config.md")  
 
+[4.3.11 Spring Cloud Alibaba 集成 Gateway 实现动态路由功能 --- 2021-10-25](./doc/76.spring_boot_2.3_cloud_alibaba_gateway_dynamic_route.md "./doc/76.spring_boot_2.3_cloud_alibaba_gateway_dynamic_route.md")  
+
 
 
 
