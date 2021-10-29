@@ -238,6 +238,10 @@ Quick start :
 
 [4.3.11 Spring Cloud Alibaba 集成 Gateway 实现动态路由功能 --- 2021-10-25](./doc/76.spring_boot_2.3_cloud_alibaba_gateway_dynamic_route.md "./doc/76.spring_boot_2.3_cloud_alibaba_gateway_dynamic_route.md")  
 
+[4.3.12 Spring Cloud Gateway 动态路由配置示例 --- 2021-10-29](./doc/77.gateway_dynamic_route_demo.md "./doc/77.gateway_dynamic_route_demo.md")  
+
+
+
 
 
 
