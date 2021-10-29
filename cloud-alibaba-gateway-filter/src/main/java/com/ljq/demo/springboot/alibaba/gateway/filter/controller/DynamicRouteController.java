@@ -58,7 +58,7 @@ public class DynamicRouteController {
      */
     @PutMapping(value = "/update", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<ApiResult<RouteDefinition>> update(@RequestBody @Validated RouteDefinition routeDefinition) {
-        log.info("/update,新增路由参数: {}", routeDefinition);
+        log.info("/update,更新路由参数: {}", routeDefinition);
         routeService.update(routeDefinition);
         return ResponseEntity.ok(ApiResult.success(routeDefinition));
     }

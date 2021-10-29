@@ -22,8 +22,8 @@ import java.util.Map;
 @Service("nacosConsumerService")
 public class NacosConsumerServiceImpl implements NacosConsumerService {
 
-    private static final String HELLO_URL = "/api/nacos/hello";
-    private static final String REPLAY_URL = "/api/nacos/replay";
+    private static final String HELLO_URL = NacosConst.NACOS_SERVER_PROVIDER_PATH + "/api/nacos/hello";
+    private static final String REPLAY_URL = NacosConst.NACOS_SERVER_PROVIDER_PATH +"/api/nacos/replay";
 
     @Resource
     private RestTemplate template;

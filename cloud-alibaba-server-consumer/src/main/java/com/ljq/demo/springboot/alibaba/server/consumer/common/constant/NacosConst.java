@@ -11,4 +11,7 @@ public class NacosConst {
     }
 
     public static final String NACOS_SERVER_PROVIDER_NAME = "cloud-alibaba-server-provider";
+
+    public static final String NACOS_SERVER_PROVIDER_PATH = "/cloud-alibaba-provider";
+
 }

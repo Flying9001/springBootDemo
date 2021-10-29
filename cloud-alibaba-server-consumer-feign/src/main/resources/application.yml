@@ -3,6 +3,8 @@
 ## server
 server:
   port: 8604
+  servlet:
+    context-path: /cloud-alibaba-consumer-feign
 
 ## spring
 spring:

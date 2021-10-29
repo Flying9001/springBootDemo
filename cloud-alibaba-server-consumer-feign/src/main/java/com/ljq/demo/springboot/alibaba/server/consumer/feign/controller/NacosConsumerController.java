@@ -23,6 +23,7 @@ public class NacosConsumerController {
 
     @GetMapping(value = "/hello", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<String> hello(HelloParam helloParam) {
+        log.info("/hello request data: {}", helloParam);
         ResponseEntity<String> response = consumerService.hello(helloParam);
         log.info("response: {}", response.getBody());
         return response;
@@ -30,6 +31,7 @@ public class NacosConsumerController {
 
     @PostMapping(value = "/replay", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<String> replay(@RequestBody HelloParam helloParam) {
+        log.info("/replay request data: {}", helloParam);
         ResponseEntity<String> response = consumerService.replay(helloParam);
         log.info("response: {}", response.getBody());
         return response;

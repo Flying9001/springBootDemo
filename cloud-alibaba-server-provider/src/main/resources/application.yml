@@ -3,6 +3,8 @@
 ## server
 server:
   port: 8600
+  servlet:
+    context-path: /cloud-alibaba-provider
 
 ## spring
 spring:

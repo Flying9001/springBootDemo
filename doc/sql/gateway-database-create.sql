@@ -12,7 +12,7 @@ drop table if exists gateway_route;
 create table gateway_route
 (
    id                   bigint unsigned not null auto_increment comment '数据库id',
-   route_id             varchar(32) comment '路由id',
+   route_id             varchar(64) comment '路由id',
    uri                  varchar(128) comment '请求地址',
    predicates           varchar(512) comment '断言',
    filters              varchar(512) comment '拦截器',
