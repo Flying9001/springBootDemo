@@ -30,6 +30,8 @@ Quick start :
 
 [2.3 springBoot 与 mybatis mysql 整合----2018-10-09](doc/3.springBoot与mybatis_mysql整合.md "3.springBoot与mybatis_mysql整合.md")  
 
+[2.4 给 SpringBoot 项目配一套优雅实用的 logback 日志配置 --- 2021-11-02](./doc/78.spring_boot_logback_configuration.md "./doc/78.spring_boot_logback_configuration.md")  
+
 ​    
 
 ### 3 SpringBoot 下常用功能实现  
