@@ -54,6 +54,14 @@ management:
       exposure:
         include: "*"
 
+## feign
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+
 ## log
 #logging:
 #  level:

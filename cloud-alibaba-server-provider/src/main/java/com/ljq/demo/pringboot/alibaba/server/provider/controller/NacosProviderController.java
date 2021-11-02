@@ -31,6 +31,11 @@ public class NacosProviderController {
         String result = "Hello," + helloParam.getName();
         log.info("serverPort: {}", port);
         log.info("result: {}", result);
+//        try {
+//            Thread.sleep(3000L);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return ResponseEntity.ok(result);
     }
 

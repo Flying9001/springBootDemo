@@ -30,6 +30,7 @@
         <hutool.version>5.7.8</hutool.version>
         <mysql.version>8.0.27</mysql.version>
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+        <skywalking.toolkit.version>8.7.0</skywalking.toolkit.version>
 
     </properties>
 
@@ -70,6 +71,18 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatis-plus.version}</version>
+        </dependency>
+        <!-- skywalking toolkit -->
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-trace</artifactId>
+            <version>${skywalking.toolkit.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-logback-1.x</artifactId>
+            <version>${skywalking.toolkit.version}</version>
         </dependency>
 
 

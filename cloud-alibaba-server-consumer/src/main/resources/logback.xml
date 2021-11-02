@@ -2,7 +2,7 @@
 
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <!-- 属性定义 -->
-    <property name="LOG_HOME" value="../../logs/alibaba-gateway-demo" />
+    <property name="LOG_HOME" value="../../logs/alibaba-consumer" />
     <property name="maxHistory" value="90" />
     <property name="CONSOLE_LOG_PATTERN"
               value="%d{yyyy-MM-dd HH:mm:ss} | %highlight(%-5level) | %boldYellow(%thread) | %tid | %boldGreen(%logger{50} %L\)| %msg%n"/>
