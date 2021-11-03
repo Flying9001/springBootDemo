@@ -242,17 +242,13 @@ Quick start :
 
 [4.3.12 Spring Cloud Gateway 动态路由配置示例 --- 2021-10-29](./doc/77.gateway_dynamic_route_demo.md "./doc/77.gateway_dynamic_route_demo.md")  
 
+​    
 
+#### 4.4 微服务链路追踪  
 
+[4.4.1 Spring Cloud Alibaba 2.X 简易集成 Skywalking 实现微服务链路追踪 --- 2021-11-03](./doc/79.spring_cloud_2_skywalking_simple.md "./doc/79.spring_cloud_2_skywalking_simple.md")  
 
-
-
-
-
-
-
-
-
+​    
 
 
 
