@@ -3,7 +3,6 @@ package com.ljq.demo.springboot.mongodb.model.entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -14,14 +13,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document(value = "user")
 @ApiModel(value = "用户信息", description = "用户信息")
-public class UserEntity {
+public class UserEntity extends BaseEntity {
 
-    /**
-     * id
-     */
-    @Id
-    @ApiModelProperty(value = "id", name = "id")
-    private String id;
+    private static final long serialVersionUID = 5233730050550763071L;
+
     /**
      * 姓名
      */

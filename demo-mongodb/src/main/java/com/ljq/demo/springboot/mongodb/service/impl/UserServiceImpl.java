@@ -50,7 +50,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserEntity info(UserInfoParam userInfoParam) {
         Optional<UserEntity> userDBOpt = userRepository.findById(userInfoParam.getId());
-        return userDBOpt.get();
+        if (userDBOpt.isPresent()) {
+            return userDBOpt.get();
+        }
+        return null;
     }
 
     /**

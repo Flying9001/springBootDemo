@@ -45,6 +45,11 @@ public enum ResponseCode {
     CHECK_CODE_ERROR(2009,"验证码错误"),
 
     /**
+     * 博客
+     */
+    BLOG_NOT_EXIST(30010, "博客不存在"),
+
+    /**
      * 其他
      */
     UNKNOWN_ERROR(-1000,"未知异常");
