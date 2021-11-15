@@ -10,19 +10,19 @@ spring:
     name: cloud-alibaba-gateway-filter
   ## datasource
   datasource:
-    url: "jdbc:mysql://47.105.137.38:3306/demo?useUnicode=true&characterEncoding=utf8\
+    url: "jdbc:mysql://172.16.140.10:3306/demo?useUnicode=true&characterEncoding=utf8\
       &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
       &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true\
       &nullCatalogMeansCurrent=true"
     username: root
-    password: "f5GwO0wClR7f0Fm@"
+    password: "Qwert12345!"
     hikari:
       driver-class-name: com.mysql.cj.jdbc.Driver
   ## cloud
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 172.16.140.10:8688
 #    gateway:
 #      discovery:
 #        locator:

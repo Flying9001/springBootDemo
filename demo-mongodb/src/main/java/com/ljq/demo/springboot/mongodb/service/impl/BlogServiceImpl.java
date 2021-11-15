@@ -7,6 +7,7 @@ import com.ljq.demo.springboot.mongodb.common.api.ApiResult;
 import com.ljq.demo.springboot.mongodb.common.api.ResponseCode;
 import com.ljq.demo.springboot.mongodb.model.entity.BlogEntity;
 import com.ljq.demo.springboot.mongodb.model.param.*;
+import com.ljq.demo.springboot.mongodb.model.vo.BlogSummaryVo;
 import com.ljq.demo.springboot.mongodb.service.BlogService;
 import com.mongodb.client.result.DeleteResult;
 import lombok.extern.slf4j.Slf4j;
@@ -15,9 +16,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.BulkOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.AggregationResults;
+import org.springframework.data.mongodb.core.aggregation.GroupOperation;
+import org.springframework.data.mongodb.core.aggregation.MatchOperation;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.support.PageableExecutionUtils;
 import org.springframework.stereotype.Service;
 
@@ -48,8 +55,27 @@ public class BlogServiceImpl implements BlogService {
     public ApiResult add(BlogAddParam addParam) {
         BlogEntity blogEntity = new BlogEntity();
         BeanUtil.copyProperties(addParam, blogEntity, CopyOptions.create().ignoreError().ignoreNullValue());
+        blogEntity.setCountRead(0);
+        blogEntity.setCountLike(0);
         mongoTemplate.save(blogEntity);
         return ApiResult.success(blogEntity);
+    }
+
+    /**
+     * 批量新增博客
+     *
+     * @param addBatchParam
+     * @return
+     */
+    @Override
+    public ApiResult addBatch(BlogAddBatchParam addBatchParam) {
+        List<BlogEntity> blogEntityList = addBatchParam.getBlogList().stream().map(blogAddParam -> {
+            BlogEntity blogEntity = new BlogEntity();
+            BeanUtil.copyProperties(blogAddParam, blogEntity);
+            return blogEntity;
+        }).collect(Collectors.toList());
+        mongoTemplate.insert(blogEntityList, BlogEntity.class);
+        return ApiResult.success();
     }
 
     /**
@@ -101,6 +127,53 @@ public class BlogServiceImpl implements BlogService {
     }
 
     /**
+     * 查询博客阅读量
+     *
+     * @param readCountQueryParam
+     * @return
+     */
+    @Override
+    public ApiResult queryReadCount(BlogReadCountQueryParam readCountQueryParam) {
+        // 查询条件
+        Criteria criteria = Criteria.where("id").is(readCountQueryParam.getId());
+        // 查询字段
+        Query query = Query.query(criteria);
+        query.fields().include("id", "title", "countRead", "countLike");
+        return ApiResult.success(mongoTemplate.findOne(query, BlogEntity.class));
+    }
+
+    /**
+     * 查询博客阅读量统计
+     *
+     * @param readCountSummaryParam
+     * @return
+     */
+    @Override
+    public ApiResult summaryReadCount(BlogReadCountSummaryParam readCountSummaryParam) {
+        // 查询条件
+        Criteria criteria = new Criteria();
+        if (StrUtil.isNotBlank(readCountSummaryParam.getId())) {
+            criteria.and("id").is(readCountSummaryParam.getId());
+        }
+        if (StrUtil.isNotBlank(readCountSummaryParam.getAuthor())) {
+            criteria.and("author").is(readCountSummaryParam.getAuthor());
+        }
+        // 查询条件
+        MatchOperation match = Aggregation.match(criteria);
+        // 分组统计
+        GroupOperation group = Aggregation.group()
+                .count().as("totalBlog")
+                .sum("countRead").as("totalRead")
+                .avg("countRead").as("aveRead")
+                .sum("countLike").as("totalLike")
+                .avg("countLike").as("aveLike");
+        // 查询结果
+        AggregationResults<BlogSummaryVo> results = mongoTemplate.aggregate(Aggregation.newAggregation(BlogEntity.class,
+                match, group), BlogSummaryVo.class);
+        return ApiResult.success(results.getUniqueMappedResult());
+    }
+
+    /**
      * 更新单条博客
      *
      * @param updateParam
@@ -115,6 +188,34 @@ public class BlogServiceImpl implements BlogService {
         BeanUtil.copyProperties(updateParam, blogEntity, CopyOptions.create().ignoreError().ignoreNullValue());
         mongoTemplate.save(blogEntity);
         return ApiResult.success(blogEntity);
+    }
+
+    /**
+     * 批量更新博客
+     *
+     * @param updateBatchParam
+     * @return
+     */
+    @Override
+    public ApiResult updateBatch(BlogUpdateBatchParam updateBatchParam) {
+        List<BlogEntity> blogEntityList = updateBatchParam.getBlogList().stream().map(blogUpdateParam -> {
+            BlogEntity blogEntity = new BlogEntity();
+            BeanUtil.copyProperties(blogUpdateParam, blogEntity);
+            return blogEntity;
+        }).collect(Collectors.toList());
+        BulkOperations operations = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, BlogEntity.class);
+        for (BlogEntity blogEntity : blogEntityList) {
+            Update update = Update.update("id", blogEntity.getId())
+                    .set("title", blogEntity.getTitle())
+                    .set("content", blogEntity.getContent())
+                    .set("author", blogEntity.getAuthor())
+                    .set("countRead", blogEntity.getCountRead())
+                    .set("countLike", blogEntity.getCountLike())
+                    .set("clientTimestamp", blogEntity.getClientTimestamp());
+            operations.updateOne(Query.query(Criteria.where("id").is(blogEntity.getId())), update);
+        }
+        operations.execute();
+        return ApiResult.success();
     }
 
     /**

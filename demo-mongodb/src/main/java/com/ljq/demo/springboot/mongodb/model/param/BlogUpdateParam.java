@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -49,6 +50,20 @@ public class BlogUpdateParam implements Serializable {
     @Length(min = 1, max = 50000,message = "博客内容需要控制在 1-50000 字符以内")
     @ApiModelProperty(value = "内容", name = "content", required = true)
     private String content;
+    /**
+     * 阅读数量
+     */
+    @NotNull(message = "阅读量不能为空")
+    @Min(value = 0, message = "阅读量设置错误")
+    @ApiModelProperty(value = "阅读数量", name = "countRead", required = true)
+    private Integer countRead;
+    /**
+     * 点赞数量
+     */
+    @NotNull(message = "点赞数量不能为空")
+    @Min(value = 0, message = "点赞数量设置错误")
+    @ApiModelProperty(value = "点赞数量", name = "countLike", required = true)
+    private Integer countLike;
     /**
      * 客户端时间戳(精确到秒)
      */

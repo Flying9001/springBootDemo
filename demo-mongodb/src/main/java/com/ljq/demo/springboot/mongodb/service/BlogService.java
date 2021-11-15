@@ -19,6 +19,14 @@ public interface BlogService {
     ApiResult add(BlogAddParam addParam);
 
     /**
+     * 批量新增博客
+     *
+     * @param addBatchParam
+     * @return
+     */
+    ApiResult addBatch(BlogAddBatchParam addBatchParam);
+
+    /**
      * 查询单条博客
      *
      * @param queryOneParam
@@ -35,12 +43,36 @@ public interface BlogService {
     ApiResult queryPage(BlogQueryPageParam queryPageParam);
 
     /**
+     * 查询博客阅读量
+     *
+     * @param readCountQueryParam
+     * @return
+     */
+    ApiResult queryReadCount(BlogReadCountQueryParam readCountQueryParam);
+
+    /**
+     * 查询博客阅读量统计
+     *
+     * @param readCountSummaryParam
+     * @return
+     */
+    ApiResult summaryReadCount(BlogReadCountSummaryParam readCountSummaryParam);
+
+    /**
      * 更新单条博客
      *
      * @param updateParam
      * @return
      */
     ApiResult update(BlogUpdateParam updateParam);
+
+    /**
+     * 批量更新博客
+     *
+     * @param updateBatchParam
+     * @return
+     */
+    ApiResult updateBatch(BlogUpdateBatchParam updateBatchParam);
 
     /**
      * 删除单条博客

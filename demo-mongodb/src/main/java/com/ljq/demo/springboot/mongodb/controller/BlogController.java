@@ -40,6 +40,18 @@ public class BlogController {
     }
 
     /**
+     * 批量新增博客
+     *
+     * @param addBatchParam
+     * @return
+     */
+    @PostMapping(value = "/add/batch")
+    @ApiOperation(value = "批量新增博客", notes = "批量新增博客")
+    public ResponseEntity<ApiResult<Void>> addBatch(@RequestBody @Validated BlogAddBatchParam addBatchParam) {
+        return ResponseEntity.ok(blogService.addBatch(addBatchParam));
+    }
+
+    /**
      * 查询单条博客
      *
      * @param queryOneParam
@@ -64,6 +76,32 @@ public class BlogController {
     }
 
     /**
+     * 查询博客阅读量
+     *
+     * @param readCountQueryParam
+     * @return
+     */
+    @GetMapping(value = "/query/count/read")
+    @ApiOperation(value = "查询博客阅读量", notes = "查询博客阅读量")
+    public ResponseEntity<ApiResult<BlogEntity>> queryReadCount(@Validated BlogReadCountQueryParam
+                                                                                  readCountQueryParam) {
+        return ResponseEntity.ok(blogService.queryReadCount(readCountQueryParam));
+    }
+
+    /**
+     * 查询博客阅读量统计
+     *
+     * @param readCountSummaryParam
+     * @return
+     */
+    @GetMapping(value = "/query/summary/count/read")
+    @ApiOperation(value = "查询博客阅读量统计", notes = "查询博客阅读量统计")
+    public ResponseEntity<ApiResult<BlogEntity>> summaryReadCount(@Validated BlogReadCountSummaryParam
+                                                                        readCountSummaryParam) {
+        return ResponseEntity.ok(blogService.summaryReadCount(readCountSummaryParam));
+    }
+
+    /**
      * 更新单条博客
      *
      * @param updateParam
@@ -73,6 +111,19 @@ public class BlogController {
     @ApiOperation(value = "更新单条博客", notes = "更新单条博客")
     public ResponseEntity<ApiResult<BlogEntity>> update(@RequestBody @Validated BlogUpdateParam updateParam) {
         return ResponseEntity.ok(blogService.update(updateParam));
+    }
+
+    /**
+     * 批量更新博客
+     *
+     * @param updateBatchParam
+     * @return
+     */
+    @PutMapping(value = "/update/batch")
+    @ApiOperation(value = "批量更新博客", notes = "批量更新博客")
+    public ResponseEntity<ApiResult<Void>> updateBatch(@RequestBody @Validated BlogUpdateBatchParam
+                                                                         updateBatchParam) {
+        return ResponseEntity.ok(blogService.updateBatch(updateBatchParam));
     }
 
     /**
