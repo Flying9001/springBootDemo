@@ -134,6 +134,8 @@ Quick start :
 
 [3.10.1 Spring Boot 2.4 集成 MongoDB 实现基本 CRUD --- 2021-01-21](./doc/63.spring_boot_2.4_mongodb.md "./doc/63.spring_boot_2.4_mongodb.md")  
 
+[3.10.2 Springboot 2.X 集成 MongoDB 使用 MongoTemplate 实现基本增删改查 --- 2021-11-15](./doc/80.spring_boot_2_mongptemplate_simple_crud.md "./doc/80.spring_boot_2_mongptemplate_simple_crud.md")  
+
 ​    
 
 #### 3.11 PDF 导出  
