@@ -140,6 +140,8 @@ Quick start :
 
 [3.10.4 Springboot 2.X MongoTemplate 统计查询以及查询部分指定字段 --- 2021-11-16](./doc/82.spring_boot_2_mongotemplate_statistic_query.md "./doc/82.spring_boot_2_mongotemplate_statistic_query.md")  
 
+[3.10.5 SpringBoot 2.X MongoTemplate 分组聚合查询一网打尽  --- 2021-11-19](./doc/83.spring_boot_2_mongotemplate_query_group_all.md "./doc/83.spring_boot_2_mongotemplate_query_group_all.md")  
+
 ​    
 
 #### 3.11 PDF 导出  

@@ -19,16 +19,16 @@ public class BlogQueryGroupByUpdateTimeParam implements Serializable {
     private static final long serialVersionUID = 2760417598516960498L;
 
     /**
-     * 最小更新时间
+     * 最小更新时间(时间戳,精确到毫秒)
      */
     @NotNull(message = "最小更新时间不能为空")
-    @ApiModelProperty(value = "最小更新时间", name = "minUpdateTime", required = true, example = "0")
+    @ApiModelProperty(value = "最小更新时间(时间戳,精确到毫秒)", name = "minUpdateTime", required = true, example = "0")
     private Long minUpdateTime;
     /**
-     * 最大更新时间
+     * 最大更新时间(时间戳,精确到毫秒)
      */
     @NotNull(message = "最大更新时间不能为空")
-    @ApiModelProperty(value = "最大更新时间", name = "maxUpdateTime", required = true, example = "0")
+    @ApiModelProperty(value = "最大更新时间(时间戳,精确到毫秒)", name = "maxUpdateTime", required = true, example = "0")
     private Long maxUpdateTime;
 
 }

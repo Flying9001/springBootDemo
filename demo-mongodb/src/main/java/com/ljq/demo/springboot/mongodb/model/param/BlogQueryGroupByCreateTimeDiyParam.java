@@ -19,16 +19,16 @@ public class BlogQueryGroupByCreateTimeDiyParam implements Serializable {
     private static final long serialVersionUID = -8200304840074072884L;
 
     /**
-     * 最小创建时间
+     * 最小创建时间(时间戳,精确到毫秒)
      */
     @NotNull(message = "最小创建时间不能为空")
-    @ApiModelProperty(value = "最小创建时间", name = "minCreateTime", required = true, example = "0")
+    @ApiModelProperty(value = "最小创建时间(时间戳,精确到毫秒)", name = "minCreateTime", required = true, example = "0")
     private Long minCreateTime;
     /**
-     * 最大创建时间
+     * 最大创建时间(时间戳,精确到毫秒)
      */
     @NotNull(message = "最大创建时间不能为空")
-    @ApiModelProperty(value = "最大创建时间", name = "maxCreateTime", required = true, example = "0")
+    @ApiModelProperty(value = "最大创建时间(时间戳,精确到毫秒)", name = "maxCreateTime", required = true, example = "0")
     private Long maxCreateTime;
 
 }
