@@ -3,6 +3,7 @@ package com.ljq.demo.springboot.mongodb.controller;
 import com.ljq.demo.springboot.mongodb.common.api.ApiResult;
 import com.ljq.demo.springboot.mongodb.model.entity.BlogEntity;
 import com.ljq.demo.springboot.mongodb.model.param.*;
+import com.ljq.demo.springboot.mongodb.model.vo.BlogSummaryVo;
 import com.ljq.demo.springboot.mongodb.service.BlogService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -12,6 +13,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Description: 博客控制层
@@ -99,6 +102,84 @@ public class BlogController {
     public ResponseEntity<ApiResult<BlogEntity>> summaryReadCount(@Validated BlogReadCountSummaryParam
                                                                         readCountSummaryParam) {
         return ResponseEntity.ok(blogService.summaryReadCount(readCountSummaryParam));
+    }
+
+    /**
+     * 按照作者分组查询博客数据
+     *
+     * @param queryGroupByAuthorParam
+     * @return
+     */
+    @GetMapping(value = "/query/group/author")
+    @ApiOperation(value = "按照作者分组查询博客数据", notes = "按照作者分组查询博客数据")
+    public ResponseEntity<ApiResult<List<BlogSummaryVo>>> queryGroupByAuthor(@Validated BlogQueryGroupByAuthorParam
+                                                                          queryGroupByAuthorParam) {
+        return ResponseEntity.ok(blogService.queryGroupByAuthor(queryGroupByAuthorParam));
+    }
+
+    /**
+     * 按照作者分组分页查询博客数据
+     *
+     * @param queryGroupByAuthorPageParam
+     * @return
+     */
+    @GetMapping(value = "/query/group/author/page")
+    @ApiOperation(value = "按照作者分组分页查询博客数据", notes = "按照作者分组分页查询博客数据")
+    public ResponseEntity<ApiResult<Page<BlogSummaryVo>>> queryGroupByAuthorPage(@Validated
+            BlogQueryGroupByAuthorPageParam queryGroupByAuthorPageParam) {
+        return ResponseEntity.ok(blogService.queryGroupByAuthorPage(queryGroupByAuthorPageParam));
+    }
+
+    /**
+     * 按照客户端时间分组查询博客数据
+     *
+     * @param queryGroupByClientTimestampParam
+     * @return
+     */
+    @GetMapping(value = "/query/group/clientTimestamp")
+    @ApiOperation(value = "按照客户端时间分组查询博客数据", notes = "按照客户端时间分组查询博客数据")
+    public ResponseEntity<ApiResult<List<BlogSummaryVo>>> queryGroupByClientTimestamp(@Validated
+           BlogQueryGroupByClientTimestampParam queryGroupByClientTimestampParam) {
+        return ResponseEntity.ok(blogService.queryGroupByClientTimestamp(queryGroupByClientTimestampParam));
+    }
+
+    /**
+     * 按照创建时间分组查询博客数据
+     *
+     * @param queryGroupByCreateTimeParam
+     * @return
+     */
+    @GetMapping(value = "/query/group/createTime")
+    @ApiOperation(value = "按照创建时间分组查询博客数据", notes = "按照创建时间分组查询博客数据")
+    public ResponseEntity<ApiResult<List<BlogSummaryVo>>> queryGroupByCreateTime(@Validated
+            BlogQueryGroupByCreateTimeParam queryGroupByCreateTimeParam) {
+        return ResponseEntity.ok(blogService.queryGroupByCreateTime(queryGroupByCreateTimeParam));
+    }
+
+    /**
+     * 按照创建时间自定义区间分组查询博客数据
+     *
+     * @param queryGroupByCreateTimeDiyParam
+     * @return
+     */
+    @GetMapping(value = "/query/group/createTime/diy")
+    @ApiOperation(value = "按照创建时间自定义区间分组查询博客数据", notes = "按照创建时间自定义区间分组查询博客数据")
+    public ResponseEntity<ApiResult<List<BlogSummaryVo>>> queryGroupByCreateTimeDiy(@Validated
+            BlogQueryGroupByCreateTimeDiyParam queryGroupByCreateTimeDiyParam) {
+        return ResponseEntity.ok(blogService.queryGroupByCreateTimeDiy(queryGroupByCreateTimeDiyParam));
+    }
+
+    /**
+     * 按照更新时间分组查询博客数据
+     *
+     * @param queryGroupByUpdateTimeParam
+     * @return
+     */
+    @GetMapping(value = "/query/group/updateTime")
+    @ApiOperation(value = "按照更新时间分组查询博客数据", notes = "按照更新时间分组查询博客数据")
+    public ResponseEntity<ApiResult<List<BlogSummaryVo>>> queryGroupByUpdateTime(@Validated
+            BlogQueryGroupByUpdateTimeParam queryGroupByUpdateTimeParam) {
+        return ResponseEntity.ok(blogService.queryGroupByUpdateTime(queryGroupByUpdateTimeParam));
     }
 
     /**

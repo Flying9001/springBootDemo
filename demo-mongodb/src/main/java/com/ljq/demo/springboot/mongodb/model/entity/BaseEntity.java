@@ -8,6 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @Description: 基础实体类
@@ -38,5 +39,5 @@ public class BaseEntity implements Serializable {
     @Field
     @LastModifiedDate
     @ApiModelProperty(value = "修改时间", name = "updateTime")
-    private Long updateTime;
+    private Date updateTime;
 }

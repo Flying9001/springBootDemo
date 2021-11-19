@@ -59,6 +59,54 @@ public interface BlogService {
     ApiResult summaryReadCount(BlogReadCountSummaryParam readCountSummaryParam);
 
     /**
+     * 按照作者分组查询博客数据
+     *
+     * @param queryGroupByAuthorParam
+     * @return
+     */
+    ApiResult queryGroupByAuthor(BlogQueryGroupByAuthorParam queryGroupByAuthorParam);
+
+    /**
+     * 按照作者分组分页查询你博客数据
+     *
+     * @param queryGroupByAuthorPageParam
+     * @return
+     */
+    ApiResult queryGroupByAuthorPage(BlogQueryGroupByAuthorPageParam queryGroupByAuthorPageParam);
+
+    /**
+     * 按照客户端时间分组查询博客数据
+     *
+     * @param queryGroupByClientTimestampParam
+     * @return
+     */
+    ApiResult queryGroupByClientTimestamp(BlogQueryGroupByClientTimestampParam queryGroupByClientTimestampParam);
+
+    /**
+     * 按照创建时间分组查询博客数据
+     *
+     * @param queryGroupByCreateTimeParam
+     * @return
+     */
+    ApiResult queryGroupByCreateTime(BlogQueryGroupByCreateTimeParam queryGroupByCreateTimeParam);
+
+    /**
+     * 按照创建时间自定义区间分组查询博客数据
+     *
+     * @param queryGroupByCreateTimeDiyParam
+     * @return
+     */
+    ApiResult queryGroupByCreateTimeDiy(BlogQueryGroupByCreateTimeDiyParam queryGroupByCreateTimeDiyParam);
+
+    /**
+     * 按照更新时间分组查询博客数据
+     *
+     * @param queryGroupByUpdateTimeParam
+     * @return
+     */
+    ApiResult queryGroupByUpdateTime(BlogQueryGroupByUpdateTimeParam queryGroupByUpdateTimeParam);
+
+    /**
      * 更新单条博客
      *
      * @param updateParam

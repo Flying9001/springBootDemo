@@ -5,12 +5,16 @@ import cn.hutool.core.bean.copier.CopyOptions;
 import cn.hutool.core.util.StrUtil;
 import com.ljq.demo.springboot.mongodb.common.api.ApiResult;
 import com.ljq.demo.springboot.mongodb.common.api.ResponseCode;
+import com.ljq.demo.springboot.mongodb.common.constant.BlogConst;
 import com.ljq.demo.springboot.mongodb.model.entity.BlogEntity;
 import com.ljq.demo.springboot.mongodb.model.param.*;
+import com.ljq.demo.springboot.mongodb.model.vo.BlogGroupDateVo;
+import com.ljq.demo.springboot.mongodb.model.vo.BlogSummaryDiyVo;
 import com.ljq.demo.springboot.mongodb.model.vo.BlogSummaryVo;
 import com.ljq.demo.springboot.mongodb.service.BlogService;
 import com.mongodb.client.result.DeleteResult;
 import lombok.extern.slf4j.Slf4j;
+import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,18 +22,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.BulkOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.aggregation.Aggregation;
-import org.springframework.data.mongodb.core.aggregation.AggregationResults;
-import org.springframework.data.mongodb.core.aggregation.GroupOperation;
-import org.springframework.data.mongodb.core.aggregation.MatchOperation;
+import org.springframework.data.mongodb.core.aggregation.*;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.support.PageableExecutionUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -72,6 +72,8 @@ public class BlogServiceImpl implements BlogService {
         List<BlogEntity> blogEntityList = addBatchParam.getBlogList().stream().map(blogAddParam -> {
             BlogEntity blogEntity = new BlogEntity();
             BeanUtil.copyProperties(blogAddParam, blogEntity);
+            blogEntity.setCountRead(0);
+            blogEntity.setCountLike(0);
             return blogEntity;
         }).collect(Collectors.toList());
         mongoTemplate.insert(blogEntityList, BlogEntity.class);
@@ -174,6 +176,235 @@ public class BlogServiceImpl implements BlogService {
     }
 
     /**
+     * 按照作者分组查询博客数据
+     *
+     * @param queryGroupByAuthorParam
+     * @return
+     */
+    @Override
+    public ApiResult queryGroupByAuthor(BlogQueryGroupByAuthorParam queryGroupByAuthorParam) {
+        // 查询条件
+        Criteria criteria = new Criteria();
+        if (StrUtil.isNotBlank(queryGroupByAuthorParam.getAuthor())) {
+            criteria.and("author").is(queryGroupByAuthorParam.getAuthor());
+        }
+        MatchOperation matchOperation = Aggregation.match(criteria);
+        // 查询字段
+        ProjectionOperation projectionOperation = Aggregation.project("id", "author", "countRead", "countLike");
+        // 分组统计
+        GroupOperation groupOperation = Aggregation.group("author")
+                .first("author").as("author")
+                .count().as("totalBlog")
+                .sum("countRead").as("totalRead")
+                .avg("countRead").as("aveRead")
+                .sum("countLike").as("totalLike")
+                .avg("countLike").as("aveLike");
+        // 查询结果
+        AggregationResults<BlogSummaryVo> results = mongoTemplate.aggregate(Aggregation.newAggregation(
+                BlogEntity.class,matchOperation, projectionOperation, groupOperation), BlogSummaryVo.class);
+        log.info("查询结果: {}", results.getMappedResults());
+        return ApiResult.success(results.getMappedResults());
+    }
+
+    /**
+     * 按照作者分组分页查询你博客数据
+     *
+     * @param queryGroupByAuthorPageParam
+     * @return
+     */
+    @Override
+    public ApiResult queryGroupByAuthorPage(BlogQueryGroupByAuthorPageParam queryGroupByAuthorPageParam) {
+        // 查询条件
+        Criteria criteria = new Criteria();
+        MatchOperation matchOperation = Aggregation.match(criteria);
+        // 查询字段
+        ProjectionOperation projectionOperation = Aggregation.project("id", "author","countRead", "countLike");
+        // 分组统计
+        GroupOperation groupOperation = Aggregation.group("author")
+                .first("author").as("author")
+                .count().as("totalBlog")
+                .sum("countRead").as("totalRead")
+                .avg("countRead").as("aveRead")
+                .sum("countLike").as("totalLike")
+                .avg("countLike").as("aveLike");
+        // 查询总条数
+        GroupOperation groupOperation2 = Aggregation.group().count().as("totalAuthor");
+        AggregationResults<Map> totalAuthorResult = mongoTemplate.aggregate(Aggregation.newAggregation(BlogEntity.class,
+                matchOperation, projectionOperation, groupOperation, groupOperation2), Map.class);
+        int totalAuthor = (int) totalAuthorResult.getUniqueMappedResult().getOrDefault("totalAuthor", 0);
+        // 设置分页信息
+        SortOperation sortOperation = Aggregation.sort(Sort.by(Sort.Direction.DESC, "author"));
+        SkipOperation skipOperation = Aggregation.skip((queryGroupByAuthorPageParam.getCurrentPage() - 1)
+                * (long) queryGroupByAuthorPageParam.getPageSize());
+        LimitOperation limitOperation = Aggregation.limit(queryGroupByAuthorPageParam.getPageSize());
+        // 查询结果
+        AggregationResults<BlogSummaryVo> results = mongoTemplate.aggregate(Aggregation.newAggregation(
+                BlogEntity.class, matchOperation, projectionOperation, groupOperation, sortOperation,
+                skipOperation, limitOperation), BlogSummaryVo.class);
+        // 组装分页结果
+        Page<BlogSummaryVo> page = PageableExecutionUtils.getPage(results.getMappedResults(),
+                PageRequest.of(queryGroupByAuthorPageParam.getCurrentPage() -1,
+                        queryGroupByAuthorPageParam.getPageSize()), () -> totalAuthor);
+        return ApiResult.success(page);
+    }
+
+    /**
+     * 按照客户端时间分组查询博客数据
+     *
+     * @param queryGroupByClientTimestampParam
+     * @return
+     */
+    @Override
+    public ApiResult queryGroupByClientTimestamp(BlogQueryGroupByClientTimestampParam
+                                                             queryGroupByClientTimestampParam) {
+        // 获取日期分组信息
+        BlogGroupDateVo groupDateVo = getGroupDate(queryGroupByClientTimestampParam.getDateType());
+        // 查询条件
+        Criteria criteria = Criteria.where("clientTimestamp").gte(queryGroupByClientTimestampParam
+                        .getMinClientTimestamp()).lte(queryGroupByClientTimestampParam.getMaxClientTimestamp());
+        MatchOperation matchOperation = Aggregation.match(criteria);
+        // 查询字段
+        ProjectionOperation projectionOperation = Aggregation.project("countRead","countLike","clientTimestamp")
+                .and(DateOperators.DateToString.dateOf(aggregationOperationContext ->
+                                new Document("$add", Arrays.asList(new Date(28800000),
+                                        new Document("$multiply", Arrays.asList("$clientTimestamp", 1000)))))
+                        .toString(groupDateVo.getDateFormat())).as(groupDateVo.getDateGroupField());
+        // 分组统计
+        GroupOperation groupOperation = Aggregation.group(groupDateVo.getDateGroupField())
+                .first(groupDateVo.getDateGroupField()).as("date")
+                .count().as("totalBlog")
+                .sum("countRead").as("totalRead")
+                .avg("countRead").as("aveRead")
+                .sum("countLike").as("totalLike")
+                .avg("countLike").as("aveLike");
+        // 排序
+        SortOperation sortOperation = Aggregation.sort(Sort.by(Sort.Direction.ASC, "date"));
+        // 查询结果
+        AggregationResults<BlogSummaryVo> results = mongoTemplate.aggregate(Aggregation.newAggregation(
+                BlogEntity.class, matchOperation, projectionOperation, groupOperation, sortOperation),
+                BlogSummaryVo.class);
+        return ApiResult.success(results.getMappedResults());
+    }
+
+    /**
+     * 按照创建时间分组查询博客数据
+     *
+     * @param queryGroupByCreateTimeParam
+     * @return
+     */
+    @Override
+    public ApiResult queryGroupByCreateTime(BlogQueryGroupByCreateTimeParam queryGroupByCreateTimeParam) {
+        // 获取日期分组信息
+        BlogGroupDateVo groupDateVo = getGroupDate(queryGroupByCreateTimeParam.getDateType());
+        // 查询条件
+        Criteria criteria = Criteria.where("createTime").gte(queryGroupByCreateTimeParam.getMinCreateTime())
+                .lte(queryGroupByCreateTimeParam.getMaxCreateTime());
+        MatchOperation matchOperation = Aggregation.match(criteria);
+        // 查询字段
+        ProjectionOperation projectionOperation = Aggregation.project("countRead", "countLike","createTime")
+                .and(DateOperators.DateToString.dateOf(aggregationOperationContext ->
+                                new Document("$add", Arrays.asList(new Date(28800000),"$createTime")))
+                        .toString(groupDateVo.getDateFormat())).as(groupDateVo.getDateGroupField());
+        // 分组统计
+        GroupOperation groupOperation = Aggregation.group(groupDateVo.getDateGroupField())
+                .first(groupDateVo.getDateGroupField()).as("date")
+                .count().as("totalBlog")
+                .sum("countRead").as("totalRead")
+                .avg("countRead").as("aveRead")
+                .sum("countLike").as("totalLike")
+                .avg("countLike").as("aveLike");
+        // 排序
+        SortOperation sortOperation = Aggregation.sort(Sort.by(Sort.Direction.ASC, "date"));
+        // 查询结果
+        AggregationResults<BlogSummaryVo> results = mongoTemplate.aggregate(Aggregation.newAggregation(
+                BlogEntity.class, matchOperation, projectionOperation, groupOperation, sortOperation),
+                BlogSummaryVo.class);
+        return ApiResult.success(results.getMappedResults());
+    }
+
+    /**
+     * 按照创建时间自定义区间分组查询博客数据
+     *
+     * @param queryGroupByCreateTimeDiyParam
+     * @return
+     */
+    @Override
+    public ApiResult queryGroupByCreateTimeDiy(BlogQueryGroupByCreateTimeDiyParam queryGroupByCreateTimeDiyParam) {
+        // 查询条件
+        Criteria criteria = Criteria.where("createTime").gte(queryGroupByCreateTimeDiyParam.getMinCreateTime())
+                .lte(queryGroupByCreateTimeDiyParam.getMaxCreateTime());
+        MatchOperation matchOperation = Aggregation.match(criteria);
+        // 查询字段
+        ProjectionOperation projectionOperation = Aggregation.project("countRead", "countLike","createTime")
+                .and(DateOperators.Minute.minuteOf(aggregationOperationContext ->
+                                new Document("$add", Arrays.asList(new Date(28800000),"$createTime"))))
+                        .as("minute")
+                .and(DateOperators.Hour.hourOf(aggregationOperationContext ->
+                        new Document("$add", Arrays.asList(new Date(28800000),"$createTime"))))
+                .as("hour")
+                .and(DateOperators.DateToString.dateOf(aggregationOperationContext ->
+                                new Document("$add", Arrays.asList(new Date(28800000),"$createTime")))
+                        .toString("%Y-%m-%d")).as("day");
+        ProjectionOperation projectionOperation2 = Aggregation.project("countRead", "countLike",
+                "createTime", "minute", "hour","day")
+                .andExpression("minute - minute % 30").as("halfHour");
+        // 分组统计
+        GroupOperation groupOperation = Aggregation.group("day","hour","halfHour")
+                .addToSet("hour").as("hour")
+                .addToSet("day").as("date")
+                .addToSet("halfHour").as("minute")
+                .count().as("totalBlog")
+                .sum("countRead").as("totalRead")
+                .avg("countRead").as("aveRead")
+                .sum("countLike").as("totalLike")
+                .avg("countLike").as("aveLike");
+        // 排序
+        SortOperation sortOperation = Aggregation.sort(Sort.by(Sort.Direction.ASC, "day", "hour", "halfHour"));
+        // 查询结果
+        AggregationResults<BlogSummaryDiyVo> results = mongoTemplate.aggregate(Aggregation.newAggregation(
+                        BlogEntity.class, matchOperation, projectionOperation, projectionOperation2,
+                        groupOperation, sortOperation), BlogSummaryDiyVo.class);
+        return ApiResult.success(results.getMappedResults());
+    }
+
+    /**
+     * 按照更新时间分组查询博客数据
+     *
+     * @param queryGroupByUpdateTimeParam
+     * @return
+     */
+    @Override
+    public ApiResult queryGroupByUpdateTime(BlogQueryGroupByUpdateTimeParam queryGroupByUpdateTimeParam) {
+        // 查询条件
+        Criteria criteria = Criteria.where("updateTime").gte(new Date(queryGroupByUpdateTimeParam.getMinUpdateTime()))
+                .lte(new Date(queryGroupByUpdateTimeParam.getMaxUpdateTime()));
+        MatchOperation matchOperation = Aggregation.match(criteria);
+        // 查询字段
+        ProjectionOperation projectionOperation = Aggregation.project("countRead", "countLike", "updateTime")
+                .and(DateOperators.DayOfMonth.dayOfMonth("updateTime")).as("day")
+                .and(DateOperators.Month.monthOf("updateTime")).as("month")
+                .and(DateOperators.Year.yearOf("updateTime")).as("year");
+        // 分组统计
+        GroupOperation groupOperation = Aggregation.group("year","month","day")
+                .addToSet("year").as("year")
+                .addToSet("month").as("month")
+                .addToSet("day").as("date")
+                .count().as("totalBlog")
+                .sum("countRead").as("totalRead")
+                .avg("countRead").as("aveRead")
+                .sum("countLike").as("totalLike")
+                .avg("countLike").as("aveLike");
+        // 排序
+        SortOperation sortOperation = Aggregation.sort(Sort.by(Sort.Direction.ASC, "_id.year",
+                        "_id.month", "_id.day"));
+        // 查询结果
+        AggregationResults<BlogSummaryDiyVo> results = mongoTemplate.aggregate(Aggregation.newAggregation(
+                        BlogEntity.class, matchOperation, projectionOperation, groupOperation, sortOperation),
+                BlogSummaryDiyVo.class);
+        return ApiResult.success(results.getMappedResults());
+    }
+
+    /**
      * 更新单条博客
      *
      * @param updateParam
@@ -246,5 +477,30 @@ public class BlogServiceImpl implements BlogService {
                 .map(BlogDeleteOneParam::getId).collect(Collectors.toList());
         DeleteResult result = mongoTemplate.remove(Query.query(Criteria.where("id").in(idList)), BlogEntity.class);
         return ApiResult.success(result.getDeletedCount());
+    }
+
+    /**
+     * 获取博客日期分组信息
+     *
+     * @param dateType
+     * @return
+     */
+    private BlogGroupDateVo getGroupDate(Integer dateType) {
+        BlogGroupDateVo groupDateVo = new BlogGroupDateVo();
+        switch (dateType) {
+            case BlogConst.DATE_TYPE_DAY:
+                groupDateVo.setDateGroupField("day");
+                groupDateVo.setDateFormat("%Y-%m-%d");
+                break;
+            case BlogConst.DATE_TYPE_MONTH:
+                groupDateVo.setDateGroupField("month");
+                groupDateVo.setDateFormat("%Y-%m");
+                break;
+            default:
+                groupDateVo.setDateGroupField("day");
+                groupDateVo.setDateFormat("%Y-%m-%d");
+                break;
+        }
+        return groupDateVo;
     }
 }
