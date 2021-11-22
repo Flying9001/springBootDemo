@@ -14,6 +14,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -25,7 +26,6 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
-import java.util.UUID;
 
 /**
  * @Description: 日志记录切点
@@ -54,7 +54,7 @@ public class LogAspect {
     @Around(value = "controllerPointcut()")
     public Object controllerLogAround(ProceedingJoinPoint joinPoint) throws Throwable {
         // 获取 request 中包含的请求参数
-        String uuid = UUID.randomUUID().toString();
+        String requestId = MDC.get("requestId");
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         // 获取切点请求参数(class,method)
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
@@ -64,19 +64,19 @@ public class LogAspect {
         if (Objects.isNull(logConfig)) {
             // 入参日志
             logger.info("[AOP-LOG-START]\n\trequestMark: {}\n\trequestIP: {}\n\tcontentType:{}\n\trequestUrl: {}\n\t" +
-                            "requestMethod: {}\n\trequestParams: {}\n\ttargetClassAndMethod: {}#{}", uuid, getIpAddress(request),
+                            "requestMethod: {}\n\trequestParams: {}\n\ttargetClassAndMethod: {}#{}", requestId, getIpAddress(request),
                     request.getHeader("Content-Type"), request.getRequestURL(), request.getMethod(), params,
                     method.getDeclaringClass().getName(), method.getName());
             // 出参日志
             Object result = joinPoint.proceed();
             logger.info("[AOP-LOG-END]\n\trequestMark: {}\n\trequestUrl: {}\n\tresponse: {}",
-                    uuid, request.getRequestURL(), result);
+                    requestId, request.getRequestURL(), result);
             return result;
         }
         if (!logConfig.ignoreInput()) {
             // 入参日志
             logger.info("[AOP-LOG-START]\n\trequestMark: {}\n\trequestIP: {}\n\tcontentType:{}\n\trequestUrl: {}\n\t" +
-                            "requestMethod: {}\n\trequestParams: {}\n\ttargetClassAndMethod: {}#{}", uuid, getIpAddress(request),
+                            "requestMethod: {}\n\trequestParams: {}\n\ttargetClassAndMethod: {}#{}", requestId, getIpAddress(request),
                     request.getHeader("Content-Type"), request.getRequestURL(), request.getMethod(), params,
                     method.getDeclaringClass().getName(), method.getName());
         }
@@ -84,7 +84,7 @@ public class LogAspect {
         if (!logConfig.ignoreOutput()) {
             // 出参日志
             logger.info("[AOP-LOG-END]\n\trequestMark: {}\n\trequestUrl: {}\n\tresponse: {}",
-                    uuid, request.getRequestURL(), result);
+                    requestId, request.getRequestURL(), result);
             return result;
         }
         return result;

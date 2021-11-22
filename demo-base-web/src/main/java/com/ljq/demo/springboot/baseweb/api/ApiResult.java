@@ -3,6 +3,7 @@ package com.ljq.demo.springboot.baseweb.api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.slf4j.MDC;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -47,6 +48,12 @@ public class ApiResult<T> implements Serializable {
      */
     @ApiModelProperty(value = "服务器系统时间，时间戳(精确到毫秒)", name = "timestamp")
     private Long timestamp = System.currentTimeMillis();
+
+    /**
+     * 请求 ID
+     */
+    @ApiModelProperty(value = "请求 id", name = "requestId")
+    private String requestId = MDC.get("requestId");
 
     /**
      * 获取成功状态结果
