@@ -194,6 +194,8 @@ Quick start :
 
 [3.x.14 Spring Boot 集成 Redisson 实现分布式锁 --- 2021-09-29](./doc/72.spring_boot_redisson_disturbed_lock.md "./doc/72.spring_boot_redisson_disturbed_lock.md")  
 
+[3.x.15 SpringBoot 2.X Redis Jackson 序列化配置 --- 2021-11-22](./doc/84.spring_boot_2_redis_serialization_jackson.md "./doc/84.spring_boot_2_redis_serialization_jackson.md")  
+
 
 
 
