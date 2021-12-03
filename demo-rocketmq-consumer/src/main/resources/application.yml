@@ -1,0 +1,14 @@
+## server
+server:
+  port: 8751
+
+## spring
+spring:
+  application:
+    name: demo-rocketmq-consumer
+
+## rocketMQ
+rocketmq:
+  name-server: 172.16.140.10:9876
+
+

@@ -1,0 +1,18 @@
+## server
+server:
+  port: 8750
+
+## spring
+spring:
+  application:
+    name: demo-rocketmq-producer
+
+## rocketMQ
+rocketmq:
+  name-server: 172.16.140.10:9876
+  producer:
+    group: rocketmq-producer-group
+    send-message-timeout: 30000
+    max-message-size: 100000
+
+

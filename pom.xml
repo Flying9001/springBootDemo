@@ -48,6 +48,8 @@
         <module>demo-swagger3</module>
         <module>demo-mongodb</module>
         <module>demo-maven-assembly</module>
+        <module>demo-rocketmq-producer</module>
+        <module>demo-rocketmq-consumer</module>
     </modules>
 
     <properties>
