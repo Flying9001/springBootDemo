@@ -110,6 +110,8 @@ Quick start :
 
 [3.7.4 SpringBoot 2.X 基于 Redis 实现延时消息队列功能 --- 2021-10-18](./doc/75.spring_boot_2_redis_delayed_message_queue.md "./doc/75.spring_boot_2_redis_delayed_message_queue.md")  
 
+[3.7.5 SpringBoot 2.x 简易集成 RocketMQ --- 2021-12-03](./doc/89.spring_boot_2_rocketmq_simple.md "./doc/89.spring_boot_2_rocketmq_simple.md")  
+
 
 
 #### 3.8 定时任务  

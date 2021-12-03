@@ -50,4 +50,6 @@
 | demo-mongodb                        | 8650                | Tomcat   | SpringBoot 项目，SpringBoot 集成 MongoDB，不依赖主项目       |
 | demo-sagger3                        | 8680                | Tomcat   | SpringBoot 项目，SpringBoot 集成 Swagger3，不依赖主项目      |
 | demo-maven-assembly                 | 8700                | Tomcat   | SpringBoot 项目，SpringBoot 使用 assembly 插件打包，<br />不依赖主项目 |
+| demo-rocketmq-producer              | 8750                | Tomcat   | SpringBoot 项目，SpringBoot 集成 RocketMQ，消息生产者，不依赖主项目 |
+| demo-rocketmq-consumer              | 8751                | Tomcat   | SpringBoot 项目，SpringBoot 集成 RocketMQ，消息消费者，不依赖主项目 |
 
