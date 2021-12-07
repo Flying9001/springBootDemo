@@ -112,6 +112,8 @@ Quick start :
 
 [3.7.5 SpringBoot 2.x 简易集成 RocketMQ --- 2021-12-03](./doc/89.spring_boot_2_rocketmq_simple.md "./doc/89.spring_boot_2_rocketmq_simple.md")  
 
+[3.7.6 SpringBoot 2 集成 RocketMQ 4.9 收发同步、异步以及事务消息 --- 2021-12-07](./doc/90.rping_boot_2_rocketmq_message.md "./doc/90.rping_boot_2_rocketmq_message.md")  
+
 
 
 #### 3.8 定时任务  
