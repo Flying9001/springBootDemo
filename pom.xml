@@ -50,6 +50,7 @@
         <module>demo-maven-assembly</module>
         <module>demo-rocketmq-producer</module>
         <module>demo-rocketmq-consumer</module>
+        <module>demo-elasticsearch</module>
     </modules>
 
     <properties>

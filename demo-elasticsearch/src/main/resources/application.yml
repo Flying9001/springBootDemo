@@ -1,0 +1,24 @@
+## server
+server:
+  port: 8800
+
+
+## spring
+spring:
+  application:
+    name: demo-elasticsearch
+  elasticsearch:
+    rest:
+      uris: 172.16.140.10:9200
+      username: elastic
+      password: elastic666
+      connection-timeout: 10S
+      read-timeout: 30S
+      sniffer:
+        interval: 5m
+        delay-after-failure: 1m
+
+
+
+
+
