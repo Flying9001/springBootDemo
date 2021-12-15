@@ -52,4 +52,5 @@
 | demo-maven-assembly                 | 8700                | Tomcat   | SpringBoot 项目，SpringBoot 使用 assembly 插件打包，<br />不依赖主项目 |
 | demo-rocketmq-producer              | 8750                | Tomcat   | SpringBoot 项目，SpringBoot 集成 RocketMQ，消息生产者，不依赖主项目 |
 | demo-rocketmq-consumer              | 8751                | Tomcat   | SpringBoot 项目，SpringBoot 集成 RocketMQ，消息消费者，不依赖主项目 |
+| demo-elasticsearch                  | 8800                | Tomcat   | SpringBoot 项目，SpringBoot 集成 Elasticsearch，不依赖主项目 |
 
