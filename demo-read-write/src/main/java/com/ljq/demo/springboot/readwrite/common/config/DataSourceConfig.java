@@ -55,8 +55,8 @@ public class DataSourceConfig {
      */
     @Bean
     @Primary
-    DataSource primaryDataSource(@Qualifier("masterDataSource") DataSource masterDataSource,
-                                 @Qualifier("slaveDataSource") DataSource slaveDataSource) {
+    DataSource primaryDataSource(@Qualifier(DataSourceConst.DATASOURCE_MASTER) DataSource masterDataSource,
+                                 @Qualifier(DataSourceConst.DATASOURCE_SLAVE) DataSource slaveDataSource) {
         log.info("init datasource routing");
         Map<Object, Object> map = new HashMap<>(8);
         map.put(DataSourceConst.DATASOURCE_MASTER, masterDataSource);

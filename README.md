@@ -206,6 +206,8 @@ Quick start :
 
 [3.x.15 SpringBoot 2.X Redis Jackson 序列化配置 --- 2021-11-22](./doc/84.spring_boot_2_redis_serialization_jackson.md "./doc/84.spring_boot_2_redis_serialization_jackson.md")  
 
+[3.x.16 SpringBoot 2.6 集成 MySQL 多数据源读写分离 --- 2022-02-15](./doc/92.spring_boot_2.6_multiply_data_source_read_and_write_detached.md "./doc/92.spring_boot_2.6_multiply_data_source_read_and_write_detached.md")  
+
 
 
 

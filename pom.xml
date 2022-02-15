@@ -51,6 +51,7 @@
         <module>demo-rocketmq-producer</module>
         <module>demo-rocketmq-consumer</module>
         <module>demo-elasticsearch</module>
+        <module>demo-read-write</module>
     </modules>
 
     <properties>
