@@ -1,0 +1,29 @@
+## config
+
+## server
+server:
+  port: 8901
+
+## spring
+spring:
+  application:
+    name: demo-kafka-consumer
+  kafka:
+    bootstrap-servers: 172.16.140.10:9092
+    consumer:
+      group-id: 1
+      enable-auto-commit: true
+      auto-commit-interval: 100ms
+      properties:
+        session.timeout.ms: 15000
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+
