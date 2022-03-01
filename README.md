@@ -114,6 +114,8 @@ Quick start :
 
 [3.7.6 SpringBoot 2 集成 RocketMQ 4.9 收发同步、异步以及事务消息 --- 2021-12-07](./doc/90.sping_boot_2_rocketmq_message.md "./doc/90.sping_boot_2_rocketmq_message.md")  
 
+[3.7.7 SpringBoot 2.6 集成 Kafka 2.8 --- 2022-03-01](./doc/93.springboot_2.6_kafka_2.8.md "./doc/93.springboot_2.6_kafka_2.8.md")  
+
 
 
 #### 3.8 定时任务  
