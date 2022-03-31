@@ -22,7 +22,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
         <java.version>1.8</java.version>
-        <springboot.version>2.3.0.RELEASE</springboot.version>
+        <springboot.version>2.5.12</springboot.version>
         <activiti.version>6.0.0</activiti.version>
         <swagger2.version>2.9.2</swagger2.version>
         <mysql.version>8.0.18</mysql.version>
