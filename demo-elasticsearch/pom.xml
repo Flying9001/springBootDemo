@@ -21,7 +21,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <springboot.version>2.5.7</springboot.version>
+        <springboot.version>2.5.12</springboot.version>
         <hutool.version>5.7.17</hutool.version>
         <springfox-swagger3.version>3.0.0</springfox-swagger3.version>
         <elastic.springdata.version>4.3.0</elastic.springdata.version>
