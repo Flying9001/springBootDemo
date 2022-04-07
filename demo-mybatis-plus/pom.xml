@@ -24,7 +24,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
-        <springboot.version>2.3.3.RELEASE</springboot.version>
+        <springboot.version>2.5.12</springboot.version>
         <mysql.version>8.0.21</mysql.version>
         <swagger2.version>2.9.2</swagger2.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
