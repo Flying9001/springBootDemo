@@ -21,7 +21,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <springboot.version>2.6.1</springboot.version>
+        <springboot.version>2.6.6</springboot.version>
         <rocketmq.spring.version>2.2.1</rocketmq.spring.version>
     </properties>
 
