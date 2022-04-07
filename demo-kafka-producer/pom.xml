@@ -21,7 +21,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <springboot.version>2.6.3</springboot.version>
+        <springboot.version>2.6.6</springboot.version>
         <hutool.version>5.7.21</hutool.version>
     </properties>
 
