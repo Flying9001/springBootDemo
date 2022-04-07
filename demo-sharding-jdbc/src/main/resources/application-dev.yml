@@ -1,0 +1,40 @@
+## 不分库,分表
+
+spring:
+  shardingsphere:
+    mode:
+      type: Memory
+    datasource:
+      names: ds1
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: "jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf8\
+                    &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
+                    &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true"
+        username: root
+        password: "xxxx"
+    rules:
+      sharding:
+        tables:
+          router_config:
+            actual-data-nodes: ds1.router_config_$->{0..2}
+            table-strategy:
+              standard:
+                sharding-column: id
+                sharding-algorithm-name: router-config-inline
+            key-generate-strategy:
+              column: id
+              key-generator-name: snowflake
+        sharding-algorithms:
+          router-config-inline:
+            type: INLINE
+            props:
+              algorithm-expression: router_config_$->{id % 3}
+        key-generators:
+          snowflake:
+            type: SNOWFLAKE
+    props:
+      sql-show: true
+
+

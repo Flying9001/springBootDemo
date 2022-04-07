@@ -1,0 +1,59 @@
+## 分库,分表
+
+spring:
+  shardingsphere:
+    mode:
+      type: Standalone
+      repository:
+        type: File
+      overwrite: true
+    datasource:
+      names: ds0,ds1
+      ds0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: "jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf8\
+                    &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
+                    &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true"
+        username: root
+        password: "xxxx"
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: "jdbc:mysql://127.0.0.1:3306/demo2?useUnicode=true&characterEncoding=utf8\
+                          &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
+                          &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true"
+        username: root
+        password: "xxxx"
+    rules:
+      sharding:
+        default-database-strategy:
+          standard:
+            sharding-column: id
+            sharding-algorithm-name: database-inline
+        tables:
+          router_config:
+            actual-data-nodes: ds$->{0..1}.router_config_$->{0..2}
+            table-strategy:
+              standard:
+                sharding-column: id
+                sharding-algorithm-name: t-router-config-inline
+            key-generate-strategy:
+              column: id
+              key-generator-name: snowflake
+        sharding-algorithms:
+          database-inline:
+            type: INLINE
+            props:
+              algorithm-expression: ds$->{id % 2}
+          t-router-config-inline:
+            type: INLINE
+            props:
+              algorithm-expression: router_config_$->{id % 3}
+        key-generators:
+          snowflake:
+            type: SNOWFLAKE
+    props:
+      sql-show: true
+
+

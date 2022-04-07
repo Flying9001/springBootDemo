@@ -1,0 +1,16 @@
+## server
+server:
+  port: 8950
+
+## spring
+spring:
+  application:
+    name: demo-sharding-jdbc
+  profiles:
+    active: dev
+
+## mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/*.xml
+  type-aliases-package: com.ljq.demo.springboot.sharding.jdbc.model.entity
+
