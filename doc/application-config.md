@@ -56,4 +56,5 @@
 | demo-read-write                     | 8850                | Tomcat   | SpringBoot 项目，SpringBoot 集成 MySQL 读写分离，不依赖主项目 |
 | demo-kafka-producer                 | 8900                | Tomcat   | SpringBoot 项目，SpringBoot 集成 Kafka，消息生产者，不依赖主项目 |
 | demo-kafka-consumer                 | 8901                | Tomcat   | SpringBoot 项目，SpringBoot 集成 Kafka，消息消费者，不依赖主项目 |
+| demo-sharding-jdbc                  | 8950                | Tomcat   | SpringBoot 项目，SpringBoot 集成 Sharding-jdbc，分库分表，不依赖主项目 |
 
