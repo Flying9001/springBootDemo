@@ -9,8 +9,7 @@ spring:
   datasource:
     url: "jdbc:mysql://172.16.140.10:3306/demo?useUnicode=true&characterEncoding=utf8\
       &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
-      &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true\
-      &nullCatalogMeansCurrent=true"
+      &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true"
     username: root
     password: "Qwert12345!"
     hikari:

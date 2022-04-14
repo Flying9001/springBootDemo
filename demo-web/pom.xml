@@ -23,6 +23,7 @@
         <springboot.version>2.0.6.RELEASE</springboot.version>
         <spring-cloud.version>2.0.1.RELEASE</spring-cloud.version>
         <mysql.version>8.0.21</mysql.version>
+        <jackson.version>2.10.1</jackson.version>
 
     </properties>
 

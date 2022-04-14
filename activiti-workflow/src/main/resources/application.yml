@@ -13,8 +13,7 @@ spring:
   datasource:
     url: "jdbc:mysql://127.0.0.1:3306/demo_activiti?useUnicode=true&characterEncoding=utf8\
       &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
-      &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true\
-      &nullCatalogMeansCurrent=true"
+      &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true"
     username: root
     password: "root"
     hikari:
