@@ -55,6 +55,7 @@
         <module>demo-kafka-producer</module>
         <module>demo-kafka-consumer</module>
         <module>demo-sharding-jdbc</module>
+        <module>demo-aws-iot</module>
     </modules>
 
     <properties>

@@ -1,0 +1,15 @@
+## config
+server:
+  port: 9000
+
+spring:
+  application:
+    name: demo-aws-iot
+
+## aws iot config
+aws:
+  iot:
+    clientEndpoint: xxxx.iot.cn-northwest-1.amazonaws.com.cn
+    accessKeyId: xxxxx
+    secretAccessKey: xxxxxxxx
+

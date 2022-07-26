@@ -1,7 +1,6 @@
 package com.ljq.demo.springboot.alibaba.gateway.filter.interceptor;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import cn.hutool.json.JSONUtil;
 import com.ljq.demo.springboot.alibaba.gateway.filter.common.api.ApiResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -17,6 +16,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /**
@@ -45,12 +45,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
         if (CollectionUtils.isEmpty(tokenList) || tokenList.get(0).trim().isEmpty()) {
             ServerHttpResponse response = exchange.getResponse();
             // 错误信息
-            byte[] data = new byte[0];
-            try {
-                data = new ObjectMapper().writeValueAsBytes(ApiResult.fail("Token is null"));
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
-            }
+            byte[] data = JSONUtil.toJsonStr(ApiResult.fail("Token is null")).getBytes(StandardCharsets.UTF_8);
             DataBuffer buffer = response.bufferFactory().wrap(data);
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
             response.getHeaders().add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
