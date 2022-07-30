@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /**
- * @Description: AWS iot 设备端初始化主题订阅
+ * @Description: AWS iot 设备端 MQTT 操作工具类
  * @Author: junqiang.lu
  * @Date: 2022/7/21
  */
