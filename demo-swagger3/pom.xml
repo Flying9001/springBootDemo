@@ -28,6 +28,7 @@
         <mysql.version>8.0.23</mysql.version>
         <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <springfox-swagger3.version>3.0.0</springfox-swagger3.version>
+        <lombok.version>1.18.24</lombok.version>
 
     </properties>
 

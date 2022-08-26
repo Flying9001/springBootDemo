@@ -12,6 +12,7 @@
 
     <properties>
         <springboot.version>2.3.4.RELEASE</springboot.version>
+        <lombok.version>1.18.24</lombok.version>
     </properties>
 
     <dependencies>

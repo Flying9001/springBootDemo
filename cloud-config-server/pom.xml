@@ -21,6 +21,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <spring-cloud.version>2.0.1.RELEASE</spring-cloud.version>
+        <lombok.version>1.18.24</lombok.version>
 
     </properties>
 

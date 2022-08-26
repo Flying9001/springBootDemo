@@ -25,6 +25,7 @@
         <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
         <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
         <spring-cloud-gateway.version>2.2.5.RELEASE</spring-cloud-gateway.version>
+        <lombok.version>1.18.24</lombok.version>
     </properties>
 
     <dependencies>

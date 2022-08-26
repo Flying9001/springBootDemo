@@ -22,7 +22,7 @@
         <hutool.version>5.3.9</hutool.version>
         <auth.jwt.version>3.10.3</auth.jwt.version>
         <commons-lang3.version>3.10</commons-lang3.version>
-        <lombok.version>1.18.12</lombok.version>
+        <lombok.version>1.18.24</lombok.version>
         <hibernate.version>6.0.13.Final</hibernate.version>
         <jsch.version>0.1.55</jsch.version>
         <jasper-report.version>6.16.0</jasper-report.version>

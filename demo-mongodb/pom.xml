@@ -27,6 +27,7 @@
         <springboot.version>2.4.1</springboot.version>
         <hutool.version>5.5.6</hutool.version>
         <swagger2.version>2.9.2</swagger2.version>
+        <lombok.version>1.18.24</lombok.version>
     </properties>
 
     <dependencies>
@@ -44,6 +45,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
             <optional>true</optional>
         </dependency>
         <!-- Swagger 2-->

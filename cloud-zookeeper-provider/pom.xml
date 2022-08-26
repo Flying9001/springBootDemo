@@ -24,6 +24,7 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
         <zookeeper.version>3.4.12</zookeeper.version>
+        <lombok.version>1.18.24</lombok.version>
     </properties>
 
     <dependencies>

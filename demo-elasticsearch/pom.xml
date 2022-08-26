@@ -25,6 +25,8 @@
         <hutool.version>5.7.17</hutool.version>
         <springfox-swagger3.version>3.0.0</springfox-swagger3.version>
         <elastic.springdata.version>4.3.0</elastic.springdata.version>
+        <lombok.version>1.18.24</lombok.version>
+
 
     </properties>
 

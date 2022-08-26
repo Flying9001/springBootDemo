@@ -25,7 +25,7 @@
         <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
         <spring-cloud-openfeign.version>2.2.5.RELEASE</spring-cloud-openfeign.version>
         <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
-        <lombok.version>1.18.16</lombok.version>
+        <lombok.version>1.18.24</lombok.version>
         <skywalking.toolkit.version>8.7.0</skywalking.toolkit.version>
     </properties>
 
