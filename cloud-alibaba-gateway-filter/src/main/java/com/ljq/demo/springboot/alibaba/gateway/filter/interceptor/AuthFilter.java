@@ -2,7 +2,11 @@ package com.ljq.demo.springboot.alibaba.gateway.filter.interceptor;
 
 import cn.hutool.json.JSONUtil;
 import com.ljq.demo.springboot.alibaba.gateway.filter.common.api.ApiResult;
+import com.ljq.demo.springboot.alibaba.gateway.filter.common.component.RedisComponent;
+import com.ljq.demo.springboot.alibaba.gateway.filter.common.constant.RedisKeyConst;
+import com.ljq.demo.springboot.alibaba.gateway.filter.model.WhiteListEntity;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -30,6 +34,9 @@ public class AuthFilter implements GlobalFilter, Ordered {
 
     private static final String TOKEN_KEY = "token";
 
+    @Autowired
+    private RedisComponent redisComponent;
+
     /**
      * 权限过滤
      *
@@ -39,7 +46,12 @@ public class AuthFilter implements GlobalFilter, Ordered {
      */
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        log.info("requestPath: {}",exchange.getRequest().getPath());
+        String requestPath = exchange.getRequest().getPath().value();
+        log.info("requestPath: {}",requestPath);
+        // 判断是否符合白名单
+        if (validateWhiteList(requestPath)) {
+            return chain.filter(exchange);
+        }
         List<String> tokenList = exchange.getRequest().getHeaders().get(TOKEN_KEY);
         log.info("token: {}", tokenList);
         if (CollectionUtils.isEmpty(tokenList) || tokenList.get(0).trim().isEmpty()) {
@@ -62,5 +74,22 @@ public class AuthFilter implements GlobalFilter, Ordered {
     @Override
     public int getOrder() {
         return Ordered.LOWEST_PRECEDENCE;
+    }
+
+    /**
+     * 请求路径
+     *
+     * @param requestPath
+     * @return
+     */
+    public boolean validateWhiteList(String requestPath) {
+        List<WhiteListEntity> whiteListList = redisComponent.mapGetAll(RedisKeyConst.KEY_GATEWAY_WHITE_LIST,
+                WhiteListEntity.class);
+        for (WhiteListEntity whiteList : whiteListList) {
+            if (requestPath.contains(whiteList.getPath()) || requestPath.matches(whiteList.getPath())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

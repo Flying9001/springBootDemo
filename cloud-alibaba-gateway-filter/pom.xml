@@ -23,7 +23,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
         <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
-        <lombok.version>1.18.16</lombok.version>
+        <lombok.version>1.18.24</lombok.version>
         <spring-cloud-gateway.version>2.2.5.RELEASE</spring-cloud-gateway.version>
         <spring-cloud-openfeign.version>2.2.5.RELEASE</spring-cloud-openfeign.version>
         <servlet-api.version>4.0.1</servlet-api.version>
@@ -31,6 +31,7 @@
         <mysql.version>8.0.27</mysql.version>
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <skywalking.toolkit.version>8.7.0</skywalking.toolkit.version>
+        <redisson-spring.version>3.17.5</redisson-spring.version>
 
     </properties>
 
@@ -83,6 +84,13 @@
             <groupId>org.apache.skywalking</groupId>
             <artifactId>apm-toolkit-logback-1.x</artifactId>
             <version>${skywalking.toolkit.version}</version>
+        </dependency>
+
+        <!-- Redisson -->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson-spring-boot-starter</artifactId>
+            <version>${redisson-spring.version}</version>
         </dependency>
 
 

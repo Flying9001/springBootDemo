@@ -43,7 +43,12 @@ spring:
 #          uri: http://127.0.0.1:9000
 #          predicates:
 #            - Path=/api/**
-
+  redis:
+    database: 2
+    host: 127.0.0.1
+    port: 6379
+    password: 135792468
+    timeout: 120s
 
 
 ## endpoint
@@ -62,7 +67,8 @@ feign:
         readTimeout: 5000
 
 ## log
-#logging:
-#  level:
+logging:
+  level:
+    com.ljq.demo.springboot.alibaba.gateway.filter.dao: debug
 #    org.springframework.cloud.gateway: debug
 

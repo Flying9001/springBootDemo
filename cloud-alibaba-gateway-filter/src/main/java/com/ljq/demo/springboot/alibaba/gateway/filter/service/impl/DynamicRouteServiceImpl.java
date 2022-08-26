@@ -28,7 +28,8 @@ import java.util.Objects;
  */
 @Slf4j
 @Service
-public class DynamicRouteServiceImpl extends ServiceImpl<RouteMapper, RouteEntity> implements DynamicRouteService, ApplicationEventPublisherAware {
+public class DynamicRouteServiceImpl extends ServiceImpl<RouteMapper, RouteEntity> implements DynamicRouteService,
+        ApplicationEventPublisherAware {
 
     @Autowired
     private DbRouteRepository dbRouteRepository;
