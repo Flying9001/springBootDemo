@@ -280,6 +280,8 @@ Quick start :
 
 [4.3.12 Spring Cloud Gateway 动态路由配置示例 --- 2021-10-29](./doc/77.gateway_dynamic_route_demo.md "./doc/77.gateway_dynamic_route_demo.md")  
 
+[4.3.13 Spring Cloud Gateway 网关实现白名单功能 --- 2022-08-30](./doc/98.spring_cloud_gateway_whitelist.md "./doc/98.spring_cloud_gateway_whitelist.md")  
+
 ​    
 
 #### 4.4 微服务链路追踪  
