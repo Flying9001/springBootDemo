@@ -6,15 +6,39 @@ server:
 
 ## spring config
 spring:
+  # datasource
   datasource:
     url: "jdbc:mysql://172.16.140.10:3306/demo?useUnicode=true&characterEncoding=utf8\
       &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
-      &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true\
-      &nullCatalogMeansCurrent=true"
+      &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true"
     username: root
     password: "Qwert12345!"
     hikari:
       driver-class-name: com.mysql.cj.jdbc.Driver
+
+# jetCache
+jetcache:
+  statIntervalMinutes: 1
+  areaInCacheName: false
+  local:
+    jetcache-demo:
+      type: linkedhashmap
+      keyConvertor: jackson
+  remote:
+    jetcache-demo:
+      type: redis.lettuce
+      keyConvertor: jackson
+      broadcastChannel: jetcache-demo
+      keyPrefix: jetcache-demo
+      valueEncoder: java
+      valueDecoder: java
+      uri: redis://your_password@127.0.0.1:6379
+      defaultExpireInMillis: 5000
+      poolConfig:
+        minIdle: 5
+        maxIdle: 20
+        maxTotal: 50
+
 
 ## mybatis-plus
 mybatis-plus:

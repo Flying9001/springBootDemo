@@ -24,7 +24,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
-        <springboot.version>2.3.3.RELEASE</springboot.version>
+        <springboot.version>2.5.1</springboot.version>
         <mysql.version>8.0.21</mysql.version>
         <swagger2.version>2.9.2</swagger2.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
@@ -32,6 +32,7 @@
         <protobuf.version>3.17.3</protobuf.version>
         <grpc.version>1.39.0</grpc.version>
         <lombok.version>1.18.24</lombok.version>
+        <jetcache.version>2.7.3</jetcache.version>
 
     </properties>
 
@@ -94,6 +95,13 @@
             <groupId>io.grpc</groupId>
             <artifactId>grpc-all</artifactId>
             <version>${grpc.version}</version>
+        </dependency>
+
+        <!-- jetcache 缓存框架 -->
+        <dependency>
+            <groupId>com.alicp.jetcache</groupId>
+            <artifactId>jetcache-starter-redis-lettuce</artifactId>
+            <version>${jetcache.version}</version>
         </dependency>
 
     </dependencies>
