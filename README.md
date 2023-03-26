@@ -190,6 +190,12 @@ Quick start :
 
 
 
+#### 3.16 JetCache 缓存
+
+[Spring Boot 2.5 集成缓存框架 JetCache 2.7 --- 2023-03-26](./doc/99.spring_boot_2.5_jetcache_2.7.md)  
+
+
+
 #### 3.X 其他常见问题  
 
 [3.x.1 Spring Boot 2 整合 Mybatis 多数据源 --- 2019-06-18](./doc/25.spring_boot_2_mybatis_multi_datasource.md "./doc/25.spring_boot_2_mybatis_multi_datasource.md")  
