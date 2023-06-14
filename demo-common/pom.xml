@@ -19,7 +19,7 @@
         <java.version>1.8</java.version>
         <aliyun.oss.version>3.8.0</aliyun.oss.version>
         <apache.httpcompnents.version>4.5.12</apache.httpcompnents.version>
-        <hutool.version>5.3.9</hutool.version>
+        <hutool.version>5.8.19</hutool.version>
         <auth.jwt.version>3.10.3</auth.jwt.version>
         <commons-lang3.version>3.10</commons-lang3.version>
         <lombok.version>1.18.24</lombok.version>
