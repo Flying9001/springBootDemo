@@ -1,0 +1,28 @@
+﻿# config
+server:
+  port: 9050
+
+# spring
+spring:
+  application:
+    name: demo-knife4j-openapi3
+  datasource:
+    url: "jdbc:mysql://127.0.0.1:3306/demo_message_push?useUnicode=true&characterEncoding=utf8\
+      &useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8\
+      &useSSL=true&allowMultiQueries=true&autoReconnect=true&nullCatalogMeansCurrent=true"
+    username: root
+    password: "root"
+
+
+# spring-doc 接口文档
+springdoc:
+  api-docs:
+    enabled: true
+knife4j:
+  enable: true
+
+
+# mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/*.xml
+  type-aliases-package: com.ljq.demo.springboot.knife4j.model.entity
