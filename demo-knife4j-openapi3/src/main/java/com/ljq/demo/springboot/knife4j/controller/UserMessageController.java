@@ -3,6 +3,7 @@ package com.ljq.demo.springboot.knife4j.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.ljq.demo.springboot.knife4j.common.api.ApiResult;
 import com.ljq.demo.springboot.knife4j.model.entity.UserMessageEntity;
+import com.ljq.demo.springboot.knife4j.model.param.messagepush.MessagePushParam;
 import com.ljq.demo.springboot.knife4j.model.param.usermessage.*;
 import com.ljq.demo.springboot.knife4j.service.UserMessageService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -59,7 +60,11 @@ public class UserMessageController {
         return ResponseEntity.ok(userMessageService.delete(deleteParam));
     }
 
-
+    @PostMapping(value = "/push", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @Operation(summary = "用户推送消息")
+    public ResponseEntity<ApiResult> save(@RequestBody @Validated MessagePushParam pushParam) {
+        return ResponseEntity.ok(userMessageService.push(pushParam));
+    }
 
 
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ljq.demo.springboot.knife4j.mapper.UserMessageMapper">
+
+	<!-- 用户消息结果集resultMap -->
+    <resultMap type="com.ljq.demo.springboot.knife4j.model.entity.UserMessageEntity" id="userMessageMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="pushCount" column="push_count"/>
+        <result property="pushTotal" column="push_total"/>
+        <result property="messageType" column="message_type"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+   <!-- 用户消息-基础字段 -->
+	<sql id="user_message_base_field">
+        m.`id`,
+        m.`user_id`,
+        m.`push_count`,
+        m.`push_total`,
+        m.`message_type`,
+        m.`title`,
+        m.`content`,
+        m.`create_time`,
+        m.`update_time`
+	</sql>
+
+    <!-- 查询未推送成功的消息 -->
+    <select id="queryPageFailMessage" resultMap="userMessageMap" >
+        SELECT
+        <include refid="user_message_base_field" />
+        FROM `user_message` m
+        WHERE m.push_count &lt; m.push_total
+            AND (DATEDIFF(NOW(),m.create_time) &lt; 1)
+    </select>
+
+
+
+</mapper>

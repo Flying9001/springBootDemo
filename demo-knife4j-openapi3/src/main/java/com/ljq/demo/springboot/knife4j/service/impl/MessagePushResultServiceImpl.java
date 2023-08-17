@@ -47,7 +47,7 @@ public class MessagePushResultServiceImpl extends ServiceImpl<MessagePushResultM
 				.ignoreNullValue().ignoreError());
 		// 保存
 		super.save(messagePushResultEntity);
-		return ApiResult.success();
+		return ApiResult.success(messagePushResultEntity);
 	}
 
 	/**

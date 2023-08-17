@@ -31,6 +31,11 @@ public enum ApiMsgEnum {
     HTTP_NOT_FOUND("api.response.httpNotFound","请求资源不存在"),
 
 
+    /**
+     * 用户消息
+     */
+    USER_MESSAGE_NOT_EXIST("api.response.userMessage.notExist", "消息不存在"),
+    USER_MESSAGE_PUSH_REPEAT("api.response.userMessage.pushRepeat", "消息重复推送"),
 
     /**
      * 未知异常

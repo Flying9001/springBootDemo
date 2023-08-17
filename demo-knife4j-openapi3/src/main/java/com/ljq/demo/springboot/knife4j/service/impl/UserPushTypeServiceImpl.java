@@ -47,7 +47,7 @@ public class UserPushTypeServiceImpl extends ServiceImpl<UserPushTypeMapper, Use
 				.ignoreNullValue().ignoreError());
 		// 保存
 		super.save(userPushTypeEntity);
-		return ApiResult.success();
+		return ApiResult.success(userPushTypeEntity);
 	}
 
 	/**

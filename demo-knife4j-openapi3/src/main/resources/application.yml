@@ -14,6 +14,11 @@ spring:
     password: "root"
 
 
+# log
+logging:
+  level:
+    com.ljq.demo.springboot.knife4j.mapper: debug
+
 # spring-doc 接口文档
 springdoc:
   api-docs:

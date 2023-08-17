@@ -1,8 +1,11 @@
 package com.ljq.demo.springboot.knife4j.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ljq.demo.springboot.knife4j.common.api.ApiResult;
+import com.ljq.demo.springboot.knife4j.model.BasePageParam;
 import com.ljq.demo.springboot.knife4j.model.entity.UserMessageEntity;
+import com.ljq.demo.springboot.knife4j.model.param.messagepush.MessagePushParam;
 import com.ljq.demo.springboot.knife4j.model.param.usermessage.*;
 
 /**
@@ -52,6 +55,31 @@ public interface UserMessageService extends IService<UserMessageEntity> {
      * @return
      */
 	ApiResult delete(UserMessageDeleteParam deleteParam);
+
+	/**
+	 * 查询未推送成功的消息
+	 *
+	 * @param pageParam
+	 * @return
+	 */
+	IPage<UserMessageEntity> queryPageFailMessage(BasePageParam pageParam);
+
+	/**
+	 * 推送消息
+	 *
+	 * @param pushParam
+	 * @return
+	 */
+	ApiResult push(MessagePushParam pushParam);
+
+	/**
+	 * 重新推送消息
+	 *
+	 * @param userMessage
+	 * @return
+	 */
+	void repush(UserMessageEntity userMessage);
+
 
 
 }
