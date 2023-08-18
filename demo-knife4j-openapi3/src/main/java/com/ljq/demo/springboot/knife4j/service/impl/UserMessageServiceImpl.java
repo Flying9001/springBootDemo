@@ -166,6 +166,12 @@ public class UserMessageServiceImpl extends ServiceImpl<UserMessageMapper, UserM
 		return this.baseMapper.queryPageFailMessage(page);
 	}
 
+	/**
+	 * 推送消息
+	 *
+	 * @param pushParam
+	 * @return
+	 */
 	@Override
 	public ApiResult push(MessagePushParam pushParam) {
 		// 参数校验

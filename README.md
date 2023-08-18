@@ -232,6 +232,8 @@ Quick start :
 
 [3.x.16 SpringBoot 2.6 集成 MySQL 多数据源读写分离 --- 2022-02-15](./doc/92.spring_boot_2.6_multiply_data_source_read_and_write_detached.md "./doc/92.spring_boot_2.6_multiply_data_source_read_and_write_detached.md")  
 
+[3.x.17 支持多种推送方式的消息推送设计方案 --- 2023-08-18](./doc/101.multi_type_message_push_design.md "./doc/101.multi_type_message_push_design.md")  
+
 
 
 
