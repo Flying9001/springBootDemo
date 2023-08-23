@@ -194,7 +194,13 @@ Quick start :
 
 #### 3.16 JetCache 缓存
 
-[Spring Boot 2.5 集成缓存框架 JetCache 2.7 --- 2023-03-26](./doc/99.spring_boot_2.5_jetcache_2.7.md)  
+[3.16.1 Spring Boot 2.5 集成缓存框架 JetCache 2.7 --- 2023-03-26](./doc/99.spring_boot_2.5_jetcache_2.7.md)  
+
+
+
+#### 3.17 Netty
+
+[3.17.1 SpringBoot 2.7 集成 Netty 4 模拟服务端与客户端通讯入门教程 --- 2023-08-23](./doc/102.spring_boot_netty_simple_demo.md "./doc/102.spring_boot_netty_simple_demo.md")  
 
 
 
