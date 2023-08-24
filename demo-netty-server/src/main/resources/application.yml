@@ -5,6 +5,7 @@ server:
 # netty 配置
 netty:
   port: 9120
+  port2: 9125
 
 # spring
 spring:
