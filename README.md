@@ -202,6 +202,8 @@ Quick start :
 
 [3.17.1 SpringBoot 2.7 集成 Netty 4 模拟服务端与客户端通讯入门教程 --- 2023-08-23](./doc/102.spring_boot_netty_simple_demo.md "./doc/102.spring_boot_netty_simple_demo.md")  
 
+[3.17.2 SpringBoot 2.7 集成 Netty 4 解决粘包半包问题 --- 2023-08-24](./doc/103.springboot_netty_package_problem.md "./doc/103.springboot_netty_package_problem.md")  
+
 
 
 #### 3.X 其他常见问题  
