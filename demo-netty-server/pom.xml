@@ -22,6 +22,7 @@
         <java.version>1.8</java.version>
         <springboot.version>2.7.14</springboot.version>
         <netty.version>4.1.96.Final</netty.version>
+        <hutool.version>5.8.21</hutool.version>
 
     </properties>
     <dependencies>
@@ -36,6 +37,13 @@
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>${netty.version}</version>
+        </dependency>
+
+        <!-- hutool 工具类 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
 
         <dependency>

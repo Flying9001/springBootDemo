@@ -6,6 +6,7 @@ server:
 netty:
   port: 9120
   port2: 9125
+  portUdp: 9130
 
 # spring
 spring:
