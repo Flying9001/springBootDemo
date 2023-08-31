@@ -59,4 +59,8 @@
 | demo-sharding-jdbc                  | 8950                | Tomcat   | SpringBoot 项目，SpringBoot 集成 Sharding-jdbc，分库分表，不依赖主项目 |
 | demo-aws-iot                        | 9000                | Tomcat   | SpringBoot 项目，SpringBoot 集成 AWS IoT，不依赖主项目       |
 | demo-knife4j-openapi3               | 9050                | Tomcat   | SpringBoot 项目，SpringBoot 集成 Knife4j，不依赖主项目       |
+| demo-netty-server                   | 9100                | Tomcat   | SpringBoot 项目，SpringBoot 集成 Netty，不依赖主项目         |
+|                                     | 9120                | Netty    | TCP 通讯端口                                                 |
+|                                     | 9125                | Netty    | TCP 通讯端口                                                 |
+|                                     | 9130                | Netty    | UDP 通讯端口                                                 |
 
