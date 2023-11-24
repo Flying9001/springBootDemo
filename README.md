@@ -338,7 +338,9 @@ Quick start :
 
 
 
+### 6 技术架构设计
 
+[6.1 社区物联网云服务架构设计 --- 2023-11-24](./doc/framework/6.1.community_iot_network_framework.md)  
 
 
 
