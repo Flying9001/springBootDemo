@@ -1,0 +1,18 @@
+# config
+server:
+  port: 9211
+
+
+# spring
+spring:
+  application:
+    name: demo-opencv
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+
+
+# opencv properties
+opencv:
+  debug: true
