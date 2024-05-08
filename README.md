@@ -244,6 +244,8 @@ Quick start :
 
 [3.x.17 支持多种推送方式的消息推送设计方案 --- 2023-08-18](./doc/101.multi_type_message_push_design.md "./doc/101.multi_type_message_push_design.md")  
 
+[3.x.18 SpringBoot 集成 OpenCV 实现人脸检测功能 --- 2024-05-08](./doc/105.springboot_opencv_face_detect.md "./doc/105.springboot_opencv_face_detect.md")  
+
 
 
 
