@@ -1,0 +1,19 @@
+﻿# config
+server:
+  port: 9250
+
+
+# spring
+spring:
+  application:
+    name: demo-ffmpeg-media
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+
+# uploadConfig
+upload:
+#  path: D:\\upload  # linux/macOS 路径 /opt/upload
+  path: /opt/upload
+
