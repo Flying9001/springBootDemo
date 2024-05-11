@@ -85,7 +85,7 @@ public class FFmpegMediaUtil {
                     .setBitDepth(audioInfo.getBitDepth());
             return response;
         } catch (Exception e) {
-            log.warn("Error processing video file", e);
+            log.warn("Error processing audio file", e);
         }
         return response;
     }

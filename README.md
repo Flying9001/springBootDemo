@@ -246,6 +246,8 @@ Quick start :
 
 [3.x.18 SpringBoot 集成 OpenCV 实现人脸检测功能 --- 2024-05-08](./doc/105.springboot_opencv_face_detect.md "./doc/105.springboot_opencv_face_detect.md")  
 
+[3.x.19 SpringBoot 集成 FFmpeg 解析音视频 --- 2024-05-11](./doc/106.springboot_ffmpeg_media.md)  
+
 
 
 
