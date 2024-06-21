@@ -1,0 +1,14 @@
+# config
+server:
+  port: 9300
+
+
+# spring
+spring:
+  application:
+    name: demo-easyexcel
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+
