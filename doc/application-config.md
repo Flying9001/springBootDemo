@@ -65,4 +65,5 @@
 |                                     | 9130                | Netty    | UDP 通讯端口                                                 |
 | demo-opencv                         | 9211                | Tomcat   | SpringBoot 项目，SpringBoot 集成 OpenCV，不依赖主项目        |
 | demo-ffmepg-media                   | 9250                | Tomcat   | SpringBoot 项目，SpringBoot 集成 FFmpeg，不依赖主项目        |
+| demo-easyexcel                      | 9300                | Tomcat   | SpringBoot 项目，SpringBoot 集成 EasyExcel，不依赖主项目     |
 
