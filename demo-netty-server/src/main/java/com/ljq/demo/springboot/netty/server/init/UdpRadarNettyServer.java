@@ -1,11 +1,9 @@
 package com.ljq.demo.springboot.netty.server.init;
 
-import com.ljq.demo.springboot.netty.server.handler.DemoUdpNettyServerHandler;
+import com.ljq.demo.springboot.netty.server.handler.UdpRadarNettyServerHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioDatagramChannel;
 import lombok.extern.slf4j.Slf4j;
@@ -18,19 +16,24 @@ import javax.annotation.Resource;
 import java.net.InetSocketAddress;
 
 /**
- * @Description: 初始化 udt netty 服务
- * @Author: junqiang.lu
- * @Date: 2023/8/25
+ * @Description: 初始化雷达 udp 服务
+ * @Author: Mr.lu
+ * @Date: 2024/8/15
  */
 @Slf4j
 @Component
-public class InitUdpNettyServer implements ApplicationRunner {
+public class UdpRadarNettyServer implements ApplicationRunner {
 
-    @Value("${netty.portUdp:9130}")
+    @Value("${netty.portUdpRadar:9135}")
     private Integer nettyPort;
 
     @Resource
-    private DemoUdpNettyServerHandler udpNettyServerHandler;
+    private UdpRadarNettyServerHandler udpRadarNettyServerHandler;
+
+    /**
+     * 通道
+     */
+    private Channel channel;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -67,12 +70,17 @@ public class InitUdpNettyServer implements ApplicationRunner {
                     protected void initChannel(NioDatagramChannel nioDatagramChannel) throws Exception {
                         nioDatagramChannel.pipeline()
                                 // 指定工作线程，提高并发性能
-                                .addLast(workGroup,udpNettyServerHandler);
+                                .addLast(workGroup, udpRadarNettyServerHandler);
                     }
                 });
         // 异步绑定服务器，调用sync()方法阻塞等待直到绑定完成
-        bootstrap.bind().sync();
-        log.info("---------- [init] UDP netty server start,port:{} ----------", nettyPort);
+        ChannelFuture future = bootstrap.bind().sync();
+        this.channel = future.channel();
+        log.info("---------- [init] UDP Radar netty server start, port:{} ----------", nettyPort);
+    }
+
+    public Channel getChannel() {
+        return this.channel;
     }
 
 }

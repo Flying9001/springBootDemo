@@ -74,7 +74,7 @@ public class InitStrongNettyServer implements ApplicationRunner {
                 });
         // 异步绑定服务器，调用sync()方法阻塞等待直到绑定完成
         bootstrap.bind().sync();
-        log.info("---------- [init] strong netty server start ----------");
+        log.info("---------- [init] strong netty server start,port:{} ----------", nettyPort);
     }
 
 
