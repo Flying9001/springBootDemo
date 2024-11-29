@@ -28,7 +28,7 @@
         <spring-cloud-openfeign.version>2.2.5.RELEASE</spring-cloud-openfeign.version>
         <servlet-api.version>4.0.1</servlet-api.version>
         <hutool.version>5.7.8</hutool.version>
-        <mysql.version>8.0.27</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <skywalking.toolkit.version>8.7.0</skywalking.toolkit.version>
         <redisson-spring.version>3.17.5</redisson-spring.version>
