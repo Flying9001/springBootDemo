@@ -60,6 +60,8 @@ Quick start :
 
 [3.2.6 优化 spring boot 2.0 使用 AOP 记录 Controller 层出入参日志 --- 2020-01-14](./doc/32.spring_boot_2_log_controller_params_with_aop_2.md "./doc/32.spring_boot_2_log_controller_params_with_aop_2.md")  
 
+[3.2.7 Springboot 2.7+解决跨域问题,到底是在SpringBoot中添加拦截器还是修改Nginx配置 --- 2024-12-07](./doc/110.springboot_cros_config.md)  
+
 
 
 #### 3.3 REST API  
